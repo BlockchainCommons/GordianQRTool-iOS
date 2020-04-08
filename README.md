@@ -2,17 +2,13 @@
 
 **QR Vault** is a secure place to store your QR codes. There are no third party libraries used, it is a simple app that uses powerful encryption to keep your secrets safe. QR Vault can be added to your "share actions" so it can be used in any app that allows you to export images. In this way you can save your QR codes from other apps without even taking a screen shot.
 
+## Additional Information
+
 **QR Vault** never uploads your data and does not use a server at all. It utilizes the "Sign in with Apple" tool for 2FA (two-factor authentication) purposes to ensure only you can export and delete your QR codes.
 
 **QR Vault** allows you to add QR's via images, scanning or via text.
 
 It is a Mac Catalyst app and will work on your MacBook, iPad, iPhone and iPod Touch.
-
-## Additional Information
-
-The following files contain…
-
-* `$ListOfEssentialDocs`
 
 ## Status - Late Alpha
 
