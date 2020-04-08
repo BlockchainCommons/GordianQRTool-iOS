@@ -1,6 +1,12 @@
-# Blockchain Commons `$projectname`
+# Blockchain Commons QR Vault
 
-**`$ProjectDescription`** is …
+**QR Vault** is a secure place to store your QR codes. There are no third party libraries used, it is a simple app that uses powerful encryption to keep your secrets safe. QR Vault can be added to your "share actions" so it can be used in any app that allows you to export images. In this way you can save your QR codes from other apps without even taking a screen shot.
+
+**QR Vault** never uploads your data and does not use a server at all. It utilizes the "Sign in with Apple" tool for 2FA (two-factor authentication) purposes to enure only you can export and delete your QR codes.
+
+**QR Vault** allows you to add QR's via images, scanning or via text.
+
+It is a Mac Catalyst app and will work on your MacBook, iPad, iPhone and iPod Touch.
 
 ## Additional Information
 
@@ -10,7 +16,7 @@ The following files contain…
 
 ## Status - Late Alpha
 
-` $projectname`  is currently under active development and in the late alpha testing phase. It should not be used for production tasks until it has had further testing and auditing.
+**QR Vault** is currently under active development and in the late alpha testing phase. It should not be used for production tasks until it has had further testing and auditing.
 
 ## Origin, Authors, Copyright & Licenses
 
@@ -26,27 +32,19 @@ This table below also establishes provenance (repository of origin, permalink, a
 
 ### Dependencies
 
-To build  `$projectname` you'll need to use the following tools:
-
-- autotools - Gnu Build System from Free Software Foundation ([intro](https://www.gnu.org/software/automake/manual/html_node/Autotools-Introduction.html)).
-
-### Derived from…
-
-This  `$projectname` project is either derived from or was inspired by:
-
-- [community/repo-name/](https://github.com/community/repo-name) — Repo that does what, by [developer](https://github.com/developer)  or from  [community](https://community.com).
+No dependencies required.
 
 ### Used with…
 
-These are other projects that work with or leverage `$projectname`:
+These are other projects that work with or leverage **QR Vault**:
 
-- [community/repo-name/](https://github.com/community/repo-name) — Repo that does what, by [developer](https://github.com/developer)  or from  [community](https://community.com).
+- [FullyNoded 2](https://github.com/BlockchainCommons/FullyNoded-2)
 
 ## Financial Support
 
-`$projectname` is a project by [Blockchain Commons](https://www.blockchaincommons.com/). We are proudly a social benefit "not-for-profit" committed to open source & open development. Our work is funded entirely by donations and collaborative partnerships with people like you. Every contribution will be spent on building open tools, technologies & techniques for blockchain and internet security infrastructure.
+**QR Vault** is a project by [Blockchain Commons](https://www.blockchaincommons.com/). We are proudly a social benefit "not-for-profit" committed to open source & open development. Our work is funded entirely by donations and collaborative partnerships with people like you. Every contribution will be spent on building open tools, technologies & techniques for blockchain and internet security infrastructure.
 
-To financially support further development of `$projectname` and other projects, please consider becoming a Patron of Blockchain Commons through ongoing monthly patronage by becoming a [Sponsor](https://github.com/sponsors/BlockchainCommons) through GitHub; currently they are matching the first $5k so please do consider this option. You can also offer support with Bitcoin via our [BTCPay Server](https://btcpay.blockchaincommons.com/).
+To financially support further development of **QR Vault** and other projects, please consider becoming a Patron of Blockchain Commons through ongoing monthly patronage by becoming a [Sponsor](https://github.com/sponsors/BlockchainCommons) through GitHub; currently they are matching the first $5k so please do consider this option. You can also offer support with Bitcoin via our [BTCPay Server](https://btcpay.blockchaincommons.com/).
 
 ## Contributing
 
@@ -59,6 +57,7 @@ The following people directly contributed to this repository. You can add your n
 | Name              | Role                | Github                                            | Email                                 | GPG Fingerprint                                    |
 | ----------------- | ------------------- | ------------------------------------------------- | ------------------------------------- | -------------------------------------------------- |
 | Christopher Allen | Principal Architect | [@ChristopherA](https://github.com/@ChristopherA) | \<ChristopherA@LifeWithAlacrity.com\> | FDFE 14A5 4ECB 30FC 5D22  74EF F8D3 6C91 3574 05ED |
+| Peter Denton | Project Lead | [@Fonta1n3](https://github.com/@Fonta1n3) | \<fonta1n3@protonmail.com\> | 3B37 97FA 0AE8 4BE5 B440 6591 8564 01D7 121C 32FC |
 
 ## Responsible Disclosure
 
