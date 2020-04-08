@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>ActionExt.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>QR Vault.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>ShareExt.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>D006E311243D5528007B1A5B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D006E327243D6EBF007B1A5B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D0FA166F243ABD3100115589</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D0FA1688243ABD3900115589</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D0FA1693243ABD3900115589</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
