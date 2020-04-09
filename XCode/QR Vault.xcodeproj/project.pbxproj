@@ -14,9 +14,11 @@
 		D006E339243D7C21007B1A5B /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA16B7243AF5E300115589 /* Keychain.swift */; };
 		D006E33A243D877D007B1A5B /* QR_Vault.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0FA167C243ABD3100115589 /* QR_Vault.xcdatamodeld */; };
 		D006E33D243D91C0007B1A5B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA16BB243B117C00115589 /* CoreDataManager.swift */; };
-		D006E33F243D9435007B1A5B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D006E33E243D9435007B1A5B /* logo.png */; };
 		D006E341243DB0C2007B1A5B /* strobe.png in Resources */ = {isa = PBXBuildFile; fileRef = D006E340243DB0C2007B1A5B /* strobe.png */; };
 		D006E343243DB0D5007B1A5B /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = D006E342243DB0D5007B1A5B /* images.png */; };
+		D006E345243EB9D5007B1A5B /* blockchain-commons-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D006E344243EB9D5007B1A5B /* blockchain-commons-logo.png */; };
+		D006E347243EBF9C007B1A5B /* SponsorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D006E346243EBF9C007B1A5B /* SponsorViewController.swift */; };
+		D006E349243EC56F007B1A5B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D006E348243EC56F007B1A5B /* logo.png */; };
 		D0FA1674243ABD3100115589 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA1673243ABD3100115589 /* AppDelegate.swift */; };
 		D0FA1676243ABD3100115589 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA1675243ABD3100115589 /* SceneDelegate.swift */; };
 		D0FA167B243ABD3100115589 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0FA1679243ABD3100115589 /* Main.storyboard */; };
@@ -82,9 +84,11 @@
 		D006E32D243D6EBF007B1A5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		D006E32F243D6EBF007B1A5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D006E336243D7903007B1A5B /* ShareExt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExt.entitlements; sourceTree = "<group>"; };
-		D006E33E243D9435007B1A5B /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		D006E340243DB0C2007B1A5B /* strobe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = strobe.png; sourceTree = "<group>"; };
 		D006E342243DB0D5007B1A5B /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
+		D006E344243EB9D5007B1A5B /* blockchain-commons-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blockchain-commons-logo.png"; sourceTree = "<group>"; };
+		D006E346243EBF9C007B1A5B /* SponsorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorViewController.swift; sourceTree = "<group>"; };
+		D006E348243EC56F007B1A5B /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		D0FA1670243ABD3100115589 /* QR Vault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QR Vault.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FA1673243ABD3100115589 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0FA1675243ABD3100115589 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 				D0FA16B0243AD47900115589 /* AddViewController.swift */,
 				D0FA16B5243AF18400115589 /* LabelViewController.swift */,
 				D0FA16BF243B4BA000115589 /* ExportViewController.swift */,
+				D006E346243EBF9C007B1A5B /* SponsorViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -229,9 +234,10 @@
 		D0FA16AC243AC63300115589 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D006E344243EB9D5007B1A5B /* blockchain-commons-logo.png */,
+				D006E348243EC56F007B1A5B /* logo.png */,
 				D006E340243DB0C2007B1A5B /* strobe.png */,
 				D006E342243DB0D5007B1A5B /* images.png */,
-				D006E33E243D9435007B1A5B /* logo.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -397,7 +403,8 @@
 				D0FA167B243ABD3100115589 /* Main.storyboard in Resources */,
 				D006E343243DB0D5007B1A5B /* images.png in Resources */,
 				D006E341243DB0C2007B1A5B /* strobe.png in Resources */,
-				D006E33F243D9435007B1A5B /* logo.png in Resources */,
+				D006E345243EB9D5007B1A5B /* blockchain-commons-logo.png in Resources */,
+				D006E349243EC56F007B1A5B /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +444,7 @@
 				D0FA1674243ABD3100115589 /* AppDelegate.swift in Sources */,
 				D0FA1676243ABD3100115589 /* SceneDelegate.swift in Sources */,
 				D0FA16B1243AD47900115589 /* AddViewController.swift in Sources */,
+				D006E347243EBF9C007B1A5B /* SponsorViewController.swift in Sources */,
 				D0FA16B6243AF18400115589 /* LabelViewController.swift in Sources */,
 				D0FA167E243ABD3100115589 /* QR_Vault.xcdatamodeld in Sources */,
 				D0FA16B8243AF5E300115589 /* Keychain.swift in Sources */,
@@ -522,7 +530,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.2;
+				CURRENT_PROJECT_VERSION = 0.0.3;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = YZHG975W3A;
 				INFOPLIST_FILE = ShareExt/Info.plist;
@@ -531,7 +539,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.0.2;
+				MARKETING_VERSION = 0.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockchaincommons.QRVault.ShareExt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -548,7 +556,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.2;
+				CURRENT_PROJECT_VERSION = 0.0.3;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = YZHG975W3A;
 				INFOPLIST_FILE = ShareExt/Info.plist;
@@ -557,7 +565,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.0.2;
+				MARKETING_VERSION = 0.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockchaincommons.QRVault.ShareExt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -690,7 +698,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.2;
+				CURRENT_PROJECT_VERSION = 0.0.3;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = YZHG975W3A;
 				INFOPLIST_FILE = "QR Vault/Info.plist";
@@ -699,7 +707,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.2;
+				MARKETING_VERSION = 0.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockchaincommons.QRVault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -719,7 +727,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.2;
+				CURRENT_PROJECT_VERSION = 0.0.3;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = YZHG975W3A;
 				INFOPLIST_FILE = "QR Vault/Info.plist";
@@ -728,7 +736,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.2;
+				MARKETING_VERSION = 0.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockchaincommons.QRVault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

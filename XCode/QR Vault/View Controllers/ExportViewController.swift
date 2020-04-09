@@ -56,6 +56,31 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         shareString()
     }
     
+    @IBAction func deleteAction(_ sender: Any) {
+        DispatchQueue.main.async { [unowned vc = self] in
+            let alert = UIAlertController(title: "Warning!", message: "Once you delete a QR it will be gone forever", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [unowned vc = self] action in
+                vc.deleteQr()
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in }))
+            alert.popoverPresentationController?.sourceView = vc.view
+            vc.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    private func deleteQr() {
+        let cd = CoreDataManager.sharedInstance
+        cd.deleteEntity(id: id) { [unowned vc = self] (success, errorDescription) in
+            if success {
+                DispatchQueue.main.async { [unowned vc = self] in
+                    vc.navigationController?.popToRootViewController(animated: true)
+                }
+            } else {
+                vc.showAlert(title: "Error", message: errorDescription ?? "error deleteing that QR")
+            }
+        }
+    }
+    
     private func getQr() {
         let cd = CoreDataManager.sharedInstance
         cd.retrieveEntity { [unowned vc = self] (entity, errorDescription) in
@@ -72,7 +97,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     
     private func loadData(qr: QRStruct) {
         DispatchQueue.main.async { [unowned vc = self] in
-            vc.labelOutlet.text = qr.label
+            vc.labelOutlet.text = vc.reducedName(text: qr.label)
             Encryption.decryptData(dataToDecrypt: qr.qrData) { (decryptedQr) in
                 if decryptedQr != nil {
                     if let text = String(data: decryptedQr!, encoding: .utf8) {
@@ -110,65 +135,61 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         }
     }
     
+    private func showAlert(title: String, message: String) {
+        DispatchQueue.main.async { [unowned vc = self] in
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in }))
+            vc.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     private func addAuth() {
-        
         let request = ASAuthorizationAppleIDProvider().createRequest()
         let controller = ASAuthorizationController(authorizationRequests: [request])
         controller.delegate = self
         controller.presentationContextProvider = self
         controller.performRequests()
-        
     }
     
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        
         return self.view.window!
-        
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        
         switch authorization.credential {
-            
         case _ as ASAuthorizationAppleIDCredential:
-            
             let authorizationProvider = ASAuthorizationAppleIDProvider()
-            
             if let usernameData = KeyChain.load(key: "userIdentifier") {
-                
                 if let username = String(data: usernameData, encoding: .utf8) {
-                    
                     authorizationProvider.getCredentialState(forUserID: username) { [unowned vc = self] (state, error) in
-                        
                         switch (state) {
-                            
                         case .authorized:
                             print("Account Found - Signed In")
                             vc.getQr()
-                            
                         case .revoked:
                             print("No Account Found")
                             fallthrough
-                            
                         case .notFound:
                             print("No Account Found")
-                            
                         default:
                             break
-                            
                         }
-                        
                     }
-                    
                 }
-                
             }
-            
         default:
             break
-            
         }
-        
+    }
+    
+    private func reducedName(text: String) -> String {
+        if text.count > 50 {
+            let first = String(text.prefix(15))
+            let last = String(text.suffix(15))
+            return "\(first)...\(last)"
+        } else {
+            return text
+        }
     }
 
 }
