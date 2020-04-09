@@ -62,6 +62,9 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         imageView.layer.cornerRadius = 15
         let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         imageView.frame = titleView.bounds
+        imageView.isUserInteractionEnabled = true
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(logoTapped))
+        imageView.addGestureRecognizer(tapRecognizer)
         titleView.addSubview(imageView)
         self.navigationItem.titleView = titleView
     }
@@ -91,7 +94,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             let str = QRStruct(dictionary: dict)
             let label = qrCell.viewWithTag(1) as! UILabel
             let date = qrCell.viewWithTag(2) as! UILabel
-            label.text = str.label
+            label.text = reducedName(text: str.label)
             date.text = formatDate(date: str.dateAdded)
             return qrCell
         }
@@ -263,6 +266,22 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.view.window!
+    }
+    
+    private func reducedName(text: String) -> String {
+        if text.count > 50 {
+            let first = String(text.prefix(15))
+            let last = String(text.suffix(15))
+            return "\(first)...\(last)"
+        } else {
+            return text
+        }
+    }
+    
+    @objc func logoTapped() {
+        DispatchQueue.main.async { [unowned vc = self] in
+            vc.performSegue(withIdentifier: "supportSegue", sender: vc)
+        }
     }
     
     
