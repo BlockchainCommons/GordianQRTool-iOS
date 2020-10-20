@@ -15,30 +15,16 @@ class Encryption {
         return P256.Signing.PrivateKey().rawRepresentation
     }
     
-    class func encryptData(dataToEncrypt: Data, completion: @escaping ((encryptedData: Data?, error: Bool)) -> Void) {
-        if let key = KeyChain.load(key: "privateKey") {
-            let k = SymmetricKey(data: key)
-            if let sealedBox = try? ChaChaPoly.seal(dataToEncrypt, using: k) {
-                let encryptedData = sealedBox.combined
-                completion((encryptedData,false))
-            } else {
-                completion((nil,true))
-            }
-        }
+    class func encrypt(_ data: Data) -> Data? {
+        guard let key = KeyChain.load(key: "privateKey") else { return nil }
+        
+        return try? ChaChaPoly.seal(data, using: SymmetricKey(data: key)).combined
     }
     
-    class func decryptData(dataToDecrypt: Data, completion: @escaping ((Data?)) -> Void) {
-        if let key = KeyChain.load(key: "privateKey") {
-            let k = SymmetricKey(data: key)
-            do {
-                let box = try ChaChaPoly.SealedBox.init(combined: dataToDecrypt)
-                let decryptedData = try ChaChaPoly.open(box, using: k)
-                completion((decryptedData))
-            } catch {
-                print("failed decrypting")
-                completion((nil))
-            }
-        }
+    class func decrypt(_ data: Data) -> Data? {
+        guard let key = KeyChain.load(key: "privateKey") else { return nil }
+        
+        return try? ChaChaPoly.open(ChaChaPoly.SealedBox(combined: data), using: SymmetricKey(data: key))
     }
     
 }

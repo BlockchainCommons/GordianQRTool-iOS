@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "LifeHash",
+        "repositoryURL": "https://github.com/BlockchainCommons/LifeHash",
+        "state": {
+          "branch": null,
+          "revision": "73229c279377cdd17cede1670e89ddc427d88497",
+          "version": "4.2.0"
+        }
+      },
+      {
+        "package": "URKit",
+        "repositoryURL": "https://github.com/BlockchainCommons/URKit",
+        "state": {
+          "branch": null,
+          "revision": "d8bd505b2e6b3a85ed7cf1c5b4b2499b7f9958f8",
+          "version": "2.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

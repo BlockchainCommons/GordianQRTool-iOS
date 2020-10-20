@@ -86,18 +86,51 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             let emptyCell = tableView.dequeueReusableCell(withIdentifier: "emptyCell", for: indexPath)
             emptyCell.selectionStyle = .none
             emptyCell.textLabel?.text = "⚠︎ tap + to add a QR code"
+            
             return emptyCell
+            
         } else {
             let qrCell = tableView.dequeueReusableCell(withIdentifier: "qrCell", for: indexPath)
             qrCell.selectionStyle = .none
+            
             let dict = qrArray[indexPath.section]
             let str = QRStruct(dictionary: dict)
+            
             let label = qrCell.viewWithTag(1) as! UILabel
             let date = qrCell.viewWithTag(2) as! UILabel
+            let typeLabel = qrCell.viewWithTag(3) as! UILabel
+            let typeBackground = qrCell.viewWithTag(4)!
+            let imageView = qrCell.viewWithTag(5) as! UIImageView
+            
+            typeLabel.textAlignment = .center
+            typeBackground.layer.cornerRadius = 8
+            imageView.clipsToBounds = true
+            imageView.layer.cornerRadius = 8
+            
             label.text = reducedName(text: str.label)
             date.text = formatDate(date: str.dateAdded)
+            imageView.image = LifeHash.image(str.qrData)
+            
+            let type = parse(str.qrData)
+            
+            if type != "" {
+                typeLabel.alpha = 1
+                typeLabel.text = type
+            } else {
+                typeLabel.alpha = 1
+                typeLabel.text = "unknown"
+            }
+            
             return qrCell
         }
+    }
+    
+    private func parse(_ data: Data) -> String {
+        guard let decryptedQr = Encryption.decrypt(data), let item = String(data: decryptedQr, encoding: .utf8) else {
+            return ""
+        }
+        
+        return Parser.parse(item)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -110,7 +143,11 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             let id = qrArray[indexPath.section]["id"] as! UUID
             indPath = indexPath
             idToDelete = id
+            #if DEBUG
+            deleteQr()
+            #else
             addAuth()
+            #endif
         }
     }
     
@@ -173,10 +210,15 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         editNodes()
     }
     
-    
     @IBAction func addQr(_ sender: Any) {
         if KeyChain.load(key: "userIdentifier") == nil {
+            #if DEBUG
+            DispatchQueue.main.async { [unowned vc = self] in
+                vc.performSegue(withIdentifier: "addSegue", sender: vc)
+            }
+            #else
             addAuth()
+            #endif
         } else {
             DispatchQueue.main.async { [unowned vc = self] in
                 vc.performSegue(withIdentifier: "addSegue", sender: vc)

@@ -8,15 +8,18 @@
 
 import UIKit
 import AuthenticationServices
+import LibWally
 
 class ExportViewController: UIViewController, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding, UINavigationControllerDelegate {
     
     var id:UUID!
+    
     @IBOutlet weak var labelOutlet: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var shareQrOutlet: UIButton!
     @IBOutlet weak var shareTextOutlet: UIButton!
+    @IBOutlet weak var convertToUrOutlet: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +30,6 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         shareQrOutlet.alpha = 0
         shareTextOutlet.alpha = 0
         textView.alpha = 0
-        textView.layer.borderWidth = 1.0
-        textView.layer.borderColor = UIColor.darkGray.cgColor
-        textView.clipsToBounds = true
-        textView.layer.cornerRadius = 4
     }
     
     private func setTitleView() {
@@ -45,7 +44,26 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        addAuth()
+        #if DEBUG
+            getQr()
+        #else
+            addAuth()
+        #endif
+    }
+    
+    @IBAction func convertToUrAction(_ sender: Any) {
+        guard let text = textView.text else { return }
+        
+        let type = Parser.parse(text)
+        
+        if type == "Mnemonic" {
+            guard let mnemonic = BIP39Mnemonic(text.processed()), let ur = URHelper.entropyToUr(data: mnemonic.entropy.data) else { return }
+            
+            DispatchQueue.main.async {
+                self.imageView.image = QRGenerator.getQRCode(textInput: ur)
+                self.textView.text = ur
+            }
+        }
     }
     
     @IBAction func shareQr(_ sender: Any) {
@@ -98,18 +116,23 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     private func loadData(qr: QRStruct) {
         DispatchQueue.main.async { [unowned vc = self] in
             vc.labelOutlet.text = vc.reducedName(text: qr.label)
-            Encryption.decryptData(dataToDecrypt: qr.qrData) { (decryptedQr) in
-                if decryptedQr != nil {
-                    if let text = String(data: decryptedQr!, encoding: .utf8) {
-                        DispatchQueue.main.async { [unowned vc = self] in
-                            vc.textView.text = text
-                            let image = QRGenerator.getQRCode(textInput: text)
-                            vc.imageView.image = image
-                            vc.shareTextOutlet.alpha = 1
-                            vc.shareQrOutlet.alpha = 1
-                            vc.textView.alpha = 1
-                        }
-                    }
+            
+            guard let decryptedQr = Encryption.decrypt(qr.qrData), let text = String(data: decryptedQr, encoding: .utf8) else {
+                return
+            }
+            
+            DispatchQueue.main.async { [unowned vc = self] in
+                vc.textView.text = text
+                let image = QRGenerator.getQRCode(textInput: text)
+                vc.imageView.image = image
+                vc.shareTextOutlet.alpha = 1
+                vc.shareQrOutlet.alpha = 1
+                vc.textView.alpha = 1
+                
+                if !text.hasPrefix("ur:") {
+                    self.convertToUrOutlet.alpha = 1
+                } else {
+                    self.convertToUrOutlet.alpha = 0
                 }
             }
         }

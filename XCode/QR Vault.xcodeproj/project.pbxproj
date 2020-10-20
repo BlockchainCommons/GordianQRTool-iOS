@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,14 @@
 		D006E345243EB9D5007B1A5B /* blockchain-commons-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D006E344243EB9D5007B1A5B /* blockchain-commons-logo.png */; };
 		D006E347243EBF9C007B1A5B /* SponsorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D006E346243EBF9C007B1A5B /* SponsorViewController.swift */; };
 		D006E349243EC56F007B1A5B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D006E348243EC56F007B1A5B /* logo.png */; };
+		D04F0298253E931F008CB77F /* LifeHash in Frameworks */ = {isa = PBXBuildFile; productRef = D04F0297253E931F008CB77F /* LifeHash */; };
+		D04F029B253E934F008CB77F /* URKit in Frameworks */ = {isa = PBXBuildFile; productRef = D04F029A253E934F008CB77F /* URKit */; };
+		D04F029D253E9CE5008CB77F /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F029C253E9CE5008CB77F /* Parser.swift */; };
+		D04F029F253EA847008CB77F /* Lifehash.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F029E253EA847008CB77F /* Lifehash.swift */; };
+		D04F02A2253EAAF9008CB77F /* CLibWally.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04F02A0253EAAF8008CB77F /* CLibWally.xcframework */; };
+		D04F02A3253EAAF9008CB77F /* LibWally.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04F02A1253EAAF9008CB77F /* LibWally.xcframework */; };
+		D04F02A6253EABBD008CB77F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F02A5253EABBD008CB77F /* Utilities.swift */; };
+		D04F02AA253EC660008CB77F /* UniformResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F02A9253EC660008CB77F /* UniformResource.swift */; };
 		D0FA1674243ABD3100115589 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA1673243ABD3100115589 /* AppDelegate.swift */; };
 		D0FA1676243ABD3100115589 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA1675243ABD3100115589 /* SceneDelegate.swift */; };
 		D0FA167B243ABD3100115589 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0FA1679243ABD3100115589 /* Main.storyboard */; };
@@ -89,6 +97,12 @@
 		D006E344243EB9D5007B1A5B /* blockchain-commons-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blockchain-commons-logo.png"; sourceTree = "<group>"; };
 		D006E346243EBF9C007B1A5B /* SponsorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorViewController.swift; sourceTree = "<group>"; };
 		D006E348243EC56F007B1A5B /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		D04F029C253E9CE5008CB77F /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		D04F029E253EA847008CB77F /* Lifehash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lifehash.swift; sourceTree = "<group>"; };
+		D04F02A0253EAAF8008CB77F /* CLibWally.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = CLibWally.xcframework; sourceTree = "<group>"; };
+		D04F02A1253EAAF9008CB77F /* LibWally.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibWally.xcframework; sourceTree = "<group>"; };
+		D04F02A5253EABBD008CB77F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		D04F02A9253EC660008CB77F /* UniformResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniformResource.swift; sourceTree = "<group>"; };
 		D0FA1670243ABD3100115589 /* QR Vault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QR Vault.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FA1673243ABD3100115589 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0FA1675243ABD3100115589 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +143,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D04F02A2253EAAF9008CB77F /* CLibWally.xcframework in Frameworks */,
+				D04F029B253E934F008CB77F /* URKit in Frameworks */,
+				D04F0298253E931F008CB77F /* LifeHash in Frameworks */,
+				D04F02A3253EAAF9008CB77F /* LibWally.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +178,15 @@
 			path = ShareExt;
 			sourceTree = "<group>";
 		};
+		D04F02A4253EAB04008CB77F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D04F02A0253EAAF8008CB77F /* CLibWally.xcframework */,
+				D04F02A1253EAAF9008CB77F /* LibWally.xcframework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 		D0FA1667243ABD3100115589 = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +212,7 @@
 		D0FA1672243ABD3100115589 /* QR Vault */ = {
 			isa = PBXGroup;
 			children = (
+				D04F02A4253EAB04008CB77F /* Frameworks */,
 				D0FA16A6243ABD4500115589 /* QR Vault.entitlements */,
 				D0FA1673243ABD3100115589 /* AppDelegate.swift */,
 				D0FA1675243ABD3100115589 /* SceneDelegate.swift */,
@@ -197,6 +225,7 @@
 				D0FA16A9243AC5EC00115589 /* View Controllers */,
 				D0FA16AF243ACD7B00115589 /* Structs */,
 				D0FA16B4243AD67E00115589 /* Helpers */,
+				D04F02A5253EABBD008CB77F /* Utilities.swift */,
 			);
 			path = "QR Vault";
 			sourceTree = "<group>";
@@ -259,6 +288,9 @@
 				D0FA16BB243B117C00115589 /* CoreDataManager.swift */,
 				D0FA16BD243B25D100115589 /* Spinner.swift */,
 				D0FA16C1243B4E2000115589 /* QRGenerator.swift */,
+				D04F029C253E9CE5008CB77F /* Parser.swift */,
+				D04F029E253EA847008CB77F /* Lifehash.swift */,
+				D04F02A9253EC660008CB77F /* UniformResource.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -298,6 +330,10 @@
 				D006E331243D6EBF007B1A5B /* PBXTargetDependency */,
 			);
 			name = "QR Vault";
+			packageProductDependencies = (
+				D04F0297253E931F008CB77F /* LifeHash */,
+				D04F029A253E934F008CB77F /* URKit */,
+			);
 			productName = "QR Vault";
 			productReference = D0FA1670243ABD3100115589 /* QR Vault.app */;
 			productType = "com.apple.product-type.application";
@@ -373,6 +409,10 @@
 				Base,
 			);
 			mainGroup = D0FA1667243ABD3100115589;
+			packageReferences = (
+				D04F0296253E931F008CB77F /* XCRemoteSwiftPackageReference "LifeHash" */,
+				D04F0299253E934F008CB77F /* XCRemoteSwiftPackageReference "URKit" */,
+			);
 			productRefGroup = D0FA1671243ABD3100115589 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -445,12 +485,16 @@
 				D0FA1676243ABD3100115589 /* SceneDelegate.swift in Sources */,
 				D0FA16B1243AD47900115589 /* AddViewController.swift in Sources */,
 				D006E347243EBF9C007B1A5B /* SponsorViewController.swift in Sources */,
+				D04F029D253E9CE5008CB77F /* Parser.swift in Sources */,
 				D0FA16B6243AF18400115589 /* LabelViewController.swift in Sources */,
+				D04F02A6253EABBD008CB77F /* Utilities.swift in Sources */,
 				D0FA167E243ABD3100115589 /* QR_Vault.xcdatamodeld in Sources */,
 				D0FA16B8243AF5E300115589 /* Keychain.swift in Sources */,
 				D0FA16C2243B4E2000115589 /* QRGenerator.swift in Sources */,
+				D04F02AA253EC660008CB77F /* UniformResource.swift in Sources */,
 				D0FA16C0243B4BA000115589 /* ExportViewController.swift in Sources */,
 				D0FA16B3243AD49A00115589 /* QRScanner.swift in Sources */,
+				D04F029F253EA847008CB77F /* Lifehash.swift in Sources */,
 				D0FA16BE243B25D100115589 /* Spinner.swift in Sources */,
 				D0FA16A8243ABDF700115589 /* HomeViewController.swift in Sources */,
 				D0FA16BA243AF6E500115589 /* Encryption.swift in Sources */,
@@ -880,6 +924,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D04F0296253E931F008CB77F /* XCRemoteSwiftPackageReference "LifeHash" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BlockchainCommons/LifeHash";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
+		D04F0299253E934F008CB77F /* XCRemoteSwiftPackageReference "URKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BlockchainCommons/URKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D04F0297253E931F008CB77F /* LifeHash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D04F0296253E931F008CB77F /* XCRemoteSwiftPackageReference "LifeHash" */;
+			productName = LifeHash;
+		};
+		D04F029A253E934F008CB77F /* URKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D04F0299253E934F008CB77F /* XCRemoteSwiftPackageReference "URKit" */;
+			productName = URKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		D0FA167C243ABD3100115589 /* QR_Vault.xcdatamodeld */ = {
