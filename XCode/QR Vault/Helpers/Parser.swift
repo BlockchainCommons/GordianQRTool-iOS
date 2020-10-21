@@ -41,6 +41,12 @@ class Parser {
         return true
     }
     
+    private class func isShard(_ item: String) -> Bool {
+        guard let hexData = Data(item), let _ = URHelper.shardToUr(data: hexData) else { return false }
+        
+        return true
+    }
+    
     class func parse(_ item: String) -> String {
         if isQuickConnect(item) {
             return "Quick Connect"
@@ -59,6 +65,9 @@ class Parser {
             
         } else if isAccountMap(item) {
             return "Account Map"
+            
+        } else if isShard(item) {
+            return "SSKR Shard"
             
         } else {
             return ""

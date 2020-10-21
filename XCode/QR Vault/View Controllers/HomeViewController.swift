@@ -109,7 +109,6 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             
             label.text = reducedName(text: str.label)
             date.text = formatDate(date: str.dateAdded)
-            imageView.image = LifeHash.image(str.qrData)
             
             let type = parse(str.qrData)
             
@@ -119,6 +118,16 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             } else {
                 typeLabel.alpha = 1
                 typeLabel.text = "unknown"
+            }
+            
+            if type == "Account Map" {
+                if let descData = descriptor(str.qrData) {
+                    imageView.image = LifeHash.image(descData)
+                } else {
+                    imageView.image = LifeHash.image(str.qrData)
+                }
+            } else {
+                imageView.image = LifeHash.image(str.qrData)
             }
             
             return qrCell
@@ -324,6 +333,21 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         DispatchQueue.main.async { [unowned vc = self] in
             vc.performSegue(withIdentifier: "supportSegue", sender: vc)
         }
+    }
+    
+    private func descriptor(_ data: Data) -> Data? {
+        guard let decryptedQr = Encryption.decrypt(data), let item = String(data: decryptedQr, encoding: .utf8) else {
+            return nil
+        }
+        
+        guard let data = item.data(using: .utf8),
+            let dict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String:Any],
+            let descriptor = dict["descriptor"] as? String,
+            let _ = dict["blockheight"] as? Int else {
+                return nil
+        }
+        
+        return descriptor.utf8
     }
     
     
