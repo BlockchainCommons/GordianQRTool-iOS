@@ -20,7 +20,10 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var shareQrOutlet: UIButton!
     @IBOutlet weak var shareTextOutlet: UIButton!
+    @IBOutlet weak var backgroundLabelView: UIVisualEffectView!
+    @IBOutlet weak var backgroundQrView: UIVisualEffectView!
     @IBOutlet weak var convertToUrOutlet: UIButton!
+    @IBOutlet weak var backgroundTextView: UIVisualEffectView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +35,13 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         shareQrOutlet.alpha = 0
         shareTextOutlet.alpha = 0
         textView.alpha = 0
+        backgroundQrView.clipsToBounds = true
+        backgroundQrView.layer.cornerRadius = 8
+        backgroundLabelView.clipsToBounds = true
+        backgroundLabelView.layer.cornerRadius = 8
+        backgroundTextView.clipsToBounds = true
+        backgroundTextView.layer.cornerRadius = 8
+        convertToUrOutlet.showsTouchWhenHighlighted = true
         tap.addTarget(self, action: #selector(handleTap))
         view.addGestureRecognizer(tap)
     }
@@ -48,10 +58,14 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        load()
+    }
+    
+    private func load() {
         #if DEBUG
-            getQr()
+        getQr()
         #else
-            addAuth()
+        addAuth()
         #endif
     }
     
@@ -93,8 +107,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         }
     }
     
-    
-    @IBAction func convertToUrAction(_ sender: Any) {
+    @IBAction func convertAction(_ sender: Any) {
         guard let text = textView.text else { return }
         
         let type = Parser.parse(text)
@@ -132,7 +145,9 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             alert.addAction(UIAlertAction(title: "Update", style: .default, handler: { [unowned vc = self] action in
                 vc.updateData()
             }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+                vc.getQr()
+            }))
             alert.popoverPresentationController?.sourceView = vc.view
             vc.present(alert, animated: true, completion: nil)
         }

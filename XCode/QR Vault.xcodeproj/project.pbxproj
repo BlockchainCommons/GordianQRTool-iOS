@@ -24,7 +24,6 @@
 		D04F029D253E9CE5008CB77F /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F029C253E9CE5008CB77F /* Parser.swift */; };
 		D04F029F253EA847008CB77F /* Lifehash.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F029E253EA847008CB77F /* Lifehash.swift */; };
 		D04F02A2253EAAF9008CB77F /* CLibWally.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04F02A0253EAAF8008CB77F /* CLibWally.xcframework */; };
-		D04F02A3253EAAF9008CB77F /* LibWally.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04F02A1253EAAF9008CB77F /* LibWally.xcframework */; };
 		D04F02A6253EABBD008CB77F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F02A5253EABBD008CB77F /* Utilities.swift */; };
 		D04F02AA253EC660008CB77F /* UniformResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F02A9253EC660008CB77F /* UniformResource.swift */; };
 		D0FA1674243ABD3100115589 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA1673243ABD3100115589 /* AppDelegate.swift */; };
@@ -46,6 +45,8 @@
 		D0FA16BE243B25D100115589 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA16BD243B25D100115589 /* Spinner.swift */; };
 		D0FA16C0243B4BA000115589 /* ExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA16BF243B4BA000115589 /* ExportViewController.swift */; };
 		D0FA16C2243B4E2000115589 /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA16C1243B4E2000115589 /* QRGenerator.swift */; };
+		D0FAA7FB2540520A002E9129 /* LibWally.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04F02A1253EAAF9008CB77F /* LibWally.xcframework */; };
+		D0FAA7FC2540520A002E9129 /* LibWally.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D04F02A1253EAAF9008CB77F /* LibWally.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,17 @@
 				D006E332243D6EBF007B1A5B /* ShareExt.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0FAA7FD2540520A002E9129 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D0FAA7FC2540520A002E9129 /* LibWally.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -146,7 +158,7 @@
 				D04F02A2253EAAF9008CB77F /* CLibWally.xcframework in Frameworks */,
 				D04F029B253E934F008CB77F /* URKit in Frameworks */,
 				D04F0298253E931F008CB77F /* LifeHash in Frameworks */,
-				D04F02A3253EAAF9008CB77F /* LibWally.xcframework in Frameworks */,
+				D0FAA7FB2540520A002E9129 /* LibWally.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +335,7 @@
 				D0FA166D243ABD3100115589 /* Frameworks */,
 				D0FA166E243ABD3100115589 /* Resources */,
 				D006E31F243D5528007B1A5B /* Embed App Extensions */,
+				D0FAA7FD2540520A002E9129 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -574,7 +587,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.3;
+				CURRENT_PROJECT_VERSION = 0.0.4;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = YZHG975W3A;
 				INFOPLIST_FILE = ShareExt/Info.plist;
@@ -583,7 +596,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.0.3;
+				MARKETING_VERSION = 0.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockchaincommons.QRVault.ShareExt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -600,7 +613,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.3;
+				CURRENT_PROJECT_VERSION = 0.0.4;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = YZHG975W3A;
 				INFOPLIST_FILE = ShareExt/Info.plist;
@@ -609,7 +622,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.0.3;
+				MARKETING_VERSION = 0.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockchaincommons.QRVault.ShareExt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -742,16 +755,16 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.3;
-				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
+				CURRENT_PROJECT_VERSION = 0.0.5;
 				DEVELOPMENT_TEAM = YZHG975W3A;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "QR Vault/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.3;
+				MARKETING_VERSION = 0.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockchaincommons.QRVault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -771,16 +784,16 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.3;
-				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
+				CURRENT_PROJECT_VERSION = 0.0.5;
 				DEVELOPMENT_TEAM = YZHG975W3A;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "QR Vault/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.3;
+				MARKETING_VERSION = 0.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockchaincommons.QRVault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -8,24 +8,24 @@
 
 import CoreData
 
-class NSCustomPersistentContainer: NSPersistentContainer {
-    
-    override open class func defaultDirectoryURL() -> URL {
-        var storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.QRVault.core.data")
-        storeURL = storeURL?.appendingPathComponent("QR_Vault.sqlite")
-        return storeURL!
-    }
-
-}
+//class NSCustomPersistentContainer: NSPersistentContainer {
+//    
+//    override open class func defaultDirectoryURL() -> URL {
+//        var storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.QRVault.core.data")
+//        storeURL = storeURL?.appendingPathComponent("QR_Vault.sqlite")
+//        return storeURL!
+//    }
+//
+//}
 
 class CoreDataManager {
     
     static let sharedInstance = CoreDataManager()
     private init() {}
     
-    lazy var persistentContainer: NSPersistentContainer = {
-        //let container = NSPersistentCloudKitContainer(name: "QR_Vault")
-        let container = NSCustomPersistentContainer(name: "QR_Vault")
+    lazy var persistentContainer: NSPersistentCloudKitContainer = {
+        let container = NSPersistentCloudKitContainer(name: "QR_Vault")
+        //let container = NSCustomPersistentContainer(name: "QR_Vault")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")

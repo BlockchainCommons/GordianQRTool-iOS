@@ -236,6 +236,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     }
     
     private func firstTime() {
+        print("firsttime")
         if KeyChain.load(key: "privateKey") == nil {
             let pk = Encryption.privateKey()
             let status = KeyChain.save(key: "privateKey", data: pk)
@@ -245,6 +246,13 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
                 let error = NSError(domain: NSOSStatusErrorDomain, code: Int(status), userInfo: [NSLocalizedDescriptionKey: SecCopyErrorMessageString(status, nil) ?? "Undefined error"])
                 showAlert(title: "Error!", message: "There was an error creating a private key and storing it on your keychain. Error: \(error)")
             }
+        } else {
+//            if UserDefaults.standard.object(forKey: "hasUpdated") == nil {
+//                if KeyChain.remove(key: "privateKey") {
+//                    UserDefaults.standard.set(true, forKey: "hasUpdated")
+//                    firstTime()
+//                }
+//            }
         }
     }
     
