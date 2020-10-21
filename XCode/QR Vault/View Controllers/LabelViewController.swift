@@ -33,6 +33,7 @@ class LabelViewController: UIViewController, UITextFieldDelegate, UITextViewDele
         textView.layer.borderColor = UIColor.darkGray.cgColor
         textView.clipsToBounds = true
         textView.layer.cornerRadius = 4
+        
         if text != "" {
             textView.text = text
         } else {
@@ -43,7 +44,6 @@ class LabelViewController: UIViewController, UITextFieldDelegate, UITextViewDele
             textView.autocapitalizationType = .none
             textView.returnKeyType = .done
         }
-        
     }
     
     private func setTitleView() {
@@ -96,7 +96,6 @@ class LabelViewController: UIViewController, UITextFieldDelegate, UITextViewDele
         return true
     }
     
-    
     private func shakeAlert(viewToShake: UIView) {
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.07
@@ -110,22 +109,22 @@ class LabelViewController: UIViewController, UITextFieldDelegate, UITextViewDele
     }
     
     private func saveNow() {
-        if let label = textField.text, let qrData = (textView.text).data(using: .utf8) {
-            Encryption.encryptData(dataToEncrypt: qrData) { [unowned vc = self] (encryptedQr, error) in
-                if !error && encryptedQr != nil {
-                    var dict = [String:Any]()
-                    dict["qrData"] = encryptedQr
-                    dict["id"] = UUID()
-                    dict["label"] = label
-                    dict["dateAdded"] = Date()
-                    vc.saveToCoreData(dict: dict)
-                } else {
-                    vc.showAlert(title: "Error!", message: "We had an error encrypting your QR code")
-                }
-            }
-        } else {
+        guard let label = textField.text, let qrData = (textView.text).data(using: .utf8) else {
             showAlert(title: "Error!", message: "We had an error getting your label or converting your text to a QR. Please try again.")
+            return
         }
+        
+        guard let encryptedQr = Encryption.encrypt(qrData) else {
+            showAlert(title: "Error!", message: "We had an error encrypting your QR code")
+            return
+        }
+        
+        var dict = [String:Any]()
+        dict["qrData"] = encryptedQr
+        dict["id"] = UUID()
+        dict["label"] = label
+        dict["dateAdded"] = Date()
+        saveToCoreData(dict: dict)
     }
     
     private func saveToCoreData(dict: [String:Any]) {

@@ -64,28 +64,21 @@ class ShareViewController: SLComposeServiceViewController {
     }
     
     private func saveNow(label: String, qrString: String) {
-        print("saveNow")
-        if let qrData = qrString.data(using: .utf8) {
-            Encryption.encryptData(dataToEncrypt: qrData) { [unowned vc = self] (encryptedQr, error) in
-                print("error = \(error)")
-                if !error && encryptedQr != nil {
-                    var dict = [String:Any]()
-                    dict["qrData"] = encryptedQr
-                    dict["id"] = UUID()
-                    dict["label"] = label
-                    dict["dateAdded"] = Date()
-                    vc.saveToCoreData(dict: dict)
-                } else {
-                    vc.showAlert(title: "Error!", message: "We had an error encrypting your QR code")
-                }
-            }
-        } else {
+        guard let data = qrString.data(using: .utf8), let encryptedQr = Encryption.encrypt(data) else {
             showAlert(title: "Error!", message: "We had an error getting your label or converting your text to a QR. Please try again.")
+            
+            return
         }
+        
+        var dict = [String:Any]()
+        dict["qrData"] = encryptedQr
+        dict["id"] = UUID()
+        dict["label"] = label
+        dict["dateAdded"] = Date()
+        saveToCoreData(dict: dict)
     }
     
     private func saveToCoreData(dict: [String:Any]) {
-        print("save to core data")
         let cd = CoreDataManager.sharedInstance
         cd.saveEntity(dict: dict) { [unowned vc = self] (success, errorDescription) in
             if success {
