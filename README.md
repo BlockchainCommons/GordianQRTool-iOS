@@ -1,5 +1,7 @@
 # Blockchain Commons QR Vault
 
+### _by Peter Denton and Christopher Allen_
+
 **QR Vault** is a secure place to store your QR codes. There are no third party libraries used, it is a simple app that uses powerful encryption to keep your secrets safe. QR Vault can be added to your "share actions" so it can be used in any app that allows you to export images. In this way you can save your QR codes from other apps without even taking a screen shot.
 
 Please join our testflight [here](https://testflight.apple.com/join/X7Ri4nPp). Pleae share any crash reports or bugs, if you want a feature added just ask.
