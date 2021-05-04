@@ -30,7 +30,7 @@
 	<true/>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)com.blockchaincommons.QRVault</string>
+		<string>$(AppIdentifierPrefix)com.blockchaincommons.sharedItems</string>
 	</array>
 </dict>
 </plist>

@@ -23,9 +23,17 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if UserDefaults.standard.object(forKey: "hasUpdated") == nil {
+            KeyChain.removeAll()
+            CoreDataService.deleteAllData(completion: { success in })
+            UserDefaults.standard.setValue(true, forKey: "hasUpdated")
+        }
+        
         navigationController?.delegate = self
         homeTable.delegate = self
         homeTable.dataSource = self
+        
         setTitleView()
         homeTable.tableFooterView = UIView(frame: CGRect.zero)
         editButton = UIBarButtonItem.init(barButtonSystemItem: .edit, target: self, action: #selector(editNodes))
@@ -38,8 +46,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     }
     
     private func loadData() {
-        let cd = CoreDataManager.sharedInstance
-        cd.retrieveEntity { [weak self] (qrs, errorDescription) in
+        CoreDataService.retrieveEntity { [weak self] (qrs, errorDescription) in
             guard let self = self else { return }
             
             guard let qrs = qrs, qrs.count > 0 else { return }
@@ -168,8 +175,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     }
     
     private func deleteQr() {
-        let cd = CoreDataManager.sharedInstance
-        cd.deleteEntity(id: idToDelete) { [weak self] (success, errorDescription) in
+        CoreDataService.deleteEntity(id: idToDelete) { [weak self] (success, errorDescription) in
             guard let self = self else { return }
             
             guard success else {

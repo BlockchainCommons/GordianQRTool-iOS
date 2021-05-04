@@ -12,6 +12,8 @@ class KeyChain {
 
     class func save(key: String, data: Data) -> OSStatus {
         let query = [
+            kSecAttrSynchronizable as String : kCFBooleanTrue!,
+            kSecAttrAccessGroup as String: "YZHG975W3A.com.blockchaincommons.sharedItems",
             kSecClass as String       : kSecClassGenericPassword as String,
             kSecAttrAccount as String : key,
             kSecValueData as String   : data ] as [String : Any]
@@ -23,6 +25,8 @@ class KeyChain {
 
     class func load(key: String) -> Data? {
         let query = [
+            kSecAttrSynchronizable as String : kCFBooleanTrue!,
+            kSecAttrAccessGroup as String: "YZHG975W3A.com.blockchaincommons.sharedItems",
             kSecClass as String       : kSecClassGenericPassword,
             kSecAttrAccount as String : key,
             kSecReturnData as String  : kCFBooleanTrue!,
@@ -41,6 +45,8 @@ class KeyChain {
     
     class func remove(key: String) -> Bool {
         let query = [
+            kSecAttrSynchronizable as String : kCFBooleanTrue!,
+            kSecAttrAccessGroup as String: "YZHG975W3A.com.blockchaincommons.sharedItems",
             kSecClass as String       : kSecClassGenericPassword as String,
             kSecAttrAccount as String : key] as [String : Any]
 
@@ -63,6 +69,14 @@ class KeyChain {
 
         let swiftString: String = cfStr as String
         return swiftString
+    }
+    
+    class func removeAll() {
+        let secItemClasses =  [kSecClassGenericPassword, kSecClassInternetPassword, kSecClassCertificate, kSecClassKey, kSecClassIdentity]
+        for itemClass in secItemClasses {
+            let spec: NSDictionary = [kSecClass: itemClass]
+            SecItemDelete(spec)
+        }
     }
 }
 

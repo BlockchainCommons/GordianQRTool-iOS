@@ -102,7 +102,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             return
         }
         
-        CoreDataManager.sharedInstance.updateEntity(id: id, keyToUpdate: "label", newValue: labelField.text!) { [weak self] (success, errorDescription) in
+        CoreDataService.updateEntity(id: id, keyToUpdate: "label", newValue: labelField.text!) { [weak self] (success, errorDescription) in
             guard let self = self else { return }
             
             guard success else {
@@ -186,7 +186,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             return
         }
         
-        CoreDataManager.sharedInstance.updateEntity(id: id, keyToUpdate: "qrData", newValue: encryptedData) { [weak self] (success, errorDescription) in
+        CoreDataService.updateEntity(id: id, keyToUpdate: "qrData", newValue: encryptedData) { [weak self] (success, errorDescription) in
             guard let self = self else { return }
             
             guard success else {
@@ -225,8 +225,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     private func deleteQr() {
-        let cd = CoreDataManager.sharedInstance
-        cd.deleteEntity(id: id) { [weak self] (success, errorDescription) in
+        CoreDataService.deleteEntity(id: id) { [weak self] (success, errorDescription) in
             guard let self = self else { return }
             
             if success {
@@ -242,8 +241,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     private func getQr() {
-        let cd = CoreDataManager.sharedInstance
-        cd.retrieveEntity { [weak self] (entity, errorDescription) in
+        CoreDataService.retrieveEntity { [weak self] (entity, errorDescription) in
             guard let self = self else { return }
             
             guard let entity = entity else { return }

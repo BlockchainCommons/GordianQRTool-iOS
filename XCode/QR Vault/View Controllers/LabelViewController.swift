@@ -128,8 +128,7 @@ class LabelViewController: UIViewController, UITextFieldDelegate, UITextViewDele
     }
     
     private func saveToCoreData(dict: [String:Any]) {
-        let cd = CoreDataManager.sharedInstance
-        cd.saveEntity(dict: dict) { [unowned vc = self] (success, errorDescription) in
+        CoreDataService.saveEntity(dict: dict) { [unowned vc = self] (success, errorDescription) in
             if success {
                 DispatchQueue.main.async { [unowned vc = self] in
                     vc.text = ""
