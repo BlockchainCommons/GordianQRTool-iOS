@@ -59,10 +59,8 @@ class Parser {
         } else if processed.hasPrefix("ur:") {
             if let ur = try? URDecoder.decode(processed) {
                 return ur.type
-                
             } else {
                 return ""
-                
             }
             
         } else if isAccountMap(processed) {

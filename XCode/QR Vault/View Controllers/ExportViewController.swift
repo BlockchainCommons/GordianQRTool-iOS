@@ -15,16 +15,16 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     let tap = UITapGestureRecognizer()
     var id:UUID!
     
-    @IBOutlet weak var lifehashImageView: UIImageView!
-    @IBOutlet weak var labelField: UITextField!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var shareQrOutlet: UIButton!
-    @IBOutlet weak var shareTextOutlet: UIButton!
-    @IBOutlet weak var backgroundLabelView: UIVisualEffectView!
-    @IBOutlet weak var backgroundQrView: UIVisualEffectView!
-    @IBOutlet weak var convertToUrOutlet: UIButton!
-    @IBOutlet weak var backgroundTextView: UIVisualEffectView!
+    @IBOutlet weak private var lifehashImageView: UIImageView!
+    @IBOutlet weak private var labelField: UITextField!
+    @IBOutlet weak private var imageView: UIImageView!
+    @IBOutlet weak private var textView: UITextView!
+    @IBOutlet weak private var shareQrOutlet: UIButton!
+    @IBOutlet weak private var shareTextOutlet: UIButton!
+    @IBOutlet weak private var backgroundLabelView: UIVisualEffectView!
+    @IBOutlet weak private var backgroundQrView: UIVisualEffectView!
+    @IBOutlet weak private var convertToUrOutlet: UIButton!
+    @IBOutlet weak private var backgroundTextView: UIVisualEffectView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,14 +79,20 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     private func promptToUpdateLabel() {
-        DispatchQueue.main.async { [unowned vc = self] in
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
             let alert = UIAlertController(title: "Update label?", message: "", preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Update", style: .default, handler: { [unowned vc = self] action in
-                vc.updateLabel()
+            
+            alert.addAction(UIAlertAction(title: "Update", style: .default, handler: { [weak self] action in
+                guard let self = self else { return }
+                
+                self.updateLabel()
             }))
+            
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in }))
-            alert.popoverPresentationController?.sourceView = vc.view
-            vc.present(alert, animated: true, completion: nil)
+            alert.popoverPresentationController?.sourceView = self.view
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -117,7 +123,9 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         case "Mnemonic":
             guard let mnemonic = try? BIP39Mnemonic(words: text.processed()), let ur = URHelper.entropyToUr(data: mnemonic.entropy.data) else { fallthrough }
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                
                 self.imageView.image = QRGenerator.getQRCode(textInput: ur)
                 self.textView.text = ur
             }
@@ -127,7 +135,9 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         case "SSKR Shard":
             guard let hexData = Data(base64Encoded: text.processed()), let ur = URHelper.shardToUr(data: hexData) else { fallthrough }
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                
                 self.imageView.image = QRGenerator.getQRCode(textInput: ur)
                 self.textView.text = ur
             }
@@ -141,16 +151,25 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     private func promptToUpdate() {
-        DispatchQueue.main.async { [unowned vc = self] in
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
             let alert = UIAlertController(title: "Update?", message: "Updating to a UR will overwrite the existing QR code as UR format.", preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Update", style: .default, handler: { [unowned vc = self] action in
-                vc.updateData()
+            
+            alert.addAction(UIAlertAction(title: "Update", style: .default, handler: { [weak self] action in
+                guard let self = self else { return }
+                
+                self.updateData()
             }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
-                vc.getQr()
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak self] action in
+                guard let self = self else { return }
+                
+                self.getQr()
             }))
-            alert.popoverPresentationController?.sourceView = vc.view
-            vc.present(alert, animated: true, completion: nil)
+            
+            alert.popoverPresentationController?.sourceView = self.view
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -188,77 +207,95 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     @IBAction func deleteAction(_ sender: Any) {
-        DispatchQueue.main.async { [unowned vc = self] in
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
             let alert = UIAlertController(title: "Warning!", message: "Once you delete a QR it will be gone forever", preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [unowned vc = self] action in
-                vc.deleteQr()
+            
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] action in
+                guard let self = self else { return }
+                
+                self.deleteQr()
             }))
+            
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in }))
-            alert.popoverPresentationController?.sourceView = vc.view
-            vc.present(alert, animated: true, completion: nil)
+            alert.popoverPresentationController?.sourceView = self.view
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
     private func deleteQr() {
         let cd = CoreDataManager.sharedInstance
-        cd.deleteEntity(id: id) { [unowned vc = self] (success, errorDescription) in
+        cd.deleteEntity(id: id) { [weak self] (success, errorDescription) in
+            guard let self = self else { return }
+            
             if success {
-                DispatchQueue.main.async { [unowned vc = self] in
-                    vc.navigationController?.popToRootViewController(animated: true)
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    
+                    self.navigationController?.popToRootViewController(animated: true)
                 }
             } else {
-                vc.showAlert(title: "Error", message: errorDescription ?? "error deleteing that QR")
+                self.showAlert(title: "Error", message: errorDescription ?? "error deleteing that QR")
             }
         }
     }
     
     private func getQr() {
         let cd = CoreDataManager.sharedInstance
-        cd.retrieveEntity { [unowned vc = self] (entity, errorDescription) in
-            if entity != nil {
-                for e in entity! {
-                    let str = QRStruct(dictionary: e)
-                    if str.id == vc.id {
-                        vc.loadData(qr: str)
-                    }
+        cd.retrieveEntity { [weak self] (entity, errorDescription) in
+            guard let self = self else { return }
+            
+            guard let entity = entity else { return }
+            
+            for e in entity {
+                let str = QRStruct(dictionary: e)
+                if str.id == self.id {
+                    self.loadData(qr: str)
                 }
             }
         }
     }
     
     private func loadData(qr: QRStruct) {
-        DispatchQueue.main.async { [unowned vc = self] in
-            vc.labelField.text = vc.reducedName(text: qr.label)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.labelField.text = self.reducedName(text: qr.label)
             
             guard let decryptedQr = Encryption.decrypt(qr.qrData), let text = String(data: decryptedQr, encoding: .utf8) else {
                 return
             }
             
-            DispatchQueue.main.async { [unowned vc = self] in
-                vc.textView.text = text
-                let image = QRGenerator.getQRCode(textInput: text)
-                vc.imageView.image = image
-                vc.shareTextOutlet.alpha = 1
-                vc.shareQrOutlet.alpha = 1
-                vc.textView.alpha = 1
-                
-                if !text.hasPrefix("ur:") {
-                    self.convertToUrOutlet.alpha = 1
-                } else {
-                    self.convertToUrOutlet.alpha = 0
-                }
-                
-                let type = self.parse(qr.qrData)
-                
-                if type == "Account Map" {
-                    if let descData = self.descriptor(qr.qrData) {
+            self.textView.text = text
+            let image = QRGenerator.getQRCode(textInput: text)
+            self.imageView.image = image
+            self.shareTextOutlet.alpha = 1
+            self.shareQrOutlet.alpha = 1
+            self.textView.alpha = 1
+            
+            if !text.hasPrefix("ur:") {
+                self.convertToUrOutlet.alpha = 1
+            } else {
+                self.convertToUrOutlet.alpha = 0
+            }
+            
+            let type = self.parse(qr.qrData)
+            
+            if type == "Account Map" {
+                if let descData = self.descriptor(qr.qrData) {
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self = self else { return }
                         self.lifehashImageView.image = LifeHash.image(descData)
-                    } else {
-                        self.imageView.image = LifeHash.image(qr.qrData)
                     }
                 } else {
-                    self.lifehashImageView.image = LifeHash.image(qr.qrData)
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self = self else { return }
+                        self.imageView.image = LifeHash.image(qr.qrData)
+                    }
                 }
+            } else {
+                self.lifehashImageView.image = LifeHash.image(qr.qrData)
             }
         }
     }
@@ -287,30 +324,36 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     private func shareString() {
-        DispatchQueue.main.async { [unowned vc = self] in
-            let textToShare = [vc.textView.text!]
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            let textToShare = [self.textView.text!]
             let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-            activityViewController.popoverPresentationController?.sourceView = vc.view
-            activityViewController.popoverPresentationController?.sourceRect = vc.view.bounds
-            vc.present(activityViewController, animated: true) {}
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            activityViewController.popoverPresentationController?.sourceRect = self.view.bounds
+            self.present(activityViewController, animated: true) {}
         }
     }
     
     private func shareImage() {
-        DispatchQueue.main.async { [unowned vc = self] in
-            let imageToShare = [vc.imageView.image!]
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            let imageToShare = [self.imageView.image!]
             let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
-            activityViewController.popoverPresentationController?.sourceView = vc.view
-            activityViewController.popoverPresentationController?.sourceRect = vc.view.bounds
-            vc.present(activityViewController, animated: true) {}
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            activityViewController.popoverPresentationController?.sourceRect = self.view.bounds
+            self.present(activityViewController, animated: true) {}
         }
     }
     
     private func showAlert(title: String, message: String) {
-        DispatchQueue.main.async { [unowned vc = self] in
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in }))
-            vc.present(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -332,11 +375,13 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             let authorizationProvider = ASAuthorizationAppleIDProvider()
             if let usernameData = KeyChain.load(key: "userIdentifier") {
                 if let username = String(data: usernameData, encoding: .utf8) {
-                    authorizationProvider.getCredentialState(forUserID: username) { [unowned vc = self] (state, error) in
+                    authorizationProvider.getCredentialState(forUserID: username) { [weak self] (state, error) in
+                        guard let self = self else { return }
+                        
                         switch (state) {
                         case .authorized:
                             print("Account Found - Signed In")
-                            vc.getQr()
+                            self.getQr()
                         case .revoked:
                             print("No Account Found")
                             fallthrough
@@ -366,8 +411,10 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     @objc func handleTap() {
         #if targetEnvironment(macCatalyst)
         #else
-        DispatchQueue.main.async { [unowned vc = self] in
-            vc.labelField.resignFirstResponder()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.labelField.resignFirstResponder()
         }
         #endif
         

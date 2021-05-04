@@ -26,6 +26,12 @@ class CoreDataManager {
     lazy var persistentContainer: NSPersistentCloudKitContainer = {
         let container = NSPersistentCloudKitContainer(name: "QR_Vault")
         //let container = NSCustomPersistentContainer(name: "QR_Vault")
+        guard let description = container.persistentStoreDescriptions.first else {
+            fatalError("Could not retrieve a persistent store description.")
+        }
+        
+        description.cloudKitContainerOptions = NSPersistentCloudKitContainerOptions(containerIdentifier: "iCloud.com.blockchaincommons.gordian.qrvault")
+        
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")

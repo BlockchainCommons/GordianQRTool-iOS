@@ -11,15 +11,15 @@ import AuthenticationServices
 
 class HomeViewController: UIViewController, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
     
-    @IBOutlet weak var homeTable: UITableView!
-    var idToExport:UUID!
-    var idToDelete:UUID!
-    var qrArray = [[String:Any]]()
-    var qrStruct:QRStruct?
-    var editButton = UIBarButtonItem()
-    let dateFormatter = DateFormatter()
-    var isDeleting = Bool()
-    var indPath:IndexPath!
+    @IBOutlet weak private var homeTable: UITableView!
+    private var idToExport:UUID!
+    private var idToDelete:UUID!
+    private var qrArray = [[String:Any]]()
+    private var qrStruct:QRStruct?
+    private var editButton = UIBarButtonItem()
+    private let dateFormatter = DateFormatter()
+    private var isDeleting = Bool()
+    private var indPath:IndexPath!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,16 +39,18 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     
     private func loadData() {
         let cd = CoreDataManager.sharedInstance
-        cd.retrieveEntity { [unowned vc = self] (qrs, errorDescription) in
-            if qrs != nil {
-                if qrs!.count > 0 {
-                    for (i, qr) in qrs!.enumerated() {
-                        vc.qrArray.append(qr)
-                        if i + 1 == qrs!.count {
-                            DispatchQueue.main.async { [unowned vc = self] in
-                                vc.homeTable.reloadData()
-                            }
-                        }
+        cd.retrieveEntity { [weak self] (qrs, errorDescription) in
+            guard let self = self else { return }
+            
+            guard let qrs = qrs, qrs.count > 0 else { return }
+            
+            for (i, qr) in qrs.enumerated() {
+                self.qrArray.append(qr)
+                if i + 1 == qrs.count {
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self = self else { return }
+                        
+                        self.homeTable.reloadData()
                     }
                 }
             }
@@ -104,8 +106,6 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             
             typeLabel.textAlignment = .center
             typeBackground.layer.cornerRadius = 8
-//            imageView.clipsToBounds = true
-//            imageView.layer.cornerRadius = 8
             
             label.text = reducedName(text: str.label)
             date.text = formatDate(date: str.dateAdded)
@@ -169,19 +169,26 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     
     private func deleteQr() {
         let cd = CoreDataManager.sharedInstance
-        cd.deleteEntity(id: idToDelete) { [unowned vc = self] (success, errorDescription) in
-            if success {
-                DispatchQueue.main.async { [unowned vc = self] in
-                    vc.qrArray.remove(at: vc.indPath.section)
-                    if vc.qrArray.count == 0 {
-                        vc.homeTable.reloadData()
-                    } else {
-                        vc.homeTable.deleteSections(IndexSet.init(arrayLiteral: vc.indPath.section), with: .fade)
-                    }
-                    vc.editNodes()
+        cd.deleteEntity(id: idToDelete) { [weak self] (success, errorDescription) in
+            guard let self = self else { return }
+            
+            guard success else {
+                self.showAlert(title: "Error", message: errorDescription ?? "error deleteing that QR")
+                
+                return
+            }
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                
+                self.qrArray.remove(at: self.indPath.section)
+                
+                if self.qrArray.count == 0 {
+                    self.homeTable.reloadData()
+                } else {
+                    self.homeTable.deleteSections(IndexSet.init(arrayLiteral: self.indPath.section), with: .fade)
                 }
-            } else {
-                vc.showAlert(title: "Error", message: errorDescription ?? "error deleteing that QR")
+                self.editNodes()
             }
         }
     }
@@ -190,9 +197,11 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         if qrArray.count > 0 {
             let qr = qrArray[indexPath.section]
             let str = QRStruct(dictionary: qr)
-            DispatchQueue.main.async { [unowned vc = self] in
-                vc.idToExport = str.id
-                vc.performSegue(withIdentifier: "exportSegue", sender: vc)
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                
+                self.idToExport = str.id
+                self.performSegue(withIdentifier: "exportSegue", sender: self)
             }
         }
     }
@@ -222,21 +231,24 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     @IBAction func addQr(_ sender: Any) {
         if KeyChain.load(key: "userIdentifier") == nil {
             #if DEBUG
-            DispatchQueue.main.async { [unowned vc = self] in
-                vc.performSegue(withIdentifier: "addSegue", sender: vc)
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                
+                self.performSegue(withIdentifier: "addSegue", sender: self)
             }
             #else
             addAuth()
             #endif
         } else {
-            DispatchQueue.main.async { [unowned vc = self] in
-                vc.performSegue(withIdentifier: "addSegue", sender: vc)
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                
+                self.performSegue(withIdentifier: "addSegue", sender: self)
             }
         }
     }
     
     private func firstTime() {
-        print("firsttime")
         if KeyChain.load(key: "privateKey") == nil {
             let pk = Encryption.privateKey()
             let status = KeyChain.save(key: "privateKey", data: pk)
@@ -246,21 +258,16 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
                 let error = NSError(domain: NSOSStatusErrorDomain, code: Int(status), userInfo: [NSLocalizedDescriptionKey: SecCopyErrorMessageString(status, nil) ?? "Undefined error"])
                 showAlert(title: "Error!", message: "There was an error creating a private key and storing it on your keychain. Error: \(error)")
             }
-        } else {
-//            if UserDefaults.standard.object(forKey: "hasUpdated") == nil {
-//                if KeyChain.remove(key: "privateKey") {
-//                    UserDefaults.standard.set(true, forKey: "hasUpdated")
-//                    firstTime()
-//                }
-//            }
         }
     }
     
     private func showAlert(title: String, message: String) {
-        DispatchQueue.main.async { [unowned vc = self] in
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in }))
-            vc.present(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -286,8 +293,10 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
                     if let userIdentifier = appleIDCredential.user.data(using: .utf8) {
                         let status = KeyChain.save(key: "userIdentifier", data: userIdentifier)
                         if status == 0 {
-                            DispatchQueue.main.async { [unowned vc = self] in
-                                vc.performSegue(withIdentifier: "addSegue", sender: vc)
+                            DispatchQueue.main.async { [weak self] in
+                                guard let self = self else { return }
+                                
+                                self.performSegue(withIdentifier: "addSegue", sender: self)
                             }
                         }
                     }
@@ -301,16 +310,17 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
                 let authorizationProvider = ASAuthorizationAppleIDProvider()
                 if let usernameData = KeyChain.load(key: "userIdentifier") {
                     if let username = String(data: usernameData, encoding: .utf8) {
-                        authorizationProvider.getCredentialState(forUserID: username) { [unowned vc = self] (state, error) in
+                        authorizationProvider.getCredentialState(forUserID: username) { [weak self] (state, error) in
+                            guard let self = self else { return }
+                            
                             switch (state) {
                             case .authorized:
-                                print("Account Found - Signed In")
-                                vc.deleteQr()
+                                self.deleteQr()
                             case .revoked:
-                                print("No Account Found")
+                                self.showAlert(title: "No account found.", message: "")
                                 fallthrough
                             case .notFound:
-                                print("No Account Found")
+                                self.showAlert(title: "No account found.", message: "")
                             default:
                                 break
                             }
@@ -338,8 +348,10 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     }
     
     @objc func logoTapped() {
-        DispatchQueue.main.async { [unowned vc = self] in
-            vc.performSegue(withIdentifier: "supportSegue", sender: vc)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.performSegue(withIdentifier: "supportSegue", sender: self)
         }
     }
     
@@ -367,9 +379,9 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         // Pass the selected object to the new view controller.
         switch segue.identifier {
         case "exportSegue":
-            if let vc = segue.destination as? ExportViewController {
-                vc.id = idToExport
-            }
+            guard let vc = segue.destination as? ExportViewController else { fallthrough }
+            
+            vc.id = idToExport
         default:
             break
         }

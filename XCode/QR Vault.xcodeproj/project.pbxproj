@@ -11,6 +11,7 @@
 		0A4151A32640ED4D00E23C99 /* LibWally.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A41519C2640ED4900E23C99 /* LibWally.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0A4151AD2640EED300E23C99 /* URKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0A4151AC2640EED300E23C99 /* URKit */; };
 		0A4151B32640EF7200E23C99 /* LifeHash in Frameworks */ = {isa = PBXBuildFile; productRef = 0A4151B22640EF7200E23C99 /* LifeHash */; };
+		0A4151BF2640FE5100E23C99 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4151BE2640FE5100E23C99 /* CloudKit.framework */; };
 		D006E32B243D6EBF007B1A5B /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D006E32A243D6EBF007B1A5B /* ShareViewController.swift */; };
 		D006E32E243D6EBF007B1A5B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D006E32C243D6EBF007B1A5B /* MainInterface.storyboard */; };
 		D006E332243D6EBF007B1A5B /* ShareExt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D006E328243D6EBF007B1A5B /* ShareExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -99,6 +100,7 @@
 
 /* Begin PBXFileReference section */
 		0A41519C2640ED4900E23C99 /* LibWally.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibWally.xcframework; sourceTree = "<group>"; };
+		0A4151BE2640FE5100E23C99 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D006E328243D6EBF007B1A5B /* ShareExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D006E32A243D6EBF007B1A5B /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		D006E32D243D6EBF007B1A5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A4151B32640EF7200E23C99 /* LifeHash in Frameworks */,
+				0A4151BF2640FE5100E23C99 /* CloudKit.framework in Frameworks */,
 				0A4151AD2640EED300E23C99 /* URKit in Frameworks */,
 				0A4151A22640ED4D00E23C99 /* LibWally.xcframework in Frameworks */,
 			);
@@ -176,6 +179,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A4151BD2640FE5100E23C99 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A4151BE2640FE5100E23C99 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D006E329243D6EBF007B1A5B /* ShareExt */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +214,7 @@
 				D0FA1697243ABD3900115589 /* QR VaultUITests */,
 				D006E329243D6EBF007B1A5B /* ShareExt */,
 				D0FA1671243ABD3100115589 /* Products */,
+				0A4151BD2640FE5100E23C99 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
