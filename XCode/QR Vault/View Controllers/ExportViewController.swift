@@ -15,6 +15,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     let tap = UITapGestureRecognizer()
     var id:UUID!
     
+    @IBOutlet weak var lifehashImageView: UIImageView!
     @IBOutlet weak var labelField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
@@ -114,7 +115,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         
         switch type {
         case "Mnemonic":
-            guard let mnemonic = BIP39Mnemonic(text.processed()), let ur = URHelper.entropyToUr(data: mnemonic.entropy.data) else { fallthrough }
+            guard let mnemonic = try? BIP39Mnemonic(words: text.processed()), let ur = URHelper.entropyToUr(data: mnemonic.entropy.data) else { fallthrough }
             
             DispatchQueue.main.async {
                 self.imageView.image = QRGenerator.getQRCode(textInput: ur)
@@ -124,7 +125,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             promptToUpdate()
             
         case "SSKR Shard":
-            guard let hexData = Data(text.processed()), let ur = URHelper.shardToUr(data: hexData) else { fallthrough }
+            guard let hexData = Data(base64Encoded: text.processed()), let ur = URHelper.shardToUr(data: hexData) else { fallthrough }
             
             DispatchQueue.main.async {
                 self.imageView.image = QRGenerator.getQRCode(textInput: ur)
@@ -246,8 +247,43 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
                 } else {
                     self.convertToUrOutlet.alpha = 0
                 }
+                
+                let type = self.parse(qr.qrData)
+                
+                if type == "Account Map" {
+                    if let descData = self.descriptor(qr.qrData) {
+                        self.lifehashImageView.image = LifeHash.image(descData)
+                    } else {
+                        self.imageView.image = LifeHash.image(qr.qrData)
+                    }
+                } else {
+                    self.lifehashImageView.image = LifeHash.image(qr.qrData)
+                }
             }
         }
+    }
+    
+    private func parse(_ data: Data) -> String {
+        guard let decryptedQr = Encryption.decrypt(data), let item = String(data: decryptedQr, encoding: .utf8) else {
+            return ""
+        }
+        
+        return Parser.parse(item)
+    }
+    
+    private func descriptor(_ data: Data) -> Data? {
+        guard let decryptedQr = Encryption.decrypt(data), let item = String(data: decryptedQr, encoding: .utf8) else {
+            return nil
+        }
+        
+        guard let data = item.data(using: .utf8),
+            let dict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String:Any],
+            let descriptor = dict["descriptor"] as? String,
+            let _ = dict["blockheight"] as? Int else {
+                return nil
+        }
+        
+        return descriptor.utf8
     }
     
     private func shareString() {

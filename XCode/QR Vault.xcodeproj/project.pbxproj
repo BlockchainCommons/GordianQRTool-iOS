@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A4151A22640ED4D00E23C99 /* LibWally.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A41519C2640ED4900E23C99 /* LibWally.xcframework */; };
+		0A4151A32640ED4D00E23C99 /* LibWally.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A41519C2640ED4900E23C99 /* LibWally.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0A4151AD2640EED300E23C99 /* URKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0A4151AC2640EED300E23C99 /* URKit */; };
+		0A4151B32640EF7200E23C99 /* LifeHash in Frameworks */ = {isa = PBXBuildFile; productRef = 0A4151B22640EF7200E23C99 /* LifeHash */; };
 		D006E32B243D6EBF007B1A5B /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D006E32A243D6EBF007B1A5B /* ShareViewController.swift */; };
 		D006E32E243D6EBF007B1A5B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D006E32C243D6EBF007B1A5B /* MainInterface.storyboard */; };
 		D006E332243D6EBF007B1A5B /* ShareExt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D006E328243D6EBF007B1A5B /* ShareExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -19,11 +23,8 @@
 		D006E345243EB9D5007B1A5B /* blockchain-commons-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D006E344243EB9D5007B1A5B /* blockchain-commons-logo.png */; };
 		D006E347243EBF9C007B1A5B /* SponsorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D006E346243EBF9C007B1A5B /* SponsorViewController.swift */; };
 		D006E349243EC56F007B1A5B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D006E348243EC56F007B1A5B /* logo.png */; };
-		D04F0298253E931F008CB77F /* LifeHash in Frameworks */ = {isa = PBXBuildFile; productRef = D04F0297253E931F008CB77F /* LifeHash */; };
-		D04F029B253E934F008CB77F /* URKit in Frameworks */ = {isa = PBXBuildFile; productRef = D04F029A253E934F008CB77F /* URKit */; };
 		D04F029D253E9CE5008CB77F /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F029C253E9CE5008CB77F /* Parser.swift */; };
 		D04F029F253EA847008CB77F /* Lifehash.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F029E253EA847008CB77F /* Lifehash.swift */; };
-		D04F02A2253EAAF9008CB77F /* CLibWally.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04F02A0253EAAF8008CB77F /* CLibWally.xcframework */; };
 		D04F02A6253EABBD008CB77F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F02A5253EABBD008CB77F /* Utilities.swift */; };
 		D04F02AA253EC660008CB77F /* UniformResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F02A9253EC660008CB77F /* UniformResource.swift */; };
 		D0FA1674243ABD3100115589 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA1673243ABD3100115589 /* AppDelegate.swift */; };
@@ -45,8 +46,6 @@
 		D0FA16BE243B25D100115589 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA16BD243B25D100115589 /* Spinner.swift */; };
 		D0FA16C0243B4BA000115589 /* ExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA16BF243B4BA000115589 /* ExportViewController.swift */; };
 		D0FA16C2243B4E2000115589 /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA16C1243B4E2000115589 /* QRGenerator.swift */; };
-		D0FAA7FB2540520A002E9129 /* LibWally.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04F02A1253EAAF9008CB77F /* LibWally.xcframework */; };
-		D0FAA7FC2540520A002E9129 /* LibWally.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D04F02A1253EAAF9008CB77F /* LibWally.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +73,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		0A4151A42640ED4D00E23C99 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0A4151A32640ED4D00E23C99 /* LibWally.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D006E31F243D5528007B1A5B /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -85,20 +95,10 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D0FAA7FD2540520A002E9129 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				D0FAA7FC2540520A002E9129 /* LibWally.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A41519C2640ED4900E23C99 /* LibWally.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibWally.xcframework; sourceTree = "<group>"; };
 		D006E328243D6EBF007B1A5B /* ShareExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D006E32A243D6EBF007B1A5B /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		D006E32D243D6EBF007B1A5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -111,8 +111,6 @@
 		D006E348243EC56F007B1A5B /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		D04F029C253E9CE5008CB77F /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		D04F029E253EA847008CB77F /* Lifehash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lifehash.swift; sourceTree = "<group>"; };
-		D04F02A0253EAAF8008CB77F /* CLibWally.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = CLibWally.xcframework; sourceTree = "<group>"; };
-		D04F02A1253EAAF9008CB77F /* LibWally.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibWally.xcframework; sourceTree = "<group>"; };
 		D04F02A5253EABBD008CB77F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D04F02A9253EC660008CB77F /* UniformResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniformResource.swift; sourceTree = "<group>"; };
 		D0FA1670243ABD3100115589 /* QR Vault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QR Vault.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,10 +153,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D04F02A2253EAAF9008CB77F /* CLibWally.xcframework in Frameworks */,
-				D04F029B253E934F008CB77F /* URKit in Frameworks */,
-				D04F0298253E931F008CB77F /* LifeHash in Frameworks */,
-				D0FAA7FB2540520A002E9129 /* LibWally.xcframework in Frameworks */,
+				0A4151B32640EF7200E23C99 /* LifeHash in Frameworks */,
+				0A4151AD2640EED300E23C99 /* URKit in Frameworks */,
+				0A4151A22640ED4D00E23C99 /* LibWally.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,8 +190,7 @@
 		D04F02A4253EAB04008CB77F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D04F02A0253EAAF8008CB77F /* CLibWally.xcframework */,
-				D04F02A1253EAAF9008CB77F /* LibWally.xcframework */,
+				0A41519C2640ED4900E23C99 /* LibWally.xcframework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -335,7 +331,7 @@
 				D0FA166D243ABD3100115589 /* Frameworks */,
 				D0FA166E243ABD3100115589 /* Resources */,
 				D006E31F243D5528007B1A5B /* Embed App Extensions */,
-				D0FAA7FD2540520A002E9129 /* Embed Frameworks */,
+				0A4151A42640ED4D00E23C99 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -344,8 +340,8 @@
 			);
 			name = "QR Vault";
 			packageProductDependencies = (
-				D04F0297253E931F008CB77F /* LifeHash */,
-				D04F029A253E934F008CB77F /* URKit */,
+				0A4151AC2640EED300E23C99 /* URKit */,
+				0A4151B22640EF7200E23C99 /* LifeHash */,
 			);
 			productName = "QR Vault";
 			productReference = D0FA1670243ABD3100115589 /* QR Vault.app */;
@@ -423,8 +419,8 @@
 			);
 			mainGroup = D0FA1667243ABD3100115589;
 			packageReferences = (
-				D04F0296253E931F008CB77F /* XCRemoteSwiftPackageReference "LifeHash" */,
-				D04F0299253E934F008CB77F /* XCRemoteSwiftPackageReference "URKit" */,
+				0A4151AB2640EED300E23C99 /* XCRemoteSwiftPackageReference "URKit" */,
+				0A4151B12640EF7200E23C99 /* XCRemoteSwiftPackageReference "LifeHash" */,
 			);
 			productRefGroup = D0FA1671243ABD3100115589 /* Products */;
 			projectDirPath = "";
@@ -939,34 +935,34 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D04F0296253E931F008CB77F /* XCRemoteSwiftPackageReference "LifeHash" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/BlockchainCommons/LifeHash";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.2.0;
-			};
-		};
-		D04F0299253E934F008CB77F /* XCRemoteSwiftPackageReference "URKit" */ = {
+		0A4151AB2640EED300E23C99 /* XCRemoteSwiftPackageReference "URKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/BlockchainCommons/URKit";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				minimumVersion = 2.4.0;
+			};
+		};
+		0A4151B12640EF7200E23C99 /* XCRemoteSwiftPackageReference "LifeHash" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BlockchainCommons/LifeHash";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.2.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D04F0297253E931F008CB77F /* LifeHash */ = {
+		0A4151AC2640EED300E23C99 /* URKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D04F0296253E931F008CB77F /* XCRemoteSwiftPackageReference "LifeHash" */;
-			productName = LifeHash;
-		};
-		D04F029A253E934F008CB77F /* URKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D04F0299253E934F008CB77F /* XCRemoteSwiftPackageReference "URKit" */;
+			package = 0A4151AB2640EED300E23C99 /* XCRemoteSwiftPackageReference "URKit" */;
 			productName = URKit;
+		};
+		0A4151B22640EF7200E23C99 /* LifeHash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A4151B12640EF7200E23C99 /* XCRemoteSwiftPackageReference "LifeHash" */;
+			productName = LifeHash;
 		};
 /* End XCSwiftPackageProductDependency section */
 

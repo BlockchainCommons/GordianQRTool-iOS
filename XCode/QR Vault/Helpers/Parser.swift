@@ -25,7 +25,7 @@ class Parser {
     }
     
     private class func isMnemonic(_ item: String) -> Bool {
-        guard let _ = BIP39Mnemonic(item.processed()) else { return false }
+        guard let _ = try? BIP39Mnemonic(words: item.processed()) else { return false }
         
         return true
     }
@@ -42,20 +42,22 @@ class Parser {
     }
     
     private class func isShard(_ item: String) -> Bool {
-        guard let hexData = Data(item), let _ = URHelper.shardToUr(data: hexData) else { return false }
+        guard let hexData = Data(base64Encoded: item), let _ = URHelper.shardToUr(data: hexData) else { return false }
         
         return true
     }
     
     class func parse(_ item: String) -> String {
-        if isQuickConnect(item) {
+        let processed = item.lowercased()
+        
+        if isQuickConnect(processed) {
             return "Quick Connect"
             
-        } else if isMnemonic(item) {
+        } else if isMnemonic(processed) {
             return "Mnemonic"
             
-        } else if item.hasPrefix("ur:") {
-            if let ur = try? URDecoder.decode(item) {
+        } else if processed.hasPrefix("ur:") {
+            if let ur = try? URDecoder.decode(processed) {
                 return ur.type
                 
             } else {
@@ -63,10 +65,10 @@ class Parser {
                 
             }
             
-        } else if isAccountMap(item) {
+        } else if isAccountMap(processed) {
             return "Account Map"
             
-        } else if isShard(item) {
+        } else if isShard(processed) {
             return "SSKR Shard"
             
         } else {

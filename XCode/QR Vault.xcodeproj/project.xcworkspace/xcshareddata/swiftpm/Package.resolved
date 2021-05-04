@@ -2,12 +2,21 @@
   "object": {
     "pins": [
       {
+        "package": "CLifeHash",
+        "repositoryURL": "https://github.com/BlockchainCommons/bc-lifehash",
+        "state": {
+          "branch": null,
+          "revision": "518f4398982a327fd14d745d192e28b23f44463f",
+          "version": "0.4.0"
+        }
+      },
+      {
         "package": "LifeHash",
         "repositoryURL": "https://github.com/BlockchainCommons/LifeHash",
         "state": {
           "branch": null,
-          "revision": "73229c279377cdd17cede1670e89ddc427d88497",
-          "version": "4.2.0"
+          "revision": "f9a6b2a843778c0e4d7ebab096e5959c142e96c9",
+          "version": "6.2.1"
         }
       },
       {
@@ -15,8 +24,8 @@
         "repositoryURL": "https://github.com/BlockchainCommons/URKit",
         "state": {
           "branch": null,
-          "revision": "d8bd505b2e6b3a85ed7cf1c5b4b2499b7f9958f8",
-          "version": "2.0.0"
+          "revision": "ad8915b0c0a2a56eb653f686f77445ce72267c6d",
+          "version": "2.4.0"
         }
       }
     ]

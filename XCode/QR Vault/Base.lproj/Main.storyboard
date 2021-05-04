@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cod-qw-hQJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cod-qw-hQJ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +16,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="ztk-At-BcD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" systemColor="systemTealColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Ixv-bz-nlE"/>
@@ -55,7 +57,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mar 20 2020" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtf-64-eKn">
-                                                    <rect key="frame" x="331.5" y="46" width="62.5" height="12"/>
+                                                    <rect key="frame" x="332" y="46" width="62" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -79,7 +81,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                                    <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="Et5-WL-oL3"/>
                                                         <constraint firstItem="3pC-Mc-JDK" firstAttribute="leading" secondItem="QJZ-4J-dX8" secondAttribute="leading" constant="8" id="P13-lC-mvc"/>
@@ -118,6 +120,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="RaG-Hw-3yS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HzL-0C-YYG"/>
@@ -125,17 +128,16 @@
                             <constraint firstItem="RaG-Hw-3yS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Pzl-TE-j2Q"/>
                             <constraint firstItem="RaG-Hw-3yS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zbf-Fw-Ioc"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="lKg-Uc-8Xn">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="LL9-3J-8mK">
-                            <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" systemColor="systemTealColor"/>
                             <connections>
                                 <action selector="editAction:" destination="BYZ-38-t0r" id="iXD-He-58l"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="C9U-ni-Tij">
-                            <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" systemColor="systemTealColor"/>
                             <connections>
                                 <action selector="addQr:" destination="BYZ-38-t0r" id="TWF-ht-AF5"/>
                             </connections>
@@ -202,13 +204,13 @@ You can either support us by becoming a GitHub sponsor in which case GitHub is g
                                     <constraint firstAttribute="height" constant="46" id="2pQ-pC-sGe"/>
                                     <constraint firstAttribute="width" constant="261" id="kDQ-NF-GXB"/>
                                 </constraints>
-                                <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemPinkColor"/>
                                 <state key="normal" title="   GitHub Sponsor" image="heart" catalog="system"/>
                                 <connections>
                                     <action selector="sponsorAction:" destination="D2L-Mo-ygs" eventType="touchUpInside" id="Vl0-RZ-06O"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NFH-c2-a1y">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NFH-c2-a1y">
                                 <rect key="frame" x="76.5" y="753" width="261" height="46"/>
                                 <color key="backgroundColor" red="0.10300999365482233" green="0.10300999365482233" blue="0.10300999365482233" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -224,6 +226,7 @@ You can either support us by becoming a GitHub sponsor in which case GitHub is g
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="8tS-uA-cj4"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6zk-E7-br4" firstAttribute="top" secondItem="8tS-uA-cj4" secondAttribute="top" constant="24" id="2Mo-BX-qz9"/>
@@ -242,7 +245,6 @@ You can either support us by becoming a GitHub sponsor in which case GitHub is g
                             <constraint firstItem="thO-2P-wjS" firstAttribute="centerX" secondItem="5Wc-rx-rZc" secondAttribute="centerX" id="ZtZ-5N-qtt"/>
                             <constraint firstItem="Ixw-pO-2H9" firstAttribute="top" secondItem="dC8-Mg-ni4" secondAttribute="bottom" constant="8" id="xNb-eY-XJJ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="8tS-uA-cj4"/>
                     </view>
                     <connections>
                         <outlet property="donateOutlet" destination="NFH-c2-a1y" id="6be-tt-WOz"/>
@@ -270,29 +272,42 @@ You can either support us by becoming a GitHub sponsor in which case GitHub is g
                                             <rect key="frame" x="0.0" y="0.0" width="378" height="66"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nZf-Rc-4Ek">
-                                                    <rect key="frame" x="8" y="16" width="306" height="34"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nZf-Rc-4Ek">
+                                                    <rect key="frame" x="66" y="16" width="264" height="34"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CcW-wV-b0e">
-                                                    <rect key="frame" x="322" y="18" width="48" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CcW-wV-b0e">
+                                                    <rect key="frame" x="338" y="18" width="32" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="iRa-y2-Uuu"/>
+                                                        <constraint firstAttribute="width" constant="32" id="sTp-lL-fYk"/>
+                                                    </constraints>
                                                     <state key="normal" title="save">
-                                                        <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" systemColor="systemTealColor"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="updateAction:" destination="wh2-ib-46m" eventType="touchUpInside" id="6H1-Er-bZP"/>
                                                     </connections>
                                                 </button>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w0J-Gj-lIs">
+                                                    <rect key="frame" x="8" y="8" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="OdG-mC-dIb"/>
+                                                        <constraint firstAttribute="width" constant="50" id="rDY-ql-spV"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="nZf-Rc-4Ek" firstAttribute="leading" secondItem="w0J-Gj-lIs" secondAttribute="trailing" constant="8" symbolic="YES" id="I1T-Uh-nYk"/>
                                                 <constraint firstItem="CcW-wV-b0e" firstAttribute="leading" secondItem="nZf-Rc-4Ek" secondAttribute="trailing" constant="8" id="Lb9-la-CKc"/>
-                                                <constraint firstItem="nZf-Rc-4Ek" firstAttribute="leading" secondItem="qT8-2H-DwD" secondAttribute="leading" constant="8" id="QJv-CS-kfX"/>
                                                 <constraint firstItem="nZf-Rc-4Ek" firstAttribute="centerY" secondItem="qT8-2H-DwD" secondAttribute="centerY" id="VP1-ZN-fNw"/>
                                                 <constraint firstAttribute="trailing" secondItem="CcW-wV-b0e" secondAttribute="trailing" constant="8" id="XRQ-vX-AZA"/>
                                                 <constraint firstItem="CcW-wV-b0e" firstAttribute="centerY" secondItem="nZf-Rc-4Ek" secondAttribute="centerY" id="c5i-bi-pcK"/>
+                                                <constraint firstItem="w0J-Gj-lIs" firstAttribute="leading" secondItem="qT8-2H-DwD" secondAttribute="leading" constant="8" id="i2E-Im-uDd"/>
+                                                <constraint firstItem="w0J-Gj-lIs" firstAttribute="centerY" secondItem="qT8-2H-DwD" secondAttribute="centerY" id="lmU-BD-hrp"/>
                                             </constraints>
                                         </view>
                                         <constraints>
@@ -308,7 +323,7 @@ You can either support us by becoming a GitHub sponsor in which case GitHub is g
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5SX-85-1Tu">
                                                     <rect key="frame" x="347" y="8" width="19" height="22"/>
-                                                    <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" systemColor="systemTealColor"/>
                                                     <state key="normal" image="square.and.arrow.up" catalog="system"/>
                                                     <connections>
                                                         <action selector="shareQr:" destination="wh2-ib-46m" eventType="touchUpInside" id="VQD-Gq-bae"/>
@@ -342,7 +357,7 @@ You can either support us by becoming a GitHub sponsor in which case GitHub is g
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxK-QO-b8r">
                                                     <rect key="frame" x="351" y="8" width="19" height="22"/>
-                                                    <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" systemColor="systemTealColor"/>
                                                     <state key="normal" image="square.and.arrow.up" catalog="system"/>
                                                     <connections>
                                                         <action selector="shareText:" destination="wh2-ib-46m" eventType="touchUpInside" id="F72-nf-u1D"/>
@@ -379,16 +394,17 @@ You can either support us by becoming a GitHub sponsor in which case GitHub is g
                                     <constraint firstAttribute="height" constant="436" id="mVW-Nl-VP6"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="few-Wo-ZdG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="few-Wo-ZdG">
                                 <rect key="frame" x="159.5" y="720" width="95" height="30"/>
                                 <state key="normal" title="convert to UR">
-                                    <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" systemColor="systemTealColor"/>
                                 </state>
                                 <connections>
                                     <action selector="convertAction:" destination="wh2-ib-46m" eventType="touchUpInside" id="7X9-jp-QPA"/>
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="OeO-gj-isu"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="OeO-gj-isu" firstAttribute="bottom" secondItem="few-Wo-ZdG" secondAttribute="bottom" constant="24" id="233-P7-UQk"/>
@@ -397,11 +413,10 @@ You can either support us by becoming a GitHub sponsor in which case GitHub is g
                             <constraint firstItem="few-Wo-ZdG" firstAttribute="centerX" secondItem="GNx-SL-c6C" secondAttribute="centerX" id="O1O-9O-xAd"/>
                             <constraint firstItem="Xop-mZ-XaH" firstAttribute="top" secondItem="OeO-gj-isu" secondAttribute="top" constant="17" id="xaJ-uY-gxg"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="OeO-gj-isu"/>
                     </view>
                     <navigationItem key="navigationItem" title="Export QR" id="GuZ-4m-bBS">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="7ce-AS-so1">
-                            <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" systemColor="systemTealColor"/>
                             <connections>
                                 <action selector="deleteAction:" destination="wh2-ib-46m" id="WsT-1Z-URs"/>
                             </connections>
@@ -414,6 +429,7 @@ You can either support us by becoming a GitHub sponsor in which case GitHub is g
                         <outlet property="convertToUrOutlet" destination="few-Wo-ZdG" id="8Gg-Nl-lhg"/>
                         <outlet property="imageView" destination="wiM-ts-WuB" id="0dv-ge-5HP"/>
                         <outlet property="labelField" destination="nZf-Rc-4Ek" id="eiW-L1-0d6"/>
+                        <outlet property="lifehashImageView" destination="w0J-Gj-lIs" id="KgN-LJ-6FI"/>
                         <outlet property="shareQrOutlet" destination="5SX-85-1Tu" id="baQ-x5-J7E"/>
                         <outlet property="shareTextOutlet" destination="wxK-QO-b8r" id="ETo-gJ-S9a"/>
                         <outlet property="textView" destination="Aox-KN-E2P" id="rmY-2l-8KJ"/>
@@ -435,14 +451,14 @@ You can either support us by becoming a GitHub sponsor in which case GitHub is g
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="cwB-qS-YHF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4EP-sF-Dpk" firstAttribute="leading" secondItem="cwB-qS-YHF" secondAttribute="leading" id="2uW-Ps-Bay"/>
                             <constraint firstItem="4EP-sF-Dpk" firstAttribute="bottom" secondItem="cwB-qS-YHF" secondAttribute="bottom" id="YbX-qi-htG"/>
                             <constraint firstItem="4EP-sF-Dpk" firstAttribute="trailing" secondItem="cwB-qS-YHF" secondAttribute="trailing" id="hLo-hF-cXO"/>
                             <constraint firstItem="4EP-sF-Dpk" firstAttribute="top" secondItem="cwB-qS-YHF" secondAttribute="top" id="loe-to-wrB"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="cwB-qS-YHF"/>
                     </view>
                     <navigationItem key="navigationItem" id="2id-0d-E2X">
                         <barButtonItem key="rightBarButtonItem" image="textbox" catalog="system" id="jH4-nH-ubx">
@@ -469,7 +485,7 @@ You can either support us by becoming a GitHub sponsor in which case GitHub is g
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Give your QR a label:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5Y-5b-WTg">
-                                <rect key="frame" x="20" y="22" width="159" height="21"/>
+                                <rect key="frame" x="20" y="22" width="158" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -488,22 +504,23 @@ You can either support us by becoming a GitHub sponsor in which case GitHub is g
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm QR text:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wX4-cr-cmF">
-                                <rect key="frame" x="20" y="100" width="128" height="21"/>
+                                <rect key="frame" x="20" y="100" width="126.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEb-xR-TMp">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEb-xR-TMp">
                                 <rect key="frame" x="360" y="13" width="34" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Save">
-                                    <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" systemColor="systemTealColor"/>
                                 </state>
                                 <connections>
                                     <action selector="saveAction:" destination="i5i-iX-7S2" eventType="touchUpInside" id="nfU-Sc-K6J"/>
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="VIU-F6-G1E"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="aOf-lR-1VI" firstAttribute="bottom" secondItem="VIU-F6-G1E" secondAttribute="bottom" id="2Vt-cb-FxW"/>
@@ -520,7 +537,6 @@ You can either support us by becoming a GitHub sponsor in which case GitHub is g
                             <constraint firstItem="VIU-F6-G1E" firstAttribute="trailing" secondItem="r0f-Jj-fOE" secondAttribute="trailing" constant="20" id="lrQ-mw-Qgr"/>
                             <constraint firstItem="r0f-Jj-fOE" firstAttribute="leading" secondItem="VIU-F6-G1E" secondAttribute="leading" constant="20" id="uMK-UQ-a5M"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="VIU-F6-G1E"/>
                     </view>
                     <navigationItem key="navigationItem" id="Qq6-UV-rcb"/>
                     <connections>
@@ -542,5 +558,17 @@ You can either support us by becoming a GitHub sponsor in which case GitHub is g
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="textbox" catalog="system" width="128" height="91"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="viewFlipsideBackgroundColor">
+            <color red="0.1215686274509804" green="0.12941176470588239" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

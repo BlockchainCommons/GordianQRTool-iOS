@@ -104,8 +104,8 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             
             typeLabel.textAlignment = .center
             typeBackground.layer.cornerRadius = 8
-            imageView.clipsToBounds = true
-            imageView.layer.cornerRadius = 8
+//            imageView.clipsToBounds = true
+//            imageView.layer.cornerRadius = 8
             
             label.text = reducedName(text: str.label)
             date.text = formatDate(date: str.dateAdded)
