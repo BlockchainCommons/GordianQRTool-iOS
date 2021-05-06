@@ -8,6 +8,7 @@
 
 import UIKit
 import AuthenticationServices
+import LibWally
 
 class HomeViewController: UIViewController, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
     
@@ -128,11 +129,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             }
             
             if type == "Account Map" {
-                if let descData = descriptor(str.qrData) {
-                    imageView.image = LifeHash.image(descData)
-                } else {
-                    imageView.image = LifeHash.image(str.qrData)
-                }
+                imageView.image = DeriveLifehash.lifehash(str.qrData)//descriptorLifehash(str.qrData)
             } else {
                 imageView.image = LifeHash.image(str.qrData)
             }
@@ -281,6 +278,65 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         dateFormatter.timeZone = .current
         dateFormatter.dateFormat = "yyyy-MMM-dd hh:mm"
         return dateFormatter.string(from: date)
+    }
+    
+    private func descriptorLifehash(_ accountMap: Data) -> UIImage? {
+        
+//        let jsonString = String(data: accountMap, encoding: .utf8)
+//
+//        guard let dict = try? JSONSerialization.jsonObject(with: jsonString, options: []) as? [String:Any],
+//              var descriptor = dict["descriptor"] as? String else {
+//
+//            return nil
+//        }
+        
+        guard let decryptedQr = Encryption.decrypt(accountMap) else { return nil }
+        
+        guard let dict = try? JSONSerialization.jsonObject(with: decryptedQr, options: []) as? [String : Any] else { return nil }
+        print("dict: \(dict)")
+              
+        guard var descriptor = dict["descriptor"] as? String else { return nil }
+        
+        var dictArray = [[String:String]]()
+        let descriptorParser = DescriptorParser()
+        let descStruct = descriptorParser.descriptor(descriptor)
+        
+        for keyWithPath in descStruct.keysWithPath {
+            
+            let arr = keyWithPath.split(separator: "]")
+            
+            if arr.count > 1 {
+                var xpubString = "\(arr[1].replacingOccurrences(of: "))", with: ""))"
+                xpubString = xpubString.replacingOccurrences(of: "/0/*", with: "")
+                
+                guard let xpub = try? HDKey(base58: xpubString) else {
+                    return nil
+                }
+                
+                let dict = ["path":"\(arr[0])]", "key": xpub.description]
+                dictArray.append(dict)
+            }
+        }
+        
+        dictArray.sort(by: {($0["key"]!) < $1["key"]!})
+        
+        var sortedKeys = ""
+        
+        for (i, sortedItem) in dictArray.enumerated() {
+            let path = sortedItem["path"]!
+            let key = sortedItem["key"]!
+            let fullKey = path + key
+            sortedKeys += fullKey
+            
+            if i + 1 < dictArray.count {
+                sortedKeys += ","
+            }
+        }
+        
+        let arr2 = descriptor.split(separator: ",")
+        descriptor = "\(arr2[0])," + sortedKeys + "))"
+        
+        return LifeHash.image(descriptor)
     }
     
     private func addAuth() {

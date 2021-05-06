@@ -281,16 +281,9 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             let type = self.parse(qr.qrData)
             
             if type == "Account Map" {
-                if let descData = self.descriptor(qr.qrData) {
-                    DispatchQueue.main.async { [weak self] in
-                        guard let self = self else { return }
-                        self.lifehashImageView.image = LifeHash.image(descData)
-                    }
-                } else {
-                    DispatchQueue.main.async { [weak self] in
-                        guard let self = self else { return }
-                        self.imageView.image = LifeHash.image(qr.qrData)
-                    }
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.lifehashImageView.image = DeriveLifehash.lifehash(qr.qrData)//LifeHash.image(descData)
                 }
             } else {
                 self.lifehashImageView.image = LifeHash.image(qr.qrData)
