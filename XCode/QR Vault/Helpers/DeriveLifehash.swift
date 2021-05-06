@@ -12,8 +12,18 @@ import LibWally
 
 class DeriveLifehash {
     
-    static func urLifehash(_ ur: String) -> UIImage? {
+    static func hdkeyLifehash(_ hdkey: String) -> UIImage? {
         return nil
+    }
+    
+    static func urLifehash(_ ur: String) -> UIImage? {
+        let processedUr = ur.lowercased().condenseWhitespace()
+        switch processedUr {
+        case _ where ur.hasPrefix("ur:crypto-hdkey"):
+            return hdkeyLifehash(processedUr)
+        default:
+            return LifeHash.image(processedUr)
+        }
     }
     
     static func descriptorLifehash(_ dict: [String:Any]) -> UIImage? {
@@ -63,7 +73,9 @@ class DeriveLifehash {
     }
     
     static func lifehash(_ encryptedData: Data) -> UIImage? {
-        guard let decryptedItem = Encryption.decrypt(encryptedData) else { return nil }
+        guard let decryptedItem = Encryption.decrypt(encryptedData) else {
+            return LifeHash.image(encryptedData)
+        }
                 
         if let dict = try? JSONSerialization.jsonObject(with: decryptedItem, options: []) as? [String : Any] {
             return descriptorLifehash(dict)
