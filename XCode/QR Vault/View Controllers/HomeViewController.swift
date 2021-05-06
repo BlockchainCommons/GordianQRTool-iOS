@@ -117,21 +117,16 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             
             label.text = reducedName(text: str.label)
             date.text = formatDate(date: str.dateAdded)
+            imageView.image = DeriveLifehash.lifehash(str.qrData)
             
             let type = parse(str.qrData)
-            
+
             if type != "" {
                 typeLabel.alpha = 1
                 typeLabel.text = type
             } else {
                 typeLabel.alpha = 1
                 typeLabel.text = "unknown"
-            }
-            
-            if type == "Account Map" {
-                imageView.image = DeriveLifehash.lifehash(str.qrData)//descriptorLifehash(str.qrData)
-            } else {
-                imageView.image = LifeHash.image(str.qrData)
             }
             
             return qrCell

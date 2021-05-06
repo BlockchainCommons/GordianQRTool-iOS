@@ -12,20 +12,20 @@ import LibWally
 
 class DeriveLifehash {
     
-    static func lifehash(_ encryptedData: Data) -> UIImage? {
-        
-        guard let decryptedItem = Encryption.decrypt(encryptedData) else { return nil }
-        
-        guard let dict = try? JSONSerialization.jsonObject(with: decryptedItem, options: []) as? [String : Any] else { return nil }
-              
-        guard var descriptor = dict["descriptor"] as? String else { return nil }
+    static func urLifehash(_ ur: String) -> UIImage? {
+        return nil
+    }
+    
+    static func descriptorLifehash(_ dict: [String:Any]) -> UIImage? {
+        guard var descriptor = dict["descriptor"] as? String else {
+            return LifeHash.image(dict.description.utf8)
+        }
         
         var dictArray = [[String:String]]()
         let descriptorParser = DescriptorParser()
         let descStruct = descriptorParser.descriptor(descriptor)
         
         for keyWithPath in descStruct.keysWithPath {
-            
             let arr = keyWithPath.split(separator: "]")
             
             if arr.count > 1 {
@@ -60,6 +60,18 @@ class DeriveLifehash {
         descriptor = "\(arr2[0])," + sortedKeys + "))"
         
         return LifeHash.image(descriptor)
+    }
+    
+    static func lifehash(_ encryptedData: Data) -> UIImage? {
+        guard let decryptedItem = Encryption.decrypt(encryptedData) else { return nil }
+                
+        if let dict = try? JSONSerialization.jsonObject(with: decryptedItem, options: []) as? [String : Any] {
+            return descriptorLifehash(dict)
+        } else if decryptedItem.utf8.lowercased().hasPrefix("ur:") {
+            return urLifehash(decryptedItem.utf8.lowercased())
+        } else {
+            return LifeHash.image(decryptedItem.utf8)
+        }
     }
     
 }

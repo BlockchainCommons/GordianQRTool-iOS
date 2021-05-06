@@ -278,16 +278,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
                 self.convertToUrOutlet.alpha = 0
             }
             
-            let type = self.parse(qr.qrData)
-            
-            if type == "Account Map" {
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
-                    self.lifehashImageView.image = DeriveLifehash.lifehash(qr.qrData)//LifeHash.image(descData)
-                }
-            } else {
-                self.lifehashImageView.image = LifeHash.image(qr.qrData)
-            }
+            self.lifehashImageView.image = DeriveLifehash.lifehash(qr.qrData)
         }
     }
     
