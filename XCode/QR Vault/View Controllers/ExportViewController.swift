@@ -25,26 +25,34 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     @IBOutlet weak private var backgroundQrView: UIVisualEffectView!
     @IBOutlet weak private var convertToUrOutlet: UIButton!
     @IBOutlet weak private var backgroundTextView: UIVisualEffectView!
+    @IBOutlet weak private var backgroundTypeView: UIVisualEffectView!
+    @IBOutlet weak private var typeTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.delegate = self
         labelField.delegate = self
+        typeTextField.delegate = self
         setTitleView()
         textView.text = ""
         shareQrOutlet.alpha = 0
         shareTextOutlet.alpha = 0
         textView.alpha = 0
-        backgroundQrView.clipsToBounds = true
-        backgroundQrView.layer.cornerRadius = 8
-        backgroundLabelView.clipsToBounds = true
-        backgroundLabelView.layer.cornerRadius = 8
-        backgroundTextView.clipsToBounds = true
-        backgroundTextView.layer.cornerRadius = 8
+        roundCorners(backgroundTypeView)
+        roundCorners(backgroundQrView)
+        roundCorners(backgroundLabelView)
+        roundCorners(backgroundTextView)
         convertToUrOutlet.showsTouchWhenHighlighted = true
         tap.addTarget(self, action: #selector(handleTap))
         view.addGestureRecognizer(tap)
+    }
+    
+    private func roundCorners(_ view: UIView) {
+        DispatchQueue.main.async {
+            view.clipsToBounds = true
+            view.layer.cornerRadius = 8
+        }
     }
     
     private func setTitleView() {
@@ -75,24 +83,32 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         
         guard labelField.text != "" else { return }
         
-        promptToUpdateLabel()
+        self.updateLabel()
     }
     
-    private func promptToUpdateLabel() {
-        DispatchQueue.main.async { [weak self] in
+    @IBAction func updateTypeAction(_ sender: Any) {
+        typeTextField.resignFirstResponder()
+        
+        guard typeTextField.text != "" else { return }
+        
+        self.updateType()
+    }
+    
+    private func updateType() {
+        guard typeTextField.text != "" else {
+            showAlert(title: "Uh-oh", message: "There is no text to save")
+            return
+        }
+        
+        CoreDataService.updateEntity(id: id, keyToUpdate: "type", newValue: typeTextField.text!) { [weak self] (success, errorDescription) in
             guard let self = self else { return }
             
-            let alert = UIAlertController(title: "Update label?", message: "", preferredStyle: .actionSheet)
+            guard success else {
+                self.showAlert(title: "There was a problem...", message: "We had an issue saving the updated type: \(errorDescription ?? "unknown error")")
+                return
+            }
             
-            alert.addAction(UIAlertAction(title: "Update", style: .default, handler: { [weak self] action in
-                guard let self = self else { return }
-                
-                self.updateLabel()
-            }))
-            
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in }))
-            alert.popoverPresentationController?.sourceView = self.view
-            self.present(alert, animated: true, completion: nil)
+            self.showAlert(title: "", message: "Type updated ✓")
         }
     }
     
@@ -111,6 +127,28 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             }
             
             self.showAlert(title: "Label updated ✅", message: "")
+        }
+    }
+    
+    private func setType(_ qr: QRStruct) {
+        guard let type = qr.type else {
+            guard let text = textView.text else { return }
+            
+            let result = Parser.parse(text)
+            
+            self.setTypeText(result)
+            
+            return
+        }
+        
+        self.setTypeText(type)
+    }
+    
+    private func setTypeText(_ text: String) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.typeTextField.text = text
         }
     }
     
@@ -279,6 +317,8 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             }
             
             self.lifehashImageView.image = DeriveLifehash.lifehash(qr.qrData)
+            
+            self.setType(qr)
         }
     }
     
@@ -397,6 +437,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             guard let self = self else { return }
             
             self.labelField.resignFirstResponder()
+            self.typeTextField.resignFirstResponder()
         }
         #endif
         

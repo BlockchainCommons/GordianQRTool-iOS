@@ -43,7 +43,7 @@ public extension String {
     
 }
 
-extension Data {
+public extension Data {
     static func random(_ len: Int) -> Data {
         let values = (0 ..< len).map { _ in UInt8.random(in: 0 ... 255) }
         return Data(values)
@@ -57,6 +57,41 @@ extension Data {
         var b: [UInt8] = []
         b.append(contentsOf: self)
         return b
+    }
+}
+
+public extension Data {
+    /// A hexadecimal string representation of the bytes.
+      var hexString: String {
+      let hexDigits = Array("0123456789abcdef".utf16)
+      var hexChars = [UTF16.CodeUnit]()
+      hexChars.reserveCapacity(count * 2)
+
+      for byte in self {
+        let (index1, index2) = Int(byte).quotientAndRemainder(dividingBy: 16)
+        hexChars.append(hexDigits[index1])
+        hexChars.append(hexDigits[index2])
+      }
+
+      return String(utf16CodeUnits: hexChars, count: hexChars.count)
+    }
+}
+
+public extension Data {
+    init?(hexString: String) {
+        let len = hexString.count / 2
+        var data = Data(capacity: len)
+        for i in 0..<len {
+            let j = hexString.index(hexString.startIndex, offsetBy: i*2)
+            let k = hexString.index(j, offsetBy: 2)
+            let bytes = hexString[j..<k]
+            if var num = UInt8(bytes, radix: 16) {
+                data.append(&num, count: 1)
+            } else {
+                return nil
+            }
+        }
+        self = data
     }
 }
 

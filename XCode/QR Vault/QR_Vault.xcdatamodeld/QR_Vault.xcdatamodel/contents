@@ -5,8 +5,9 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="label" optional="YES" attributeType="String"/>
         <attribute name="qrData" optional="YES" attributeType="Binary"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="QR" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="QR" positionX="-63" positionY="-18" width="128" height="104"/>
     </elements>
 </model>

@@ -15,6 +15,7 @@ public struct QRStruct: CustomStringConvertible {
     let qrText:String
     let id:UUID
     let qrData:Data
+    let type:String?
     
     init(dictionary: [String: Any]) {
         
@@ -23,7 +24,7 @@ public struct QRStruct: CustomStringConvertible {
         self.qrText = dictionary["qrText"] as? String ?? ""
         self.id = dictionary["id"] as! UUID
         self.qrData = dictionary["qrData"] as! Data
-        
+        self.type = dictionary["type"] as? String
     }
     
     public var description: String {

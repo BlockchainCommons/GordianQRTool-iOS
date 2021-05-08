@@ -119,15 +119,20 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             date.text = formatDate(date: str.dateAdded)
             imageView.image = DeriveLifehash.lifehash(str.qrData)
             
-            let type = parse(str.qrData)
-
-            if type != "" {
+            if str.type != nil {
                 typeLabel.alpha = 1
-                typeLabel.text = type
+                typeLabel.text = str.type
             } else {
-                typeLabel.alpha = 1
-                typeLabel.text = "unknown"
-            }
+                let type = parse(str.qrData)
+
+                if type != "" {
+                    typeLabel.alpha = 1
+                    typeLabel.text = type
+                } else {
+                    typeLabel.alpha = 1
+                    typeLabel.text = "unknown"
+                }
+            }            
             
             return qrCell
         }

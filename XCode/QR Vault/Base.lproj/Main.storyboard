@@ -263,8 +263,8 @@ You can either support us by becoming a GitHub sponsor in which case GitHub is g
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Xop-mZ-XaH">
-                                <rect key="frame" x="18" y="17" width="378" height="436"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="Xop-mZ-XaH">
+                                <rect key="frame" x="18" y="17" width="378" height="570"/>
                                 <subviews>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ldy-pp-3hQ">
                                         <rect key="frame" x="0.0" y="0.0" width="378" height="66"/>
@@ -315,8 +315,56 @@ You can either support us by becoming a GitHub sponsor in which case GitHub is g
                                         </constraints>
                                         <blurEffect style="systemChromeMaterialDark"/>
                                     </visualEffectView>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZFa-fA-3bI">
+                                        <rect key="frame" x="0.0" y="102" width="378" height="66"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bV4-dY-NuM">
+                                            <rect key="frame" x="0.0" y="0.0" width="378" height="66"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N0a-Gt-7fd">
+                                                    <rect key="frame" x="58" y="16" width="272" height="34"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHr-Kc-SaZ">
+                                                    <rect key="frame" x="338" y="18" width="32" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="32" id="5b8-3c-flG"/>
+                                                        <constraint firstAttribute="height" constant="30" id="Cto-Q0-hzt"/>
+                                                    </constraints>
+                                                    <state key="normal" title="save">
+                                                        <color key="titleColor" systemColor="systemTealColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="updateTypeAction:" destination="wh2-ib-46m" eventType="touchUpInside" id="JD8-x3-Yzc"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jg-Fw-so7">
+                                                    <rect key="frame" x="8" y="23" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="N0a-Gt-7fd" firstAttribute="leading" secondItem="2jg-Fw-so7" secondAttribute="trailing" constant="8" symbolic="YES" id="4VB-bS-w9N"/>
+                                                <constraint firstItem="2jg-Fw-so7" firstAttribute="leading" secondItem="bV4-dY-NuM" secondAttribute="leading" constant="8" id="4pi-aY-kjh"/>
+                                                <constraint firstItem="2jg-Fw-so7" firstAttribute="centerY" secondItem="bV4-dY-NuM" secondAttribute="centerY" id="8J9-4q-RCv"/>
+                                                <constraint firstItem="N0a-Gt-7fd" firstAttribute="centerY" secondItem="bV4-dY-NuM" secondAttribute="centerY" id="CTE-Iq-UV5"/>
+                                                <constraint firstAttribute="trailing" secondItem="BHr-Kc-SaZ" secondAttribute="trailing" constant="8" id="i7y-uN-R2K"/>
+                                                <constraint firstItem="BHr-Kc-SaZ" firstAttribute="centerY" secondItem="N0a-Gt-7fd" secondAttribute="centerY" id="uXW-I1-EYo"/>
+                                                <constraint firstItem="BHr-Kc-SaZ" firstAttribute="leading" secondItem="N0a-Gt-7fd" secondAttribute="trailing" constant="8" id="zEd-DP-Qvh"/>
+                                            </constraints>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="66" id="Cnr-f3-pof"/>
+                                        </constraints>
+                                        <blurEffect style="systemChromeMaterialDark"/>
+                                    </visualEffectView>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KVe-R4-36N">
-                                        <rect key="frame" x="0.0" y="86" width="378" height="235"/>
+                                        <rect key="frame" x="0.0" y="204" width="378" height="235"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="c5e-rq-rID">
                                             <rect key="frame" x="0.0" y="0.0" width="378" height="235"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -329,8 +377,8 @@ You can either support us by becoming a GitHub sponsor in which case GitHub is g
                                                         <action selector="shareQr:" destination="wh2-ib-46m" eventType="touchUpInside" id="VQD-Gq-bae"/>
                                                     </connections>
                                                 </button>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wiM-ts-WuB">
-                                                    <rect key="frame" x="89" y="16" width="200" height="200"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wiM-ts-WuB">
+                                                    <rect key="frame" x="88.5" y="16" width="201" height="201"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="wiM-ts-WuB" secondAttribute="height" multiplier="1:1" id="lKT-6u-lmJ"/>
                                                     </constraints>
@@ -350,7 +398,7 @@ You can either support us by becoming a GitHub sponsor in which case GitHub is g
                                         <blurEffect style="dark"/>
                                     </visualEffectView>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7I-aN-Ke3">
-                                        <rect key="frame" x="0.0" y="341" width="378" height="95"/>
+                                        <rect key="frame" x="0.0" y="475" width="378" height="95"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="oBq-bv-9bC">
                                             <rect key="frame" x="0.0" y="0.0" width="378" height="95"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -390,9 +438,6 @@ You can either support us by becoming a GitHub sponsor in which case GitHub is g
                                         <blurEffect style="dark"/>
                                     </visualEffectView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="436" id="mVW-Nl-VP6"/>
-                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="few-Wo-ZdG">
                                 <rect key="frame" x="159.5" y="720" width="95" height="30"/>
@@ -426,6 +471,7 @@ You can either support us by becoming a GitHub sponsor in which case GitHub is g
                         <outlet property="backgroundLabelView" destination="Ldy-pp-3hQ" id="D5x-nK-PhV"/>
                         <outlet property="backgroundQrView" destination="KVe-R4-36N" id="cC7-Sg-i6D"/>
                         <outlet property="backgroundTextView" destination="b7I-aN-Ke3" id="fg6-Ry-aOB"/>
+                        <outlet property="backgroundTypeView" destination="ZFa-fA-3bI" id="Vdg-qa-5av"/>
                         <outlet property="convertToUrOutlet" destination="few-Wo-ZdG" id="8Gg-Nl-lhg"/>
                         <outlet property="imageView" destination="wiM-ts-WuB" id="0dv-ge-5HP"/>
                         <outlet property="labelField" destination="nZf-Rc-4Ek" id="eiW-L1-0d6"/>
@@ -433,6 +479,7 @@ You can either support us by becoming a GitHub sponsor in which case GitHub is g
                         <outlet property="shareQrOutlet" destination="5SX-85-1Tu" id="baQ-x5-J7E"/>
                         <outlet property="shareTextOutlet" destination="wxK-QO-b8r" id="ETo-gJ-S9a"/>
                         <outlet property="textView" destination="Aox-KN-E2P" id="rmY-2l-8KJ"/>
+                        <outlet property="typeTextField" destination="N0a-Gt-7fd" id="1cf-Vn-OWi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4eN-cd-2T9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
