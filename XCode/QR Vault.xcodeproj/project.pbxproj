@@ -42,8 +42,6 @@
 		D0FA1699243ABD3900115589 /* QR_VaultUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA1698243ABD3900115589 /* QR_VaultUITests.swift */; };
 		D0FA16A8243ABDF700115589 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA16A7243ABDF700115589 /* HomeViewController.swift */; };
 		D0FA16AE243ACCBD00115589 /* QRStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA16AD243ACCBD00115589 /* QRStruct.swift */; };
-		D0FA16B1243AD47900115589 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA16B0243AD47900115589 /* AddViewController.swift */; };
-		D0FA16B3243AD49A00115589 /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA16B2243AD49A00115589 /* QRScanner.swift */; };
 		D0FA16B6243AF18400115589 /* LabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA16B5243AF18400115589 /* LabelViewController.swift */; };
 		D0FA16B8243AF5E300115589 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA16B7243AF5E300115589 /* Keychain.swift */; };
 		D0FA16BA243AF6E500115589 /* Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA16B9243AF6E500115589 /* Encryption.swift */; };
@@ -140,8 +138,6 @@
 		D0FA16A6243ABD4500115589 /* QR Vault.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "QR Vault.entitlements"; sourceTree = "<group>"; };
 		D0FA16A7243ABDF700115589 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D0FA16AD243ACCBD00115589 /* QRStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRStruct.swift; sourceTree = "<group>"; };
-		D0FA16B0243AD47900115589 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
-		D0FA16B2243AD49A00115589 /* QRScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
 		D0FA16B5243AF18400115589 /* LabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelViewController.swift; sourceTree = "<group>"; };
 		D0FA16B7243AF5E300115589 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		D0FA16B9243AF6E500115589 /* Encryption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encryption.swift; sourceTree = "<group>"; };
@@ -280,7 +276,6 @@
 			isa = PBXGroup;
 			children = (
 				D0FA16A7243ABDF700115589 /* HomeViewController.swift */,
-				D0FA16B0243AD47900115589 /* AddViewController.swift */,
 				D0FA16B5243AF18400115589 /* LabelViewController.swift */,
 				D0FA16BF243B4BA000115589 /* ExportViewController.swift */,
 				D006E346243EBF9C007B1A5B /* SponsorViewController.swift */,
@@ -312,7 +307,6 @@
 		D0FA16B4243AD67E00115589 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				D0FA16B2243AD49A00115589 /* QRScanner.swift */,
 				D0FA16B7243AF5E300115589 /* Keychain.swift */,
 				D0FA16B9243AF6E500115589 /* Encryption.swift */,
 				D0FA16BB243B117C00115589 /* CoreDataManager.swift */,
@@ -517,7 +511,6 @@
 				D0FA1674243ABD3100115589 /* AppDelegate.swift in Sources */,
 				D0FA1676243ABD3100115589 /* SceneDelegate.swift in Sources */,
 				0A0AE50A2643948C00D6F85A /* DeriveLifehash.swift in Sources */,
-				D0FA16B1243AD47900115589 /* AddViewController.swift in Sources */,
 				D006E347243EBF9C007B1A5B /* SponsorViewController.swift in Sources */,
 				D04F029D253E9CE5008CB77F /* Parser.swift in Sources */,
 				D0FA16B6243AF18400115589 /* LabelViewController.swift in Sources */,
@@ -529,7 +522,6 @@
 				D0FA16C2243B4E2000115589 /* QRGenerator.swift in Sources */,
 				D04F02AA253EC660008CB77F /* UniformResource.swift in Sources */,
 				D0FA16C0243B4BA000115589 /* ExportViewController.swift in Sources */,
-				D0FA16B3243AD49A00115589 /* QRScanner.swift in Sources */,
 				0A0AE50026438D4E00D6F85A /* DescriptorParser.swift in Sources */,
 				D04F029F253EA847008CB77F /* Lifehash.swift in Sources */,
 				D0FA16BE243B25D100115589 /* Spinner.swift in Sources */,
@@ -611,7 +603,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.1.1;
+				CURRENT_PROJECT_VERSION = 0.1.3;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = YZHG975W3A;
 				INFOPLIST_FILE = ShareExt/Info.plist;
@@ -620,7 +612,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.1.1;
+				MARKETING_VERSION = 0.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockchaincommons.QRVault.ShareExt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -637,7 +629,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.1.1;
+				CURRENT_PROJECT_VERSION = 0.1.3;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = YZHG975W3A;
 				INFOPLIST_FILE = ShareExt/Info.plist;
@@ -646,7 +638,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.1.1;
+				MARKETING_VERSION = 0.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockchaincommons.QRVault.ShareExt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -779,7 +771,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.1.1;
+				CURRENT_PROJECT_VERSION = 0.1.3;
 				DEVELOPMENT_TEAM = YZHG975W3A;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "QR Vault/Info.plist";
@@ -788,7 +780,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.1;
+				MARKETING_VERSION = 0.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockchaincommons.QRVault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -808,7 +800,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.1.1;
+				CURRENT_PROJECT_VERSION = 0.1.3;
 				DEVELOPMENT_TEAM = YZHG975W3A;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "QR Vault/Info.plist";
@@ -817,7 +809,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.1;
+				MARKETING_VERSION = 0.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockchaincommons.QRVault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

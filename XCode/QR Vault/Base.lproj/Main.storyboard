@@ -153,7 +153,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="homeTable" destination="RaG-Hw-3yS" id="usG-cK-B13"/>
-                        <segue destination="er4-sf-0PJ" kind="show" identifier="addSegue" id="Avq-a9-Gke"/>
                         <segue destination="wh2-ib-46m" kind="show" identifier="exportSegue" id="aKJ-dm-hDd"/>
                         <segue destination="D2L-Mo-ygs" kind="presentation" identifier="supportSegue" id="xcH-Dn-BHp"/>
                         <segue destination="kzi-YC-089" kind="presentation" identifier="segueToScanQr" id="Oai-et-gHY"/>
@@ -486,44 +485,6 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
             </objects>
             <point key="canvasLocation" x="-2026.0869565217392" y="1481.9196428571429"/>
         </scene>
-        <!--Add View Controller-->
-        <scene sceneID="b8L-ML-5IG">
-            <objects>
-                <viewController id="er4-sf-0PJ" customClass="AddViewController" customModule="QR_Vault" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="et1-E9-Awj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4EP-sF-Dpk">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="cwB-qS-YHF"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="4EP-sF-Dpk" firstAttribute="leading" secondItem="cwB-qS-YHF" secondAttribute="leading" id="2uW-Ps-Bay"/>
-                            <constraint firstItem="4EP-sF-Dpk" firstAttribute="bottom" secondItem="cwB-qS-YHF" secondAttribute="bottom" id="YbX-qi-htG"/>
-                            <constraint firstItem="4EP-sF-Dpk" firstAttribute="trailing" secondItem="cwB-qS-YHF" secondAttribute="trailing" id="hLo-hF-cXO"/>
-                            <constraint firstItem="4EP-sF-Dpk" firstAttribute="top" secondItem="cwB-qS-YHF" secondAttribute="top" id="loe-to-wrB"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="2id-0d-E2X">
-                        <barButtonItem key="rightBarButtonItem" image="textbox" catalog="system" id="jH4-nH-ubx">
-                            <connections>
-                                <action selector="addAsText:" destination="er4-sf-0PJ" id="GAN-dW-dB3"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="imageView" destination="4EP-sF-Dpk" id="MDW-61-dGT"/>
-                        <segue destination="i5i-iX-7S2" kind="show" identifier="labelSegue" id="Mm9-Z7-mfL"/>
-                        <segue destination="D2L-Mo-ygs" kind="presentation" identifier="seeBlurbFromScanner" id="SuZ-hp-XVG"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rgH-Zz-oRi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-723.1884057971015" y="1490.625"/>
-        </scene>
         <!--Scanner View Controller-->
         <scene sceneID="hvu-gm-fWN">
             <objects>
@@ -603,7 +564,7 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KQ1-GY-wLe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="128.98550724637681" y="1494.6428571428571"/>
+            <point key="canvasLocation" x="184" y="1504"/>
         </scene>
         <!--Label View Controller-->
         <scene sceneID="5U2-78-wHu">
@@ -678,11 +639,10 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aex-WT-j7c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-723.1884057971015" y="2197.0982142857142"/>
+            <point key="canvasLocation" x="-745" y="1503"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="C77-r2-IBv"/>
         <segue reference="NJs-YR-Z5q"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -691,7 +651,6 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
         <image name="qrcode" catalog="system" width="128" height="114"/>
         <image name="qrcode.viewfinder" catalog="system" width="128" height="115"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
-        <image name="textbox" catalog="system" width="128" height="91"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
