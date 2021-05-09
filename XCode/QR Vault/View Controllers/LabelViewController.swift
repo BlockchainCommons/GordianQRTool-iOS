@@ -53,14 +53,25 @@ class LabelViewController: UIViewController, UITextFieldDelegate, UITextViewDele
         imageView.layer.cornerRadius = 15
         let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         imageView.frame = titleView.bounds
+        imageView.isUserInteractionEnabled = true
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(logoTapped))
+        imageView.addGestureRecognizer(tapRecognizer)
         titleView.addSubview(imageView)
         self.navigationItem.titleView = titleView
+    }
+    
+    @objc func logoTapped() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.performSegue(withIdentifier: "seeBlurbFromTextEntry", sender: self)
+        }
     }
     
     @objc func handleTap() {
         DispatchQueue.main.async { [unowned vc = self] in
             vc.textField.resignFirstResponder()
-            vc .textView.resignFirstResponder()
+            vc.textView.resignFirstResponder()
         }
     }
     

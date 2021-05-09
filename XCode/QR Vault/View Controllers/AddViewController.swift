@@ -33,6 +33,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        qrScanner.stopScanner()
         text = ""
     }
     
@@ -54,10 +55,21 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
         imageView.layer.cornerRadius = 15
         let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         imageView.frame = titleView.bounds
+        imageView.isUserInteractionEnabled = true
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(logoTapped))
+        imageView.addGestureRecognizer(tapRecognizer)
         titleView.addSubview(imageView)
         self.navigationItem.titleView = titleView
     }
     
+    @objc func logoTapped() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.performSegue(withIdentifier: "seeBlurbFromScanner", sender: self)
+        }
+    }
+        
     func configureScanner() {
         imageView.frame = view.frame
         imageView.isUserInteractionEnabled = true

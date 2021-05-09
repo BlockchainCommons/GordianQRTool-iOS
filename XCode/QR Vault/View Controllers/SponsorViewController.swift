@@ -20,11 +20,11 @@ class SponsorViewController: UIViewController {
     }
     
     @IBAction func sponsorAction(_ sender: Any) {
-        UIApplication.shared.open(URL(string: "https://github.com/sponsors/BlockchainCommons")!) { (Bool) in }
+        UIApplication.shared.open(URL(string: "https://github.com/BlockchainCommons")!) { (Bool) in }
     }
     
     @IBAction func donateAction(_ sender: Any) {
-        UIApplication.shared.open(URL(string: "https://btcpay.blockchaincommons.com")!) { (Bool) in }
+        UIApplication.shared.open(URL(string: "https://www.blockchaincommons.com")!) { (Bool) in }
     }
     
     @IBAction func close(_ sender: Any) {
