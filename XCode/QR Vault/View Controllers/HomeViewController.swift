@@ -48,6 +48,39 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     }
     
     @IBAction func pasteAction(_ sender: Any) {
+        if let data = UIPasteboard.general.data(forPasteboardType: "com.apple.traditional-mac-plain-text") {
+            guard let string = String(bytes: data, encoding: .utf8) else { return }
+            
+            self.textToAdd = string
+            self.segueToAddLabel()
+        } else if let string = UIPasteboard.general.string {
+            
+            self.textToAdd = string
+            self.segueToAddLabel()
+            
+        } else if UIPasteboard.general.hasImages {
+            if let image = UIPasteboard.general.image {
+                let detector:CIDetector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy:CIDetectorAccuracyHigh])!
+                let ciImage:CIImage = CIImage(image: image)!
+                var qrCodeLink = ""
+                let features = detector.features(in: ciImage)
+                for feature in features as! [CIQRCodeFeature] {
+                    qrCodeLink += feature.messageString!
+                }
+                self.textToAdd = qrCodeLink
+                self.segueToAddLabel()
+            }
+        } else {
+            QR_Vault.showAlert(self, "", "Whatever you have pasted does not seem to be valid text.")
+        }
+    }
+    
+    private func segueToAddLabel() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.performSegue(withIdentifier: "addLabelSegue", sender: self)
+        }
     }
     
     
