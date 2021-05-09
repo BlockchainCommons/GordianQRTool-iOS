@@ -136,18 +136,28 @@
                                 <action selector="editAction:" destination="BYZ-38-t0r" id="iXD-He-58l"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="C9U-ni-Tij">
-                            <color key="tintColor" systemColor="systemTealColor"/>
-                            <connections>
-                                <action selector="addQr:" destination="BYZ-38-t0r" id="TWF-ht-AF5"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="qrcode.viewfinder" catalog="system" id="C9U-ni-Tij">
+                                <color key="tintColor" systemColor="systemTealColor"/>
+                                <connections>
+                                    <action selector="addQr:" destination="BYZ-38-t0r" id="TWF-ht-AF5"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="doc.on.clipboard" catalog="system" id="arD-f6-5fV">
+                                <color key="tintColor" systemColor="systemTealColor"/>
+                                <connections>
+                                    <action selector="pasteAction:" destination="BYZ-38-t0r" id="XRX-dc-zTc"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="homeTable" destination="RaG-Hw-3yS" id="usG-cK-B13"/>
                         <segue destination="er4-sf-0PJ" kind="show" identifier="addSegue" id="Avq-a9-Gke"/>
                         <segue destination="wh2-ib-46m" kind="show" identifier="exportSegue" id="aKJ-dm-hDd"/>
                         <segue destination="D2L-Mo-ygs" kind="presentation" identifier="supportSegue" id="xcH-Dn-BHp"/>
+                        <segue destination="kzi-YC-089" kind="presentation" identifier="segueToScanQr" id="Oai-et-gHY"/>
+                        <segue destination="i5i-iX-7S2" kind="show" identifier="addLabelSegue" id="C77-r2-IBv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -514,6 +524,87 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
             </objects>
             <point key="canvasLocation" x="-723.1884057971015" y="1490.625"/>
         </scene>
+        <!--Scanner View Controller-->
+        <scene sceneID="hvu-gm-fWN">
+            <objects>
+                <viewController id="kzi-YC-089" customClass="QRScannerViewController" customModule="QR_Vault" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gNm-Iy-tMS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EHP-f4-AAn">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvN-Bh-PTv">
+                                <rect key="frame" x="20" y="739" width="374" height="69"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wjR-5K-DHK">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="69"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="l6C-QW-fUE">
+                                            <rect key="frame" x="8" y="32.5" width="358" height="4"/>
+                                        </progressView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gp8-rB-z9L">
+                                            <rect key="frame" x="8" y="8" width="358" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="1Fe-kr-jMA"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="l6C-QW-fUE" firstAttribute="leading" secondItem="wjR-5K-DHK" secondAttribute="leading" constant="8" id="RGS-aL-BbK"/>
+                                        <constraint firstItem="l6C-QW-fUE" firstAttribute="centerY" secondItem="wjR-5K-DHK" secondAttribute="centerY" id="UxT-VB-1hT"/>
+                                        <constraint firstItem="gp8-rB-z9L" firstAttribute="top" secondItem="wjR-5K-DHK" secondAttribute="top" constant="8" id="ZH7-Iz-Ncw"/>
+                                        <constraint firstItem="gp8-rB-z9L" firstAttribute="leading" secondItem="wjR-5K-DHK" secondAttribute="leading" constant="8" id="dBr-jl-XGj"/>
+                                        <constraint firstAttribute="trailing" secondItem="gp8-rB-z9L" secondAttribute="trailing" constant="8" id="mg5-2a-pJr"/>
+                                        <constraint firstAttribute="trailing" secondItem="l6C-QW-fUE" secondAttribute="trailing" constant="8" id="sWn-xu-ko2"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="EbF-qT-H0L"/>
+                                    <constraint firstAttribute="height" constant="69" id="bYg-Kd-BrP"/>
+                                </constraints>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLl-w6-kta">
+                                <rect key="frame" x="354" y="20" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Vdn-Aw-cf0"/>
+                                    <constraint firstAttribute="height" constant="40" id="wgq-UC-bei"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="closeAction:" destination="kzi-YC-089" eventType="touchUpInside" id="9wy-5v-wM4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qsx-6A-c4N"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qsx-6A-c4N" firstAttribute="trailing" secondItem="mLl-w6-kta" secondAttribute="trailing" constant="20" id="7pE-04-g8F"/>
+                            <constraint firstItem="EHP-f4-AAn" firstAttribute="trailing" secondItem="qsx-6A-c4N" secondAttribute="trailing" id="Nb3-ay-5XI"/>
+                            <constraint firstItem="EHP-f4-AAn" firstAttribute="leading" secondItem="qsx-6A-c4N" secondAttribute="leading" id="Nqy-Wx-V0p"/>
+                            <constraint firstItem="mLl-w6-kta" firstAttribute="top" secondItem="qsx-6A-c4N" secondAttribute="top" constant="20" id="OhD-e1-TSW"/>
+                            <constraint firstItem="dvN-Bh-PTv" firstAttribute="bottom" secondItem="qsx-6A-c4N" secondAttribute="bottom" id="cYm-xR-G84"/>
+                            <constraint firstItem="EHP-f4-AAn" firstAttribute="top" secondItem="qsx-6A-c4N" secondAttribute="top" id="gWj-Ap-CK6"/>
+                            <constraint firstItem="dvN-Bh-PTv" firstAttribute="centerX" secondItem="gNm-Iy-tMS" secondAttribute="centerX" id="nVa-3y-kVm"/>
+                            <constraint firstAttribute="bottom" secondItem="EHP-f4-AAn" secondAttribute="bottom" id="ttF-hM-vCY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="AwZ-oy-Opv"/>
+                    <connections>
+                        <outlet property="backgroundView" destination="dvN-Bh-PTv" id="qeo-Nx-FyR"/>
+                        <outlet property="progressDescriptionLabel" destination="gp8-rB-z9L" id="ZpP-Zg-McL"/>
+                        <outlet property="progressView" destination="l6C-QW-fUE" id="PLo-K7-All"/>
+                        <outlet property="scannerView" destination="EHP-f4-AAn" id="Ppl-bh-aOu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KQ1-GY-wLe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128.98550724637681" y="1494.6428571428571"/>
+        </scene>
         <!--Label View Controller-->
         <scene sceneID="5U2-78-wHu">
             <objects>
@@ -534,7 +625,7 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aOf-lR-1VI">
-                                <rect key="frame" x="20" y="129" width="374" height="645"/>
+                                <rect key="frame" x="20" y="129" width="374" height="631"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -561,7 +652,7 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
                         <viewLayoutGuide key="safeArea" id="VIU-F6-G1E"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="aOf-lR-1VI" firstAttribute="bottom" secondItem="VIU-F6-G1E" secondAttribute="bottom" id="2Vt-cb-FxW"/>
+                            <constraint firstItem="aOf-lR-1VI" firstAttribute="bottom" secondItem="VIU-F6-G1E" secondAttribute="bottom" constant="-14" id="2Vt-cb-FxW"/>
                             <constraint firstItem="r0f-Jj-fOE" firstAttribute="top" secondItem="k5Y-5b-WTg" secondAttribute="bottom" constant="8" id="6Uh-8u-S9f"/>
                             <constraint firstItem="k5Y-5b-WTg" firstAttribute="top" secondItem="VIU-F6-G1E" secondAttribute="top" constant="22" id="6n0-ec-Gdb"/>
                             <constraint firstItem="VIU-F6-G1E" firstAttribute="trailing" secondItem="vEb-xR-TMp" secondAttribute="trailing" constant="20" id="6rC-Rl-ntg"/>
@@ -591,11 +682,14 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="C77-r2-IBv"/>
         <segue reference="NJs-YR-Z5q"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="blockchain-commons-logo.png" width="500" height="148"/>
+        <image name="doc.on.clipboard" catalog="system" width="116" height="128"/>
         <image name="qrcode" catalog="system" width="128" height="114"/>
+        <image name="qrcode.viewfinder" catalog="system" width="128" height="115"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="textbox" catalog="system" width="128" height="91"/>
         <systemColor name="systemBackgroundColor">

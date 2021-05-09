@@ -10,6 +10,7 @@
 		0A0AE50026438D4E00D6F85A /* DescriptorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AE4FF26438D4E00D6F85A /* DescriptorParser.swift */; };
 		0A0AE50526438DB900D6F85A /* Descriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AE50426438DB900D6F85A /* Descriptor.swift */; };
 		0A0AE50A2643948C00D6F85A /* DeriveLifehash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AE5092643948C00D6F85A /* DeriveLifehash.swift */; };
+		0A0AE52126477C9700D6F85A /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AE52026477C9700D6F85A /* QRScannerViewController.swift */; };
 		0A4151A22640ED4D00E23C99 /* LibWally.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A41519C2640ED4900E23C99 /* LibWally.xcframework */; };
 		0A4151A32640ED4D00E23C99 /* LibWally.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A41519C2640ED4900E23C99 /* LibWally.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0A4151AD2640EED300E23C99 /* URKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0A4151AC2640EED300E23C99 /* URKit */; };
@@ -105,6 +106,7 @@
 		0A0AE4FF26438D4E00D6F85A /* DescriptorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptorParser.swift; sourceTree = "<group>"; };
 		0A0AE50426438DB900D6F85A /* Descriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Descriptor.swift; sourceTree = "<group>"; };
 		0A0AE5092643948C00D6F85A /* DeriveLifehash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeriveLifehash.swift; sourceTree = "<group>"; };
+		0A0AE52026477C9700D6F85A /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		0A41519C2640ED4900E23C99 /* LibWally.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibWally.xcframework; sourceTree = "<group>"; };
 		0A4151BE2640FE5100E23C99 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D006E328243D6EBF007B1A5B /* ShareExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,6 +284,7 @@
 				D0FA16B5243AF18400115589 /* LabelViewController.swift */,
 				D0FA16BF243B4BA000115589 /* ExportViewController.swift */,
 				D006E346243EBF9C007B1A5B /* SponsorViewController.swift */,
+				0A0AE52026477C9700D6F85A /* QRScannerViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				D006E347243EBF9C007B1A5B /* SponsorViewController.swift in Sources */,
 				D04F029D253E9CE5008CB77F /* Parser.swift in Sources */,
 				D0FA16B6243AF18400115589 /* LabelViewController.swift in Sources */,
+				0A0AE52126477C9700D6F85A /* QRScannerViewController.swift in Sources */,
 				D04F02A6253EABBD008CB77F /* Utilities.swift in Sources */,
 				D0FA167E243ABD3100115589 /* QR_Vault.xcdatamodeld in Sources */,
 				0A0AE50526438DB900D6F85A /* Descriptor.swift in Sources */,

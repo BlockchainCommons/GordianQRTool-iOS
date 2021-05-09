@@ -7,6 +7,17 @@
 //
 
 import Foundation
+import UIKit
+
+public func showAlert(_ vc: UIViewController?, _ title: String, _ message: String) {
+    if let vc = vc {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in }))
+            vc.present(alert, animated: true, completion: nil)
+        }
+    }
+}
 
 public extension String {
     

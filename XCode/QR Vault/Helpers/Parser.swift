@@ -47,6 +47,20 @@ class Parser {
         return true
     }
     
+    private class func isPsbt(_ item: String) -> Bool {
+        guard let _ = try? PSBT(psbt: item, network: .mainnet) else {
+            
+            guard let _ = try? PSBT(psbt: item, network: .testnet) else {
+                
+                return false
+            }
+            
+            return true
+        }
+        
+        return true
+    }
+    
     class func parse(_ item: String) -> String {
         let processed = item.lowercased()
         
@@ -65,6 +79,9 @@ class Parser {
             
         } else if isAccountMap(processed) {
             return "Account Map"
+            
+        } else if isPsbt(item) {
+            return "PSBT"
             
         } else if isShard(processed) {
             return "SSKR Shard"

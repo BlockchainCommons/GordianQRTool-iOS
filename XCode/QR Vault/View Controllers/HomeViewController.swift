@@ -21,6 +21,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     private let dateFormatter = DateFormatter()
     private var isDeleting = Bool()
     private var indPath:IndexPath!
+    var textToAdd = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,10 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         qrArray.removeAll()
         loadData()
     }
+    
+    @IBAction func pasteAction(_ sender: Any) {
+    }
+    
     
     private func loadData() {
         CoreDataService.retrieveEntity { [weak self] (qrs, errorDescription) in
@@ -237,7 +242,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 
-                self.performSegue(withIdentifier: "addSegue", sender: self)
+                self.performSegue(withIdentifier: "segueToScanQr", sender: self)
             }
             #else
             addAuth()
@@ -246,7 +251,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 
-                self.performSegue(withIdentifier: "addSegue", sender: self)
+                self.performSegue(withIdentifier: "segueToScanQr", sender: self)
             }
         }
     }
@@ -444,6 +449,23 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             guard let vc = segue.destination as? ExportViewController else { fallthrough }
             
             vc.id = idToExport
+            
+        case "segueToScanQr":
+            guard let vc = segue.destination as? QRScannerViewController else { fallthrough }
+            
+            vc.doneBlock = { [weak self] result in
+                guard let self = self, let result = result else { return }
+                
+                
+                self.textToAdd = result
+                self.performSegue(withIdentifier: "addLabelSegue", sender: self)
+            }
+            
+        case "addLabelSegue":
+            guard let vc = segue.destination as? LabelViewController else { return }
+            
+            vc.text = textToAdd
+            
         default:
             break
         }
