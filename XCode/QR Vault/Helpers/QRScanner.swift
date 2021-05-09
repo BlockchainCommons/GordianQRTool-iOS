@@ -26,13 +26,8 @@ class QRScanner: UIView, AVCaptureMetadataOutputObjectsDelegate, UIImagePickerCo
     let torchButton = UIButton()
     let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
     
-    func configureTorchButton() {
-        
-        torchButton.frame = CGRect(x: 35 / 2,
-                                   y: 35 / 2,
-                                   width: 35,
-                                   height: 35)
-        
+    func configureTorchButton() {        
+        torchButton.frame = CGRect(x: 35 / 2, y: 35 / 2, width: 35, height: 35)
         let image = UIImage(imageLiteralResourceName: "strobe.png")
         torchButton.setImage(image, for: .normal)
         torchButton.tintColor = .white
@@ -40,102 +35,60 @@ class QRScanner: UIView, AVCaptureMetadataOutputObjectsDelegate, UIImagePickerCo
     }
     
     func configureUploadButton() {
-        
-        uploadButton.frame = CGRect(x: 35 / 2,
-                                    y: 35 / 2,
-                                    width: 35,
-                                    height: 35)
-        
+        uploadButton.frame = CGRect(x: 35 / 2, y: 35 / 2, width: 35, height: 35)
         uploadButton.showsTouchWhenHighlighted = true
         let image = UIImage(imageLiteralResourceName: "images.png")
         uploadButton.tintColor = .white
         uploadButton.setImage(image, for: .normal)
         addShadow(view: uploadButton)
-        
     }
     
     func addShadow(view: UIView) {
-        
         view.layer.shadowColor = UIColor.black.cgColor
-        
-        view.layer.shadowOffset = CGSize(width: 1.5,
-                                         height: 1.5)
-        
+        view.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
         view.layer.shadowRadius = 1.5
         view.layer.shadowOpacity = 0.5
-        
     }
     
     func configureImagePicker() {
-        
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
-        
     }
     
     func toggleTorch(on: Bool) {
-        
-        guard let device = AVCaptureDevice.default(for: AVMediaType.video)
-            else {return}
+        guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return }
         
         if device.hasTorch {
-            
             do {
-                
                 try device.lockForConfiguration()
                 
                 if on == true {
-                    
                     device.torchMode = .on
-                    
                 } else {
-                    
                     device.torchMode = .off
-                    
                 }
                 
                 device.unlockForConfiguration()
-                
             } catch {
-                
                 print("Torch could not be used")
-                
             }
             
         } else {
-            
             print("Torch is not available")
-            
         }
-        
     }
     
     func scanQRCode() {
             
         func scanQRNow() throws {
-                
             guard let avCaptureDevice = AVCaptureDevice.default(for: AVMediaType.video) else {
-                    
-                print("no camera")
-                                
-//                if UIImagePickerController.isSourceTypeAvailable(.camera) {
-//                    let imagePicker = UIImagePickerController()
-//                    imagePicker.sourceType = .camera
-//                    imagePicker.delegate = self
-//                    imagePicker.cameraDevice = .front   // added for Mac
-//                    vc.present(imagePicker, animated:true, completion:nil)
-//                }
-                chooseQRCodeFromLibrary()                
+                chooseQRCodeFromLibrary()
                 throw error.noCameraAvailable
-                    
             }
                 
             guard let avCaptureInput = try? AVCaptureDeviceInput(device: avCaptureDevice) else {
-                    
-                print("failed to int camera")
                 throw error.videoInputInitFail
-                    
             }
                 
             let avCaptureMetadataOutput = AVCaptureMetadataOutput()
@@ -165,68 +118,47 @@ class QRScanner: UIView, AVCaptureMetadataOutputObjectsDelegate, UIImagePickerCo
         }
             
         enum error: Error {
-                
             case noCameraAvailable
             case videoInputInitFail
-                
         }
             
         do {
-                
             try scanQRNow()
-            print("scanQRNow")
-                
         } catch {
-                
             print("Failed to scan QR Code")
-            
         }
         
         configureImagePicker()
         configureUploadButton()
         configureTorchButton()
-        
     }
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        
         if metadataObjects.count > 0 {
-            
             let machineReadableCode = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
             
             if machineReadableCode.type == AVMetadataObject.ObjectType.qr {
-                
                 let stringURL = machineReadableCode.stringValue!
                 self.stringToReturn = stringURL
                 self.avCaptureSession.stopRunning()
                 AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
                 completion()
-                
             }
-            
         }
-        
     }
     
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        
         picker.dismiss(animated: true, completion: nil)
-        
     }
     
     func chooseQRCodeFromLibrary() {
-        
         vc.present(imagePicker, animated: true, completion: nil)
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        // Local variable inserted by Swift 4.2 migrator.
         let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         
         if let pickedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage {
-            
             let detector:CIDetector=CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy:CIDetectorAccuracyHigh])!
             let ciImage:CIImage = CIImage(image:pickedImage)!
             var qrCodeLink = ""
@@ -239,33 +171,26 @@ class QRScanner: UIView, AVCaptureMetadataOutputObjectsDelegate, UIImagePickerCo
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             
             picker.dismiss(animated: true, completion: {
-                
                 self.qrString = qrCodeLink
                 self.didChooseImage()
-                
             })
-            
         }
-        
     }
     
     func stopScanner() {
-        
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
             
             self.avCaptureSession.stopRunning()
-            
         }
     }
     
     func startScanner() {
-        
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
             
             self.avCaptureSession.startRunning()
-            
         }
-        
     }
     
 }
