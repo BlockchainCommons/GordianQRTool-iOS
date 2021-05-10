@@ -11,6 +11,7 @@
 		0A0AE50526438DB900D6F85A /* Descriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AE50426438DB900D6F85A /* Descriptor.swift */; };
 		0A0AE50A2643948C00D6F85A /* DeriveLifehash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AE5092643948C00D6F85A /* DeriveLifehash.swift */; };
 		0A0AE52126477C9700D6F85A /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AE52026477C9700D6F85A /* QRScannerViewController.swift */; };
+		0A0AE53C2648A7EB00D6F85A /* QRDisplayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AE53B2648A7EB00D6F85A /* QRDisplayerViewController.swift */; };
 		0A4151A22640ED4D00E23C99 /* LibWally.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A41519C2640ED4900E23C99 /* LibWally.xcframework */; };
 		0A4151A32640ED4D00E23C99 /* LibWally.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A41519C2640ED4900E23C99 /* LibWally.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0A4151AD2640EED300E23C99 /* URKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0A4151AC2640EED300E23C99 /* URKit */; };
@@ -105,6 +106,7 @@
 		0A0AE50426438DB900D6F85A /* Descriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Descriptor.swift; sourceTree = "<group>"; };
 		0A0AE5092643948C00D6F85A /* DeriveLifehash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeriveLifehash.swift; sourceTree = "<group>"; };
 		0A0AE52026477C9700D6F85A /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
+		0A0AE53B2648A7EB00D6F85A /* QRDisplayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRDisplayerViewController.swift; sourceTree = "<group>"; };
 		0A41519C2640ED4900E23C99 /* LibWally.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibWally.xcframework; sourceTree = "<group>"; };
 		0A4151BE2640FE5100E23C99 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D006E328243D6EBF007B1A5B /* ShareExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,6 +282,7 @@
 				D0FA16BF243B4BA000115589 /* ExportViewController.swift */,
 				D006E346243EBF9C007B1A5B /* SponsorViewController.swift */,
 				0A0AE52026477C9700D6F85A /* QRScannerViewController.swift */,
+				0A0AE53B2648A7EB00D6F85A /* QRDisplayerViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				D0FA167E243ABD3100115589 /* QR_Vault.xcdatamodeld in Sources */,
 				0A0AE50526438DB900D6F85A /* Descriptor.swift in Sources */,
 				D0FA16B8243AF5E300115589 /* Keychain.swift in Sources */,
+				0A0AE53C2648A7EB00D6F85A /* QRDisplayerViewController.swift in Sources */,
 				D0FA16C2243B4E2000115589 /* QRGenerator.swift in Sources */,
 				D04F02AA253EC660008CB77F /* UniformResource.swift in Sources */,
 				D0FA16C0243B4BA000115589 /* ExportViewController.swift in Sources */,
@@ -603,7 +607,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.1.3;
+				CURRENT_PROJECT_VERSION = 0.1.4;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = YZHG975W3A;
 				INFOPLIST_FILE = ShareExt/Info.plist;
@@ -612,7 +616,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.1.3;
+				MARKETING_VERSION = 0.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockchaincommons.QRVault.ShareExt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -629,7 +633,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.1.3;
+				CURRENT_PROJECT_VERSION = 0.1.4;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = YZHG975W3A;
 				INFOPLIST_FILE = ShareExt/Info.plist;
@@ -638,7 +642,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.1.3;
+				MARKETING_VERSION = 0.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockchaincommons.QRVault.ShareExt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -771,7 +775,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.1.3;
+				CURRENT_PROJECT_VERSION = 0.1.4;
 				DEVELOPMENT_TEAM = YZHG975W3A;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "QR Vault/Info.plist";
@@ -780,7 +784,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.3;
+				MARKETING_VERSION = 0.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockchaincommons.QRVault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -800,7 +804,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.1.3;
+				CURRENT_PROJECT_VERSION = 0.1.4;
 				DEVELOPMENT_TEAM = YZHG975W3A;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "QR Vault/Info.plist";
@@ -809,7 +813,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.3;
+				MARKETING_VERSION = 0.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockchaincommons.QRVault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

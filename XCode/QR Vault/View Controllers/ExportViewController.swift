@@ -13,7 +13,7 @@ import LibWally
 class ExportViewController: UIViewController, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding, UINavigationControllerDelegate, UITextFieldDelegate {
     
     let tap = UITapGestureRecognizer()
-    var id:UUID!
+    var qrStruct:QRStruct!
     
     @IBOutlet weak private var lifehashImageView: UIImageView!
     @IBOutlet weak private var labelField: UITextField!
@@ -82,11 +82,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     private func load() {
-        #if DEBUG
-        getQr()
-        #else
-        addAuth()
-        #endif
+        loadData(qr: qrStruct)
     }
     
     @IBAction func updateAction(_ sender: Any) {
@@ -111,7 +107,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             return
         }
         
-        CoreDataService.updateEntity(id: id, keyToUpdate: "type", newValue: typeTextField.text!) { [weak self] (success, errorDescription) in
+        CoreDataService.updateEntity(id: qrStruct.id, keyToUpdate: "type", newValue: typeTextField.text!) { [weak self] (success, errorDescription) in
             guard let self = self else { return }
             
             guard success else {
@@ -129,7 +125,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             return
         }
         
-        CoreDataService.updateEntity(id: id, keyToUpdate: "label", newValue: labelField.text!) { [weak self] (success, errorDescription) in
+        CoreDataService.updateEntity(id: qrStruct.id, keyToUpdate: "label", newValue: labelField.text!) { [weak self] (success, errorDescription) in
             guard let self = self else { return }
             
             guard success else {
@@ -175,7 +171,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 
-                self.imageView.image = QRGenerator.getQRCode(textInput: ur)
+                self.imageView.image = QRGenerator.generate(textInput: ur)
                 self.textView.text = ur
             }
             
@@ -187,7 +183,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 
-                self.imageView.image = QRGenerator.getQRCode(textInput: ur)
+                self.imageView.image = QRGenerator.generate(textInput: ur)
                 self.textView.text = ur
             }
             
@@ -214,7 +210,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak self] action in
                 guard let self = self else { return }
                 
-                self.getQr()
+                self.loadData(qr: self.qrStruct)
             }))
             
             alert.popoverPresentationController?.sourceView = self.view
@@ -235,7 +231,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             return
         }
         
-        CoreDataService.updateEntity(id: id, keyToUpdate: "qrData", newValue: encryptedData) { [weak self] (success, errorDescription) in
+        CoreDataService.updateEntity(id: qrStruct.id, keyToUpdate: "qrData", newValue: encryptedData) { [weak self] (success, errorDescription) in
             guard let self = self else { return }
             
             guard success else {
@@ -274,7 +270,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     private func deleteQr() {
-        CoreDataService.deleteEntity(id: id) { [weak self] (success, errorDescription) in
+        CoreDataService.deleteEntity(id: qrStruct.id) { [weak self] (success, errorDescription) in
             guard let self = self else { return }
             
             if success {
@@ -285,21 +281,6 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
                 }
             } else {
                 self.showAlert(title: "Error", message: errorDescription ?? "error deleteing that QR")
-            }
-        }
-    }
-    
-    private func getQr() {
-        CoreDataService.retrieveEntity { [weak self] (entity, errorDescription) in
-            guard let self = self else { return }
-            
-            guard let entity = entity else { return }
-            
-            for e in entity {
-                let str = QRStruct(dictionary: e)
-                if str.id == self.id {
-                    self.loadData(qr: str)
-                }
             }
         }
     }
@@ -315,7 +296,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             }
             
             self.textView.text = text
-            let image = QRGenerator.getQRCode(textInput: text)
+            let image = QRGenerator.generate(textInput: text)
             self.imageView.image = image
             self.shareTextOutlet.alpha = 1
             self.shareQrOutlet.alpha = 1
@@ -414,7 +395,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
                         switch (state) {
                         case .authorized:
                             print("Account Found - Signed In")
-                            self.getQr()
+                            self.loadData(qr: self.qrStruct)
                         case .revoked:
                             print("No Account Found")
                             fallthrough

@@ -13,7 +13,7 @@ import LibWally
 class HomeViewController: UIViewController, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
     
     @IBOutlet weak private var homeTable: UITableView!
-    private var idToExport:UUID!
+    private var qrToExport:QRStruct!
     private var idToDelete:UUID!
     private var qrArray = [[String:Any]]()
     private var qrStruct:QRStruct?
@@ -22,6 +22,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     private var isDeleting = Bool()
     private var indPath:IndexPath!
     var textToAdd = ""
+    var initialLoad = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +40,28 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         setTitleView()
         homeTable.tableFooterView = UIView(frame: CGRect.zero)
         editButton = UIBarButtonItem.init(barButtonSystemItem: .edit, target: self, action: #selector(editNodes))
-        firstTime()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         qrArray.removeAll()
-        loadData()
+        
+        if initialLoad {
+            initialLoad = false
+            firstTime()
+        } else {
+            loadData()
+        }
     }
+    
+    @IBAction func scanQrAction(_ sender: Any) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.performSegue(withIdentifier: "segueToScanQr", sender: self)
+        }
+    }
+    
     
     @IBAction func pasteAction(_ sender: Any) {
         if let data = UIPasteboard.general.data(forPasteboardType: "com.apple.traditional-mac-plain-text") {
@@ -149,6 +165,8 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             let typeLabel = qrCell.viewWithTag(3) as! UILabel
             let typeBackground = qrCell.viewWithTag(4)!
             let imageView = qrCell.viewWithTag(5) as! UIImageView
+            let qrExportButton = qrCell.viewWithTag(6) as! UIButton
+            let detailButton = qrCell.viewWithTag(7) as! UIButton
             
             typeLabel.textAlignment = .center
             typeBackground.layer.cornerRadius = 8
@@ -170,9 +188,44 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
                     typeLabel.alpha = 1
                     typeLabel.text = "unknown"
                 }
-            }            
+            }
+            
+            qrExportButton.restorationIdentifier = "\(indexPath.section)"
+            qrExportButton.addTarget(self, action: #selector(self.exportQrAction), for: .touchUpInside)
+            
+            detailButton.restorationIdentifier = "\(indexPath.section)"
+            detailButton.addTarget(self, action: #selector(self.seeDetailAction), for: .touchUpInside)
             
             return qrCell
+        }
+    }
+    
+    @objc func exportQrAction(_ sender: UIButton) {
+        guard qrArray.count > 0, let indexString = sender.restorationIdentifier, let index = Int(indexString) else { return }
+            
+        let qr = qrArray[index]
+        let str = QRStruct(dictionary: qr)
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.qrToExport = str
+            self.performSegue(withIdentifier: "segueToQrDisplayer", sender: self)//exportSegue
+        }
+        
+    }
+    
+    @objc func seeDetailAction(_ sender: UIButton) {
+        guard qrArray.count > 0, let indexString = sender.restorationIdentifier, let index = Int(indexString) else { return }
+            
+        let qr = qrArray[index]
+        let str = QRStruct(dictionary: qr)
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.qrToExport = str
+            self.performSegue(withIdentifier: "exportSegue", sender: self)
         }
     }
     
@@ -194,11 +247,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             let id = qrArray[indexPath.section]["id"] as! UUID
             indPath = indexPath
             idToDelete = id
-            #if DEBUG
             deleteQr()
-            #else
-            addAuth()
-            #endif
         }
     }
     
@@ -234,22 +283,22 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if qrArray.count > 0 {
-            let qr = qrArray[indexPath.section]
-            let str = QRStruct(dictionary: qr)
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                
-                self.idToExport = str.id
-                self.performSegue(withIdentifier: "exportSegue", sender: self)
-            }
-        }
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if qrArray.count > 0 {
+//            let qr = qrArray[indexPath.section]
+//            let str = QRStruct(dictionary: qr)
+//            DispatchQueue.main.async { [weak self] in
+//                guard let self = self else { return }
+//                
+//                self.qrToExport = str
+//                self.performSegue(withIdentifier: "segueToQrDisplayer", sender: self)//exportSegue
+//            }
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if qrArray.count > 0 {
-            return 69
+            return 120
         } else {
             return 47
         }
@@ -269,26 +318,6 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         editNodes()
     }
     
-    @IBAction func addQr(_ sender: Any) {
-        if KeyChain.load(key: "userIdentifier") == nil {
-            #if DEBUG
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                
-                self.performSegue(withIdentifier: "segueToScanQr", sender: self)
-            }
-            #else
-            addAuth()
-            #endif
-        } else {
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                
-                self.performSegue(withIdentifier: "segueToScanQr", sender: self)
-            }
-        }
-    }
-    
     private func firstTime() {
         if KeyChain.load(key: "privateKey") == nil {
             let pk = Encryption.privateKey()
@@ -299,6 +328,8 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
                 let error = NSError(domain: NSOSStatusErrorDomain, code: Int(status), userInfo: [NSLocalizedDescriptionKey: SecCopyErrorMessageString(status, nil) ?? "Undefined error"])
                 showAlert(title: "Error!", message: "There was an error creating a private key and storing it on your keychain. Error: \(error)")
             }
+        } else {
+            addAuth()
         }
     }
     
@@ -319,15 +350,6 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     }
     
     private func descriptorLifehash(_ accountMap: Data) -> UIImage? {
-        
-//        let jsonString = String(data: accountMap, encoding: .utf8)
-//
-//        guard let dict = try? JSONSerialization.jsonObject(with: jsonString, options: []) as? [String:Any],
-//              var descriptor = dict["descriptor"] as? String else {
-//
-//            return nil
-//        }
-        
         guard let decryptedQr = Encryption.decrypt(accountMap) else { return nil }
         
         guard let dict = try? JSONSerialization.jsonObject(with: decryptedQr, options: []) as? [String : Any] else { return nil }
@@ -377,6 +399,19 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         return LifeHash.image(descriptor)
     }
     
+    private func selfDestruct() {
+        if let attempts = UserDefaults.standard.object(forKey: "attempts") as? Int {
+            if attempts > 4 {
+                CoreDataService.deleteAllData { deleted in }
+                showAlert(title: "I'm bricked!", message: "You entered more then five incorrect log ins.")
+            } else {
+                UserDefaults.standard.setValue(attempts + 1, forKey: "attempts")
+            }
+        } else {
+            UserDefaults.standard.setValue(1, forKey: "attempts")
+        }
+    }
+    
     private func addAuth() {
         let request = ASAuthorizationAppleIDProvider().createRequest()
         let controller = ASAuthorizationController(authorizationRequests: [request])
@@ -386,50 +421,51 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        if !isDeleting {
-            switch authorization.credential {
-            case let appleIDCredential as ASAuthorizationAppleIDCredential:
-                DispatchQueue.main.async {
-                    if let userIdentifier = appleIDCredential.user.data(using: .utf8) {
-                        let status = KeyChain.save(key: "userIdentifier", data: userIdentifier)
-                        if status == 0 {
-                            DispatchQueue.main.async { [weak self] in
-                                guard let self = self else { return }
-                                
-                                self.performSegue(withIdentifier: "addSegue", sender: self)
-                            }
+        switch authorization.credential {
+        case _ as ASAuthorizationAppleIDCredential:
+            let authorizationProvider = ASAuthorizationAppleIDProvider()
+            if let usernameData = KeyChain.load(key: "userIdentifier") {
+                if let username = String(data: usernameData, encoding: .utf8) {
+                    authorizationProvider.getCredentialState(forUserID: username) { [weak self] (state, error) in
+                        guard let self = self else { return }
+                        
+                        switch (state) {
+                        case .authorized:
+                            self.loadData()
+                        case .revoked:
+                            self.showAlert(title: "No account found.", message: "")
+                            self.selfDestruct()
+                            fallthrough
+                        case .notFound:
+                            self.selfDestruct()
+                            self.showAlert(title: "No account found.", message: "")
+                        default:
+                            break
                         }
                     }
                 }
-            default:
-                break
-            }
-        } else {
-            switch authorization.credential {
-            case _ as ASAuthorizationAppleIDCredential:
-                let authorizationProvider = ASAuthorizationAppleIDProvider()
-                if let usernameData = KeyChain.load(key: "userIdentifier") {
-                    if let username = String(data: usernameData, encoding: .utf8) {
-                        authorizationProvider.getCredentialState(forUserID: username) { [weak self] (state, error) in
-                            guard let self = self else { return }
-                            
-                            switch (state) {
-                            case .authorized:
-                                self.deleteQr()
-                            case .revoked:
-                                self.showAlert(title: "No account found.", message: "")
-                                fallthrough
-                            case .notFound:
-                                self.showAlert(title: "No account found.", message: "")
-                            default:
-                                break
+            } else {
+                // get it for the first time
+                switch authorization.credential {
+                case let appleIDCredential as ASAuthorizationAppleIDCredential:
+                    DispatchQueue.main.async {
+                        if let userIdentifier = appleIDCredential.user.data(using: .utf8) {
+                            let status = KeyChain.save(key: "userIdentifier", data: userIdentifier)
+                            if status == 0 {
+                                DispatchQueue.main.async { [weak self] in
+                                    guard let self = self else { return }
+                                    
+                                    self.loadData()
+                                }
                             }
                         }
                     }
+                default:
+                    break
                 }
-            default:
-                break
             }
+        default:
+            break
         }
     }
     
@@ -478,10 +514,15 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         switch segue.identifier {
+        case "segueToQrDisplayer"://exportSegue
+            guard let vc = segue.destination as? QRDisplayerViewController else { fallthrough }
+            
+            vc.qrStruct = qrToExport
+            
         case "exportSegue":
             guard let vc = segue.destination as? ExportViewController else { fallthrough }
             
-            vc.id = idToExport
+            vc.qrStruct = qrToExport
             
         case "segueToScanQr":
             guard let vc = segue.destination as? QRScannerViewController else { fallthrough }

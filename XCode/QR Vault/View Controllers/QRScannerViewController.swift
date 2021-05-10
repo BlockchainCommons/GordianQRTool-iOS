@@ -9,6 +9,7 @@
 import UIKit
 import URKit
 import AVFoundation
+import LibWally
 
 class QRScannerViewController: UIViewController {
     
@@ -232,19 +233,28 @@ class QRScannerViewController: UIViewController {
         view.layer.shadowOpacity = 0.5
     }
     
-    private func isPsbt(_ text: String) -> Bool {
-        return text.lowercased().hasPrefix("ur:crypto-psbt/")
+    private func isUr(_ text: String) -> Bool {
+        return text.lowercased().hasPrefix("ur:")
     }
     
     private func process(text: String) {
+        print("process: \(text)")
         isRunning = true
         
-        if isPsbt(text) {
-            //keepRunning = true
-            // Stop if we're already done with the decode.
+        if isUr(text) {
             guard decoder.result == nil else {
-                guard let result = try? decoder.result?.get(), let psbt = URHelper.psbtUrToBase64Text(result) else { return }
-                stopScanning(psbt)
+                guard let result = try? decoder.result?.get() else { stopScanning(text); return }
+                
+                if let _ = try? PSBT(psbt: result.string, network: .testnet), let _ = try? PSBT(psbt: result.string, network: .mainnet) {
+                    if let psbt = URHelper.psbtUrToBase64Text(result) {
+                        stopScanning(psbt)
+                    }
+                } else if let bytes = URHelper.bytesUrToText(result) {
+                    stopScanning(bytes)
+                } else {
+                    stopScanning(result.string)
+                }
+                
                 return
             }
             
@@ -252,54 +262,63 @@ class QRScannerViewController: UIViewController {
             
             let expectedParts = decoder.expectedPartCount ?? 0
             
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
+            print("hello")
                 
-                if self.avCaptureSession.isRunning {
-                    self.avCaptureSession.stopRunning()
-                }
-                let impact = UIImpactFeedbackGenerator()
-                impact.impactOccurred()
-                AudioServicesPlaySystemSound(1103)
-            }
-            
-            guard expectedParts != 0 else {
-                guard let result = try? decoder.result?.get(), let psbt = URHelper.psbtUrToBase64Text(result) else { return }
-                stopScanning(psbt)
-                return
-            }
-            
-            self.isRunning = false
-            
-            let percentageCompletion = "\(Int(decoder.estimatedPercentComplete * 100))% complete"
-            
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                
-                if self.blurArray.count > 0 {
-                    for i in self.blurArray {
-                        i.removeFromSuperview()
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    
+                    if self.avCaptureSession.isRunning {
+                        self.avCaptureSession.stopRunning()
                     }
-                    self.blurArray.removeAll()
+                    let impact = UIImpactFeedbackGenerator()
+                    impact.impactOccurred()
+                    AudioServicesPlaySystemSound(1103)
+                }
+            
+                
+                guard expectedParts != 0 else {
+                    guard let result = try? decoder.result?.get() else { return }
+                        print("failing here")
+                        if let psbt = URHelper.psbtUrToBase64Text(result) {
+                            stopScanning(psbt)
+                        } else if let bytes = URHelper.bytesUrToText(result) {
+                            stopScanning(bytes)
+                        } else {
+                            stopScanning(result.string)
+                        }                    
+                    
+                    return
                 }
                 
-                self.progressView.setProgress(Float(self.decoder.estimatedPercentComplete), animated: true)
-                self.progressDescriptionLabel.text = percentageCompletion
-                self.backgroundView.alpha = 1
-                self.progressView.alpha = 1
-                self.progressDescriptionLabel.alpha = 1
-            }
+                self.isRunning = false
+                
+                let percentageCompletion = "\(Int(decoder.estimatedPercentComplete * 100))% complete"
+                
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    
+                    if self.blurArray.count > 0 {
+                        for i in self.blurArray {
+                            i.removeFromSuperview()
+                        }
+                        self.blurArray.removeAll()
+                    }
+                    
+                    self.progressView.setProgress(Float(self.decoder.estimatedPercentComplete), animated: true)
+                    self.progressDescriptionLabel.text = percentageCompletion
+                    self.backgroundView.alpha = 1
+                    self.progressView.alpha = 1
+                    self.progressDescriptionLabel.alpha = 1
+                }
         } else {
-            DispatchQueue.main.async {
-                let impact = UIImpactFeedbackGenerator()
-                impact.impactOccurred()
-                AudioServicesPlaySystemSound(1103)
-                self.stopScanning(text)
-            }
+            isRunning = false
+            stopScanning(text)
         }
+        
     }
     
     private func stopScanning(_ result: String) {
+        print("stop scanning")
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             

@@ -9,24 +9,18 @@
 import Foundation
 import UIKit
 
-class QRGenerator: UIView {
+class QRGenerator {
     
-    class func getQRCode(textInput: String) -> UIImage {
-        
-        let imageToReturn = UIImage(systemName: "exclamationmark.triangle")!
-        
+    class func generate(textInput: String) -> UIImage? {
         let data = textInput.data(using: .ascii)
         
-        // Generate the code image with CIFilter
-        guard let filter = CIFilter(name: "CIQRCodeGenerator") else { return imageToReturn }
+        guard let filter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
         filter.setValue(data, forKey: "inputMessage")
         
-        // Scale it up (because it is generated as a tiny image)
-        //let scale = UIScreen.main.scale
-        let transform = CGAffineTransform(scaleX: 10.0, y: 10.0)//CGAffineTransform(scaleX: 10, y: 10)
-        guard let output = filter.outputImage?.transformed(by: transform) else { return imageToReturn }
+        let transform = CGAffineTransform(scaleX: 10.0, y: 10.0)
         
-        // Change the color using CIFilter
+        guard let output = filter.outputImage?.transformed(by: transform) else { return nil }
+        
         let grey = #colorLiteral(red: 0.07804081589, green: 0.09001789242, blue: 0.1025182381, alpha: 1)
         
         let colorParameters = [
@@ -36,20 +30,14 @@ class QRGenerator: UIView {
         
         let colored = (output.applyingFilter("CIFalseColor", parameters: colorParameters))
         
-        func renderedImage(uiImage: UIImage) -> UIImage? {
-            
-            let image = uiImage
-            
-            return UIGraphicsImageRenderer(size: image.size,
-                                           format: image.imageRendererFormat).image { _ in
-                                            image.draw(in: CGRect(origin: .zero, size: image.size))
-            }
-        }
+        return renderedImage(uiImage: UIImage(ciImage: colored))
+    }
+    
+    class func renderedImage(uiImage: UIImage) -> UIImage? {
+        let image = uiImage
+        let rect = CGRect(origin: .zero, size: image.size)
         
-        let uiImage = UIImage(ciImage: colored)
-        
-        return renderedImage(uiImage: uiImage) ?? imageToReturn
-        
+        return UIGraphicsImageRenderer(size: image.size, format: image.imageRendererFormat).image { _ in image.draw(in: rect) }
     }
     
 }

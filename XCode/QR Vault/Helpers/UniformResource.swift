@@ -29,6 +29,12 @@ enum URHelper {
         return try? UR(type: "crypto-psbt", cbor: cbor)
     }
     
+    static func textToUr(_ data: Data) -> UR? {
+        let cbor = CBOR.byteString(data.bytes).cborEncode().data
+        
+        return try? UR(type: "bytes", cbor: cbor)
+    }
+    
     static func psbtUrToBase64Text(_ ur: UR) -> String? {
         guard let decodedCbor = try? CBOR.decode(ur.cbor.bytes),
             case let CBOR.byteString(bytes) = decodedCbor else {
@@ -36,6 +42,15 @@ enum URHelper {
         }
         
         return Data(bytes).base64EncodedString()
+    }
+    
+    static func bytesUrToText(_ ur: UR) -> String? {
+        guard let decodedCbor = try? CBOR.decode(ur.cbor.bytes),
+            case let CBOR.byteString(bytes) = decodedCbor else {
+                return nil
+        }
+        
+        return Data(bytes).utf8
     }
     
     static func mnemonicToCryptoSeed(_ words: String) -> String? {
