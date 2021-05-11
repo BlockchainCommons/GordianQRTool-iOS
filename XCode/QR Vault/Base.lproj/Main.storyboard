@@ -184,11 +184,72 @@
                         <segue destination="i5i-iX-7S2" kind="show" identifier="addLabelSegue" id="C77-r2-IBv"/>
                         <segue destination="WRT-3S-ExK" kind="presentation" identifier="segueToQrDisplayer" id="9tD-tH-fvD"/>
                         <segue destination="Amo-ay-4Oh" kind="presentation" identifier="segueToPromptForCameraPermissions" id="2rU-sI-tgy"/>
+                        <segue destination="KxG-Tg-va5" kind="presentation" identifier="segueToGetAuth" id="Ky0-U7-E8g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1436.2318840579712" y="816.96428571428567"/>
+        </scene>
+        <!--Prompt For Auth View Controller-->
+        <scene sceneID="ARy-MT-Xff">
+            <objects>
+                <viewController id="KxG-Tg-va5" customClass="PromptForAuthViewController" customModule="QR_Vault" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hWt-t8-BD8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDr-IZ-VaF">
+                                <rect key="frame" x="20" y="125" width="374" height="293"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="293" id="EyH-3b-uJN"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="293" id="h9Z-Pa-R2h"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mIn-Bi-w2u">
+                                <rect key="frame" x="156" y="456" width="102" height="30"/>
+                                <state key="normal" title="Add Apple 2FA">
+                                    <color key="titleColor" systemColor="systemTealColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="addAuthAction:" destination="KxG-Tg-va5" eventType="touchUpInside" id="kwZ-91-frh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQ4-lm-qfM">
+                                <rect key="frame" x="354" y="20" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="o2B-Am-SgR"/>
+                                    <constraint firstAttribute="height" constant="40" id="w9D-X2-WIg"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="closeAction:" destination="KxG-Tg-va5" eventType="touchUpInside" id="68V-WR-oCQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Zcz-OB-t9L"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mIn-Bi-w2u" firstAttribute="centerX" secondItem="hWt-t8-BD8" secondAttribute="centerX" id="0dq-bW-ok2"/>
+                            <constraint firstItem="Zcz-OB-t9L" firstAttribute="trailing" secondItem="EQ4-lm-qfM" secondAttribute="trailing" constant="20" id="73N-4M-SqD"/>
+                            <constraint firstItem="TDr-IZ-VaF" firstAttribute="leading" secondItem="Zcz-OB-t9L" secondAttribute="leading" constant="20" id="OJ2-c7-Riz"/>
+                            <constraint firstItem="mIn-Bi-w2u" firstAttribute="top" secondItem="TDr-IZ-VaF" secondAttribute="bottom" constant="38" id="g5C-4A-VuL"/>
+                            <constraint firstItem="TDr-IZ-VaF" firstAttribute="top" secondItem="EQ4-lm-qfM" secondAttribute="bottom" constant="65" id="khL-dO-RmQ"/>
+                            <constraint firstItem="EQ4-lm-qfM" firstAttribute="top" secondItem="Zcz-OB-t9L" secondAttribute="top" constant="20" id="rn6-gy-Vqh"/>
+                            <constraint firstItem="Zcz-OB-t9L" firstAttribute="trailing" secondItem="TDr-IZ-VaF" secondAttribute="trailing" constant="20" id="wnN-gX-udG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="TDr-IZ-VaF" id="m7V-zf-UQ9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="al4-H7-vy9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4682" y="1470"/>
         </scene>
         <!--Camera Permissions View Controller-->
         <scene sceneID="6Jl-lv-nW6">

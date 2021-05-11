@@ -28,6 +28,8 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //KeyChain.remove(key: "userIdentifier")
+        
         if UserDefaults.standard.object(forKey: "hasUpdated") == nil {
             KeyChain.removeAll()
             CoreDataService.deleteAllData(completion: { success in })
@@ -300,19 +302,6 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         }
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if qrArray.count > 0 {
-//            let qr = qrArray[indexPath.section]
-//            let str = QRStruct(dictionary: qr)
-//            DispatchQueue.main.async { [weak self] in
-//                guard let self = self else { return }
-//                
-//                self.qrToExport = str
-//                self.performSegue(withIdentifier: "segueToQrDisplayer", sender: self)//exportSegue
-//            }
-//        }
-//    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if qrArray.count > 0 {
             return 120
@@ -430,55 +419,48 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     }
     
     private func addAuth() {
-        let request = ASAuthorizationAppleIDProvider().createRequest()
-        let controller = ASAuthorizationController(authorizationRequests: [request])
-        controller.delegate = self
-        controller.presentationContextProvider = self
-        controller.performRequests()
+        if let _ = KeyChain.load(key: "userIdentifier") {
+            let request = ASAuthorizationAppleIDProvider().createRequest()
+            let controller = ASAuthorizationController(authorizationRequests: [request])
+            controller.delegate = self
+            controller.presentationContextProvider = self
+            controller.performRequests()
+        } else {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                
+                self.performSegue(withIdentifier: "segueToGetAuth", sender: self)
+            }
+        }
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
-        case _ as ASAuthorizationAppleIDCredential:
+        case let appleIDCredential as ASAuthorizationAppleIDCredential:
             let authorizationProvider = ASAuthorizationAppleIDProvider()
             if let usernameData = KeyChain.load(key: "userIdentifier") {
                 if let username = String(data: usernameData, encoding: .utf8) {
-                    authorizationProvider.getCredentialState(forUserID: username) { [weak self] (state, error) in
-                        guard let self = self else { return }
-                        
-                        switch (state) {
-                        case .authorized:
-                            self.loadData()
-                        case .revoked:
-                            self.showAlert(title: "No account found.", message: "")
-                            self.selfDestruct()
-                            fallthrough
-                        case .notFound:
-                            self.selfDestruct()
-                            self.showAlert(title: "No account found.", message: "")
-                        default:
-                            break
-                        }
-                    }
-                }
-            } else {
-                // get it for the first time
-                switch authorization.credential {
-                case let appleIDCredential as ASAuthorizationAppleIDCredential:
-                    DispatchQueue.main.async {
-                        if let userIdentifier = appleIDCredential.user.data(using: .utf8) {
-                            let status = KeyChain.save(key: "userIdentifier", data: userIdentifier)
-                            if status == 0 {
-                                DispatchQueue.main.async { [weak self] in
-                                    guard let self = self else { return }
-                                    
-                                    self.loadData()
-                                }
+                    if username == appleIDCredential.user {
+                        authorizationProvider.getCredentialState(forUserID: username) { [weak self] (state, error) in
+                            guard let self = self else { return }
+                            
+                            switch state {
+                            case .authorized:
+                                self.loadData()
+                            case .revoked:
+                                self.showAlert(title: "No account found.", message: "")
+                                self.selfDestruct()
+                                fallthrough
+                            case .notFound:
+                                self.selfDestruct()
+                                self.showAlert(title: "No account found.", message: "")
+                            default:
+                                break
                             }
                         }
+                    } else {
+                        self.selfDestruct()
                     }
-                default:
-                    break
                 }
             }
         default:
@@ -566,6 +548,15 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
                 if granted {
                     self.showScanner()
                 }
+            }
+            
+        case "segueToGetAuth":
+            guard let vc = segue.destination as? PromptForAuthViewController else { fallthrough }
+            
+            vc.doneBlock = { [weak self] success in
+                guard let self = self else { return }
+                
+                self.loadData()
             }
             
         default:
