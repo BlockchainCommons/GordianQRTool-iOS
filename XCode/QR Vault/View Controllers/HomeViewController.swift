@@ -9,6 +9,7 @@
 import UIKit
 import AuthenticationServices
 import LibWally
+import AVFoundation
 
 class HomeViewController: UIViewController, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
     
@@ -55,6 +56,22 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     }
     
     @IBAction func scanQrAction(_ sender: Any) {
+        if AVCaptureDevice.authorizationStatus(for: .video) == .authorized {
+            showScanner()
+        } else {
+            prommptForCameraPermissions()            
+        }
+    }
+    
+    private func prommptForCameraPermissions() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.performSegue(withIdentifier: "segueToPromptForCameraPermissions", sender: self)
+        }
+    }
+    
+    private func showScanner() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
@@ -149,7 +166,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         if qrArray.count == 0 {
             let emptyCell = tableView.dequeueReusableCell(withIdentifier: "emptyCell", for: indexPath)
             emptyCell.selectionStyle = .none
-            emptyCell.textLabel?.text = "⚠︎ tap + to add a QR code"
+            emptyCell.textLabel?.text = "tap the paste or scan button to add a QR code"
             
             return emptyCell
             
@@ -539,6 +556,17 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             guard let vc = segue.destination as? LabelViewController else { return }
             
             vc.text = textToAdd
+            
+        case "segueToPromptForCameraPermissions":
+            guard let vc = segue.destination as? CameraPermissionsViewController else { fallthrough }
+            
+            vc.doneBlock = { [weak self] granted in
+                guard let self = self else { return }
+                
+                if granted {
+                    self.showScanner()
+                }
+            }
             
         default:
             break

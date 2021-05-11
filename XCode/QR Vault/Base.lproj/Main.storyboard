@@ -183,11 +183,71 @@
                         <segue destination="kzi-YC-089" kind="presentation" identifier="segueToScanQr" id="Oai-et-gHY"/>
                         <segue destination="i5i-iX-7S2" kind="show" identifier="addLabelSegue" id="C77-r2-IBv"/>
                         <segue destination="WRT-3S-ExK" kind="presentation" identifier="segueToQrDisplayer" id="9tD-tH-fvD"/>
+                        <segue destination="Amo-ay-4Oh" kind="presentation" identifier="segueToPromptForCameraPermissions" id="2rU-sI-tgy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1436.2318840579712" y="816.96428571428567"/>
+        </scene>
+        <!--Camera Permissions View Controller-->
+        <scene sceneID="6Jl-lv-nW6">
+            <objects>
+                <viewController id="Amo-ay-4Oh" customClass="CameraPermissionsViewController" customModule="QR_Vault" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RV7-uO-dZU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTs-1z-4vM">
+                                <rect key="frame" x="20" y="96" width="374" height="293"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="293" id="Y50-Qj-gRE"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Mx-HJ-fLE">
+                                <rect key="frame" x="132.5" y="427" width="149" height="30"/>
+                                <state key="normal" title="Grant Camera Access">
+                                    <color key="titleColor" systemColor="systemTealColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="getAccess:" destination="Amo-ay-4Oh" eventType="touchUpInside" id="wvM-t3-gaa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHD-iI-zYW">
+                                <rect key="frame" x="354" y="20" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="DTD-w6-Y1x"/>
+                                    <constraint firstAttribute="width" constant="40" id="rNU-8L-H74"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="closeAction:" destination="Amo-ay-4Oh" eventType="touchUpInside" id="vEv-CC-Efn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JRW-im-5st"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uTs-1z-4vM" firstAttribute="top" secondItem="yHD-iI-zYW" secondAttribute="bottom" constant="36" id="2l1-Dw-FCr"/>
+                            <constraint firstItem="JRW-im-5st" firstAttribute="trailing" secondItem="uTs-1z-4vM" secondAttribute="trailing" constant="20" id="Ejz-NK-UUq"/>
+                            <constraint firstItem="uTs-1z-4vM" firstAttribute="leading" secondItem="JRW-im-5st" secondAttribute="leading" constant="20" id="TTZ-oG-T0K"/>
+                            <constraint firstItem="4Mx-HJ-fLE" firstAttribute="centerX" secondItem="RV7-uO-dZU" secondAttribute="centerX" id="VfC-iy-8Gl"/>
+                            <constraint firstItem="JRW-im-5st" firstAttribute="trailing" secondItem="yHD-iI-zYW" secondAttribute="trailing" constant="20" id="cEk-vi-rha"/>
+                            <constraint firstItem="yHD-iI-zYW" firstAttribute="top" secondItem="JRW-im-5st" secondAttribute="top" constant="20" id="eXT-wU-v2T"/>
+                            <constraint firstItem="4Mx-HJ-fLE" firstAttribute="top" secondItem="uTs-1z-4vM" secondAttribute="bottom" constant="38" id="kQH-Mb-cGC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="uTs-1z-4vM" id="v7y-Py-EtY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zCo-bF-X8V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3759.420289855073" y="1481.9196428571429"/>
         </scene>
         <!--Sponsor View Controller-->
         <scene sceneID="hRV-Vy-HXU">
@@ -207,9 +267,9 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGw-yQ-uF6">
                                 <rect key="frame" x="27" y="84" width="361" height="577"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">QR Vault is open-source software that is a project of Blockchain Commons. It was created to allow users to store SSKR shards for friends, family, and associates, but we are releasing it generally to make it easy to store QRs of all sorts, including 2FA tokens, important URLs, restaurant menus, and whatever other QR code you may need to refer to again in the future.
+                                <string key="text">QR Vault is open-source software that is a project of Blockchain Commons. It was created to allow users to store SSKR shards for friends, family, and associates, but we are releasing it generally to make it easy to store QRs of all sorts, including 2FA tokens, important URLs, restaurant menus, and whatever other QR code you may need to refer to again in the future.
 
-Creating this sort of tool is one of the primary mandates of Blockchain Commons, a "not-for-profit" social benefit corporation committed to open source &amp; open development. Our goal is to make it easier for beginners and experts alike to use Bitcoin in a secure, self-sovereign way, where you truly control your own digital assets. Working with the digital-asset wallet community, we have been developing new specifications such as our Uniform Resources (URs), which encode data for interoperability and which support efficient, self-describing QR displays, as well as SSKR, which allows cryptocurrency seeds to be divided into individual shares for later reconstruction.</mutableString>
+Creating this sort of tool is one of the primary mandates of Blockchain Commons, a "not-for-profit" social benefit corporation committed to open source &amp; open development. Our goal is to make it easier for beginners and experts alike to use Bitcoin in a secure, self-sovereign way, where you truly control your own digital assets. Working with the digital-asset wallet community, we have been developing new specifications such as our Uniform Resources (URs), which encode data for interoperability and which support efficient, self-describing QR displays, as well as SSKR, which allows cryptocurrency seeds to be divided into individual shares for later reconstruction.</string>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

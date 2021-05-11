@@ -12,6 +12,7 @@
 		0A0AE50A2643948C00D6F85A /* DeriveLifehash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AE5092643948C00D6F85A /* DeriveLifehash.swift */; };
 		0A0AE52126477C9700D6F85A /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AE52026477C9700D6F85A /* QRScannerViewController.swift */; };
 		0A0AE53C2648A7EB00D6F85A /* QRDisplayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AE53B2648A7EB00D6F85A /* QRDisplayerViewController.swift */; };
+		0A171CD8264A16AD00ADE71B /* CameraPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A171CD7264A16AD00ADE71B /* CameraPermissionsViewController.swift */; };
 		0A4151A22640ED4D00E23C99 /* LibWally.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A41519C2640ED4900E23C99 /* LibWally.xcframework */; };
 		0A4151A32640ED4D00E23C99 /* LibWally.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A41519C2640ED4900E23C99 /* LibWally.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0A4151AD2640EED300E23C99 /* URKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0A4151AC2640EED300E23C99 /* URKit */; };
@@ -107,6 +108,7 @@
 		0A0AE5092643948C00D6F85A /* DeriveLifehash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeriveLifehash.swift; sourceTree = "<group>"; };
 		0A0AE52026477C9700D6F85A /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		0A0AE53B2648A7EB00D6F85A /* QRDisplayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRDisplayerViewController.swift; sourceTree = "<group>"; };
+		0A171CD7264A16AD00ADE71B /* CameraPermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermissionsViewController.swift; sourceTree = "<group>"; };
 		0A41519C2640ED4900E23C99 /* LibWally.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibWally.xcframework; sourceTree = "<group>"; };
 		0A4151BE2640FE5100E23C99 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D006E328243D6EBF007B1A5B /* ShareExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -283,6 +285,7 @@
 				D006E346243EBF9C007B1A5B /* SponsorViewController.swift */,
 				0A0AE52026477C9700D6F85A /* QRScannerViewController.swift */,
 				0A0AE53B2648A7EB00D6F85A /* QRDisplayerViewController.swift */,
+				0A171CD7264A16AD00ADE71B /* CameraPermissionsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				D0FA16BE243B25D100115589 /* Spinner.swift in Sources */,
 				D0FA16A8243ABDF700115589 /* HomeViewController.swift in Sources */,
 				D0FA16BA243AF6E500115589 /* Encryption.swift in Sources */,
+				0A171CD8264A16AD00ADE71B /* CameraPermissionsViewController.swift in Sources */,
 				D0FA16AE243ACCBD00115589 /* QRStruct.swift in Sources */,
 				D0FA16BC243B117C00115589 /* CoreDataManager.swift in Sources */,
 			);

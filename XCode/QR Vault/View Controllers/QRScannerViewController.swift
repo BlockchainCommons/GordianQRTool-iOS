@@ -238,7 +238,6 @@ class QRScannerViewController: UIViewController {
     }
     
     private func process(text: String) {
-        print("process: \(text)")
         isRunning = true
         
         if isUr(text) {
@@ -262,63 +261,57 @@ class QRScannerViewController: UIViewController {
             
             let expectedParts = decoder.expectedPartCount ?? 0
             
-            print("hello")
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
                 
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
-                    
-                    if self.avCaptureSession.isRunning {
-                        self.avCaptureSession.stopRunning()
-                    }
-                    let impact = UIImpactFeedbackGenerator()
-                    impact.impactOccurred()
-                    AudioServicesPlaySystemSound(1103)
+                if self.avCaptureSession.isRunning {
+                    self.avCaptureSession.stopRunning()
                 }
+                let impact = UIImpactFeedbackGenerator()
+                impact.impactOccurred()
+                AudioServicesPlaySystemSound(1103)
+            }
             
-                
-                guard expectedParts != 0 else {
-                    guard let result = try? decoder.result?.get() else { return }
-                        print("failing here")
-                        if let psbt = URHelper.psbtUrToBase64Text(result) {
-                            stopScanning(psbt)
-                        } else if let bytes = URHelper.bytesUrToText(result) {
-                            stopScanning(bytes)
-                        } else {
-                            stopScanning(result.string)
-                        }                    
-                    
-                    return
+            guard expectedParts != 0 else {
+                guard let result = try? decoder.result?.get() else { return }
+                if let psbt = URHelper.psbtUrToBase64Text(result) {
+                    stopScanning(psbt)
+                } else if let bytes = URHelper.bytesUrToText(result) {
+                    stopScanning(bytes)
+                } else {
+                    stopScanning(result.string)
                 }
                 
-                self.isRunning = false
+                return
+            }
+            
+            self.isRunning = false
+            
+            let percentageCompletion = "\(Int(decoder.estimatedPercentComplete * 100))% complete"
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
                 
-                let percentageCompletion = "\(Int(decoder.estimatedPercentComplete * 100))% complete"
-                
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
-                    
-                    if self.blurArray.count > 0 {
-                        for i in self.blurArray {
-                            i.removeFromSuperview()
-                        }
-                        self.blurArray.removeAll()
+                if self.blurArray.count > 0 {
+                    for i in self.blurArray {
+                        i.removeFromSuperview()
                     }
-                    
-                    self.progressView.setProgress(Float(self.decoder.estimatedPercentComplete), animated: true)
-                    self.progressDescriptionLabel.text = percentageCompletion
-                    self.backgroundView.alpha = 1
-                    self.progressView.alpha = 1
-                    self.progressDescriptionLabel.alpha = 1
+                    self.blurArray.removeAll()
                 }
+                
+                self.progressView.setProgress(Float(self.decoder.estimatedPercentComplete), animated: true)
+                self.progressDescriptionLabel.text = percentageCompletion
+                self.backgroundView.alpha = 1
+                self.progressView.alpha = 1
+                self.progressDescriptionLabel.alpha = 1
+            }
         } else {
             isRunning = false
             stopScanning(text)
         }
-        
     }
     
     private func stopScanning(_ result: String) {
-        print("stop scanning")
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
