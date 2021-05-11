@@ -1,22 +1,22 @@
-# Blockchain Commons QR Vault
+# Blockchain Commons UR Vault
 
 ### _by Peter Denton and Christopher Allen_
 
-**QR Vault** is a secure place to store your QR codes. There are no third party libraries used, it is a simple app that uses powerful encryption to keep your secrets safe. QR Vault can be added to your "share actions" so it can be used in any app that allows you to export images. In this way you can save your QR codes from other apps without even taking a screen shot.
+**UR Vault** is a secure place to store your QR codes. There are no third party libraries used, it is a simple app that uses powerful encryption to keep your secrets safe. UR Vault can be added to your "share actions" so it can be used in any app that allows you to export images. In this way you can save your QR codes from other apps without even taking a screen shot.
 
 Please join our testflight [here](https://testflight.apple.com/join/X7Ri4nPp). Pleae share any crash reports or bugs, if you want a feature added just ask.
 
 ## Additional Information
 
-**QR Vault** never uploads your data and does not use a server at all. It utilizes the "Sign in with Apple" tool for 2FA (two-factor authentication) purposes to ensure only you can export and delete your QR codes.
+**UR Vault** never uploads your data and does not use a server at all. It utilizes the "Sign in with Apple" tool for 2FA (two-factor authentication) purposes to ensure only you can export and delete your QR codes.
 
-**QR Vault** allows you to add QR's via images, scanning or via text.
+**UR Vault** allows you to add QR's via images, scanning, or via copy-and-paste text.
 
 It is a Mac Catalyst app and will work on your MacBook, iPad, iPhone and iPod Touch.
 
 ## Status - Late Alpha
 
-**QR Vault** is currently under active development and in the late alpha testing phase. It should not be used for production tasks until it has had further testing and auditing.
+**UR Vault** is currently under active development and in the late alpha testing phase. It should not be used for production tasks until it has had further testing and auditing.
 
 ## Origin, Authors, Copyright & Licenses
 
@@ -36,15 +36,15 @@ No dependencies required.
 
 ### Used with…
 
-These are other projects that work with or leverage **QR Vault**:
+These are other projects that work with or leverage **UR Vault**:
 
 - [FullyNoded 2](https://github.com/BlockchainCommons/FullyNoded-2)
 
 ## Financial Support
 
-**QR Vault** is a project by [Blockchain Commons](https://www.blockchaincommons.com/). We are proudly a social benefit "not-for-profit" committed to open source & open development. Our work is funded entirely by donations and collaborative partnerships with people like you. Every contribution will be spent on building open tools, technologies & techniques for blockchain and internet security infrastructure.
+**UR Vault** is a project by [Blockchain Commons](https://www.blockchaincommons.com/). We are proudly a social benefit "not-for-profit" committed to open source & open development. Our work is funded entirely by donations and collaborative partnerships with people like you. Every contribution will be spent on building open tools, technologies & techniques for blockchain and internet security infrastructure.
 
-To financially support further development of **QR Vault** and other projects, please consider becoming a Patron of Blockchain Commons through ongoing monthly patronage by becoming a [Sponsor](https://github.com/sponsors/BlockchainCommons) through GitHub; currently they are matching the first $5k so please do consider this option. You can also offer support with Bitcoin via our [BTCPay Server](https://btcpay.blockchaincommons.com/).
+To financially support further development of **UR Vault** and other projects, please consider becoming a Patron of Blockchain Commons through ongoing monthly patronage by becoming a [Sponsor](https://github.com/sponsors/BlockchainCommons) through GitHub; currently they are matching the first $5k so please do consider this option. You can also offer support with Bitcoin via our [BTCPay Server](https://btcpay.blockchaincommons.com/).
 
 ## Contributing
 
