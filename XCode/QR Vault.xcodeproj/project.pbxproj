@@ -14,6 +14,8 @@
 		0A0AE53C2648A7EB00D6F85A /* QRDisplayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AE53B2648A7EB00D6F85A /* QRDisplayerViewController.swift */; };
 		0A171CD8264A16AD00ADE71B /* CameraPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A171CD7264A16AD00ADE71B /* CameraPermissionsViewController.swift */; };
 		0A171CDD264A1D6000ADE71B /* PromptForAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A171CDC264A1D6000ADE71B /* PromptForAuthViewController.swift */; };
+		0A171CE2264A271200ADE71B /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A171CE1264A271200ADE71B /* IntroViewController.swift */; };
+		0A171CE7264A2BA800ADE71B /* LicenseDisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A171CE6264A2BA800ADE71B /* LicenseDisclaimerViewController.swift */; };
 		0A4151A22640ED4D00E23C99 /* LibWally.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A41519C2640ED4900E23C99 /* LibWally.xcframework */; };
 		0A4151A32640ED4D00E23C99 /* LibWally.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A41519C2640ED4900E23C99 /* LibWally.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0A4151AD2640EED300E23C99 /* URKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0A4151AC2640EED300E23C99 /* URKit */; };
@@ -111,6 +113,8 @@
 		0A0AE53B2648A7EB00D6F85A /* QRDisplayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRDisplayerViewController.swift; sourceTree = "<group>"; };
 		0A171CD7264A16AD00ADE71B /* CameraPermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermissionsViewController.swift; sourceTree = "<group>"; };
 		0A171CDC264A1D6000ADE71B /* PromptForAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptForAuthViewController.swift; sourceTree = "<group>"; };
+		0A171CE1264A271200ADE71B /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		0A171CE6264A2BA800ADE71B /* LicenseDisclaimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseDisclaimerViewController.swift; sourceTree = "<group>"; };
 		0A41519C2640ED4900E23C99 /* LibWally.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibWally.xcframework; sourceTree = "<group>"; };
 		0A4151BE2640FE5100E23C99 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D006E328243D6EBF007B1A5B /* ShareExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -289,6 +293,8 @@
 				0A0AE53B2648A7EB00D6F85A /* QRDisplayerViewController.swift */,
 				0A171CD7264A16AD00ADE71B /* CameraPermissionsViewController.swift */,
 				0A171CDC264A1D6000ADE71B /* PromptForAuthViewController.swift */,
+				0A171CE1264A271200ADE71B /* IntroViewController.swift */,
+				0A171CE6264A2BA800ADE71B /* LicenseDisclaimerViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -537,8 +543,10 @@
 				D04F029F253EA847008CB77F /* Lifehash.swift in Sources */,
 				D0FA16BE243B25D100115589 /* Spinner.swift in Sources */,
 				D0FA16A8243ABDF700115589 /* HomeViewController.swift in Sources */,
+				0A171CE2264A271200ADE71B /* IntroViewController.swift in Sources */,
 				D0FA16BA243AF6E500115589 /* Encryption.swift in Sources */,
 				0A171CD8264A16AD00ADE71B /* CameraPermissionsViewController.swift in Sources */,
+				0A171CE7264A2BA800ADE71B /* LicenseDisclaimerViewController.swift in Sources */,
 				D0FA16AE243ACCBD00115589 /* QRStruct.swift in Sources */,
 				D0FA16BC243B117C00115589 /* CoreDataManager.swift in Sources */,
 			);

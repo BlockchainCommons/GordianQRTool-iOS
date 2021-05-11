@@ -27,13 +27,12 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //KeyChain.remove(key: "userIdentifier")
-        
-        if UserDefaults.standard.object(forKey: "hasUpdated") == nil {
+                
+        if UserDefaults.standard.object(forKey: "hasUpdated1") == nil {
+            let _ = KeyChain.remove(key: "privateKey")
             KeyChain.removeAll()
             CoreDataService.deleteAllData(completion: { success in })
-            UserDefaults.standard.setValue(true, forKey: "hasUpdated")
+            UserDefaults.standard.setValue(true, forKey: "hasUpdated1")
         }
         
         navigationController?.delegate = self
@@ -329,7 +328,13 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             let pk = Encryption.privateKey()
             let status = KeyChain.save(key: "privateKey", data: pk)
             if status == 0 {
-                showAlert(title: "Success", message: "We securely created a private key and stored it to your devices secure enclave.\n\nThis private key will be encrypted and stored securely on your device. QR Vault will use this private key to encrypt and decrypt all the QR codes you save. This way you have two levels of encryption protecting your data.")
+                //showAlert(title: "Success", message: "We securely created a private key and stored it to your devices secure enclave.\n\nThis private key will be encrypted and stored securely on your device. QR Vault will use this private key to encrypt and decrypt all the QR codes you save. This way you have two levels of encryption protecting your data.")
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    
+                    self.performSegue(withIdentifier: "segueToIntroText", sender: self)
+                }
+                
             } else {
                 let error = NSError(domain: NSOSStatusErrorDomain, code: Int(status), userInfo: [NSLocalizedDescriptionKey: SecCopyErrorMessageString(status, nil) ?? "Undefined error"])
                 showAlert(title: "Error!", message: "There was an error creating a private key and storing it on your keychain. Error: \(error)")
@@ -554,6 +559,26 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             guard let vc = segue.destination as? PromptForAuthViewController else { fallthrough }
             
             vc.doneBlock = { [weak self] success in
+                guard let self = self else { return }
+                
+                self.loadData()
+            }
+            
+        case "segueToIntroText":
+            guard let vc = segue.destination as? IntroViewController else { fallthrough }
+            
+            vc.doneBlock = { _ in
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    
+                    self.performSegue(withIdentifier: "segueToLicense", sender: self)
+                }
+            }
+            
+        case "segueToLicense":
+            guard let vc = segue.destination as? LicenseDisclaimerViewController else { fallthrough }
+            
+            vc.doneBlock = { [weak self] _ in
                 guard let self = self else { return }
                 
                 self.loadData()

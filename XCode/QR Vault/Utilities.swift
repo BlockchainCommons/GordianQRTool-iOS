@@ -60,8 +60,8 @@ public extension Data {
         return Data(values)
     }
 
-    var utf8: String {
-        String(data: self, encoding: .utf8)!
+    var utf8: String? {
+        String(data: self, encoding: .utf8)
     }
 
     var bytes: [UInt8] {

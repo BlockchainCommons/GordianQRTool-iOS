@@ -133,10 +133,14 @@ class DeriveLifehash {
                 
         if let dict = try? JSONSerialization.jsonObject(with: decryptedItem, options: []) as? [String : Any] {
             return descriptorLifehash(dict)
-        } else if decryptedItem.utf8.lowercased().hasPrefix("ur:") {
-            return urLifehash(decryptedItem.utf8.lowercased())
+        } else if let utf8 = decryptedItem.utf8 {
+            if utf8.lowercased().hasPrefix("ur:") {
+                return urLifehash(utf8.lowercased())
+            } else {
+                return LifeHash.image(utf8)
+            }
         } else {
-            return LifeHash.image(decryptedItem.utf8)
+            return LifeHash.image(decryptedItem)
         }
     }
     
