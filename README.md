@@ -1,20 +1,29 @@
-# Blockchain Commons QR Vault
+# Blockchain Commons UR Vault
 
-**QR Vault** is a secure place to store your QR codes. There are no third party libraries used, it is a simple app that uses powerful encryption to keep your secrets safe. QR Vault can be added to your "share actions" so it can be used in any app that allows you to export images. In this way you can save your QR codes from other apps without even taking a screen shot.
+Powered by [Uniform Resource](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md), **UR Vault** acts as a secure place to store and backup sensitive text. Ideal suited for airgapped transmission of PSBT's via [UR](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md) QR codes, however will work with any text.
 
-Please join our testflight [here](https://testflight.apple.com/join/X7Ri4nPp). Pleae share any crash reports or bugs, if you want a feature added just ask.
+## Features
+- Multiple layers of encryption
+- Automated iCloud backup and recovery
+- 2FA using the "Sign in with Apple" feature to ensure only you can decrypt your data
+- Bitcoin centric! Convert plain text bip39 mnemonics, SSKR shards, PSBT's (more coming soon) into [UR](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md) and stream them for airgapped use
+- Recognizes any UR type
+- An ideal app to recommend to friends and family to backup SSKR shards
+- Converts any amount of text into an animated UR QR code
+- Scan a QR or paste text to create new items
+- Easily build the project on your MacBook, iPhone iPad, iTouch using the same small codebase
+
+Please join our testflight [here](https://testflight.apple.com/join/X7Ri4nPp). Please share any crash reports or bugs, if you want a feature added just ask.
 
 ## Additional Information
 
-**QR Vault** never uploads your data and does not use a server at all. It utilizes the "Sign in with Apple" tool for 2FA (two-factor authentication) purposes to ensure only you can export and delete your QR codes.
+Data is always stored with multiple layers of encryption using your device's keychain.
 
-**QR Vault** allows you to add QR's via images, scanning or via text.
-
-It is a Mac Catalyst app and will work on your MacBook, iPad, iPhone and iPod Touch.
+To ensure you can backup & recover from iCloud you **must** be signed in with the same Apple ID and must enable "Keychain" on your device's iCloud settings.
 
 ## Status - Late Alpha
 
-**QR Vault** is currently under active development and in the late alpha testing phase. It should not be used for production tasks until it has had further testing and auditing.
+**UR Vault** is currently under active development and in the late alpha testing phase. It should not be used for production tasks until it has had further testing and auditing.
 
 ## Origin, Authors, Copyright & Licenses
 
@@ -30,19 +39,15 @@ This table below also establishes provenance (repository of origin, permalink, a
 
 ### Dependencies
 
-No dependencies required.
-
-### Used with…
-
-These are other projects that work with or leverage **QR Vault**:
-
-- [FullyNoded 2](https://github.com/BlockchainCommons/FullyNoded-2)
+- [BCLibwallySwift](https://github.com/BlockchainCommons/BCLibwallySwift)
+- [URKit](https://github.com/BlockchainCommons/URKit)
+- [LifeHash](https://github.com/BlockchainCommons/LifeHash)
 
 ## Financial Support
 
-**QR Vault** is a project by [Blockchain Commons](https://www.blockchaincommons.com/). We are proudly a social benefit "not-for-profit" committed to open source & open development. Our work is funded entirely by donations and collaborative partnerships with people like you. Every contribution will be spent on building open tools, technologies & techniques for blockchain and internet security infrastructure.
+**UR Vault** is a project by [Blockchain Commons](https://www.blockchaincommons.com/). We are proudly a social benefit "not-for-profit" committed to open source & open development. Our work is funded entirely by donations and collaborative partnerships with people like you. Every contribution will be spent on building open tools, technologies & techniques for blockchain and internet security infrastructure.
 
-To financially support further development of **QR Vault** and other projects, please consider becoming a Patron of Blockchain Commons through ongoing monthly patronage by becoming a [Sponsor](https://github.com/sponsors/BlockchainCommons) through GitHub; currently they are matching the first $5k so please do consider this option. You can also offer support with Bitcoin via our [BTCPay Server](https://btcpay.blockchaincommons.com/).
+To financially support further development of **UR Vault** and other projects, please consider becoming a Patron of Blockchain Commons through ongoing monthly patronage by becoming a [Sponsor](https://github.com/sponsors/BlockchainCommons) through GitHub; currently they are matching the first $5k so please do consider this option. You can also offer support with Bitcoin via our [BTCPay Server](https://btcpay.blockchaincommons.com/).
 
 ## Contributing
 
