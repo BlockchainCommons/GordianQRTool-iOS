@@ -223,7 +223,7 @@
                                     <action selector="continueAction:" destination="I46-g0-NXc" eventType="touchUpInside" id="MSa-3m-eYx"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="License &amp; Disclaimer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMC-yB-0sC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="License &amp; Disclaimer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMC-yB-0sC">
                                 <rect key="frame" x="71" y="140" width="272" height="34"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -268,19 +268,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37H-je-spY">
-                                <rect key="frame" x="20" y="169" width="374" height="293"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="293" id="qSU-WO-Gpj"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="prJ-yI-yG3">
-                                <rect key="frame" x="176" y="500" width="62" height="30"/>
+                                <rect key="frame" x="176" y="513" width="62" height="30"/>
                                 <state key="normal" title="Continue">
                                     <color key="titleColor" systemColor="systemTealColor"/>
                                 </state>
@@ -295,14 +284,34 @@
                                     <constraint firstAttribute="height" constant="56" id="Ijq-ba-UJb"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ny7-oU-hHh">
+                                <rect key="frame" x="146.5" y="140" width="121.5" height="34"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37H-je-spY">
+                                <rect key="frame" x="20" y="182" width="374" height="293"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="293" id="qSU-WO-Gpj"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0b0-VL-SKf"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="37H-je-spY" firstAttribute="top" secondItem="TE4-a3-gb5" secondAttribute="bottom" constant="49" id="9Qg-KY-clP"/>
                             <constraint firstItem="prJ-yI-yG3" firstAttribute="centerX" secondItem="tb3-hK-INg" secondAttribute="centerX" id="BBE-vW-fAg"/>
                             <constraint firstItem="0b0-VL-SKf" firstAttribute="trailing" secondItem="37H-je-spY" secondAttribute="trailing" constant="20" id="BNB-JC-d4V"/>
                             <constraint firstItem="TE4-a3-gb5" firstAttribute="centerX" secondItem="tb3-hK-INg" secondAttribute="centerX" id="Jr6-Ed-nVR"/>
+                            <constraint firstItem="ny7-oU-hHh" firstAttribute="centerX" secondItem="tb3-hK-INg" secondAttribute="centerX" id="MHC-SS-okQ"/>
+                            <constraint firstItem="ny7-oU-hHh" firstAttribute="centerX" secondItem="tb3-hK-INg" secondAttribute="centerX" id="QI3-8F-A10"/>
+                            <constraint firstItem="37H-je-spY" firstAttribute="top" secondItem="ny7-oU-hHh" secondAttribute="bottom" constant="8" symbolic="YES" id="QqH-Vh-dI2"/>
+                            <constraint firstItem="ny7-oU-hHh" firstAttribute="top" secondItem="TE4-a3-gb5" secondAttribute="bottom" constant="20" id="hPg-IH-bd5"/>
                             <constraint firstItem="37H-je-spY" firstAttribute="leading" secondItem="0b0-VL-SKf" secondAttribute="leading" constant="20" id="wNA-Cb-LtB"/>
                             <constraint firstItem="prJ-yI-yG3" firstAttribute="top" secondItem="37H-je-spY" secondAttribute="bottom" constant="38" id="wnu-Ph-9nR"/>
                             <constraint firstItem="TE4-a3-gb5" firstAttribute="top" secondItem="0b0-VL-SKf" secondAttribute="top" constant="20" id="x4d-dN-2ND"/>
@@ -324,27 +333,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDr-IZ-VaF">
-                                <rect key="frame" x="20" y="125" width="374" height="293"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="293" id="EyH-3b-uJN"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="293" id="h9Z-Pa-R2h"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mIn-Bi-w2u">
-                                <rect key="frame" x="156" y="456" width="102" height="30"/>
-                                <state key="normal" title="Add Apple 2FA">
-                                    <color key="titleColor" systemColor="systemTealColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="addAuthAction:" destination="KxG-Tg-va5" eventType="touchUpInside" id="kwZ-91-frh"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQ4-lm-qfM">
                                 <rect key="frame" x="354" y="20" width="40" height="40"/>
                                 <constraints>
@@ -362,6 +350,32 @@
                                     <constraint firstAttribute="width" constant="167" id="LH6-jm-HDs"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Two Factor Auth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PA5-ba-KSu">
+                                <rect key="frame" x="100.5" y="96" width="213" height="34"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDr-IZ-VaF">
+                                <rect key="frame" x="20" y="138" width="374" height="293"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="293" id="EyH-3b-uJN"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mIn-Bi-w2u">
+                                <rect key="frame" x="156" y="469" width="102" height="30"/>
+                                <state key="normal" title="Add Apple 2FA">
+                                    <color key="titleColor" systemColor="systemTealColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="addAuthAction:" destination="KxG-Tg-va5" eventType="touchUpInside" id="kwZ-91-frh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Zcz-OB-t9L"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -370,9 +384,11 @@
                             <constraint firstItem="d7f-iZ-wii" firstAttribute="centerX" secondItem="hWt-t8-BD8" secondAttribute="centerX" id="4m3-vJ-qYN"/>
                             <constraint firstItem="Zcz-OB-t9L" firstAttribute="trailing" secondItem="EQ4-lm-qfM" secondAttribute="trailing" constant="20" id="73N-4M-SqD"/>
                             <constraint firstItem="d7f-iZ-wii" firstAttribute="top" secondItem="Zcz-OB-t9L" secondAttribute="top" constant="20" id="Cr1-P2-r12"/>
+                            <constraint firstItem="PA5-ba-KSu" firstAttribute="top" secondItem="d7f-iZ-wii" secondAttribute="bottom" constant="20" id="Gdr-Wc-a1t"/>
+                            <constraint firstItem="TDr-IZ-VaF" firstAttribute="top" secondItem="PA5-ba-KSu" secondAttribute="bottom" constant="8" symbolic="YES" id="Mvx-C5-C3n"/>
                             <constraint firstItem="TDr-IZ-VaF" firstAttribute="leading" secondItem="Zcz-OB-t9L" secondAttribute="leading" constant="20" id="OJ2-c7-Riz"/>
+                            <constraint firstItem="PA5-ba-KSu" firstAttribute="centerX" secondItem="hWt-t8-BD8" secondAttribute="centerX" id="fgl-QI-KOy"/>
                             <constraint firstItem="mIn-Bi-w2u" firstAttribute="top" secondItem="TDr-IZ-VaF" secondAttribute="bottom" constant="38" id="g5C-4A-VuL"/>
-                            <constraint firstItem="TDr-IZ-VaF" firstAttribute="top" secondItem="EQ4-lm-qfM" secondAttribute="bottom" constant="65" id="khL-dO-RmQ"/>
                             <constraint firstItem="EQ4-lm-qfM" firstAttribute="top" secondItem="Zcz-OB-t9L" secondAttribute="top" constant="20" id="rn6-gy-Vqh"/>
                             <constraint firstItem="Zcz-OB-t9L" firstAttribute="trailing" secondItem="TDr-IZ-VaF" secondAttribute="trailing" constant="20" id="wnN-gX-udG"/>
                         </constraints>
@@ -383,7 +399,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="al4-H7-vy9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4682" y="1470"/>
+            <point key="canvasLocation" x="-4682.608695652174" y="1469.8660714285713"/>
         </scene>
         <!--Camera Permissions View Controller-->
         <scene sceneID="6Jl-lv-nW6">
@@ -394,7 +410,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTs-1z-4vM">
-                                <rect key="frame" x="20" y="96" width="374" height="293"/>
+                                <rect key="frame" x="20" y="138" width="374" height="293"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="293" id="Y50-Qj-gRE"/>
@@ -404,15 +420,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Mx-HJ-fLE">
-                                <rect key="frame" x="132.5" y="427" width="149" height="30"/>
-                                <state key="normal" title="Grant Camera Access">
-                                    <color key="titleColor" systemColor="systemTealColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="getAccess:" destination="Amo-ay-4Oh" eventType="touchUpInside" id="wvM-t3-gaa"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHD-iI-zYW">
                                 <rect key="frame" x="354" y="20" width="40" height="40"/>
                                 <constraints>
@@ -430,12 +437,28 @@
                                     <constraint firstAttribute="height" constant="56" id="ROJ-g2-VNs"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera Usage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTD-2a-qaR">
+                                <rect key="frame" x="111" y="96" width="192" height="34"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Mx-HJ-fLE">
+                                <rect key="frame" x="133" y="469" width="149" height="30"/>
+                                <state key="normal" title="Grant Camera Access">
+                                    <color key="titleColor" systemColor="systemTealColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="getAccess:" destination="Amo-ay-4Oh" eventType="touchUpInside" id="wvM-t3-gaa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JRW-im-5st"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="uTs-1z-4vM" firstAttribute="top" secondItem="yHD-iI-zYW" secondAttribute="bottom" constant="36" id="2l1-Dw-FCr"/>
+                            <constraint firstItem="QTD-2a-qaR" firstAttribute="top" secondItem="reP-zz-vUK" secondAttribute="bottom" constant="20" id="5JK-Um-BbZ"/>
                             <constraint firstItem="JRW-im-5st" firstAttribute="trailing" secondItem="uTs-1z-4vM" secondAttribute="trailing" constant="20" id="Ejz-NK-UUq"/>
+                            <constraint firstItem="QTD-2a-qaR" firstAttribute="centerX" secondItem="RV7-uO-dZU" secondAttribute="centerX" id="FRZ-Mr-Jps"/>
                             <constraint firstItem="uTs-1z-4vM" firstAttribute="leading" secondItem="JRW-im-5st" secondAttribute="leading" constant="20" id="TTZ-oG-T0K"/>
                             <constraint firstItem="4Mx-HJ-fLE" firstAttribute="centerX" secondItem="RV7-uO-dZU" secondAttribute="centerX" id="VfC-iy-8Gl"/>
                             <constraint firstItem="reP-zz-vUK" firstAttribute="centerX" secondItem="RV7-uO-dZU" secondAttribute="centerX" id="Wjk-xJ-ljd"/>
@@ -443,6 +466,7 @@
                             <constraint firstItem="yHD-iI-zYW" firstAttribute="top" secondItem="JRW-im-5st" secondAttribute="top" constant="20" id="eXT-wU-v2T"/>
                             <constraint firstItem="4Mx-HJ-fLE" firstAttribute="top" secondItem="uTs-1z-4vM" secondAttribute="bottom" constant="38" id="kQH-Mb-cGC"/>
                             <constraint firstItem="reP-zz-vUK" firstAttribute="top" secondItem="JRW-im-5st" secondAttribute="top" constant="20" id="niV-yh-fMM"/>
+                            <constraint firstItem="uTs-1z-4vM" firstAttribute="top" secondItem="QTD-2a-qaR" secondAttribute="bottom" constant="8" id="soT-Th-Poy"/>
                         </constraints>
                     </view>
                     <connections>
@@ -471,9 +495,9 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGw-yQ-uF6">
                                 <rect key="frame" x="27" y="84" width="361" height="577"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">QR Vault is open-source software that is a project of Blockchain Commons. It was created to allow users to store SSKR shards for friends, family, and associates, but we are releasing it generally to make it easy to store QRs of all sorts, including 2FA tokens, important URLs, restaurant menus, and whatever other QR code you may need to refer to again in the future.
+                                <mutableString key="text">UR Vault is open-source software that is a project of Blockchain Commons. It was created to allow users to store SSKR shards for friends, family, and associates, but we are releasing it generally to make it easy to store QRs of all sorts, including 2FA tokens, important URLs, restaurant menus, and whatever other QR code you may need to refer to again in the future.
 
-Creating this sort of tool is one of the primary mandates of Blockchain Commons, a "not-for-profit" social benefit corporation committed to open source &amp; open development. Our goal is to make it easier for beginners and experts alike to use Bitcoin in a secure, self-sovereign way, where you truly control your own digital assets. Working with the digital-asset wallet community, we have been developing new specifications such as our Uniform Resources (URs), which encode data for interoperability and which support efficient, self-describing QR displays, as well as SSKR, which allows cryptocurrency seeds to be divided into individual shares for later reconstruction.</string>
+Creating this sort of tool is one of the primary mandates of Blockchain Commons, a "not-for-profit" social benefit corporation committed to open source &amp; open development. Our goal is to make it easier for beginners and experts alike to use Bitcoin in a secure, self-sovereign way, where you truly control your own digital assets. Working with the digital-asset wallet community, we have been developing new specifications such as our Uniform Resources (URs), which encode data for interoperability and which support efficient, self-describing QR displays, as well as SSKR, which allows cryptocurrency seeds to be divided into individual shares for later reconstruction.</mutableString>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

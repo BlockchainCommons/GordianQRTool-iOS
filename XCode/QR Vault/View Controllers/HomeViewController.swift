@@ -28,11 +28,11 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        if UserDefaults.standard.object(forKey: "hasUpdated1") == nil {
+        if UserDefaults.standard.object(forKey: "hasUpdated2") == nil {
             let _ = KeyChain.remove(key: "privateKey")
             KeyChain.removeAll()
             CoreDataService.deleteAllData(completion: { success in })
-            UserDefaults.standard.setValue(true, forKey: "hasUpdated1")
+            UserDefaults.standard.setValue(true, forKey: "hasUpdated2")
         }
         
         navigationController?.delegate = self
@@ -167,7 +167,8 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         if qrArray.count == 0 {
             let emptyCell = tableView.dequeueReusableCell(withIdentifier: "emptyCell", for: indexPath)
             emptyCell.selectionStyle = .none
-            emptyCell.textLabel?.text = "tap the paste or scan button to add a QR code"
+            emptyCell.textLabel?.numberOfLines = 0
+            emptyCell.textLabel?.text = "Tap the paste or scan button to add a QR code"
             
             return emptyCell
             
@@ -305,7 +306,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         if qrArray.count > 0 {
             return 120
         } else {
-            return 47
+            return 100
         }
     }
     
