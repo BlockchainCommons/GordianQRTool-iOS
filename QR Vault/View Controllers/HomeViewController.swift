@@ -27,12 +27,12 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
 
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        if UserDefaults.standard.object(forKey: "hasUpdated2") == nil {
+        
+        if KeyChain.load(key: "hasUpdated") == nil {
             let _ = KeyChain.remove(key: "privateKey")
             KeyChain.removeAll()
             CoreDataService.deleteAllData(completion: { success in })
-            UserDefaults.standard.setValue(true, forKey: "hasUpdated2")
+            let _ = KeyChain.save(key: "hasUpdated", data: "true".utf8)
         }
         
         navigationController?.delegate = self
