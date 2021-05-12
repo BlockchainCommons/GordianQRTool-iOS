@@ -30,6 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
@@ -40,6 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        NotificationCenter.default.post(name: .appActivated, object: nil, userInfo: nil)
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -49,6 +51,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Save changes in the application's managed object context when the application transitions to the background.
         CoreDataService.saveContext()
+        NotificationCenter.default.post(name: .appBackgrounded, object: nil, userInfo: nil)
     }
 
 

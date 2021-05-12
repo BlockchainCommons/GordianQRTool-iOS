@@ -19,6 +19,11 @@ public func showAlert(_ vc: UIViewController?, _ title: String, _ message: Strin
     }
 }
 
+extension Notification.Name {
+    public static let appBackgrounded = Notification.Name(rawValue: "appBackgrounded")
+    public static let appActivated = Notification.Name(rawValue: "appActivated")
+}
+
 public extension String {
     
     func processed() -> String {

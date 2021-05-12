@@ -49,6 +49,8 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         homeTable.tableFooterView = UIView(frame: CGRect.zero)
         editButton = UIBarButtonItem.init(barButtonSystemItem: .edit, target: self, action: #selector(editNodes))
         
+        NotificationCenter.default.addObserver(self, selector: #selector(lockApp), name: .appBackgrounded, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(unlock), name: .appActivated, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -60,11 +62,32 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         }
     }
     
+    @objc func lockApp() {
+        authorized = false
+        qrArray.removeAll()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.homeTable.reloadData()
+        }
+    }
+    
     @objc func refresh(_ sender: AnyObject) {
         if let _ = KeyChain.load(key: "userIdentifier"), authorized {
             loadData()
-            refreshControl.endRefreshing()
         } else {
+            addAuth()
+        }
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.refreshControl.endRefreshing()
+        }
+    }
+    
+    @objc func unlock() {
+        if !initialLoad {
             addAuth()
         }
     }
@@ -148,23 +171,27 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     
     
     private func loadData() {
-        CoreDataService.retrieveEntity { [weak self] (qrs, errorDescription) in
-            guard let self = self else { return }
-            
-            guard let qrs = qrs, qrs.count > 0 else { return }
-            
-            self.qrArray.removeAll()
-            
-            for (i, qr) in qrs.enumerated() {
-                self.qrArray.append(qr)
-                if i + 1 == qrs.count {
-                    DispatchQueue.main.async { [weak self] in
-                        guard let self = self else { return }
-                        
-                        self.homeTable.reloadData()
+        if authorized {
+            CoreDataService.retrieveEntity { [weak self] (qrs, errorDescription) in
+                guard let self = self else { return }
+                
+                guard let qrs = qrs, qrs.count > 0 else { return }
+                
+                self.qrArray.removeAll()
+                
+                for (i, qr) in qrs.enumerated() {
+                    self.qrArray.append(qr)
+                    if i + 1 == qrs.count {
+                        DispatchQueue.main.async { [weak self] in
+                            guard let self = self else { return }
+                            
+                            self.homeTable.reloadData()
+                        }
                     }
                 }
             }
+        } else {
+            addAuth()
         }
     }
     
