@@ -273,7 +273,8 @@ class QRScannerViewController: UIViewController {
             }
             
             guard expectedParts != 0 else {
-                guard let result = try? decoder.result?.get() else { return }
+                guard let result = try? decoder.result?.get() else { stopScanning(text); return }
+                
                 if let psbt = URHelper.psbtUrToBase64Text(result) {
                     stopScanning(psbt)
                 } else if let bytes = URHelper.bytesUrToText(result) {

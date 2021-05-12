@@ -36,7 +36,7 @@ enum URHelper {
     }
     
     static func psbtUrToBase64Text(_ ur: UR) -> String? {
-        guard let decodedCbor = try? CBOR.decode(ur.cbor.bytes),
+        guard ur.type == "crypto-psbt", let decodedCbor = try? CBOR.decode(ur.cbor.bytes),
             case let CBOR.byteString(bytes) = decodedCbor else {
                 return nil
         }
@@ -45,7 +45,7 @@ enum URHelper {
     }
     
     static func bytesUrToText(_ ur: UR) -> String? {
-        guard let decodedCbor = try? CBOR.decode(ur.cbor.bytes),
+        guard ur.type == "bytes", let decodedCbor = try? CBOR.decode(ur.cbor.bytes),
             case let CBOR.byteString(bytes) = decodedCbor else {
                 return nil
         }

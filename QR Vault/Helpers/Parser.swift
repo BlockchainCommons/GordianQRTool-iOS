@@ -61,6 +61,14 @@ class Parser {
         return true
     }
     
+    private class func isMicrosoftAuth(_ item: String) -> Bool {
+        return item.lowercased().condenseWhitespace().hasPrefix("ms-msa://code=")
+    }
+    
+    private class func isOtpAuth(_ item: String) -> Bool {
+        return item.lowercased().condenseWhitespace().hasPrefix("otpauth")
+    }
+    
     class func parse(_ item: String) -> String {
         let processed = item.lowercased()
         
@@ -71,6 +79,7 @@ class Parser {
             return "mnemonic"
             
         } else if processed.hasPrefix("ur:") {
+            
             if let ur = try? URDecoder.decode(processed) {
                 return ur.type
             } else {
@@ -85,6 +94,12 @@ class Parser {
             
         } else if isShard(processed) {
             return "sskr shard"
+            
+        } else if isMicrosoftAuth(processed) {
+            return "microsoft auth"
+            
+        } else if isOtpAuth(processed) {
+            return "otp auth"
             
         } else {
             return ""
