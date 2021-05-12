@@ -289,7 +289,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
-            self.labelField.text = self.reducedName(text: qr.label)
+            self.labelField.text = qr.label
             
             guard let decryptedQr = Encryption.decrypt(qr.qrData), let text = String(data: decryptedQr, encoding: .utf8) else {
                 return
@@ -412,15 +412,15 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         }
     }
     
-    private func reducedName(text: String) -> String {
-        if text.count > 50 {
-            let first = String(text.prefix(15))
-            let last = String(text.suffix(15))
-            return "\(first)...\(last)"
-        } else {
-            return text
-        }
-    }
+//    private func reducedName(text: String) -> String {
+//        if text.count > 50 {
+//            let first = String(text.prefix(15))
+//            let last = String(text.suffix(15))
+//            return "\(first)...\(last)"
+//        } else {
+//            return text
+//        }
+//    }
     
     @objc func handleTap() {
         #if targetEnvironment(macCatalyst)
