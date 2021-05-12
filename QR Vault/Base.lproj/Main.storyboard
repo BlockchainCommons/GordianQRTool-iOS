@@ -155,12 +155,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lKg-Uc-8Xn">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="LL9-3J-8mK">
-                            <color key="tintColor" systemColor="systemTealColor"/>
-                            <connections>
-                                <action selector="editAction:" destination="BYZ-38-t0r" id="iXD-He-58l"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem systemItem="edit" id="LL9-3J-8mK">
+                                <color key="tintColor" systemColor="systemTealColor"/>
+                                <connections>
+                                    <action selector="editAction:" destination="BYZ-38-t0r" id="iXD-He-58l"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="refresh" id="fzd-jM-i8I">
+                                <color key="tintColor" systemColor="systemTealColor"/>
+                                <connections>
+                                    <action selector="refreshAction:" destination="BYZ-38-t0r" id="bsw-Zm-YfQ"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <rightBarButtonItems>
                             <barButtonItem image="qrcode.viewfinder" catalog="system" id="C9U-ni-Tij">
                                 <color key="tintColor" systemColor="systemTealColor"/>

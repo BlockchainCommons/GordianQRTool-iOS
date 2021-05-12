@@ -23,8 +23,6 @@ class PromptForAuthViewController: UIViewController, UINavigationControllerDeleg
 
             Upon your first use of UR Vault, you will need to "Sign in with Apple", then every time you launch the app you will again be prompted to "Sign in with Apple", to ensure that only you can access and decrypt your data. Your Apple ID information is only used by the app, not shared with Blockchain Commons!
 
-            If someone else tries to access the app, all data will self destruct after 5 failed attempts!
-
             """
     }
     

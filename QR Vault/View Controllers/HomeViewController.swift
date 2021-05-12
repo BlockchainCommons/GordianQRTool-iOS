@@ -23,6 +23,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     private var isDeleting = Bool()
     private var indPath:IndexPath!
     private var authorized = false
+    private var refreshControl = UIRefreshControl()
     var textToAdd = ""
     var initialLoad = true
 
@@ -40,6 +41,10 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         homeTable.delegate = self
         homeTable.dataSource = self
         
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        homeTable.addSubview(refreshControl)
+        
         setTitleView()
         homeTable.tableFooterView = UIView(frame: CGRect.zero)
         editButton = UIBarButtonItem.init(barButtonSystemItem: .edit, target: self, action: #selector(editNodes))
@@ -47,13 +52,28 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        qrArray.removeAll()
-        
         if initialLoad {
             initialLoad = false
             firstTime()
         } else {
             loadData()
+        }
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        if let _ = KeyChain.load(key: "userIdentifier"), authorized {
+            loadData()
+            refreshControl.endRefreshing()
+        } else {
+            addAuth()
+        }
+    }
+    
+    @IBAction func refreshAction(_ sender: Any) {
+        if let _ = KeyChain.load(key: "userIdentifier"), authorized {
+            loadData()
+        } else {
+            addAuth()
         }
     }
     
@@ -133,6 +153,8 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             
             guard let qrs = qrs, qrs.count > 0 else { return }
             
+            self.qrArray.removeAll()
+            
             for (i, qr) in qrs.enumerated() {
                 self.qrArray.append(qr)
                 if i + 1 == qrs.count {
@@ -199,7 +221,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             typeLabel.textAlignment = .center
             typeBackground.layer.cornerRadius = 8
             
-            label.text = reducedName(text: str.label)
+            label.text = str.label
             date.text = formatDate(date: str.dateAdded)
             imageView.image = DeriveLifehash.lifehash(str.qrData)
             
@@ -374,19 +396,6 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         return dateFormatter.string(from: date)
     }
     
-    private func selfDestruct() {
-        if let attempts = UserDefaults.standard.object(forKey: "attempts") as? Int {
-            if attempts > 4 {
-                CoreDataService.deleteAllData { deleted in }
-                showAlert(title: "I'm bricked!", message: "You entered more then five incorrect log ins.")
-            } else {
-                UserDefaults.standard.setValue(attempts + 1, forKey: "attempts")
-            }
-        } else {
-            UserDefaults.standard.setValue(1, forKey: "attempts")
-        }
-    }
-    
     private func addAuth() {
         if let _ = KeyChain.load(key: "userIdentifier") {
             let request = ASAuthorizationAppleIDProvider().createRequest()
@@ -419,18 +428,14 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
                                 self.loadData()
                             case .revoked:
                                 self.showAlert(title: "No account found.", message: "")
-                                self.selfDestruct()
                                 fallthrough
                             case .notFound:
-                                self.selfDestruct()
                                 self.showAlert(title: "No account found.", message: "")
                             default:
                                 print("triggered")
                                 break
                             }
                         }
-                    } else {
-                        self.selfDestruct()
                     }
                 }
             }
@@ -441,16 +446,6 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.view.window!
-    }
-    
-    private func reducedName(text: String) -> String {
-        if text.count > 50 {
-            let first = String(text.prefix(15))
-            let last = String(text.suffix(15))
-            return "\(first)...\(last)"
-        } else {
-            return text
-        }
     }
     
     @objc func logoTapped() {
