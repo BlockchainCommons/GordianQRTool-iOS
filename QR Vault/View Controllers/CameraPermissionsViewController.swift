@@ -24,13 +24,9 @@ class CameraPermissionsViewController: UIViewController {
 
             You may scan static or animated QR codes. UR Vault is designed to work especially well with Uniform Resource encoding, but will work with any QR code.
 
-            Please tap "Grant Camera Permission" to allow UR Vault to access your camera so that it can scan QR codes.
+            Please tap "Continue" to allow UR Vault to access your camera so that it can scan QR codes.
 
             """
-    }
-    
-    @IBAction func closeAction(_ sender: Any) {
-        dismissWithPermission(false)
     }
     
     @IBAction func getAccess(_ sender: Any) {
@@ -38,12 +34,10 @@ class CameraPermissionsViewController: UIViewController {
             guard let self = self else { return }
             
             guard granted else {
-                print("access denied")
                 self.dismissWithPermission(false)
                 return
             }
             
-            print("access allowed")
             self.dismissWithPermission(true)
         })
     }
@@ -57,8 +51,6 @@ class CameraPermissionsViewController: UIViewController {
             }
         }
     }
-    
-    
 
     /*
     // MARK: - Navigation

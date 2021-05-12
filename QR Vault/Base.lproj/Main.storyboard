@@ -420,16 +420,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHD-iI-zYW">
-                                <rect key="frame" x="354" y="20" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="DTD-w6-Y1x"/>
-                                    <constraint firstAttribute="width" constant="40" id="rNU-8L-H74"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="closeAction:" destination="Amo-ay-4Oh" eventType="touchUpInside" id="vEv-CC-Efn"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blockchain-commons-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="reP-zz-vUK">
                                 <rect key="frame" x="123.5" y="20" width="167" height="56"/>
                                 <constraints>
@@ -444,8 +434,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Mx-HJ-fLE">
-                                <rect key="frame" x="132.5" y="469" width="149" height="30"/>
-                                <state key="normal" title="Grant Camera Access">
+                                <rect key="frame" x="176" y="469" width="62" height="30"/>
+                                <state key="normal" title="Continue">
                                     <color key="titleColor" systemColor="systemTealColor"/>
                                 </state>
                                 <connections>
@@ -462,8 +452,6 @@
                             <constraint firstItem="uTs-1z-4vM" firstAttribute="leading" secondItem="JRW-im-5st" secondAttribute="leading" constant="20" id="TTZ-oG-T0K"/>
                             <constraint firstItem="4Mx-HJ-fLE" firstAttribute="centerX" secondItem="RV7-uO-dZU" secondAttribute="centerX" id="VfC-iy-8Gl"/>
                             <constraint firstItem="reP-zz-vUK" firstAttribute="centerX" secondItem="RV7-uO-dZU" secondAttribute="centerX" id="Wjk-xJ-ljd"/>
-                            <constraint firstItem="JRW-im-5st" firstAttribute="trailing" secondItem="yHD-iI-zYW" secondAttribute="trailing" constant="20" id="cEk-vi-rha"/>
-                            <constraint firstItem="yHD-iI-zYW" firstAttribute="top" secondItem="JRW-im-5st" secondAttribute="top" constant="20" id="eXT-wU-v2T"/>
                             <constraint firstItem="4Mx-HJ-fLE" firstAttribute="top" secondItem="uTs-1z-4vM" secondAttribute="bottom" constant="38" id="kQH-Mb-cGC"/>
                             <constraint firstItem="reP-zz-vUK" firstAttribute="top" secondItem="JRW-im-5st" secondAttribute="top" constant="20" id="niV-yh-fMM"/>
                             <constraint firstItem="uTs-1z-4vM" firstAttribute="top" secondItem="QTD-2a-qaR" secondAttribute="bottom" constant="8" id="soT-Th-Poy"/>
@@ -1038,7 +1026,7 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="njW-o1-D3r"/>
+        <segue reference="NJs-YR-Z5q"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="blockchain-commons-logo.png" width="500" height="148"/>
