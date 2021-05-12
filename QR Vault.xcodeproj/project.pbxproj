@@ -115,7 +115,7 @@
 		0A171CDC264A1D6000ADE71B /* PromptForAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptForAuthViewController.swift; sourceTree = "<group>"; };
 		0A171CE1264A271200ADE71B /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		0A171CE6264A2BA800ADE71B /* LicenseDisclaimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseDisclaimerViewController.swift; sourceTree = "<group>"; };
-		0A41519C2640ED4900E23C99 /* LibWally.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibWally.xcframework; sourceTree = SOURCE_ROOT; };
+		0A41519C2640ED4900E23C99 /* LibWally.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibWally.xcframework; sourceTree = "<group>"; };
 		0A4151BE2640FE5100E23C99 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D006E328243D6EBF007B1A5B /* ShareExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D006E32A243D6EBF007B1A5B /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -196,8 +196,8 @@
 		0A4151BD2640FE5100E23C99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0A41519C2640ED4900E23C99 /* LibWally.xcframework */,
 				0A4151BE2640FE5100E23C99 /* CloudKit.framework */,
+				0A41519C2640ED4900E23C99 /* LibWally.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
