@@ -22,6 +22,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     private let dateFormatter = DateFormatter()
     private var isDeleting = Bool()
     private var indPath:IndexPath!
+    private var authorized = false
     var textToAdd = ""
     var initialLoad = true
 
@@ -57,7 +58,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     }
     
     @IBAction func scanQrAction(_ sender: Any) {
-        if let _ = KeyChain.load(key: "userIdentifier") {
+        if let _ = KeyChain.load(key: "userIdentifier"), authorized {
             if AVCaptureDevice.authorizationStatus(for: .video) == .authorized {
                 showScanner()
             } else {
@@ -86,7 +87,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     
     
     @IBAction func pasteAction(_ sender: Any) {
-        if let _ = KeyChain.load(key: "userIdentifier") {
+        if let _ = KeyChain.load(key: "userIdentifier"), authorized {
             if let data = UIPasteboard.general.data(forPasteboardType: "com.apple.traditional-mac-plain-text") {
                 guard let string = String(bytes: data, encoding: .utf8) else { return }
                 
@@ -329,7 +330,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     }
     
     @IBAction func editAction(_ sender: Any) {
-        if let _ = KeyChain.load(key: "userIdentifier") {
+        if let _ = KeyChain.load(key: "userIdentifier"), authorized {
             editNodes()
         } else {
             addAuth()
@@ -414,6 +415,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
                             
                             switch state {
                             case .authorized:
+                                self.authorized = true
                                 self.loadData()
                             case .revoked:
                                 self.showAlert(title: "No account found.", message: "")
@@ -423,6 +425,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
                                 self.selfDestruct()
                                 self.showAlert(title: "No account found.", message: "")
                             default:
+                                print("triggered")
                                 break
                             }
                         }
