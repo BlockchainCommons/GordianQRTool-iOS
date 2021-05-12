@@ -196,6 +196,7 @@
 		0A4151BD2640FE5100E23C99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0A41519C2640ED4900E23C99 /* LibWally.xcframework */,
 				0A4151BE2640FE5100E23C99 /* CloudKit.framework */,
 			);
 			name = Frameworks;
@@ -210,14 +211,6 @@
 				D006E32F243D6EBF007B1A5B /* Info.plist */,
 			);
 			path = ShareExt;
-			sourceTree = "<group>";
-		};
-		D04F02A4253EAB04008CB77F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0A41519C2640ED4900E23C99 /* LibWally.xcframework */,
-			);
-			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		D0FA1667243ABD3100115589 = {
@@ -246,7 +239,6 @@
 		D0FA1672243ABD3100115589 /* QR Vault */ = {
 			isa = PBXGroup;
 			children = (
-				D04F02A4253EAB04008CB77F /* Frameworks */,
 				D0FA16A6243ABD4500115589 /* QR Vault.entitlements */,
 				D0FA1673243ABD3100115589 /* AppDelegate.swift */,
 				D0FA1675243ABD3100115589 /* SceneDelegate.swift */,

@@ -6,14 +6,15 @@ Powered by [Uniform Resource](https://github.com/BlockchainCommons/Research/blob
 - Multiple layers of encryption
 - Automated iCloud backup and recovery
 - 2FA using the "Sign in with Apple" feature to ensure only you can decrypt your data
-- Bitcoin centric! Convert plain text bip39 mnemonics, SSKR shards, PSBT's (more coming soon) into [UR](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md) and stream them for airgapped use
+- Bitcoin centric! Convert plain text bip39 mnemonics, [SSKR](https://github.com/BlockchainCommons/bc-sskr) shards, PSBT's (more coming soon) into [UR](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md) and stream them for airgapped use
+- [LifeHashes](https://github.com/BlockchainCommons/LifeHash) to deterministically derive unique visual fingerprints of each item, always derived in real time before being displayed to make it obvious if your data has been altered
 - Recognizes any UR type
 - An ideal app to recommend to friends and family to backup SSKR shards
 - Converts any amount of text into an animated UR QR code
 - Scan a QR or paste text to create new items
 - Easily build the project on your MacBook, iPhone iPad, iTouch using the same small codebase
 
-Please join our testflight [here](https://testflight.apple.com/join/X7Ri4nPp). Please share any crash reports or bugs, if you want a feature added just ask.
+Please join our Testflight [here](https://testflight.apple.com/join/X7Ri4nPp). Please share any crash reports or bugs, if you want a feature added please raise an issue.
 
 ## Additional Information
 
