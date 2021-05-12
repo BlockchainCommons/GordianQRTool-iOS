@@ -57,10 +57,14 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     }
     
     @IBAction func scanQrAction(_ sender: Any) {
-        if AVCaptureDevice.authorizationStatus(for: .video) == .authorized {
-            showScanner()
+        if let _ = KeyChain.load(key: "userIdentifier") {
+            if AVCaptureDevice.authorizationStatus(for: .video) == .authorized {
+                showScanner()
+            } else {
+                prommptForCameraPermissions()
+            }
         } else {
-            prommptForCameraPermissions()            
+            addAuth()
         }
     }
     
@@ -82,30 +86,34 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     
     
     @IBAction func pasteAction(_ sender: Any) {
-        if let data = UIPasteboard.general.data(forPasteboardType: "com.apple.traditional-mac-plain-text") {
-            guard let string = String(bytes: data, encoding: .utf8) else { return }
-            
-            self.textToAdd = string
-            self.segueToAddLabel()
-        } else if let string = UIPasteboard.general.string {
-            
-            self.textToAdd = string
-            self.segueToAddLabel()
-            
-        } else if UIPasteboard.general.hasImages {
-            if let image = UIPasteboard.general.image {
-                let detector:CIDetector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy:CIDetectorAccuracyHigh])!
-                let ciImage:CIImage = CIImage(image: image)!
-                var qrCodeLink = ""
-                let features = detector.features(in: ciImage)
-                for feature in features as! [CIQRCodeFeature] {
-                    qrCodeLink += feature.messageString!
-                }
-                self.textToAdd = qrCodeLink
+        if let _ = KeyChain.load(key: "userIdentifier") {
+            if let data = UIPasteboard.general.data(forPasteboardType: "com.apple.traditional-mac-plain-text") {
+                guard let string = String(bytes: data, encoding: .utf8) else { return }
+                
+                self.textToAdd = string
                 self.segueToAddLabel()
+            } else if let string = UIPasteboard.general.string {
+                
+                self.textToAdd = string
+                self.segueToAddLabel()
+                
+            } else if UIPasteboard.general.hasImages {
+                if let image = UIPasteboard.general.image {
+                    let detector:CIDetector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy:CIDetectorAccuracyHigh])!
+                    let ciImage:CIImage = CIImage(image: image)!
+                    var qrCodeLink = ""
+                    let features = detector.features(in: ciImage)
+                    for feature in features as! [CIQRCodeFeature] {
+                        qrCodeLink += feature.messageString!
+                    }
+                    self.textToAdd = qrCodeLink
+                    self.segueToAddLabel()
+                }
+            } else {
+                QR_Vault.showAlert(self, "", "Whatever you have pasted does not seem to be valid text.")
             }
         } else {
-            QR_Vault.showAlert(self, "", "Whatever you have pasted does not seem to be valid text.")
+            addAuth()
         }
     }
     
@@ -321,7 +329,11 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     }
     
     @IBAction func editAction(_ sender: Any) {
-        editNodes()
+        if let _ = KeyChain.load(key: "userIdentifier") {
+            editNodes()
+        } else {
+            addAuth()
+        }
     }
     
     private func firstTime() {
@@ -360,57 +372,6 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         dateFormatter.dateFormat = "yyyy-MMM-dd hh:mm"
         return dateFormatter.string(from: date)
     }
-    
-//    private func descriptorLifehash(_ accountMap: Data) -> UIImage? {
-//        guard let decryptedQr = Encryption.decrypt(accountMap) else { return nil }
-//        
-//        guard let dict = try? JSONSerialization.jsonObject(with: decryptedQr, options: []) as? [String : Any] else { return nil }
-//              
-//        guard var descriptor = dict["descriptor"] as? String else { return nil }
-//        
-//        var dictArray = [[String:String]]()
-//        let descriptorParser = DescriptorParser()
-//        let descStruct = descriptorParser.descriptor(descriptor)
-//        
-//        if descStruct.isMulti {
-//            for keyWithPath in descStruct.keysWithPath {
-//                
-//                let arr = keyWithPath.split(separator: "]")
-//                
-//                if arr.count > 1 {
-//                    var xpubString = "\(arr[1].replacingOccurrences(of: "))", with: ""))"
-//                    xpubString = xpubString.replacingOccurrences(of: "/0/*", with: "")
-//                    
-//                    guard let xpub = try? HDKey(base58: xpubString) else {
-//                        return nil
-//                    }
-//                    
-//                    let dict = ["path":"\(arr[0])]", "key": xpub.description]
-//                    dictArray.append(dict)
-//                }
-//            }
-//            
-//            dictArray.sort(by: {($0["key"]!) < $1["key"]!})
-//            
-//            var sortedKeys = ""
-//            
-//            for (i, sortedItem) in dictArray.enumerated() {
-//                let path = sortedItem["path"]!
-//                let key = sortedItem["key"]!
-//                let fullKey = path + key
-//                sortedKeys += fullKey
-//                
-//                if i + 1 < dictArray.count {
-//                    sortedKeys += ","
-//                }
-//            }
-//            
-//            let arr2 = descriptor.split(separator: ",")
-//            descriptor = "\(arr2[0])," + sortedKeys + "))"
-//        }
-//                
-//        return LifeHash.image(descriptor)
-//    }
     
     private func selfDestruct() {
         if let attempts = UserDefaults.standard.object(forKey: "attempts") as? Int {
