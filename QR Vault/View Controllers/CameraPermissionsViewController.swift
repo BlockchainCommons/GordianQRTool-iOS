@@ -20,11 +20,12 @@ class CameraPermissionsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         textView.text = """
-            UR Vault works best when you give it permission to scan QR codes you would like to save securely.
+            UR Vault works best when you give it permission to scan QR codes that you would like to save securely.
 
-            You may scan static or animated QR codes. UR Vault is designed to work especially well with Uniform Resource encoding but will work with any QR code.
+            You may scan static or animated QR codes. UR Vault is designed to work especially well with Uniform Resource encoding, but will work with any QR code.
 
-            Please tap "Grant Camera Permission" to allow UR Vault to access your camera so that it may scan QR codes.
+            Please tap "Grant Camera Permission" to allow UR Vault to access your camera so that it can scan QR codes.
+
             """
     }
     

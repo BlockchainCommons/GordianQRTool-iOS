@@ -18,13 +18,12 @@ class IntroViewController: UIViewController {
         super.viewDidLoad()
 
         textView.text = """
-            UR Vault is a specialist app designed to create a secure and redundant place for all your sensitive QR codes to be stored.
+            UR Vault creates a secure and redundant place to store all of your sensitive QR codes. Any QR code can be stored, but UR Vault is built especially to support Uniform Resources that are encoded as QRs, including seeds, HD keys, and account maps.
 
-            UR Vault utilizes multiple layers of encryption, 2FA (two factor authentication) along with your devices keychain to ensure only you may ever access your data.
+            UR Vault utilizes multiple layers of encryption, 2FA (two factor authentication), and your device's keychain to ensure that only you may ever access your data.
 
-            UR Vault automatically creates fully encrypted iCloud backups and will sync to any other device where you are logged in with the same Apple ID.
+            UR Vault also creates secure resilience by automatically backing up your data to iCloud using backups that ​will sync to any other device where you are logged in with the same Apple ID. All data stored on the iCloud is fully encrypted with a private key that is itself encrypted and stored on your device's secure enclave. To ensure the app can sync across devices or easily be recovered on another device you must enable "keychain sync" under the iCloud settings on your devices.
 
-            All data stored on the iCloud is encrypted with a private key which is itself encrypted and stored on your device secure enclave. To ensure the app can sync across devices or easily be recovered on another device you must enable "keychain sync" under your iCloud settings on your devices.
             """
     }
     

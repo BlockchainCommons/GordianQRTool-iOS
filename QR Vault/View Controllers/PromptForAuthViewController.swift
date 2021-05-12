@@ -19,15 +19,12 @@ class PromptForAuthViewController: UIViewController, UINavigationControllerDeleg
         super.viewDidLoad()
 
         textView.text = """
-            UR Vault always encrypts your data before saving it.
+            UR Vault always encrypts your data before saving it and uses Apple's native 2FA (two factor authentication) to ensure that only you can decrypt and access that information.
 
-            UR Vault uses Apple's native 2FA (two factor authentication) to ensure only you can decrypt and access your QR codes.
+            Upon your first use of UR Vault, you will need to "Sign in with Apple", then every time you launch the app you will again be prompted to "Sign in with Apple", to ensure that only you can access and decrypt your data. Your Apple ID information is only used by the app, not shared with Blockchain Commons!
 
-            Upon first use of the app we ask you to "Sign in with Apple" so that we can save your Apple ID username.
+            If someone else tries to access the app, all data will self destruct after 5 failed attempts!
 
-            Everytime you launch the app you will be prompted to "Sign in with Apple" to ensure only you may access and decrypt your data.
-
-            If someone else tries to access the app all data will self destruct after 5 failed attempts!
             """
     }
     
