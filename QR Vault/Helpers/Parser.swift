@@ -65,10 +65,10 @@ class Parser {
         let processed = item.lowercased()
         
         if isQuickConnect(processed) {
-            return "Quick Connect"
+            return "quick connect"
             
         } else if isMnemonic(processed) {
-            return "Mnemonic"
+            return "mnemonic"
             
         } else if processed.hasPrefix("ur:") {
             if let ur = try? URDecoder.decode(processed) {
@@ -78,13 +78,13 @@ class Parser {
             }
             
         } else if isAccountMap(processed) {
-            return "Account Map"
+            return "account map"
             
         } else if isPsbt(item) {
-            return "PSBT"
+            return "psbt"
             
         } else if isShard(processed) {
-            return "SSKR Shard"
+            return "sskr shard"
             
         } else {
             return ""
