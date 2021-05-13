@@ -384,20 +384,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mIn-Bi-w2u">
-                                <rect key="frame" x="156" y="469" width="102" height="30"/>
-                                <state key="normal" title="Add Apple 2FA">
-                                    <color key="titleColor" systemColor="systemTealColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="addAuthAction:" destination="KxG-Tg-va5" eventType="touchUpInside" id="kwZ-91-frh"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Zcz-OB-t9L"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="mIn-Bi-w2u" firstAttribute="centerX" secondItem="hWt-t8-BD8" secondAttribute="centerX" id="0dq-bW-ok2"/>
                             <constraint firstItem="d7f-iZ-wii" firstAttribute="centerX" secondItem="hWt-t8-BD8" secondAttribute="centerX" id="4m3-vJ-qYN"/>
                             <constraint firstItem="Zcz-OB-t9L" firstAttribute="trailing" secondItem="EQ4-lm-qfM" secondAttribute="trailing" constant="20" id="73N-4M-SqD"/>
                             <constraint firstItem="d7f-iZ-wii" firstAttribute="top" secondItem="Zcz-OB-t9L" secondAttribute="top" constant="20" id="Cr1-P2-r12"/>
@@ -405,7 +395,6 @@
                             <constraint firstItem="TDr-IZ-VaF" firstAttribute="top" secondItem="PA5-ba-KSu" secondAttribute="bottom" constant="8" symbolic="YES" id="Mvx-C5-C3n"/>
                             <constraint firstItem="TDr-IZ-VaF" firstAttribute="leading" secondItem="Zcz-OB-t9L" secondAttribute="leading" constant="20" id="OJ2-c7-Riz"/>
                             <constraint firstItem="PA5-ba-KSu" firstAttribute="centerX" secondItem="hWt-t8-BD8" secondAttribute="centerX" id="fgl-QI-KOy"/>
-                            <constraint firstItem="mIn-Bi-w2u" firstAttribute="top" secondItem="TDr-IZ-VaF" secondAttribute="bottom" constant="38" id="g5C-4A-VuL"/>
                             <constraint firstItem="EQ4-lm-qfM" firstAttribute="top" secondItem="Zcz-OB-t9L" secondAttribute="top" constant="20" id="rn6-gy-Vqh"/>
                             <constraint firstItem="Zcz-OB-t9L" firstAttribute="trailing" secondItem="TDr-IZ-VaF" secondAttribute="trailing" constant="20" id="wnN-gX-udG"/>
                         </constraints>
@@ -500,9 +489,9 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGw-yQ-uF6">
                                 <rect key="frame" x="27" y="84" width="361" height="577"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">UR Vault v0.3.2 is open-source software that is a project of Blockchain Commons. It was created to allow users to store SSKR shards for friends, family, and associates, but we are releasing it generally to make it easy to store QRs of all sorts, including 2FA tokens, important URLs, restaurant menus, and whatever other QR code you may need to refer to again in the future.
+                                <mutableString key="text">UR Vault v0.3.3 is open-source software that is a project of Blockchain Commons. It was created to allow users to store SSKR shards for friends, family, and associates, but we are releasing it generally to make it easy to store QRs of all sorts, including 2FA tokens, important URLs, restaurant menus, and whatever other QR code you may need to refer to again in the future.
 
-Creating this sort of tool is one of the primary mandates of Blockchain Commons, a "not-for-profit" social benefit corporation committed to open source &amp; open development. Our goal is to make it easier for beginners and experts alike to use Bitcoin in a secure, self-sovereign way, where you truly control your own digital assets. Working with the digital-asset wallet community, we have been developing new specifications such as our Uniform Resources (URs), which encode data for interoperability and which support efficient, self-describing QR displays, as well as SSKR, which allows cryptocurrency seeds to be divided into individual shares for later reconstruction.</string>
+Creating this sort of tool is one of the primary mandates of Blockchain Commons, a "not-for-profit" social benefit corporation committed to open source &amp; open development. Our goal is to make it easier for beginners and experts alike to use Bitcoin in a secure, self-sovereign way, where you truly control your own digital assets. Working with the digital-asset wallet community, we have been developing new specifications such as our Uniform Resources (URs), which encode data for interoperability and which support efficient, self-describing QR displays, as well as SSKR, which allows cryptocurrency seeds to be divided into individual shares for later reconstruction.</mutableString>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
