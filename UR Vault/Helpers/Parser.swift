@@ -80,19 +80,19 @@ class Parser {
             
         } else if processed.hasPrefix("ur:") {
             
-            if let ur = try? URDecoder.decode(processed) {
+            if let ur = try? URDecoder.decode(processed.condenseWhitespace()) {
                 return ur.type
             } else {
-                return ""
+                return "unknown"
             }
             
         } else if isAccountMap(processed) {
             return "account map"
             
-        } else if isPsbt(item) {
+        } else if isPsbt(item.condenseWhitespace()) {
             return "psbt"
             
-        } else if isShard(processed) {
+        } else if isShard(processed.condenseWhitespace()) {
             return "sskr shard"
             
         } else if isMicrosoftAuth(processed) {
@@ -102,7 +102,7 @@ class Parser {
             return "otp auth"
             
         } else {
-            return ""
+            return "unknown"
             
         }
     }
