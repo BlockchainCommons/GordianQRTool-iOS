@@ -83,7 +83,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             alert.addAction(UIAlertAction(title: "By date added", style: .default, handler: { [weak self] action in
                 guard let self = self else { return }
                 
-                self.sortByName()
+                self.sortByDate()
             }))
             
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in }))
