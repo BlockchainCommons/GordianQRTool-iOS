@@ -27,6 +27,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     @IBOutlet weak private var backgroundTextView: UIVisualEffectView!
     @IBOutlet weak private var backgroundTypeView: UIVisualEffectView!
     @IBOutlet weak private var typeTextField: UITextField!
+    @IBOutlet weak private var dateAddedLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -308,10 +309,18 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
                 self.convertToUrOutlet.alpha = 0
             }
             
+            self.dateAddedLabel.text = "Added: \(self.format(date: qr.dateAdded))"
             self.lifehashImageView.image = DeriveLifehash.lifehash(qr.qrData)
             
             self.setType(qr)
         }
+    }
+    
+    private func format(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        return formatter.string(from: date)
     }
     
     private func parse(_ data: Data) -> String {
