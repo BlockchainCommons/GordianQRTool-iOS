@@ -69,6 +69,91 @@ class Parser {
         return item.lowercased().condenseWhitespace().hasPrefix("otpauth")
     }
     
+    private class func isLocation(_ item: String) -> Bool {
+        return item.lowercased().condenseWhitespace().hasPrefix("https://maps.google.com/maps?")
+    }
+    
+    private class func isWebsite(_ item: String) -> Bool {
+        if item.lowercased().condenseWhitespace().hasPrefix("https:") || item.lowercased().condenseWhitespace().hasPrefix("http:") {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    private class func isUrl(_ item: String) -> Bool {
+        return item.lowercased().condenseWhitespace().hasPrefix("urlto:")
+    }
+    
+    private class func isEmail(_ item: String) -> Bool {
+        return item.lowercased().condenseWhitespace().hasPrefix("mailto:")
+    }
+    
+    private class func isVcard(_ item: String) -> Bool {
+        return item.lowercased().condenseWhitespace().hasPrefix("begin:vcard")
+    }
+    
+    private class func isMecard(_ item: String) -> Bool {
+        return item.lowercased().condenseWhitespace().hasPrefix("mecard:")
+    }
+    
+    private class func isBizcard(_ item: String) -> Bool {
+        return item.lowercased().condenseWhitespace().hasPrefix("bizcard:")
+    }
+    
+    private class func isEvent(_ item: String) -> Bool {
+        return item.lowercased().condenseWhitespace().hasPrefix("begin:vevent")
+    }
+    
+    private class func isPhone(_ item: String) -> Bool {
+        return item.lowercased().condenseWhitespace().hasPrefix("tel:")
+    }
+    
+    private class func isSms(_ item: String) -> Bool {
+        if item.lowercased().condenseWhitespace().hasPrefix("sms:") || item.lowercased().condenseWhitespace().hasPrefix("smsto:") || item.lowercased().condenseWhitespace().hasPrefix("mms:") || item.lowercased().condenseWhitespace().hasPrefix("mmsto:") {
+            return true
+        } else {
+            return false
+        }
+           
+    }
+    
+    private class func isFeed(_ item: String) -> Bool {
+        return item.lowercased().condenseWhitespace().hasPrefix("feed:")
+    }
+    
+    private class func isFacetimeVideo(_ item: String) -> Bool {
+        return item.lowercased().condenseWhitespace().hasPrefix("facetime:")
+    }
+    
+    private class func isFacetimeAudio(_ item: String) -> Bool {
+        return item.lowercased().condenseWhitespace().hasPrefix("facetime-audio:")
+    }
+    
+    private class func isWifi(_ item: String) -> Bool {
+        return item.lowercased().condenseWhitespace().hasPrefix("wifi:")
+    }
+    
+    private class func isIosApp(_ item: String) -> Bool {
+        return item.lowercased().condenseWhitespace().hasPrefix("https://itunes.apple.com/")
+    }
+    
+    private class func isBookmark(_ item: String) -> Bool {
+        return item.lowercased().condenseWhitespace().hasPrefix("mebkm:")
+    }
+    
+    private class func isBitcoin(_ item: String) -> Bool {
+        return item.lowercased().condenseWhitespace().hasPrefix("bitcoin:")
+    }
+    
+    private class func isPayTo(_ item: String) -> Bool {
+        return item.lowercased().condenseWhitespace().hasPrefix("payto:")
+    }
+    
+    private class func isIban(_ item: String) -> Bool {
+        return item.lowercased().condenseWhitespace().hasPrefix("iban:")
+    }
+    
     class func parse(_ item: String) -> String {
         let processed = item.lowercased()
         
@@ -95,11 +180,68 @@ class Parser {
         } else if isShard(processed.condenseWhitespace()) {
             return "sskr shard"
             
+        } else if isIosApp(processed) {
+            return "ios app"
+            
         } else if isMicrosoftAuth(processed) {
             return "microsoft auth"
             
         } else if isOtpAuth(processed) {
             return "otp auth"
+            
+        } else if isLocation(processed) {
+            return "location"
+            
+        } else if isWebsite(processed) {
+            return "website"
+            
+        } else if isUrl(processed) {
+            return "url"
+            
+        } else if isEmail(processed) {
+            return "email"
+            
+        } else if isVcard(processed) {
+            return "vcard"
+            
+        } else if isMecard(processed) {
+            return "mecard"
+            
+        } else if isBizcard(processed) {
+            return "bizcard"
+            
+        } else if isEvent(processed) {
+            return "event"
+            
+        } else if isPhone(processed) {
+            return "phone"
+            
+        } else if isSms(processed) {
+            return "sms"
+            
+        } else if isFeed(processed) {
+            return "feed"
+            
+        } else if isFacetimeVideo(processed) {
+            return "facetime video"
+            
+        } else if isFacetimeAudio(processed) {
+            return "facetime audio"
+            
+        } else if isWifi(processed) {
+            return "wifi"
+            
+        } else if isBookmark(processed) {
+            return "bookmark"
+            
+        } else if isBitcoin(processed) {
+            return "bitcoin"
+            
+        } else if isPayTo(processed) {
+            return "pay to"
+            
+        } else if isIban(processed) {
+            return "bank account"
             
         } else {
             return "unknown"
