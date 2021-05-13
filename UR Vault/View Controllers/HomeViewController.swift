@@ -154,7 +154,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
                     self.segueToAddLabel()
                 }
             } else {
-                QR_Vault.showAlert(self, "", "Whatever you have pasted does not seem to be valid text.")
+                UR_Vault.showAlert(self, "", "Whatever you have pasted does not seem to be valid text.")
             }
         } else {
             addAuth()

@@ -131,7 +131,7 @@
 		D04F029E253EA847008CB77F /* Lifehash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lifehash.swift; sourceTree = "<group>"; };
 		D04F02A5253EABBD008CB77F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D04F02A9253EC660008CB77F /* UniformResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniformResource.swift; sourceTree = "<group>"; };
-		D0FA1670243ABD3100115589 /* QR Vault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QR Vault.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0FA1670243ABD3100115589 /* UR Vault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UR Vault.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FA1673243ABD3100115589 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0FA1675243ABD3100115589 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D0FA167A243ABD3100115589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -139,10 +139,10 @@
 		D0FA167F243ABD3800115589 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0FA1682243ABD3800115589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0FA1684243ABD3800115589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D0FA1689243ABD3900115589 /* QR VaultTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QR VaultTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0FA1689243ABD3900115589 /* UR VaultTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UR VaultTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FA168D243ABD3900115589 /* QR_VaultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_VaultTests.swift; sourceTree = "<group>"; };
 		D0FA168F243ABD3900115589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D0FA1694243ABD3900115589 /* QR VaultUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QR VaultUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0FA1694243ABD3900115589 /* UR VaultUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UR VaultUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FA1698243ABD3900115589 /* QR_VaultUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_VaultUITests.swift; sourceTree = "<group>"; };
 		D0FA169A243ABD3900115589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0FA16A6243ABD4500115589 /* QR Vault.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "QR Vault.entitlements"; sourceTree = "<group>"; };
@@ -216,9 +216,9 @@
 		D0FA1667243ABD3100115589 = {
 			isa = PBXGroup;
 			children = (
-				D0FA1672243ABD3100115589 /* QR Vault */,
-				D0FA168C243ABD3900115589 /* QR VaultTests */,
-				D0FA1697243ABD3900115589 /* QR VaultUITests */,
+				D0FA1672243ABD3100115589 /* UR Vault */,
+				D0FA168C243ABD3900115589 /* UR VaultTests */,
+				D0FA1697243ABD3900115589 /* UR VaultUITests */,
 				D006E329243D6EBF007B1A5B /* ShareExt */,
 				D0FA1671243ABD3100115589 /* Products */,
 				0A4151BD2640FE5100E23C99 /* Frameworks */,
@@ -228,15 +228,15 @@
 		D0FA1671243ABD3100115589 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D0FA1670243ABD3100115589 /* QR Vault.app */,
-				D0FA1689243ABD3900115589 /* QR VaultTests.xctest */,
-				D0FA1694243ABD3900115589 /* QR VaultUITests.xctest */,
+				D0FA1670243ABD3100115589 /* UR Vault.app */,
+				D0FA1689243ABD3900115589 /* UR VaultTests.xctest */,
+				D0FA1694243ABD3900115589 /* UR VaultUITests.xctest */,
 				D006E328243D6EBF007B1A5B /* ShareExt.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D0FA1672243ABD3100115589 /* QR Vault */ = {
+		D0FA1672243ABD3100115589 /* UR Vault */ = {
 			isa = PBXGroup;
 			children = (
 				D0FA16A6243ABD4500115589 /* QR Vault.entitlements */,
@@ -253,25 +253,25 @@
 				D0FA16B4243AD67E00115589 /* Helpers */,
 				D04F02A5253EABBD008CB77F /* Utilities.swift */,
 			);
-			path = "QR Vault";
+			path = "UR Vault";
 			sourceTree = "<group>";
 		};
-		D0FA168C243ABD3900115589 /* QR VaultTests */ = {
+		D0FA168C243ABD3900115589 /* UR VaultTests */ = {
 			isa = PBXGroup;
 			children = (
 				D0FA168D243ABD3900115589 /* QR_VaultTests.swift */,
 				D0FA168F243ABD3900115589 /* Info.plist */,
 			);
-			path = "QR VaultTests";
+			path = "UR VaultTests";
 			sourceTree = "<group>";
 		};
-		D0FA1697243ABD3900115589 /* QR VaultUITests */ = {
+		D0FA1697243ABD3900115589 /* UR VaultUITests */ = {
 			isa = PBXGroup;
 			children = (
 				D0FA1698243ABD3900115589 /* QR_VaultUITests.swift */,
 				D0FA169A243ABD3900115589 /* Info.plist */,
 			);
-			path = "QR VaultUITests";
+			path = "UR VaultUITests";
 			sourceTree = "<group>";
 		};
 		D0FA16A9243AC5EC00115589 /* View Controllers */ = {
@@ -348,9 +348,9 @@
 			productReference = D006E328243D6EBF007B1A5B /* ShareExt.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		D0FA166F243ABD3100115589 /* QR Vault */ = {
+		D0FA166F243ABD3100115589 /* UR Vault */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D0FA169D243ABD3900115589 /* Build configuration list for PBXNativeTarget "QR Vault" */;
+			buildConfigurationList = D0FA169D243ABD3900115589 /* Build configuration list for PBXNativeTarget "UR Vault" */;
 			buildPhases = (
 				D0FA166C243ABD3100115589 /* Sources */,
 				D0FA166D243ABD3100115589 /* Frameworks */,
@@ -363,18 +363,18 @@
 			dependencies = (
 				D006E331243D6EBF007B1A5B /* PBXTargetDependency */,
 			);
-			name = "QR Vault";
+			name = "UR Vault";
 			packageProductDependencies = (
 				0A4151AC2640EED300E23C99 /* URKit */,
 				0A4151B22640EF7200E23C99 /* LifeHash */,
 			);
 			productName = "QR Vault";
-			productReference = D0FA1670243ABD3100115589 /* QR Vault.app */;
+			productReference = D0FA1670243ABD3100115589 /* UR Vault.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D0FA1688243ABD3900115589 /* QR VaultTests */ = {
+		D0FA1688243ABD3900115589 /* UR VaultTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D0FA16A0243ABD3900115589 /* Build configuration list for PBXNativeTarget "QR VaultTests" */;
+			buildConfigurationList = D0FA16A0243ABD3900115589 /* Build configuration list for PBXNativeTarget "UR VaultTests" */;
 			buildPhases = (
 				D0FA1685243ABD3900115589 /* Sources */,
 				D0FA1686243ABD3900115589 /* Frameworks */,
@@ -385,14 +385,14 @@
 			dependencies = (
 				D0FA168B243ABD3900115589 /* PBXTargetDependency */,
 			);
-			name = "QR VaultTests";
+			name = "UR VaultTests";
 			productName = "QR VaultTests";
-			productReference = D0FA1689243ABD3900115589 /* QR VaultTests.xctest */;
+			productReference = D0FA1689243ABD3900115589 /* UR VaultTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D0FA1693243ABD3900115589 /* QR VaultUITests */ = {
+		D0FA1693243ABD3900115589 /* UR VaultUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D0FA16A3243ABD3900115589 /* Build configuration list for PBXNativeTarget "QR VaultUITests" */;
+			buildConfigurationList = D0FA16A3243ABD3900115589 /* Build configuration list for PBXNativeTarget "UR VaultUITests" */;
 			buildPhases = (
 				D0FA1690243ABD3900115589 /* Sources */,
 				D0FA1691243ABD3900115589 /* Frameworks */,
@@ -403,9 +403,9 @@
 			dependencies = (
 				D0FA1696243ABD3900115589 /* PBXTargetDependency */,
 			);
-			name = "QR VaultUITests";
+			name = "UR VaultUITests";
 			productName = "QR VaultUITests";
-			productReference = D0FA1694243ABD3900115589 /* QR VaultUITests.xctest */;
+			productReference = D0FA1694243ABD3900115589 /* UR VaultUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -434,7 +434,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D0FA166B243ABD3100115589 /* Build configuration list for PBXProject "QR Vault" */;
+			buildConfigurationList = D0FA166B243ABD3100115589 /* Build configuration list for PBXProject "UR Vault" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -451,9 +451,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D0FA166F243ABD3100115589 /* QR Vault */,
-				D0FA1688243ABD3900115589 /* QR VaultTests */,
-				D0FA1693243ABD3900115589 /* QR VaultUITests */,
+				D0FA166F243ABD3100115589 /* UR Vault */,
+				D0FA1688243ABD3900115589 /* UR VaultTests */,
+				D0FA1693243ABD3900115589 /* UR VaultUITests */,
 				D006E327243D6EBF007B1A5B /* ShareExt */,
 			);
 		};
@@ -570,12 +570,12 @@
 		};
 		D0FA168B243ABD3900115589 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D0FA166F243ABD3100115589 /* QR Vault */;
+			target = D0FA166F243ABD3100115589 /* UR Vault */;
 			targetProxy = D0FA168A243ABD3900115589 /* PBXContainerItemProxy */;
 		};
 		D0FA1696243ABD3900115589 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D0FA166F243ABD3100115589 /* QR Vault */;
+			target = D0FA166F243ABD3100115589 /* UR Vault */;
 			targetProxy = D0FA1695243ABD3900115589 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -779,14 +779,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "QR Vault/QR Vault.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "UR Vault/QR Vault.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.3.2;
 				DEVELOPMENT_TEAM = YZHG975W3A;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "QR Vault/Info.plist";
+				INFOPLIST_FILE = "UR Vault/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -808,14 +808,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "QR Vault/QR Vault.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "UR Vault/QR Vault.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.3.2;
 				DEVELOPMENT_TEAM = YZHG975W3A;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "QR Vault/Info.plist";
+				INFOPLIST_FILE = "UR Vault/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -850,7 +850,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QR Vault.app/QR Vault";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UR Vault.app/UR Vault";
 			};
 			name = Debug;
 		};
@@ -872,7 +872,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QR Vault.app/QR Vault";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UR Vault.app/UR Vault";
 			};
 			name = Release;
 		};
@@ -928,7 +928,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D0FA166B243ABD3100115589 /* Build configuration list for PBXProject "QR Vault" */ = {
+		D0FA166B243ABD3100115589 /* Build configuration list for PBXProject "UR Vault" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D0FA169B243ABD3900115589 /* Debug */,
@@ -937,7 +937,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D0FA169D243ABD3900115589 /* Build configuration list for PBXNativeTarget "QR Vault" */ = {
+		D0FA169D243ABD3900115589 /* Build configuration list for PBXNativeTarget "UR Vault" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D0FA169E243ABD3900115589 /* Debug */,
@@ -946,7 +946,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D0FA16A0243ABD3900115589 /* Build configuration list for PBXNativeTarget "QR VaultTests" */ = {
+		D0FA16A0243ABD3900115589 /* Build configuration list for PBXNativeTarget "UR VaultTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D0FA16A1243ABD3900115589 /* Debug */,
@@ -955,7 +955,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D0FA16A3243ABD3900115589 /* Build configuration list for PBXNativeTarget "QR VaultUITests" */ = {
+		D0FA16A3243ABD3900115589 /* Build configuration list for PBXNativeTarget "UR VaultUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D0FA16A4243ABD3900115589 /* Debug */,
