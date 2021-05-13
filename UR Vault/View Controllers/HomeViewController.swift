@@ -231,7 +231,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
                 if let sortByType = UserDefaults.standard.object(forKey: "sortByType") as? Bool, sortByType {
                     
                     for (i, qr) in qrsArray.enumerated() {
-                        if qr["type"] as? String == nil {
+                        if (qr["type"] as? String) == nil {
                             qrsArray[i]["type"] = self.parse(qr["qrData"] as! Data)
                         }
                     }
@@ -342,6 +342,19 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             
             return qrCell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.5
+    }
+
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView()
+        let footerChildView = UIView(frame: CGRect(x: 60, y: 0, width: tableView.frame.width - 60, height: 0.5))
+        footerChildView.backgroundColor = .clear
+        footerView.addSubview(footerChildView)
+        return footerView
     }
     
     @objc func exportQrAction(_ sender: UIButton) {
