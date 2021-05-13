@@ -62,6 +62,55 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         }
     }
     
+    @IBAction func sortAction(_ sender: Any) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            let alert = UIAlertController(title: "Sort Items", message: "", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "By type", style: .default, handler: { [weak self] action in
+                guard let self = self else { return }
+                
+                self.sortByType()
+            }))
+            
+            alert.addAction(UIAlertAction(title: "By label", style: .default, handler: { [weak self] action in
+                guard let self = self else { return }
+                
+                self.sortByName()
+            }))
+            
+            alert.addAction(UIAlertAction(title: "By date added", style: .default, handler: { [weak self] action in
+                guard let self = self else { return }
+                
+                self.sortByDate()
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    private func sortByDate() {
+        UserDefaults.standard.setValue(false, forKey: "sortByType")
+        UserDefaults.standard.setValue(false, forKey: "sortByName")
+        loadData()
+    }
+    
+    private func sortByType() {
+        UserDefaults.standard.setValue(true, forKey: "sortByType")
+        UserDefaults.standard.setValue(false, forKey: "sortByName")
+        loadData()
+    }
+    
+    private func sortByName() {
+        UserDefaults.standard.setValue(false, forKey: "sortByType")
+        UserDefaults.standard.setValue(true, forKey: "sortByName")
+        loadData()
+    }
+    
+    
     @objc func lockApp() {
         authorized = false
         qrArray.removeAll()
@@ -154,7 +203,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
                     self.segueToAddLabel()
                 }
             } else {
-                QR_Vault.showAlert(self, "", "Whatever you have pasted does not seem to be valid text.")
+                UR_Vault.showAlert(self, "", "Whatever you have pasted does not seem to be valid text.")
             }
         } else {
             addAuth()
@@ -175,13 +224,31 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             CoreDataService.retrieveEntity { [weak self] (qrs, errorDescription) in
                 guard let self = self else { return }
                 
-                guard let qrs = qrs, qrs.count > 0 else { return }
+                guard var qrsArray = qrs, qrsArray.count > 0 else { return }
                 
                 self.qrArray.removeAll()
                 
-                for (i, qr) in qrs.enumerated() {
+                if let sortByType = UserDefaults.standard.object(forKey: "sortByType") as? Bool, sortByType {
+                    
+                    for (i, qr) in qrsArray.enumerated() {
+                        if (qr["type"] as? String) == nil {
+                            qrsArray[i]["type"] = self.parse(qr["qrData"] as! Data)
+                        }
+                    }
+                    
+                    qrsArray = qrsArray.sorted{ ($0["type"] as? String ?? "unknown").lowercased().condenseWhitespace() < ($1["type"] as? String ?? "unknown").lowercased().condenseWhitespace() }
+                    
+                } else if let sortByName = UserDefaults.standard.object(forKey: "sortByName") as? Bool, sortByName {
+                    qrsArray = qrsArray.sorted{ ($0["label"] as? String ?? "").lowercased().condenseWhitespace() < ($1["label"] as? String ?? "").lowercased().condenseWhitespace() }
+                    
+                } else {
+                    qrsArray = qrsArray.sorted{ ($0["dateAdded"] as? Date ?? Date()) > ($1["dateAdded"] as? Date ?? Date()) }
+                    
+                }
+                
+                for (i, qr) in qrsArray.enumerated() {
                     self.qrArray.append(qr)
-                    if i + 1 == qrs.count {
+                    if i + 1 == qrsArray.count {
                         DispatchQueue.main.async { [weak self] in
                             guard let self = self else { return }
                             
@@ -277,6 +344,19 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.5
+    }
+
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView()
+        let footerChildView = UIView(frame: CGRect(x: 60, y: 0, width: tableView.frame.width - 60, height: 0.5))
+        footerChildView.backgroundColor = .clear
+        footerView.addSubview(footerChildView)
+        return footerView
+    }
+    
     @objc func exportQrAction(_ sender: UIButton) {
         guard qrArray.count > 0, let indexString = sender.restorationIdentifier, let index = Int(indexString) else { return }
             
@@ -362,7 +442,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if qrArray.count > 0 {
-            return 120
+            return 170
         } else {
             return 100
         }

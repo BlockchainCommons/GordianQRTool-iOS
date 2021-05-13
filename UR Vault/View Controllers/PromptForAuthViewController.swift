@@ -12,7 +12,9 @@ import AuthenticationServices
 class PromptForAuthViewController: UIViewController, UINavigationControllerDelegate, ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate {
     
     var doneBlock : ((Bool) -> Void)?
+    
 
+    @IBOutlet weak var signInWithAppleButton: UIButton!
     @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
@@ -23,7 +25,14 @@ class PromptForAuthViewController: UIViewController, UINavigationControllerDeleg
 
             Upon your first use of UR Vault, you will need to "Sign in with Apple", then every time you launch the app you will again be prompted to "Sign in with Apple", to ensure that only you can access and decrypt your data. Your Apple ID information is only used by the app, not shared with Blockchain Commons!
 
-            """
+            """        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let button = ASAuthorizationAppleIDButton()
+        button.frame = CGRect(x: view.center.x - 80, y: textView.frame.maxY + 8, width: 160, height: 80)
+        button.addTarget(self, action: #selector(addAuth), for: .touchUpInside)
+        view.addSubview(button)
     }
     
     @IBAction func closeAction(_ sender: Any) {
@@ -42,7 +51,7 @@ class PromptForAuthViewController: UIViewController, UINavigationControllerDeleg
         return self.view.window!
     }
     
-    private func addAuth() {
+    @objc func addAuth() {
         let request = ASAuthorizationAppleIDProvider().createRequest()
         let controller = ASAuthorizationController(authorizationRequests: [request])
         controller.delegate = self

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1130"
-   version = "1.3">
+   wasCreatedForAppExtension = "YES"
+   version = "2.0">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -14,10 +15,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D006E311243D5528007B1A5B"
+               BuildableName = "ActionExt.appex"
+               BlueprintName = "ActionExt"
+               ReferencedContainer = "container:UR Vault.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "D0FA166F243ABD3100115589"
-               BuildableName = "QR Vault.app"
-               BlueprintName = "QR Vault"
-               ReferencedContainer = "container:QR Vault.xcodeproj">
+               BuildableName = "UR Vault.app"
+               BlueprintName = "UR Vault"
+               ReferencedContainer = "container:UR Vault.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,63 +43,51 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D0FA1688243ABD3900115589"
-               BuildableName = "QR VaultTests.xctest"
-               BlueprintName = "QR VaultTests"
-               ReferencedContainer = "container:QR Vault.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D0FA1693243ABD3900115589"
-               BuildableName = "QR VaultUITests.xctest"
-               BlueprintName = "QR VaultUITests"
-               ReferencedContainer = "container:QR Vault.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Release"
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = ""
+      selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
       launchStyle = "0"
+      askForAppToLaunch = "Yes"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
-      allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      allowLocationSimulation = "YES"
+      launchAutomaticallySubstyle = "2">
+      <RemoteRunnable
+         runnableDebuggingMode = "1"
+         BundleIdentifier = "com.blockchaincommons.standupios"
+         RemotePath = "/var/containers/Bundle/Application/74594307-807C-41B7-B4EB-1780F22649E2/FullyNoded 2.app">
+      </RemoteRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D0FA166F243ABD3100115589"
-            BuildableName = "QR Vault.app"
-            BlueprintName = "QR Vault"
-            ReferencedContainer = "container:QR Vault.xcodeproj">
+            BuildableName = "UR Vault.app"
+            BlueprintName = "UR Vault"
+            ReferencedContainer = "container:UR Vault.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      debugDocumentVersioning = "YES">
+      debugDocumentVersioning = "YES"
+      askForAppToLaunch = "Yes"
+      launchAutomaticallySubstyle = "2">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D0FA166F243ABD3100115589"
-            BuildableName = "QR Vault.app"
-            BlueprintName = "QR Vault"
-            ReferencedContainer = "container:QR Vault.xcodeproj">
+            BuildableName = "UR Vault.app"
+            BlueprintName = "UR Vault"
+            ReferencedContainer = "container:UR Vault.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

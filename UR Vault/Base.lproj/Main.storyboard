@@ -29,7 +29,7 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" id="BYZ-38-t0r" customClass="HomeViewController" customModule="QR_Vault" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="BYZ-38-t0r" customClass="HomeViewController" customModule="UR_Vault" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,25 +49,25 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="qrCell" rowHeight="120" id="v9t-6Z-tIq">
-                                        <rect key="frame" x="20" y="99" width="374" height="120"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="qrCell" rowHeight="170" id="v9t-6Z-tIq">
+                                        <rect key="frame" x="20" y="99" width="374" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v9t-6Z-tIq" id="oZ7-E8-VXZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="170"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mar 20 2020" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtf-64-eKn">
-                                                    <rect key="frame" x="292" y="97" width="62" height="12"/>
+                                                    <rect key="frame" x="292" y="147" width="62" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Nez-nu-q89">
-                                                    <rect key="frame" x="20" y="12" width="44" height="45"/>
+                                                    <rect key="frame" x="20" y="12" width="70" height="68"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="44" id="4w9-om-L7k"/>
-                                                        <constraint firstAttribute="height" constant="47.5" id="Hue-9X-SM5"/>
+                                                        <constraint firstAttribute="width" constant="70" id="4w9-om-L7k"/>
+                                                        <constraint firstAttribute="height" constant="70.5" id="Hue-9X-SM5"/>
                                                     </constraints>
                                                 </imageView>
                                                 <view clipsSubviews="YES" tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJZ-4J-dX8">
@@ -91,14 +91,8 @@
                                                         <constraint firstAttribute="width" constant="98" id="rJ6-7X-jvp"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 of 3 Recovery QR" lineBreakMode="middleTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLY-TZ-Kmw">
-                                                    <rect key="frame" x="20" y="66.5" width="238" height="44.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUW-gj-Gw9">
-                                                    <rect key="frame" x="314" y="40" width="40" height="40"/>
+                                                    <rect key="frame" x="314" y="41" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="SeF-rZ-EFl"/>
                                                         <constraint firstAttribute="height" constant="40" id="bqi-qb-vhk"/>
@@ -109,7 +103,7 @@
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVy-8n-YcO">
-                                                    <rect key="frame" x="266" y="40" width="40" height="40"/>
+                                                    <rect key="frame" x="266" y="41" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="2N7-PO-nwa"/>
                                                         <constraint firstAttribute="height" constant="40" id="P4I-tu-ZJ5"/>
@@ -119,19 +113,27 @@
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                                     </state>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 of 3 Recovery QR" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLY-TZ-Kmw">
+                                                    <rect key="frame" x="20" y="80" width="334" height="67"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="67" id="hkN-8w-9nX"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="aVy-8n-YcO" firstAttribute="leading" secondItem="LLY-TZ-Kmw" secondAttribute="trailing" constant="8" symbolic="YES" id="2yi-KU-Kz0"/>
+                                                <constraint firstItem="TUW-gj-Gw9" firstAttribute="centerY" secondItem="aVy-8n-YcO" secondAttribute="centerY" id="AYl-7C-exW"/>
                                                 <constraint firstItem="Nez-nu-q89" firstAttribute="top" secondItem="oZ7-E8-VXZ" secondAttribute="topMargin" id="BJe-S8-7Qg"/>
                                                 <constraint firstItem="QJZ-4J-dX8" firstAttribute="top" secondItem="oZ7-E8-VXZ" secondAttribute="topMargin" id="Btr-Yd-3qh"/>
                                                 <constraint firstItem="mtf-64-eKn" firstAttribute="bottom" secondItem="oZ7-E8-VXZ" secondAttribute="bottomMargin" id="Dv4-x6-ZfZ"/>
                                                 <constraint firstItem="LLY-TZ-Kmw" firstAttribute="leading" secondItem="oZ7-E8-VXZ" secondAttribute="leading" constant="20" symbolic="YES" id="PDi-10-jpV"/>
                                                 <constraint firstItem="mtf-64-eKn" firstAttribute="trailing" secondItem="oZ7-E8-VXZ" secondAttribute="trailingMargin" id="Qhu-yT-JA2"/>
-                                                <constraint firstItem="LLY-TZ-Kmw" firstAttribute="top" secondItem="Nez-nu-q89" secondAttribute="bottom" constant="8" id="UYU-Bk-VQ6"/>
-                                                <constraint firstItem="LLY-TZ-Kmw" firstAttribute="bottom" secondItem="oZ7-E8-VXZ" secondAttribute="bottomMargin" constant="2" id="Uph-9T-vxj"/>
-                                                <constraint firstItem="aVy-8n-YcO" firstAttribute="centerY" secondItem="oZ7-E8-VXZ" secondAttribute="centerY" id="W1Z-0F-Mhp"/>
+                                                <constraint firstItem="LLY-TZ-Kmw" firstAttribute="bottom" secondItem="oZ7-E8-VXZ" secondAttribute="bottomMargin" constant="-12" id="Uph-9T-vxj"/>
                                                 <constraint firstItem="TUW-gj-Gw9" firstAttribute="leading" secondItem="aVy-8n-YcO" secondAttribute="trailing" constant="8" id="bZd-Lb-1ET"/>
-                                                <constraint firstItem="TUW-gj-Gw9" firstAttribute="centerY" secondItem="oZ7-E8-VXZ" secondAttribute="centerY" id="exB-oo-6xw"/>
+                                                <constraint firstItem="TUW-gj-Gw9" firstAttribute="centerY" secondItem="oZ7-E8-VXZ" secondAttribute="centerY" constant="-24" id="exB-oo-6xw"/>
+                                                <constraint firstItem="LLY-TZ-Kmw" firstAttribute="trailing" secondItem="oZ7-E8-VXZ" secondAttribute="trailingMargin" id="iLA-tX-BOu"/>
                                                 <constraint firstItem="QJZ-4J-dX8" firstAttribute="trailing" secondItem="oZ7-E8-VXZ" secondAttribute="trailingMargin" id="mNV-Pq-k5W"/>
                                                 <constraint firstItem="TUW-gj-Gw9" firstAttribute="trailing" secondItem="oZ7-E8-VXZ" secondAttribute="trailingMargin" id="s4c-zp-RCD"/>
                                                 <constraint firstItem="Nez-nu-q89" firstAttribute="leading" secondItem="oZ7-E8-VXZ" secondAttribute="leading" constant="20" id="tdj-Cm-qdn"/>
@@ -183,6 +185,12 @@
                                     <action selector="pasteAction:" destination="BYZ-38-t0r" id="XRX-dc-zTc"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem image="arrow.up.arrow.down" catalog="system" id="GD7-fP-p5L">
+                                <color key="tintColor" systemColor="systemTealColor"/>
+                                <connections>
+                                    <action selector="sortAction:" destination="BYZ-38-t0r" id="XZO-8g-taw"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -205,7 +213,7 @@
         <!--License Disclaimer View Controller-->
         <scene sceneID="g7f-XZ-GG9">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Mf3-ro-aOl" customClass="LicenseDisclaimerViewController" customModule="QR_Vault" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Mf3-ro-aOl" customClass="LicenseDisclaimerViewController" customModule="UR_Vault" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1PW-Fx-cfh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -272,7 +280,7 @@
         <!--Intro View Controller-->
         <scene sceneID="RYj-eS-9o7">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="I46-g0-NXc" customClass="IntroViewController" customModule="QR_Vault" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="I46-g0-NXc" customClass="IntroViewController" customModule="UR_Vault" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tb3-hK-INg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -337,7 +345,7 @@
         <!--Prompt For Auth View Controller-->
         <scene sceneID="ARy-MT-Xff">
             <objects>
-                <viewController id="KxG-Tg-va5" customClass="PromptForAuthViewController" customModule="QR_Vault" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="KxG-Tg-va5" customClass="PromptForAuthViewController" customModule="UR_Vault" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hWt-t8-BD8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -376,20 +384,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mIn-Bi-w2u">
-                                <rect key="frame" x="156" y="469" width="102" height="30"/>
-                                <state key="normal" title="Add Apple 2FA">
-                                    <color key="titleColor" systemColor="systemTealColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="addAuthAction:" destination="KxG-Tg-va5" eventType="touchUpInside" id="kwZ-91-frh"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Zcz-OB-t9L"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="mIn-Bi-w2u" firstAttribute="centerX" secondItem="hWt-t8-BD8" secondAttribute="centerX" id="0dq-bW-ok2"/>
                             <constraint firstItem="d7f-iZ-wii" firstAttribute="centerX" secondItem="hWt-t8-BD8" secondAttribute="centerX" id="4m3-vJ-qYN"/>
                             <constraint firstItem="Zcz-OB-t9L" firstAttribute="trailing" secondItem="EQ4-lm-qfM" secondAttribute="trailing" constant="20" id="73N-4M-SqD"/>
                             <constraint firstItem="d7f-iZ-wii" firstAttribute="top" secondItem="Zcz-OB-t9L" secondAttribute="top" constant="20" id="Cr1-P2-r12"/>
@@ -397,7 +395,6 @@
                             <constraint firstItem="TDr-IZ-VaF" firstAttribute="top" secondItem="PA5-ba-KSu" secondAttribute="bottom" constant="8" symbolic="YES" id="Mvx-C5-C3n"/>
                             <constraint firstItem="TDr-IZ-VaF" firstAttribute="leading" secondItem="Zcz-OB-t9L" secondAttribute="leading" constant="20" id="OJ2-c7-Riz"/>
                             <constraint firstItem="PA5-ba-KSu" firstAttribute="centerX" secondItem="hWt-t8-BD8" secondAttribute="centerX" id="fgl-QI-KOy"/>
-                            <constraint firstItem="mIn-Bi-w2u" firstAttribute="top" secondItem="TDr-IZ-VaF" secondAttribute="bottom" constant="38" id="g5C-4A-VuL"/>
                             <constraint firstItem="EQ4-lm-qfM" firstAttribute="top" secondItem="Zcz-OB-t9L" secondAttribute="top" constant="20" id="rn6-gy-Vqh"/>
                             <constraint firstItem="Zcz-OB-t9L" firstAttribute="trailing" secondItem="TDr-IZ-VaF" secondAttribute="trailing" constant="20" id="wnN-gX-udG"/>
                         </constraints>
@@ -413,7 +410,7 @@
         <!--Camera Permissions View Controller-->
         <scene sceneID="6Jl-lv-nW6">
             <objects>
-                <viewController id="Amo-ay-4Oh" customClass="CameraPermissionsViewController" customModule="QR_Vault" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Amo-ay-4Oh" customClass="CameraPermissionsViewController" customModule="UR_Vault" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RV7-uO-dZU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -477,7 +474,7 @@
         <!--Sponsor View Controller-->
         <scene sceneID="hRV-Vy-HXU">
             <objects>
-                <viewController id="D2L-Mo-ygs" customClass="SponsorViewController" customModule="QR_Vault" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="D2L-Mo-ygs" customClass="SponsorViewController" customModule="UR_Vault" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Wc-rx-rZc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -492,7 +489,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGw-yQ-uF6">
                                 <rect key="frame" x="27" y="84" width="361" height="577"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">UR Vault v0.3.2 is open-source software that is a project of Blockchain Commons. It was created to allow users to store SSKR shards for friends, family, and associates, but we are releasing it generally to make it easy to store QRs of all sorts, including 2FA tokens, important URLs, restaurant menus, and whatever other QR code you may need to refer to again in the future.
+                                <mutableString key="text">UR Vault v0.3.3 is open-source software that is a project of Blockchain Commons. It was created to allow users to store SSKR shards for friends, family, and associates, but we are releasing it generally to make it easy to store QRs of all sorts, including 2FA tokens, important URLs, restaurant menus, and whatever other QR code you may need to refer to again in the future.
 
 Creating this sort of tool is one of the primary mandates of Blockchain Commons, a "not-for-profit" social benefit corporation committed to open source &amp; open development. Our goal is to make it easier for beginners and experts alike to use Bitcoin in a secure, self-sovereign way, where you truly control your own digital assets. Working with the digital-asset wallet community, we have been developing new specifications such as our Uniform Resources (URs), which encode data for interoperability and which support efficient, self-describing QR displays, as well as SSKR, which allows cryptocurrency seeds to be divided into individual shares for later reconstruction.</mutableString>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -568,7 +565,7 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
         <!--Export QR-->
         <scene sceneID="5uT-yk-NHK">
             <objects>
-                <viewController id="wh2-ib-46m" customClass="ExportViewController" customModule="QR_Vault" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wh2-ib-46m" customClass="ExportViewController" customModule="UR_Vault" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GNx-SL-c6C">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -728,20 +725,28 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
                                             </connections>
                                         </button>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Aox-KN-E2P">
-                                            <rect key="frame" x="8" y="8" width="320" height="285"/>
+                                            <rect key="frame" x="8" y="8" width="320" height="262.5"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="otO-nS-uaW">
+                                            <rect key="frame" x="8" y="278.5" width="7" height="14.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="wxK-QO-b8r" secondAttribute="trailing" constant="8" id="7zc-X7-nj4"/>
-                                        <constraint firstAttribute="bottom" secondItem="Aox-KN-E2P" secondAttribute="bottom" constant="8" id="NZ9-9E-sZH"/>
                                         <constraint firstItem="Aox-KN-E2P" firstAttribute="top" secondItem="oBq-bv-9bC" secondAttribute="top" constant="8" id="TEc-ih-pqB"/>
+                                        <constraint firstItem="otO-nS-uaW" firstAttribute="top" secondItem="Aox-KN-E2P" secondAttribute="bottom" constant="8" id="UMH-qj-WXu"/>
+                                        <constraint firstItem="otO-nS-uaW" firstAttribute="leading" secondItem="oBq-bv-9bC" secondAttribute="leading" constant="8" id="XDH-vS-usZ"/>
                                         <constraint firstItem="wxK-QO-b8r" firstAttribute="leading" secondItem="Aox-KN-E2P" secondAttribute="trailing" constant="19" id="Xg1-1c-3b4"/>
                                         <constraint firstItem="Aox-KN-E2P" firstAttribute="leading" secondItem="oBq-bv-9bC" secondAttribute="leading" constant="8" id="aD0-S8-gyS"/>
+                                        <constraint firstAttribute="bottom" secondItem="otO-nS-uaW" secondAttribute="bottom" constant="8" id="bGR-hc-RLK"/>
                                         <constraint firstItem="wxK-QO-b8r" firstAttribute="top" secondItem="oBq-bv-9bC" secondAttribute="top" constant="8" id="gxM-iv-U9p"/>
                                     </constraints>
                                 </view>
@@ -782,6 +787,7 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
                         <outlet property="backgroundTextView" destination="b7I-aN-Ke3" id="fg6-Ry-aOB"/>
                         <outlet property="backgroundTypeView" destination="ZFa-fA-3bI" id="Vdg-qa-5av"/>
                         <outlet property="convertToUrOutlet" destination="few-Wo-ZdG" id="8Gg-Nl-lhg"/>
+                        <outlet property="dateAddedLabel" destination="otO-nS-uaW" id="Hed-IS-NuE"/>
                         <outlet property="imageView" destination="wiM-ts-WuB" id="0dv-ge-5HP"/>
                         <outlet property="labelField" destination="nZf-Rc-4Ek" id="eiW-L1-0d6"/>
                         <outlet property="lifehashImageView" destination="w0J-Gj-lIs" id="KgN-LJ-6FI"/>
@@ -799,7 +805,7 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
         <!--Scanner View Controller-->
         <scene sceneID="hvu-gm-fWN">
             <objects>
-                <viewController id="kzi-YC-089" customClass="QRScannerViewController" customModule="QR_Vault" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kzi-YC-089" customClass="QRScannerViewController" customModule="UR_Vault" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gNm-Iy-tMS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -880,7 +886,7 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
         <!--Displayer View Controller-->
         <scene sceneID="k2y-WV-ffY">
             <objects>
-                <viewController id="WRT-3S-ExK" customClass="QRDisplayerViewController" customModule="QR_Vault" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WRT-3S-ExK" customClass="QRDisplayerViewController" customModule="UR_Vault" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LQH-JR-N8v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -961,7 +967,7 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
         <!--Label View Controller-->
         <scene sceneID="5U2-78-wHu">
             <objects>
-                <viewController id="i5i-iX-7S2" customClass="LabelViewController" customModule="QR_Vault" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="i5i-iX-7S2" customClass="LabelViewController" customModule="UR_Vault" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hrM-94-w98">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1035,9 +1041,10 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NJs-YR-Z5q"/>
+        <segue reference="xcH-Dn-BHp"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrow.up.arrow.down" catalog="system" width="128" height="98"/>
         <image name="blockchain-commons-logo.png" width="500" height="148"/>
         <image name="chevron.right.circle" catalog="system" width="128" height="121"/>
         <image name="doc.on.clipboard" catalog="system" width="116" height="128"/>
