@@ -289,11 +289,19 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if qrArray.count == 0 {
             let emptyCell = tableView.dequeueReusableCell(withIdentifier: "emptyCell", for: indexPath)
             emptyCell.selectionStyle = .none
             emptyCell.textLabel?.numberOfLines = 0
-            emptyCell.textLabel?.text = "Tap the paste or scan button to add a QR code"
+            
+            CoreDataService.retrieveEntity { (encryptedData, errorDescription) in
+                if encryptedData != nil {
+                    emptyCell.textLabel?.text = "Authenticate to access your data"
+                } else {
+                    emptyCell.textLabel?.text = "Tap the paste or scan button to add a QR code"
+                }
+            }
             
             return emptyCell
             
@@ -508,6 +516,8 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     
     private func addAuth() {
         if let _ = KeyChain.load(key: "userIdentifier") {
+            guard let _ = self.view.window else { return }
+            
             let request = ASAuthorizationAppleIDProvider().createRequest()
             let controller = ASAuthorizationController(authorizationRequests: [request])
             controller.delegate = self

@@ -13,7 +13,7 @@ import LibWally
 class ExportViewController: UIViewController, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding, UINavigationControllerDelegate, UITextFieldDelegate {
     
     let tap = UITapGestureRecognizer()
-    var qrStruct:QRStruct!
+    var qrStruct:QRStruct?
     
     @IBOutlet weak private var lifehashImageView: UIImageView!
     @IBOutlet weak private var labelField: UITextField!
@@ -48,6 +48,22 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         tap.addTarget(self, action: #selector(handleTap))
         view.addGestureRecognizer(tap)
         lifehashImageView.layer.magnificationFilter = .nearest
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIScene.willDeactivateNotification, object: nil)
+        
+        load()
+    }
+    
+    @objc func appMovedToBackground() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.textView.text = ""
+            self.imageView.image = nil
+            self.qrStruct = nil
+            self.navigationController?.popToRootViewController(animated: false)
+        }
     }
     
     private func roundCorners(_ view: UIView) {
@@ -80,7 +96,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        load()
+        
     }
     
     private func load() {
@@ -104,12 +120,12 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     private func updateType() {
-        guard typeTextField.text != "" else {
+        guard typeTextField.text != "", let id = qrStruct?.id else {
             showAlert(title: "Uh-oh", message: "There is no text to save")
             return
         }
         
-        CoreDataService.updateEntity(id: qrStruct.id, keyToUpdate: "type", newValue: typeTextField.text!) { [weak self] (success, errorDescription) in
+        CoreDataService.updateEntity(id: id, keyToUpdate: "type", newValue: typeTextField.text!) { [weak self] (success, errorDescription) in
             guard let self = self else { return }
             
             guard success else {
@@ -122,12 +138,12 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     private func updateLabel() {
-        guard textView.text != "" else {
+        guard textView.text != "", let id = qrStruct?.id else {
             showAlert(title: "Uh-oh", message: "There is no text to save")
             return
         }
         
-        CoreDataService.updateEntity(id: qrStruct.id, keyToUpdate: "label", newValue: labelField.text!) { [weak self] (success, errorDescription) in
+        CoreDataService.updateEntity(id: id, keyToUpdate: "label", newValue: labelField.text!) { [weak self] (success, errorDescription) in
             guard let self = self else { return }
             
             guard success else {
@@ -221,7 +237,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     private func updateData() {
-        guard textView.text != "" else {
+        guard textView.text != "", let id = qrStruct?.id else {
             showAlert(title: "Uh-oh", message: "There is no text to save")
             return
         }
@@ -233,7 +249,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             return
         }
         
-        CoreDataService.updateEntity(id: qrStruct.id, keyToUpdate: "qrData", newValue: encryptedData) { [weak self] (success, errorDescription) in
+        CoreDataService.updateEntity(id: id, keyToUpdate: "qrData", newValue: encryptedData) { [weak self] (success, errorDescription) in
             guard let self = self else { return }
             
             guard success else {
@@ -272,7 +288,9 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     private func deleteQr() {
-        CoreDataService.deleteEntity(id: qrStruct.id) { [weak self] (success, errorDescription) in
+        guard let id = qrStruct?.id else { return }
+        
+        CoreDataService.deleteEntity(id: id) { [weak self] (success, errorDescription) in
             guard let self = self else { return }
             
             if success {
@@ -287,9 +305,9 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         }
     }
     
-    private func loadData(qr: QRStruct) {
+    private func loadData(qr: QRStruct?) {
         DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
+            guard let self = self, let qr = qr else { return }
             
             self.labelField.text = qr.label
             

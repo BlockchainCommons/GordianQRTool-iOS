@@ -964,6 +964,21 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
             </objects>
             <point key="canvasLocation" x="1066.6666666666667" y="1495.9821428571429"/>
         </scene>
+        <!--Backgrounded View Controller-->
+        <scene sceneID="r5h-jM-IB9">
+            <objects>
+                <viewController storyboardIdentifier="BackgroundedView" modalPresentationStyle="fullScreen" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h3w-nd-9l4" customClass="BackgroundedViewController" customModule="UR_Vault" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0CQ-bD-xaA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="HMK-hs-x5H"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kXy-vY-Bw5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2161" y="1492"/>
+        </scene>
         <!--Label View Controller-->
         <scene sceneID="5U2-78-wHu">
             <objects>
