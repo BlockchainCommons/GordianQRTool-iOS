@@ -90,6 +90,10 @@ class QRDisplayerViewController: UIViewController {
             
             self.text = decryptedText
             
+            if self.text.hasPrefix("ur:") {
+                self.text = self.text.uppercased()
+            }
+            
             self.lifehashImageView.image = lifehash
             
             if let image = QRGenerator.generate(textInput: decryptedText) {
