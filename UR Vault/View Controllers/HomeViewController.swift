@@ -308,7 +308,10 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             let date = qrCell.viewWithTag(2) as! UILabel
             let typeLabel = qrCell.viewWithTag(3) as! UILabel
             let typeBackground = qrCell.viewWithTag(4)!
+            
             let imageView = qrCell.viewWithTag(5) as! UIImageView
+            imageView.layer.magnificationFilter = .nearest
+            
             let qrExportButton = qrCell.viewWithTag(6) as! UIButton
             let detailButton = qrCell.viewWithTag(7) as! UIButton
             

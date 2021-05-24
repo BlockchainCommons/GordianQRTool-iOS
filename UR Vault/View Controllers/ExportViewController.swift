@@ -47,6 +47,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         convertToUrOutlet.showsTouchWhenHighlighted = true
         tap.addTarget(self, action: #selector(handleTap))
         view.addGestureRecognizer(tap)
+        lifehashImageView.layer.magnificationFilter = .nearest
     }
     
     private func roundCorners(_ view: UIView) {

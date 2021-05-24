@@ -40,19 +40,9 @@ class QRDisplayerViewController: UIViewController {
         // Do any additional setup after loading the view.
         headerLabel.text = headerText
         qrImageView.isUserInteractionEnabled = true
-        //textView.text = descriptionText
         tapQRGesture = UITapGestureRecognizer(target: self, action: #selector(shareQRCode(_:)))
         qrImageView.addGestureRecognizer(tapQRGesture)
-        
-//        if text != "" {
-//            //spinner.addConnectingView(vc: self, description: "loading QR parts...")
-//            qrImageView.isUserInteractionEnabled = false
-//            convertToUrParts()
-//        } else {
-//            qrImageView.image = qR()
-//        }
-        
-        
+        lifehashImageView.layer.magnificationFilter = .nearest
     }
     
     override func viewDidAppear(_ animated: Bool) {
