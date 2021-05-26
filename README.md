@@ -22,9 +22,9 @@ Data is always stored with multiple layers of encryption using your device's key
 
 To ensure you can backup & recover from iCloud you **must** be signed in with the same Apple ID and must enable "Keychain" on your device's iCloud settings.
 
-### Gordian Principles
+## Gordian Principles
 
-UR Vault is a reference implementation meant to display the Gordian Principles, which are philosophical and technical underpinnings to Blockchain Commons' Gordian technology. This includes:
+UR Vault is a reference implementation meant to display the [Gordian Principles](https://github.com/BlockchainCommons/Gordian#gordian-principles), which are philosophical and technical underpinnings to Blockchain Commons' Gordian technology. This includes:
 
 * **Independence.** UR Vault allows you to store your own QR codes and Uniform Resources, giving you ultimate control over that data.
 * **Privacy.** UR Vault uses the same standards for privacy that Blockchain Commons applies to its pure cryptographic tools. Your data is encrypted and protected.
