@@ -16,11 +16,22 @@ Powered by [Uniform Resource](https://github.com/BlockchainCommons/Research/blob
 
 Please join our Testflight [here](https://testflight.apple.com/join/X7Ri4nPp). Please share any crash reports or bugs, if you want a feature added please raise an issue.
 
-## Additional Information
+### Additional Information
 
 Data is always stored with multiple layers of encryption using your device's keychain.
 
 To ensure you can backup & recover from iCloud you **must** be signed in with the same Apple ID and must enable "Keychain" on your device's iCloud settings.
+
+### Reference App
+
+UR Vault is a reference implementation meant to display the Gordian Principles, which are philosophical and technical underpinnings to Blockchain Commons' Gordian technology. This includes:
+
+* **Independence.** UR Vault allows you to store your own QR codes and Uniform Resources, giving you ultimate control over that data.
+* **Privacy.** UR Vault uses the same standards for privacy that Blockchain Commons applies to its pure cryptographic tools. Your data is encrypted and protected.
+* **Resilience.** UR Vault allows you to maintain copies of vital information such as cryptographic seeds, xprvs, and 2FAs.
+* **Openness.** UR Vault is built to support the interoperable [UR specification](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md).
+
+Blockchain Commons apps do not phone home and do not run ads. Some are available through various app stores; all are available in our code repositories for your usage.
 
 ## Status - Late Alpha
 
