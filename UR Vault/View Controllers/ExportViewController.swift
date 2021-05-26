@@ -15,6 +15,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     let tap = UITapGestureRecognizer()
     var qrStruct:QRStruct?
     
+    @IBOutlet weak private var launchSafariOutlet: UIButton!
     @IBOutlet weak private var lifehashImageView: UIImageView!
     @IBOutlet weak private var labelField: UITextField!
     @IBOutlet weak private var imageView: UIImageView!
@@ -37,6 +38,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         typeTextField.delegate = self
         setTitleView()
         textView.text = ""
+        launchSafariOutlet.alpha = 0
         shareQrOutlet.alpha = 0
         shareTextOutlet.alpha = 0
         textView.alpha = 0
@@ -54,6 +56,19 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         
         load()
     }
+    
+    @IBAction func launchSafariAction(_ sender: Any) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            guard let text = self.textView.text else { return }
+            
+            guard let url = URL(string: text) else { return }
+            UIApplication.shared.open(url)
+        }
+        
+    }
+    
     
     @objc func appMovedToBackground() {
         DispatchQueue.main.async { [weak self] in
@@ -311,11 +326,20 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             
             self.labelField.text = qr.label
             
-            guard let decryptedQr = Encryption.decrypt(qr.qrData), let text = String(data: decryptedQr, encoding: .utf8) else {
+            guard let decryptedQr = Encryption.decrypt(qr.qrData), var text = String(data: decryptedQr, encoding: .utf8) else {
                 return
             }
             
             self.textView.text = text
+            
+            if text.hasPrefix("ur:") {
+                text = text.uppercased()
+            }
+            
+            if text.hasPrefix("http://") || text.hasPrefix("https://") {
+                self.launchSafariOutlet.alpha = 1
+            }
+            
             let image = QRGenerator.generate(textInput: text)
             self.imageView.image = image
             self.shareTextOutlet.alpha = 1
