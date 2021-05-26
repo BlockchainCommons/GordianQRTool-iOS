@@ -10,14 +10,15 @@ import UIKit
 import AuthenticationServices
 import LibWally
 
-class ExportViewController: UIViewController, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding, UINavigationControllerDelegate, UITextFieldDelegate {
+class ExportViewController: UIViewController, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
     
     let tap = UITapGestureRecognizer()
     var qrStruct:QRStruct?
     
+    @IBOutlet weak var labelTextView: UITextView!
     @IBOutlet weak private var launchSafariOutlet: UIButton!
     @IBOutlet weak private var lifehashImageView: UIImageView!
-    @IBOutlet weak private var labelField: UITextField!
+    //@IBOutlet weak private var labelField: UITextField!
     @IBOutlet weak private var imageView: UIImageView!
     @IBOutlet weak private var textView: UITextView!
     @IBOutlet weak private var shareQrOutlet: UIButton!
@@ -34,7 +35,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         super.viewDidLoad()
         
         navigationController?.delegate = self
-        labelField.delegate = self
+        labelTextView.delegate = self
         typeTextField.delegate = self
         setTitleView()
         textView.text = ""
@@ -46,6 +47,12 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         roundCorners(backgroundQrView)
         roundCorners(backgroundLabelView)
         roundCorners(backgroundTextView)
+        
+        labelTextView.layer.borderWidth = 1.0
+        labelTextView.layer.borderColor = UIColor.darkGray.cgColor
+        labelTextView.clipsToBounds = true
+        labelTextView.layer.cornerRadius = 4
+        
         convertToUrOutlet.showsTouchWhenHighlighted = true
         tap.addTarget(self, action: #selector(handleTap))
         view.addGestureRecognizer(tap)
@@ -119,9 +126,9 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     @IBAction func updateAction(_ sender: Any) {
-        labelField.resignFirstResponder()
+        labelTextView.resignFirstResponder()
         
-        guard labelField.text != "" else { return }
+        guard labelTextView.text != "" else { return }
         
         self.updateLabel()
     }
@@ -158,7 +165,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             return
         }
         
-        CoreDataService.updateEntity(id: id, keyToUpdate: "label", newValue: labelField.text!) { [weak self] (success, errorDescription) in
+        CoreDataService.updateEntity(id: id, keyToUpdate: "label", newValue: labelTextView.text!) { [weak self] (success, errorDescription) in
             guard let self = self else { return }
             
             guard success else {
@@ -324,7 +331,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         DispatchQueue.main.async { [weak self] in
             guard let self = self, let qr = qr else { return }
             
-            self.labelField.text = qr.label
+            self.labelTextView.text = qr.label
             
             guard let decryptedQr = Encryption.decrypt(qr.qrData), var text = String(data: decryptedQr, encoding: .utf8) else {
                 return
@@ -480,7 +487,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
-            self.labelField.resignFirstResponder()
+            self.labelTextView.resignFirstResponder()
             self.typeTextField.resignFirstResponder()
         }
         #endif
