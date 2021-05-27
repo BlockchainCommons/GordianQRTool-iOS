@@ -18,7 +18,6 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     @IBOutlet weak var labelTextView: UITextView!
     @IBOutlet weak private var launchSafariOutlet: UIButton!
     @IBOutlet weak private var lifehashImageView: UIImageView!
-    //@IBOutlet weak private var labelField: UITextField!
     @IBOutlet weak private var imageView: UIImageView!
     @IBOutlet weak private var textView: UITextView!
     @IBOutlet weak private var shareQrOutlet: UIButton!

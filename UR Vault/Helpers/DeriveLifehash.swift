@@ -13,6 +13,27 @@ import URKit
 
 class DeriveLifehash {
     
+    static func cryptoSeedLifehash(_ cryptoSeed: String) -> UIImage? {
+        var image:UIImage?
+        guard let ur = try? URDecoder.decode(cryptoSeed) else { return nil }
+        
+        guard let decodedCbor = try? CBOR.decode(ur.cbor.bytes) else { return nil }
+        
+        guard case let CBOR.map(dict) = decodedCbor else { return nil }
+        
+        for (key, value) in dict {
+            switch key {
+            case 1:
+                guard case let CBOR.byteString(byteString) = value else { fallthrough }
+                
+                image = LifeHash.image(Data(byteString))
+            default:
+               break
+            }
+        }
+        return image
+    }
+    
     static func hdkeyLifehash(_ hdKey: String) -> UIImage? {
         var result: [CBOR] = []
         
@@ -73,6 +94,8 @@ class DeriveLifehash {
     static func urLifehash(_ ur: String) -> UIImage? {
         let processedUr = ur.lowercased().condenseWhitespace()
         switch processedUr {
+        case _ where ur.hasPrefix("ur:crypto-seed"):
+            return cryptoSeedLifehash(processedUr)
         case _ where ur.hasPrefix("ur:crypto-hdkey"):
             return hdkeyLifehash(processedUr)
         default:
