@@ -29,8 +29,8 @@ class PromptForAuthViewController: UIViewController, UINavigationControllerDeleg
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let button = ASAuthorizationAppleIDButton()
-        button.frame = CGRect(x: view.center.x - 80, y: textView.frame.maxY + 8, width: 160, height: 80)
+        let button = ASAuthorizationAppleIDButton(type: .signIn, style: .white)
+        button.frame = CGRect(x: view.center.x - 80, y: textView.frame.maxY + 8, width: 200, height: 60)
         button.addTarget(self, action: #selector(addAuth), for: .touchUpInside)
         view.addSubview(button)
     }

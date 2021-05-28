@@ -10,13 +10,14 @@ import UIKit
 import AuthenticationServices
 import LibWally
 
-class ExportViewController: UIViewController, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding, UINavigationControllerDelegate, UITextFieldDelegate {
+class ExportViewController: UIViewController, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
     
     let tap = UITapGestureRecognizer()
-    var qrStruct:QRStruct!
+    var qrStruct:QRStruct?
     
+    @IBOutlet weak var labelTextView: UITextView!
+    @IBOutlet weak private var launchSafariOutlet: UIButton!
     @IBOutlet weak private var lifehashImageView: UIImageView!
-    @IBOutlet weak private var labelField: UITextField!
     @IBOutlet weak private var imageView: UIImageView!
     @IBOutlet weak private var textView: UITextView!
     @IBOutlet weak private var shareQrOutlet: UIButton!
@@ -33,10 +34,11 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         super.viewDidLoad()
         
         navigationController?.delegate = self
-        labelField.delegate = self
+        labelTextView.delegate = self
         typeTextField.delegate = self
         setTitleView()
         textView.text = ""
+        launchSafariOutlet.alpha = 0
         shareQrOutlet.alpha = 0
         shareTextOutlet.alpha = 0
         textView.alpha = 0
@@ -44,9 +46,45 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         roundCorners(backgroundQrView)
         roundCorners(backgroundLabelView)
         roundCorners(backgroundTextView)
+        
+        labelTextView.layer.borderWidth = 1.0
+        labelTextView.layer.borderColor = UIColor.darkGray.cgColor
+        labelTextView.clipsToBounds = true
+        labelTextView.layer.cornerRadius = 4
+        
         convertToUrOutlet.showsTouchWhenHighlighted = true
         tap.addTarget(self, action: #selector(handleTap))
         view.addGestureRecognizer(tap)
+        lifehashImageView.layer.magnificationFilter = .nearest
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIScene.willDeactivateNotification, object: nil)
+        
+        load()
+    }
+    
+    @IBAction func launchSafariAction(_ sender: Any) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            guard let text = self.textView.text else { return }
+            
+            guard let url = URL(string: text) else { return }
+            UIApplication.shared.open(url)
+        }
+        
+    }
+    
+    
+    @objc func appMovedToBackground() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.textView.text = ""
+            self.imageView.image = nil
+            self.qrStruct = nil
+            self.navigationController?.popToRootViewController(animated: false)
+        }
     }
     
     private func roundCorners(_ view: UIView) {
@@ -79,7 +117,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        load()
+        
     }
     
     private func load() {
@@ -87,9 +125,9 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     @IBAction func updateAction(_ sender: Any) {
-        labelField.resignFirstResponder()
+        labelTextView.resignFirstResponder()
         
-        guard labelField.text != "" else { return }
+        guard labelTextView.text != "" else { return }
         
         self.updateLabel()
     }
@@ -103,12 +141,12 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     private func updateType() {
-        guard typeTextField.text != "" else {
+        guard typeTextField.text != "", let id = qrStruct?.id else {
             showAlert(title: "Uh-oh", message: "There is no text to save")
             return
         }
         
-        CoreDataService.updateEntity(id: qrStruct.id, keyToUpdate: "type", newValue: typeTextField.text!) { [weak self] (success, errorDescription) in
+        CoreDataService.updateEntity(id: id, keyToUpdate: "type", newValue: typeTextField.text!) { [weak self] (success, errorDescription) in
             guard let self = self else { return }
             
             guard success else {
@@ -121,12 +159,12 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     private func updateLabel() {
-        guard textView.text != "" else {
+        guard textView.text != "", let id = qrStruct?.id else {
             showAlert(title: "Uh-oh", message: "There is no text to save")
             return
         }
         
-        CoreDataService.updateEntity(id: qrStruct.id, keyToUpdate: "label", newValue: labelField.text!) { [weak self] (success, errorDescription) in
+        CoreDataService.updateEntity(id: id, keyToUpdate: "label", newValue: labelTextView.text!) { [weak self] (success, errorDescription) in
             guard let self = self else { return }
             
             guard success else {
@@ -220,7 +258,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     private func updateData() {
-        guard textView.text != "" else {
+        guard textView.text != "", let id = qrStruct?.id else {
             showAlert(title: "Uh-oh", message: "There is no text to save")
             return
         }
@@ -232,7 +270,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             return
         }
         
-        CoreDataService.updateEntity(id: qrStruct.id, keyToUpdate: "qrData", newValue: encryptedData) { [weak self] (success, errorDescription) in
+        CoreDataService.updateEntity(id: id, keyToUpdate: "qrData", newValue: encryptedData) { [weak self] (success, errorDescription) in
             guard let self = self else { return }
             
             guard success else {
@@ -271,7 +309,9 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
     }
     
     private func deleteQr() {
-        CoreDataService.deleteEntity(id: qrStruct.id) { [weak self] (success, errorDescription) in
+        guard let id = qrStruct?.id else { return }
+        
+        CoreDataService.deleteEntity(id: id) { [weak self] (success, errorDescription) in
             guard let self = self else { return }
             
             if success {
@@ -286,17 +326,26 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         }
     }
     
-    private func loadData(qr: QRStruct) {
+    private func loadData(qr: QRStruct?) {
         DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
+            guard let self = self, let qr = qr else { return }
             
-            self.labelField.text = qr.label
+            self.labelTextView.text = qr.label
             
-            guard let decryptedQr = Encryption.decrypt(qr.qrData), let text = String(data: decryptedQr, encoding: .utf8) else {
+            guard let decryptedQr = Encryption.decrypt(qr.qrData), var text = String(data: decryptedQr, encoding: .utf8) else {
                 return
             }
             
             self.textView.text = text
+            
+            if text.hasPrefix("ur:") {
+                text = text.uppercased()
+            }
+            
+            if text.hasPrefix("http://") || text.hasPrefix("https://") {
+                self.launchSafariOutlet.alpha = 1
+            }
+            
             let image = QRGenerator.generate(textInput: text)
             self.imageView.image = image
             self.shareTextOutlet.alpha = 1
@@ -437,7 +486,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
-            self.labelField.resignFirstResponder()
+            self.labelTextView.resignFirstResponder()
             self.typeTextField.resignFirstResponder()
         }
         #endif

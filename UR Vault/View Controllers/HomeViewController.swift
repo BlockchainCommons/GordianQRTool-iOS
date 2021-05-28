@@ -289,11 +289,19 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if qrArray.count == 0 {
             let emptyCell = tableView.dequeueReusableCell(withIdentifier: "emptyCell", for: indexPath)
             emptyCell.selectionStyle = .none
             emptyCell.textLabel?.numberOfLines = 0
-            emptyCell.textLabel?.text = "Tap the paste or scan button to add a QR code"
+            
+            CoreDataService.retrieveEntity { (encryptedData, errorDescription) in
+                if encryptedData != nil {
+                    emptyCell.textLabel?.text = "Authenticate to access your data"
+                } else {
+                    emptyCell.textLabel?.text = "Tap the paste or scan button to add a QR code"
+                }
+            }
             
             return emptyCell
             
@@ -308,7 +316,10 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             let date = qrCell.viewWithTag(2) as! UILabel
             let typeLabel = qrCell.viewWithTag(3) as! UILabel
             let typeBackground = qrCell.viewWithTag(4)!
+            
             let imageView = qrCell.viewWithTag(5) as! UIImageView
+            imageView.layer.magnificationFilter = .nearest
+            
             let qrExportButton = qrCell.viewWithTag(6) as! UIButton
             let detailButton = qrCell.viewWithTag(7) as! UIButton
             
@@ -505,6 +516,8 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     
     private func addAuth() {
         if let _ = KeyChain.load(key: "userIdentifier") {
+            guard let _ = self.view.window else { return }
+            
             let request = ASAuthorizationAppleIDProvider().createRequest()
             let controller = ASAuthorizationController(authorizationRequests: [request])
             controller.delegate = self

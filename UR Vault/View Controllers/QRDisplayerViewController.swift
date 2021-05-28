@@ -40,19 +40,12 @@ class QRDisplayerViewController: UIViewController {
         // Do any additional setup after loading the view.
         headerLabel.text = headerText
         qrImageView.isUserInteractionEnabled = true
-        //textView.text = descriptionText
         tapQRGesture = UITapGestureRecognizer(target: self, action: #selector(shareQRCode(_:)))
         qrImageView.addGestureRecognizer(tapQRGesture)
+        lifehashImageView.layer.magnificationFilter = .nearest
         
-//        if text != "" {
-//            //spinner.addConnectingView(vc: self, description: "loading QR parts...")
-//            qrImageView.isUserInteractionEnabled = false
-//            convertToUrParts()
-//        } else {
-//            qrImageView.image = qR()
-//        }
-        
-        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIScene.willDeactivateNotification, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -65,6 +58,18 @@ class QRDisplayerViewController: UIViewController {
         loadData(qr: qr)
     }
     
+    @objc func appMovedToBackground() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.text = ""
+            self.parts.removeAll()
+            self.qrImageView.image = nil
+            self.qrStruct = nil
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func animateAction(_ sender: Any) {
         qrImageView.image = nil
         spinner.center = qrImageView.center
@@ -74,7 +79,6 @@ class QRDisplayerViewController: UIViewController {
         animateOutlet.alpha = 0
     }
     
-    
     @IBAction func closeAction(_ sender: Any) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -83,7 +87,6 @@ class QRDisplayerViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
-    
     
     private func loadData(qr: QRStruct) {
         DispatchQueue.main.async { [weak self] in
@@ -99,6 +102,10 @@ class QRDisplayerViewController: UIViewController {
             }
             
             self.text = decryptedText
+            
+            if self.text.hasPrefix("ur:") {
+                self.text = self.text.uppercased()
+            }
             
             self.lifehashImageView.image = lifehash
             
@@ -123,10 +130,7 @@ class QRDisplayerViewController: UIViewController {
         self.present(activityController, animated: true) {}
     }
     
-    
-    
     private func qR() -> UIImage? {
-        
         return QRGenerator.generate(textInput: text)
     }
     

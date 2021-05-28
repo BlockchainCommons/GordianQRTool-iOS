@@ -13,26 +13,34 @@ class LabelViewController: UIViewController, UITextFieldDelegate, UITextViewDele
     var text = ""
     let tap = UITapGestureRecognizer()
     @IBOutlet weak var saveOutlet: UIButton!
-    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var confirmLabelOutlet: UILabel!
+    @IBOutlet weak var labelView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.delegate = self
         textView.delegate = self
-        textField.delegate = self
+        labelView.delegate = self
         textView.isEditable = false
         textView.isSelectable = true
         setTitleView()
         tap.addTarget(self, action: #selector(handleTap))
         view.addGestureRecognizer(tap)
         saveOutlet.layer.cornerRadius = 8
-        textField.returnKeyType = .done
+        labelView.returnKeyType = .default
         textView.layer.borderWidth = 1.0
         textView.layer.borderColor = UIColor.darkGray.cgColor
         textView.clipsToBounds = true
         textView.layer.cornerRadius = 4
+        
+        labelView.layer.borderWidth = 1.0
+        labelView.layer.borderColor = UIColor.darkGray.cgColor
+        labelView.clipsToBounds = true
+        labelView.layer.cornerRadius = 4
+        
+        
+        labelView.text = ""
         
         if text != "" {
             textView.text = text
@@ -42,7 +50,7 @@ class LabelViewController: UIViewController, UITextFieldDelegate, UITextViewDele
             textView.isEditable = true
             textView.autocorrectionType = .no
             textView.autocapitalizationType = .none
-            textView.returnKeyType = .done
+            textView.returnKeyType = .default
         }
     }
     
@@ -70,17 +78,17 @@ class LabelViewController: UIViewController, UITextFieldDelegate, UITextViewDele
     
     @objc func handleTap() {
         DispatchQueue.main.async { [unowned vc = self] in
-            vc.textField.resignFirstResponder()
+            vc.labelView.resignFirstResponder()
             vc.textView.resignFirstResponder()
         }
     }
     
     @IBAction func saveAction(_ sender: Any) {
-        if textField.text != "" && textView.text != "" {
+        if labelView.text != "" && textView.text != "" {
             saveNow()
         } else {
-            if textField.text == "" {
-                shakeAlert(viewToShake: textField)
+            if labelView.text == "" {
+                shakeAlert(viewToShake: labelView)
             }
             if textView.text == "" {
                 shakeAlert(viewToShake: textView)
@@ -99,13 +107,17 @@ class LabelViewController: UIViewController, UITextFieldDelegate, UITextViewDele
         return true
     }
     
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if(text == "\n") {
-            textView.resignFirstResponder()
-            return false
-        }
-        return true
-    }
+//    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+//        if(text == "\n") {
+//            textView.resignFirstResponder()
+//            return false
+//        }
+//        return true
+//    }
+    
+//    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+//        return false
+//    }
     
     private func shakeAlert(viewToShake: UIView) {
         let animation = CABasicAnimation(keyPath: "position")
@@ -120,7 +132,7 @@ class LabelViewController: UIViewController, UITextFieldDelegate, UITextViewDele
     }
     
     private func saveNow() {
-        guard let label = textField.text, let qrData = (textView.text).data(using: .utf8) else {
+        guard let label = labelView.text, let qrData = (textView.text).data(using: .utf8) else {
             showAlert(title: "Error!", message: "We had an error getting your label or converting your text to a QR. Please try again.")
             return
         }
@@ -144,7 +156,7 @@ class LabelViewController: UIViewController, UITextFieldDelegate, UITextViewDele
                 DispatchQueue.main.async { [unowned vc = self] in
                     vc.text = ""
                     vc.textView.text = ""
-                    vc.textField.text = ""
+                    vc.labelView.text = ""
                     vc.navigationController?.popToRootViewController(animated: true)
                 }
             } else {
