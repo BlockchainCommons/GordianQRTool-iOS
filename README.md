@@ -1,18 +1,21 @@
-# Blockchain Commons UR Vault
+# Gordian QRTool
 
-Powered by [Uniform Resource](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md), **UR Vault** acts as a secure place to store and backup sensitive text. Ideal suited for airgapped transmission of PSBT's via [UR](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md) QR codes, however will work with any text.
+**Gordian QRTool** is a reference tool that acts as a secure place to store and backup sensitive data that is encoded into QRs. Powered by [Uniform Resource](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md), it was built to store SSKRs, PSBTs, and seeds encoded using URs](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md), however it can also be used to store other sorts of sensitive data such as 2FAs.
 
 ## Features
+
+**Gordian QRTool** demonstrates security, usability, and interoperability best practices with a number of core features:
+
 - Multiple layers of encryption
 - Automated iCloud backup and recovery
 - 2FA using the "Sign in with Apple" feature to ensure only you can decrypt your data
-- Bitcoin centric! Convert plain text bip39 mnemonics, [SSKR](https://github.com/BlockchainCommons/bc-sskr) shards, PSBT's (more coming soon) into [UR](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md) and stream them for airgapped use
+- Bitcoin centric! Convert plain text bip39 mnemonics, [SSKR](https://github.com/BlockchainCommons/bc-sskr) shards, PSBTs (more coming soon) into [UR](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md) and stream them for airgapped use
 - [LifeHashes](https://github.com/BlockchainCommons/LifeHash) to deterministically derive unique visual fingerprints of each item, always derived in real time before being displayed to make it obvious if your data has been altered
 - Recognizes any UR type
 - An ideal app to recommend to friends and family to backup SSKR shards
 - Converts any amount of text into an animated UR QR code
 - Scan a QR or paste text to create new items
-- Easily build the project on your MacBook, iPhone iPad, iTouch using the same small codebase
+- Easily build the project on your MacBook, iPhone iPad, iTouch using the same small codebase, or download the app directly from the Apple Store
 
 Please join our Testflight [here](https://testflight.apple.com/join/X7Ri4nPp). Please share any crash reports or bugs, if you want a feature added please raise an issue.
 
@@ -24,18 +27,18 @@ To ensure you can backup & recover from iCloud you **must** be signed in with th
 
 ## Gordian Principles
 
-UR Vault is a reference implementation meant to display the [Gordian Principles](https://github.com/BlockchainCommons/Gordian#gordian-principles), which are philosophical and technical underpinnings to Blockchain Commons' Gordian technology. This includes:
+**Gordian QRTool** is a reference implementation meant to display the [Gordian Principles](https://github.com/BlockchainCommons/Gordian#gordian-principles), which are philosophical and technical underpinnings to Blockchain Commons' Gordian technology. This includes:
 
-* **Independence.** UR Vault allows you to store your own QR codes and Uniform Resources, giving you ultimate control over that data.
-* **Privacy.** UR Vault uses the same standards for privacy that Blockchain Commons applies to its pure cryptographic tools. Your data is encrypted and protected.
-* **Resilience.** UR Vault allows you to maintain copies of vital information such as cryptographic seeds, xprvs, and 2FAs.
-* **Openness.** UR Vault is built to support the interoperable [UR specification](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md).
+* **Independence.** QRTool allows you to store your own QR codes and Uniform Resources, giving you ultimate control over that data.
+* **Privacy.** QRTool uses the same standards for privacy that Blockchain Commons applies to its pure cryptographic tools. Your data is encrypted and protected.
+* **Resilience.** QRTool allows you to maintain copies of vital information such as cryptographic seeds, xprvs, and 2FAs.
+* **Openness.** QRTool is built to support the interoperable [UR specification](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md).
 
 Blockchain Commons apps do not phone home and do not run ads. Some are available through various app stores; all are available in our code repositories for your usage.
 
 ## Status - Late Alpha
 
-**UR Vault** is currently under active development and in the late alpha testing phase. It should not be used for production tasks until it has had further testing and auditing.
+**Gordian QRTool** is currently under active development and in the late alpha testing phase. It should not be used for production tasks until it has had further testing and auditing.
 
 ## Origin, Authors, Copyright & Licenses
 
@@ -57,9 +60,9 @@ This table below also establishes provenance (repository of origin, permalink, a
 
 ## Financial Support
 
-**UR Vault** is a project by [Blockchain Commons](https://www.blockchaincommons.com/). We are proudly a social benefit "not-for-profit" committed to open source & open development. Our work is funded entirely by donations and collaborative partnerships with people like you. Every contribution will be spent on building open tools, technologies & techniques for blockchain and internet security infrastructure.
+**Gordian QRTool** is a project by [Blockchain Commons](https://www.blockchaincommons.com/). We are proudly a social benefit "not-for-profit" committed to open source & open development. Our work is funded entirely by donations and collaborative partnerships with people like you. Every contribution will be spent on building open tools, technologies & techniques for blockchain and internet security infrastructure.
 
-To financially support further development of **UR Vault** and other projects, please consider becoming a Patron of Blockchain Commons through ongoing monthly patronage by becoming a [Sponsor](https://github.com/sponsors/BlockchainCommons) through GitHub; currently they are matching the first $5k so please do consider this option. You can also offer support with Bitcoin via our [BTCPay Server](https://btcpay.blockchaincommons.com/).
+To financially support further development of **Gordian QRTool** and other projects, please consider becoming a Patron of Blockchain Commons through ongoing monthly patronage by becoming a [Sponsor](https://github.com/sponsors/BlockchainCommons) through GitHub; currently they are matching the first $5k so please do consider this option. You can also offer support with Bitcoin via our [BTCPay Server](https://btcpay.blockchaincommons.com/).
 
 ## Contributing
 
