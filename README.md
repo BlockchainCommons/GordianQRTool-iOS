@@ -2,7 +2,13 @@
 
 **Gordian QRTool** is a reference tool that acts as a secure place to store and backup sensitive data that is encoded into QRs. Powered by [Uniform Resource](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md), it was built to store SSKRs, PSBTs, and seeds encoded using URs](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md), however it can also be used to store other sorts of sensitive data such as 2FAs.
 
-## Features
+## Additional Information
+
+Data is always stored with multiple layers of encryption using your device's keychain.
+
+To ensure you can backup & recover from iCloud you **must** be signed in with the same Apple ID and must enable "Keychain" on your device's iCloud settings.
+
+### Features
 
 **Gordian QRTool** demonstrates security, usability, and interoperability best practices with a number of core features:
 
@@ -16,14 +22,6 @@
 - Converts any amount of text into an animated UR QR code
 - Scan a QR or paste text to create new items
 - Easily build the project on your MacBook, iPhone iPad, iTouch using the same small codebase, or download the app directly from the Apple Store
-
-Please join our Testflight [here](https://testflight.apple.com/join/X7Ri4nPp). Please share any crash reports or bugs, if you want a feature added please raise an issue.
-
-### Additional Information
-
-Data is always stored with multiple layers of encryption using your device's keychain.
-
-To ensure you can backup & recover from iCloud you **must** be signed in with the same Apple ID and must enable "Keychain" on your device's iCloud settings.
 
 ## Gordian Principles
 
@@ -39,6 +37,10 @@ Blockchain Commons apps do not phone home and do not run ads. Some are available
 ## Status - Late Alpha
 
 **Gordian QRTool** is currently under active development and in the late alpha testing phase. It should not be used for production tasks until it has had further testing and auditing.
+
+## Installation Instructions
+
+Please join our Testflight [here](https://testflight.apple.com/join/X7Ri4nPp). Please share any crash reports or bugs, if you want a feature added please raise an issue.
 
 ## Origin, Authors, Copyright & Licenses
 
