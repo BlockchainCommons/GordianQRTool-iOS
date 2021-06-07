@@ -16,6 +16,8 @@
 		0A171CDD264A1D6000ADE71B /* PromptForAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A171CDC264A1D6000ADE71B /* PromptForAuthViewController.swift */; };
 		0A171CE2264A271200ADE71B /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A171CE1264A271200ADE71B /* IntroViewController.swift */; };
 		0A171CE7264A2BA800ADE71B /* LicenseDisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A171CE6264A2BA800ADE71B /* LicenseDisclaimerViewController.swift */; };
+		0A325E9C266DC5DB00FF1164 /* Base58.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A325E9B266DC5DB00FF1164 /* Base58.swift */; };
+		0A325EB0266DC6BF00FF1164 /* base58.c in Sources */ = {isa = PBXBuildFile; fileRef = 0A325EAF266DC6BF00FF1164 /* base58.c */; };
 		0A4151A22640ED4D00E23C99 /* LibWally.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A41519C2640ED4900E23C99 /* LibWally.xcframework */; };
 		0A4151A32640ED4D00E23C99 /* LibWally.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A41519C2640ED4900E23C99 /* LibWally.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0A4151AD2640EED300E23C99 /* URKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0A4151AC2640EED300E23C99 /* URKit */; };
@@ -115,6 +117,10 @@
 		0A171CDC264A1D6000ADE71B /* PromptForAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptForAuthViewController.swift; sourceTree = "<group>"; };
 		0A171CE1264A271200ADE71B /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		0A171CE6264A2BA800ADE71B /* LicenseDisclaimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseDisclaimerViewController.swift; sourceTree = "<group>"; };
+		0A325E9B266DC5DB00FF1164 /* Base58.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base58.swift; sourceTree = "<group>"; };
+		0A325EAD266DC6BF00FF1164 /* UR Vault-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UR Vault-Bridging-Header.h"; sourceTree = "<group>"; };
+		0A325EAE266DC6BF00FF1164 /* base58.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = base58.h; sourceTree = "<group>"; };
+		0A325EAF266DC6BF00FF1164 /* base58.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = base58.c; sourceTree = "<group>"; };
 		0A41519C2640ED4900E23C99 /* LibWally.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibWally.xcframework; sourceTree = "<group>"; };
 		0A4151BE2640FE5100E23C99 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D006E328243D6EBF007B1A5B /* ShareExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -324,6 +330,10 @@
 				D04F02A9253EC660008CB77F /* UniformResource.swift */,
 				0A0AE4FF26438D4E00D6F85A /* DescriptorParser.swift */,
 				0A0AE5092643948C00D6F85A /* DeriveLifehash.swift */,
+				0A325E9B266DC5DB00FF1164 /* Base58.swift */,
+				0A325EAE266DC6BF00FF1164 /* base58.h */,
+				0A325EAF266DC6BF00FF1164 /* base58.c */,
+				0A325EAD266DC6BF00FF1164 /* UR Vault-Bridging-Header.h */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -423,6 +433,7 @@
 					};
 					D0FA166F243ABD3100115589 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1230;
 					};
 					D0FA1688243ABD3900115589 = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -528,9 +539,11 @@
 				0A171CDD264A1D6000ADE71B /* PromptForAuthViewController.swift in Sources */,
 				D0FA16B8243AF5E300115589 /* Keychain.swift in Sources */,
 				0A0AE53C2648A7EB00D6F85A /* QRDisplayerViewController.swift in Sources */,
+				0A325E9C266DC5DB00FF1164 /* Base58.swift in Sources */,
 				D0FA16C2243B4E2000115589 /* QRGenerator.swift in Sources */,
 				D04F02AA253EC660008CB77F /* UniformResource.swift in Sources */,
 				D0FA16C0243B4BA000115589 /* ExportViewController.swift in Sources */,
+				0A325EB0266DC6BF00FF1164 /* base58.c in Sources */,
 				0A0AE50026438D4E00D6F85A /* DescriptorParser.swift in Sources */,
 				D04F029F253EA847008CB77F /* Lifehash.swift in Sources */,
 				D0FA16BE243B25D100115589 /* Spinner.swift in Sources */,
@@ -779,6 +792,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "UR Vault/QR Vault.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -798,6 +812,8 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "UR Vault/Helpers/UR Vault-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -808,6 +824,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "UR Vault/QR Vault.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -827,6 +844,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "UR Vault/Helpers/UR Vault-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
