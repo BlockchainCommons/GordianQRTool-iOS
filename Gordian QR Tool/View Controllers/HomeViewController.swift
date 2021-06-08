@@ -203,7 +203,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
                     self.segueToAddLabel()
                 }
             } else {
-                UR_Vault.showAlert(self, "", "Whatever you have pasted does not seem to be valid text.")
+                Gordian_QR_Tool.showAlert(self, "", "Whatever you have pasted does not seem to be valid text.")
             }
         } else {
             addAuth()
