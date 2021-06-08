@@ -29,6 +29,14 @@ enum URHelper {
         return try? UR(type: "crypto-psbt", cbor: cbor)
     }
     
+    static func psbtUrString(_ data: Data) -> String? {
+        let cbor = CBOR.byteString(data.bytes).cborEncode().data
+        
+        guard let rawUr = try? UR(type: "crypto-psbt", cbor: cbor) else { return nil }
+        
+        return UREncoder.encode(rawUr)
+    }
+    
     static func textToUr(_ data: Data) -> UR? {
         let cbor = CBOR.byteString(data.bytes).cborEncode().data
         

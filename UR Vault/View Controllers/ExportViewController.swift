@@ -254,6 +254,20 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             
             promptToUpdate()
             
+        case "psbt":
+            guard let data = Data(base64Encoded: text.condenseWhitespace()) else { fallthrough }
+            
+            guard let ur = URHelper.psbtUrString(data) else { fallthrough }
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+
+                self.imageView.image = QRGenerator.generate(textInput: ur)
+                self.textView.text = ur
+            }
+            
+            promptToUpdate()
+            
         default:
             showAlert(title: "Type not yet supported.", message: "Currently we only support converting bip39 mnemonics, SSKR shards, cosigners, and extended keys to UR's.")
             break

@@ -12,7 +12,7 @@ import UIKit
 class QRGenerator {
     
     class func generate(textInput: String) -> UIImage? {
-        let data = textInput.data(using: .ascii)
+        let data = textInput.trimmingCharacters(in: .whitespacesAndNewlines).data(using: .ascii)
         
         guard let filter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
         filter.setValue(data, forKey: "inputMessage")
