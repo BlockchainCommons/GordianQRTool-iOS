@@ -139,6 +139,10 @@ class QRDisplayerViewController: UIViewController {
         
         if let b64 = Data(base64Encoded: text), let urCheck = URHelper.psbtUr(b64) {
             uR = urCheck
+            
+        } else if text.uppercased().hasPrefix("UR:CRYPTO-PSBT") {
+            uR = try? URDecoder.decode(text.condenseWhitespace().uppercased())
+            
         } else if let bytesUr = URHelper.textToUr(text.utf8) {
             uR = bytesUr
         }

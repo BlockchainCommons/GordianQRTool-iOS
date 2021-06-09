@@ -228,8 +228,48 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             
             promptToUpdate()
             
+        case "hdkey":
+            guard let hdkey = try? HDKey(base58: text.condenseWhitespace()) else { fallthrough }
+        
+            guard let ur = URHelper.extendedKeyToUr(key: hdkey) else { fallthrough }
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                
+                self.imageView.image = QRGenerator.generate(textInput: ur)
+                self.textView.text = ur
+            }
+            
+            promptToUpdate()
+            
+        case "cosigner":
+            guard let ur = URHelper.cosignerToUr(text.condenseWhitespace()) else { fallthrough }
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                
+                self.imageView.image = QRGenerator.generate(textInput: ur)
+                self.textView.text = ur
+            }
+            
+            promptToUpdate()
+            
+        case "psbt":
+            guard let data = Data(base64Encoded: text.condenseWhitespace()) else { fallthrough }
+            
+            guard let ur = URHelper.psbtUrString(data) else { fallthrough }
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+
+                self.imageView.image = QRGenerator.generate(textInput: ur)
+                self.textView.text = ur
+            }
+            
+            promptToUpdate()
+            
         default:
-            showAlert(title: "Type not yet supported", message: "Currently we only support converting bip39 mnemonics and SSKR shards to UR's.")
+            showAlert(title: "Type not yet supported.", message: "Currently we only support converting bip39 mnemonics, SSKR shards, cosigners, and extended keys to UR's.")
             break
         }
     }
@@ -238,7 +278,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
-            let alert = UIAlertController(title: "Update?", message: "Updating to a UR will overwrite the existing QR code as UR format.", preferredStyle: .actionSheet)
+            let alert = UIAlertController(title: "Update?", message: "Updating to a UR will overwrite the existing data as UR format.", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Update", style: .default, handler: { [weak self] action in
                 guard let self = self else { return }
@@ -352,7 +392,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             self.shareQrOutlet.alpha = 1
             self.textView.alpha = 1
             
-            if !text.hasPrefix("ur:") {
+            if !text.hasPrefix("UR:") {
                 self.convertToUrOutlet.alpha = 1
             } else {
                 self.convertToUrOutlet.alpha = 0

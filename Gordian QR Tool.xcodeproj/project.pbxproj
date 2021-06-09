@@ -16,6 +16,8 @@
 		0A171CDD264A1D6000ADE71B /* PromptForAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A171CDC264A1D6000ADE71B /* PromptForAuthViewController.swift */; };
 		0A171CE2264A271200ADE71B /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A171CE1264A271200ADE71B /* IntroViewController.swift */; };
 		0A171CE7264A2BA800ADE71B /* LicenseDisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A171CE6264A2BA800ADE71B /* LicenseDisclaimerViewController.swift */; };
+		0A325E9C266DC5DB00FF1164 /* Base58.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A325E9B266DC5DB00FF1164 /* Base58.swift */; };
+		0A325EB0266DC6BF00FF1164 /* base58.c in Sources */ = {isa = PBXBuildFile; fileRef = 0A325EAF266DC6BF00FF1164 /* base58.c */; };
 		0A4151A22640ED4D00E23C99 /* LibWally.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A41519C2640ED4900E23C99 /* LibWally.xcframework */; };
 		0A4151A32640ED4D00E23C99 /* LibWally.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A41519C2640ED4900E23C99 /* LibWally.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0A4151AD2640EED300E23C99 /* URKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0A4151AC2640EED300E23C99 /* URKit */; };
@@ -115,6 +117,10 @@
 		0A171CDC264A1D6000ADE71B /* PromptForAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptForAuthViewController.swift; sourceTree = "<group>"; };
 		0A171CE1264A271200ADE71B /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		0A171CE6264A2BA800ADE71B /* LicenseDisclaimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseDisclaimerViewController.swift; sourceTree = "<group>"; };
+		0A325E9B266DC5DB00FF1164 /* Base58.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base58.swift; sourceTree = "<group>"; };
+		0A325EAD266DC6BF00FF1164 /* UR Vault-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UR Vault-Bridging-Header.h"; sourceTree = "<group>"; };
+		0A325EAE266DC6BF00FF1164 /* base58.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = base58.h; sourceTree = "<group>"; };
+		0A325EAF266DC6BF00FF1164 /* base58.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = base58.c; sourceTree = "<group>"; };
 		0A41519C2640ED4900E23C99 /* LibWally.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibWally.xcframework; sourceTree = "<group>"; };
 		0A4151BE2640FE5100E23C99 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D006E328243D6EBF007B1A5B /* ShareExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,7 +137,7 @@
 		D04F029E253EA847008CB77F /* Lifehash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lifehash.swift; sourceTree = "<group>"; };
 		D04F02A5253EABBD008CB77F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D04F02A9253EC660008CB77F /* UniformResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniformResource.swift; sourceTree = "<group>"; };
-		D0FA1670243ABD3100115589 /* UR Vault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UR Vault.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0FA1670243ABD3100115589 /* Gordian QR Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gordian QR Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FA1673243ABD3100115589 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0FA1675243ABD3100115589 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D0FA167A243ABD3100115589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -139,10 +145,10 @@
 		D0FA167F243ABD3800115589 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0FA1682243ABD3800115589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0FA1684243ABD3800115589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D0FA1689243ABD3900115589 /* UR VaultTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UR VaultTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0FA1689243ABD3900115589 /* Gordian QR ToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gordian QR ToolTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FA168D243ABD3900115589 /* QR_VaultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_VaultTests.swift; sourceTree = "<group>"; };
 		D0FA168F243ABD3900115589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D0FA1694243ABD3900115589 /* UR VaultUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UR VaultUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0FA1694243ABD3900115589 /* Gordian QR ToolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gordian QR ToolUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FA1698243ABD3900115589 /* QR_VaultUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_VaultUITests.swift; sourceTree = "<group>"; };
 		D0FA169A243ABD3900115589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0FA16A6243ABD4500115589 /* QR Vault.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "QR Vault.entitlements"; sourceTree = "<group>"; };
@@ -216,9 +222,9 @@
 		D0FA1667243ABD3100115589 = {
 			isa = PBXGroup;
 			children = (
-				D0FA1672243ABD3100115589 /* UR Vault */,
-				D0FA168C243ABD3900115589 /* UR VaultTests */,
-				D0FA1697243ABD3900115589 /* UR VaultUITests */,
+				D0FA1672243ABD3100115589 /* Gordian QR Tool */,
+				D0FA168C243ABD3900115589 /* Gordian QR ToolTests */,
+				D0FA1697243ABD3900115589 /* Gordian QR ToolUITests */,
 				D006E329243D6EBF007B1A5B /* ShareExt */,
 				D0FA1671243ABD3100115589 /* Products */,
 				0A4151BD2640FE5100E23C99 /* Frameworks */,
@@ -228,15 +234,15 @@
 		D0FA1671243ABD3100115589 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D0FA1670243ABD3100115589 /* UR Vault.app */,
-				D0FA1689243ABD3900115589 /* UR VaultTests.xctest */,
-				D0FA1694243ABD3900115589 /* UR VaultUITests.xctest */,
+				D0FA1670243ABD3100115589 /* Gordian QR Tool.app */,
+				D0FA1689243ABD3900115589 /* Gordian QR ToolTests.xctest */,
+				D0FA1694243ABD3900115589 /* Gordian QR ToolUITests.xctest */,
 				D006E328243D6EBF007B1A5B /* ShareExt.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D0FA1672243ABD3100115589 /* UR Vault */ = {
+		D0FA1672243ABD3100115589 /* Gordian QR Tool */ = {
 			isa = PBXGroup;
 			children = (
 				D0FA16A6243ABD4500115589 /* QR Vault.entitlements */,
@@ -253,25 +259,25 @@
 				D0FA16B4243AD67E00115589 /* Helpers */,
 				D04F02A5253EABBD008CB77F /* Utilities.swift */,
 			);
-			path = "UR Vault";
+			path = "Gordian QR Tool";
 			sourceTree = "<group>";
 		};
-		D0FA168C243ABD3900115589 /* UR VaultTests */ = {
+		D0FA168C243ABD3900115589 /* Gordian QR ToolTests */ = {
 			isa = PBXGroup;
 			children = (
 				D0FA168D243ABD3900115589 /* QR_VaultTests.swift */,
 				D0FA168F243ABD3900115589 /* Info.plist */,
 			);
-			path = "UR VaultTests";
+			path = "Gordian QR ToolTests";
 			sourceTree = "<group>";
 		};
-		D0FA1697243ABD3900115589 /* UR VaultUITests */ = {
+		D0FA1697243ABD3900115589 /* Gordian QR ToolUITests */ = {
 			isa = PBXGroup;
 			children = (
 				D0FA1698243ABD3900115589 /* QR_VaultUITests.swift */,
 				D0FA169A243ABD3900115589 /* Info.plist */,
 			);
-			path = "UR VaultUITests";
+			path = "Gordian QR ToolUITests";
 			sourceTree = "<group>";
 		};
 		D0FA16A9243AC5EC00115589 /* View Controllers */ = {
@@ -324,6 +330,10 @@
 				D04F02A9253EC660008CB77F /* UniformResource.swift */,
 				0A0AE4FF26438D4E00D6F85A /* DescriptorParser.swift */,
 				0A0AE5092643948C00D6F85A /* DeriveLifehash.swift */,
+				0A325E9B266DC5DB00FF1164 /* Base58.swift */,
+				0A325EAE266DC6BF00FF1164 /* base58.h */,
+				0A325EAF266DC6BF00FF1164 /* base58.c */,
+				0A325EAD266DC6BF00FF1164 /* UR Vault-Bridging-Header.h */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -348,9 +358,9 @@
 			productReference = D006E328243D6EBF007B1A5B /* ShareExt.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		D0FA166F243ABD3100115589 /* UR Vault */ = {
+		D0FA166F243ABD3100115589 /* Gordian QR Tool */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D0FA169D243ABD3900115589 /* Build configuration list for PBXNativeTarget "UR Vault" */;
+			buildConfigurationList = D0FA169D243ABD3900115589 /* Build configuration list for PBXNativeTarget "Gordian QR Tool" */;
 			buildPhases = (
 				D0FA166C243ABD3100115589 /* Sources */,
 				D0FA166D243ABD3100115589 /* Frameworks */,
@@ -363,18 +373,18 @@
 			dependencies = (
 				D006E331243D6EBF007B1A5B /* PBXTargetDependency */,
 			);
-			name = "UR Vault";
+			name = "Gordian QR Tool";
 			packageProductDependencies = (
 				0A4151AC2640EED300E23C99 /* URKit */,
 				0A4151B22640EF7200E23C99 /* LifeHash */,
 			);
 			productName = "QR Vault";
-			productReference = D0FA1670243ABD3100115589 /* UR Vault.app */;
+			productReference = D0FA1670243ABD3100115589 /* Gordian QR Tool.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D0FA1688243ABD3900115589 /* UR VaultTests */ = {
+		D0FA1688243ABD3900115589 /* Gordian QR ToolTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D0FA16A0243ABD3900115589 /* Build configuration list for PBXNativeTarget "UR VaultTests" */;
+			buildConfigurationList = D0FA16A0243ABD3900115589 /* Build configuration list for PBXNativeTarget "Gordian QR ToolTests" */;
 			buildPhases = (
 				D0FA1685243ABD3900115589 /* Sources */,
 				D0FA1686243ABD3900115589 /* Frameworks */,
@@ -385,14 +395,14 @@
 			dependencies = (
 				D0FA168B243ABD3900115589 /* PBXTargetDependency */,
 			);
-			name = "UR VaultTests";
+			name = "Gordian QR ToolTests";
 			productName = "QR VaultTests";
-			productReference = D0FA1689243ABD3900115589 /* UR VaultTests.xctest */;
+			productReference = D0FA1689243ABD3900115589 /* Gordian QR ToolTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D0FA1693243ABD3900115589 /* UR VaultUITests */ = {
+		D0FA1693243ABD3900115589 /* Gordian QR ToolUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D0FA16A3243ABD3900115589 /* Build configuration list for PBXNativeTarget "UR VaultUITests" */;
+			buildConfigurationList = D0FA16A3243ABD3900115589 /* Build configuration list for PBXNativeTarget "Gordian QR ToolUITests" */;
 			buildPhases = (
 				D0FA1690243ABD3900115589 /* Sources */,
 				D0FA1691243ABD3900115589 /* Frameworks */,
@@ -403,9 +413,9 @@
 			dependencies = (
 				D0FA1696243ABD3900115589 /* PBXTargetDependency */,
 			);
-			name = "UR VaultUITests";
+			name = "Gordian QR ToolUITests";
 			productName = "QR VaultUITests";
-			productReference = D0FA1694243ABD3900115589 /* UR VaultUITests.xctest */;
+			productReference = D0FA1694243ABD3900115589 /* Gordian QR ToolUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -423,6 +433,7 @@
 					};
 					D0FA166F243ABD3100115589 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1230;
 					};
 					D0FA1688243ABD3900115589 = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -434,7 +445,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D0FA166B243ABD3100115589 /* Build configuration list for PBXProject "UR Vault" */;
+			buildConfigurationList = D0FA166B243ABD3100115589 /* Build configuration list for PBXProject "Gordian QR Tool" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -451,9 +462,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D0FA166F243ABD3100115589 /* UR Vault */,
-				D0FA1688243ABD3900115589 /* UR VaultTests */,
-				D0FA1693243ABD3900115589 /* UR VaultUITests */,
+				D0FA166F243ABD3100115589 /* Gordian QR Tool */,
+				D0FA1688243ABD3900115589 /* Gordian QR ToolTests */,
+				D0FA1693243ABD3900115589 /* Gordian QR ToolUITests */,
 				D006E327243D6EBF007B1A5B /* ShareExt */,
 			);
 		};
@@ -528,9 +539,11 @@
 				0A171CDD264A1D6000ADE71B /* PromptForAuthViewController.swift in Sources */,
 				D0FA16B8243AF5E300115589 /* Keychain.swift in Sources */,
 				0A0AE53C2648A7EB00D6F85A /* QRDisplayerViewController.swift in Sources */,
+				0A325E9C266DC5DB00FF1164 /* Base58.swift in Sources */,
 				D0FA16C2243B4E2000115589 /* QRGenerator.swift in Sources */,
 				D04F02AA253EC660008CB77F /* UniformResource.swift in Sources */,
 				D0FA16C0243B4BA000115589 /* ExportViewController.swift in Sources */,
+				0A325EB0266DC6BF00FF1164 /* base58.c in Sources */,
 				0A0AE50026438D4E00D6F85A /* DescriptorParser.swift in Sources */,
 				D04F029F253EA847008CB77F /* Lifehash.swift in Sources */,
 				D0FA16BE243B25D100115589 /* Spinner.swift in Sources */,
@@ -570,12 +583,12 @@
 		};
 		D0FA168B243ABD3900115589 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D0FA166F243ABD3100115589 /* UR Vault */;
+			target = D0FA166F243ABD3100115589 /* Gordian QR Tool */;
 			targetProxy = D0FA168A243ABD3900115589 /* PBXContainerItemProxy */;
 		};
 		D0FA1696243ABD3900115589 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D0FA166F243ABD3100115589 /* UR Vault */;
+			target = D0FA166F243ABD3100115589 /* Gordian QR Tool */;
 			targetProxy = D0FA1695243ABD3900115589 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -615,7 +628,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.3.8;
+				CURRENT_PROJECT_VERSION = 0.3.9;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = YZHG975W3A;
 				INFOPLIST_FILE = ShareExt/Info.plist;
@@ -624,7 +637,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.3.8;
+				MARKETING_VERSION = 0.3.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockchaincommons.QRVault.ShareExt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -641,7 +654,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.3.8;
+				CURRENT_PROJECT_VERSION = 0.3.9;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = YZHG975W3A;
 				INFOPLIST_FILE = ShareExt/Info.plist;
@@ -650,7 +663,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.3.8;
+				MARKETING_VERSION = 0.3.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockchaincommons.QRVault.ShareExt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -779,25 +792,28 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "UR Vault/QR Vault.entitlements";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Gordian QR Tool/QR Vault.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.3.8;
+				CURRENT_PROJECT_VERSION = 0.3.9;
 				DEVELOPMENT_TEAM = YZHG975W3A;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "UR Vault/Info.plist";
+				INFOPLIST_FILE = "Gordian QR Tool/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.8;
+				MARKETING_VERSION = 0.3.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockchaincommons.QRVault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Gordian QR Tool/Helpers/UR Vault-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -808,25 +824,27 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "UR Vault/QR Vault.entitlements";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Gordian QR Tool/QR Vault.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.3.8;
+				CURRENT_PROJECT_VERSION = 0.3.9;
 				DEVELOPMENT_TEAM = YZHG975W3A;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "UR Vault/Info.plist";
+				INFOPLIST_FILE = "Gordian QR Tool/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.8;
+				MARKETING_VERSION = 0.3.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockchaincommons.QRVault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Gordian QR Tool/Helpers/UR Vault-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -850,7 +868,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UR Vault.app/UR Vault";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gordian QR Tool.app/Gordian QR Tool";
 			};
 			name = Debug;
 		};
@@ -872,7 +890,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UR Vault.app/UR Vault";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gordian QR Tool.app/Gordian QR Tool";
 			};
 			name = Release;
 		};
@@ -928,7 +946,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D0FA166B243ABD3100115589 /* Build configuration list for PBXProject "UR Vault" */ = {
+		D0FA166B243ABD3100115589 /* Build configuration list for PBXProject "Gordian QR Tool" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D0FA169B243ABD3900115589 /* Debug */,
@@ -937,7 +955,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D0FA169D243ABD3900115589 /* Build configuration list for PBXNativeTarget "UR Vault" */ = {
+		D0FA169D243ABD3900115589 /* Build configuration list for PBXNativeTarget "Gordian QR Tool" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D0FA169E243ABD3900115589 /* Debug */,
@@ -946,7 +964,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D0FA16A0243ABD3900115589 /* Build configuration list for PBXNativeTarget "UR VaultTests" */ = {
+		D0FA16A0243ABD3900115589 /* Build configuration list for PBXNativeTarget "Gordian QR ToolTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D0FA16A1243ABD3900115589 /* Debug */,
@@ -955,7 +973,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D0FA16A3243ABD3900115589 /* Build configuration list for PBXNativeTarget "UR VaultUITests" */ = {
+		D0FA16A3243ABD3900115589 /* Build configuration list for PBXNativeTarget "Gordian QR ToolUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D0FA16A4243ABD3900115589 /* Debug */,

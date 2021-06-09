@@ -18,7 +18,7 @@
                BlueprintIdentifier = "D006E327243D6EBF007B1A5B"
                BuildableName = "ShareExt.appex"
                BlueprintName = "ShareExt"
-               ReferencedContainer = "container:UR Vault.xcodeproj">
+               ReferencedContainer = "container:Gordian QR Tool.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -30,9 +30,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D0FA166F243ABD3100115589"
-               BuildableName = "UR Vault.app"
-               BlueprintName = "UR Vault"
-               ReferencedContainer = "container:UR Vault.xcodeproj">
+               BuildableName = "Gordian QR Tool.app"
+               BlueprintName = "Gordian QR Tool"
+               ReferencedContainer = "container:Gordian QR Tool.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D0FA166F243ABD3100115589"
-            BuildableName = "UR Vault.app"
-            BlueprintName = "UR Vault"
-            ReferencedContainer = "container:UR Vault.xcodeproj">
+            BuildableName = "Gordian QR Tool.app"
+            BlueprintName = "Gordian QR Tool"
+            ReferencedContainer = "container:Gordian QR Tool.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </LaunchAction>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D0FA166F243ABD3100115589"
-            BuildableName = "UR Vault.app"
-            BlueprintName = "UR Vault"
-            ReferencedContainer = "container:UR Vault.xcodeproj">
+            BuildableName = "Gordian QR Tool.app"
+            BlueprintName = "Gordian QR Tool"
+            ReferencedContainer = "container:Gordian QR Tool.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

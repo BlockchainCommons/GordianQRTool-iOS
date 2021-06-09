@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D0FA166F243ABD3100115589"
-               BuildableName = "UR Vault.app"
-               BlueprintName = "UR Vault"
-               ReferencedContainer = "container:UR Vault.xcodeproj">
+               BuildableName = "Gordian QR Tool.app"
+               BlueprintName = "Gordian QR Tool"
+               ReferencedContainer = "container:Gordian QR Tool.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D0FA1688243ABD3900115589"
-               BuildableName = "UR VaultTests.xctest"
-               BlueprintName = "UR VaultTests"
-               ReferencedContainer = "container:UR Vault.xcodeproj">
+               BuildableName = "Gordian QR ToolTests.xctest"
+               BlueprintName = "Gordian QR ToolTests"
+               ReferencedContainer = "container:Gordian QR Tool.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D0FA1693243ABD3900115589"
-               BuildableName = "UR VaultUITests.xctest"
-               BlueprintName = "UR VaultUITests"
-               ReferencedContainer = "container:UR Vault.xcodeproj">
+               BuildableName = "Gordian QR ToolUITests.xctest"
+               BlueprintName = "Gordian QR ToolUITests"
+               ReferencedContainer = "container:Gordian QR Tool.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -65,9 +65,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D0FA166F243ABD3100115589"
-            BuildableName = "UR Vault.app"
-            BlueprintName = "UR Vault"
-            ReferencedContainer = "container:UR Vault.xcodeproj">
+            BuildableName = "Gordian QR Tool.app"
+            BlueprintName = "Gordian QR Tool"
+            ReferencedContainer = "container:Gordian QR Tool.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -82,9 +82,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D0FA166F243ABD3100115589"
-            BuildableName = "UR Vault.app"
-            BlueprintName = "UR Vault"
-            ReferencedContainer = "container:UR Vault.xcodeproj">
+            BuildableName = "Gordian QR Tool.app"
+            BlueprintName = "Gordian QR Tool"
+            ReferencedContainer = "container:Gordian QR Tool.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

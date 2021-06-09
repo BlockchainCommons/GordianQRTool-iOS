@@ -154,6 +154,28 @@ class Parser {
         return item.lowercased().condenseWhitespace().hasPrefix("iban:")
     }
     
+    private class func isExtendedKey(_ item: String) -> Bool {
+        guard let _ = try? HDKey(base58: item.condenseWhitespace()) else { return false }
+        
+        return true
+    }
+    
+    private class func isCosigner(_ item: String) -> Bool {
+        guard item.hasPrefix("[") else { return false }
+        
+        let arr = item.split(separator: "]")
+        
+        guard arr.count > 0 else { return false }
+        
+        let key = "\(arr[1])"
+        
+        if !key.hasPrefix("tpub") && !key.hasPrefix("tprv") && !key.hasPrefix("xpub") && !key.hasPrefix("xprv") {
+            return false
+        }
+        
+        return true
+    }
+    
     class func parse(_ item: String) -> String {
         let processed = item.lowercased()
         
@@ -242,6 +264,12 @@ class Parser {
             
         } else if isIban(processed) {
             return "bank account"
+            
+        } else if isExtendedKey(item.condenseWhitespace()) {
+            return "hdkey"
+            
+        } else if isCosigner(item.condenseWhitespace()) {
+            return "cosigner"
             
         } else {
             return "unknown"
