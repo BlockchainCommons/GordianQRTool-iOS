@@ -318,6 +318,18 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
                 return
             }
             
+            CoreDataService.retrieveEntity { (qrs, errorDescription) in
+                guard let qrs = qrs else { return }
+                
+                for qr in qrs {
+                    let str = QRStruct(dictionary: qr)
+                    if str.id == id {
+                        self.qrStruct = str
+                        self.loadData(qr: self.qrStruct)
+                    }
+                }
+            }
+            
             self.showAlert(title: "Success ✅", message: "QR has been updated to a UR, the data has been encrypted and stored securely to your device.")
         }
     }

@@ -159,7 +159,6 @@ enum URHelper {
     }
     
     static func extendedKeyToUr(key: HDKey) -> String? {
-        var extendedKeyBase58String = ""
         var isPrivate = false
         var isMaster = false
         var cointype:UInt64 = 1
@@ -168,18 +167,15 @@ enum URHelper {
             cointype = 0
         }
                 
-        let b58Data = Data(Base58.decode(extendedKeyBase58String))
+        let b58Data = Data(Base58.decode(key.description))
         let depth = b58Data.subdata(in: Range(4...4))
         let parentFingerprint = b58Data.subdata(in: Range(5...8))
         let chaincode = b58Data.subdata(in: Range(13...44))
         let keydata = b58Data.subdata(in: Range(45...77))
         
-        if let xprv = key.xpriv {
-            extendedKeyBase58String = xprv
+        if let _ = key.xpriv {
             isPrivate = true
             if depth.hexStrng == "00" { isMaster = true }
-        } else {
-            extendedKeyBase58String = key.xpub
         }
         
         var originsArray:[OrderedMapEntry] = []
