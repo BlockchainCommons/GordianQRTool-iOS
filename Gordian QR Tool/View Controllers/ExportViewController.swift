@@ -204,7 +204,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         let type = Parser.parse(text)
         
         switch type {
-        case "Mnemonic":
+        case "mnemonic":
             guard let mnemonic = try? BIP39Mnemonic(words: text.processed()), let ur = URHelper.entropyToUr(data: mnemonic.entropy.data) else { fallthrough }
             
             DispatchQueue.main.async { [weak self] in
@@ -216,7 +216,7 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
             
             promptToUpdate()
             
-        case "SSKR Shard":
+        case "sskr shard":
             guard let hexData = Data(base64Encoded: text.processed()), let ur = URHelper.shardToUr(data: hexData) else { fallthrough }
             
             DispatchQueue.main.async { [weak self] in
@@ -522,16 +522,6 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         }
     }
     
-//    private func reducedName(text: String) -> String {
-//        if text.count > 50 {
-//            let first = String(text.prefix(15))
-//            let last = String(text.suffix(15))
-//            return "\(first)...\(last)"
-//        } else {
-//            return text
-//        }
-//    }
-    
     @objc func handleTap() {
         #if targetEnvironment(macCatalyst)
         #else
@@ -544,5 +534,4 @@ class ExportViewController: UIViewController, ASAuthorizationControllerDelegate,
         #endif
         
     }
-
 }
