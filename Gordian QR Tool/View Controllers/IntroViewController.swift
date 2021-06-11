@@ -18,12 +18,11 @@ class IntroViewController: UIViewController {
         super.viewDidLoad()
 
         textView.text = """
-            UR Vault creates a secure and redundant place to store all of your sensitive QR codes. Any QR code can be stored, but UR Vault is built especially to support Uniform Resources that are encoded as QRs, including seeds, HD keys, and account maps.
+            QR codes are increasingly used to store sensitive information. QR Tool creates a secure and redundant place to store those codes. Any QR code can be stored, but QR Tool is built especially to support Uniform Resources that are encoded as QRs, including seeds, HD keys, and account maps.
 
-            UR Vault utilizes multiple layers of encryption, 2FA (two factor authentication), and your device's keychain to ensure that only you may ever access your data.
+            QR Tool uses platform best practices to secure your QRs, includings multiple layers of encryption, 2FA (two factor authentication), and your device's keychain, ensuring that only you can ever access your data.
 
-            UR Vault also creates secure resilience by automatically backing up your data to iCloud using backups that ​will sync to any other device where you are logged in with the same Apple ID. All data stored on the iCloud is fully encrypted with a private key that is itself encrypted and stored on your device's secure enclave. To ensure the app can sync across devices or easily be recovered on another device you must enable "keychain sync" under the iCloud settings on your devices.
-
+            QR Tool also creates secure resilience by automatically backing up your data to iCloud using backups that ​will sync to any other device where you are logged in with the same Apple ID. All data stored on the iCloud is fully encrypted with a private key that is itself encrypted and stored on your device's secure enclave. To ensure the app can sync across devices or easily be recovered on another device you must enable "keychain sync" under the iCloud settings on your devices
             """
     }
     
