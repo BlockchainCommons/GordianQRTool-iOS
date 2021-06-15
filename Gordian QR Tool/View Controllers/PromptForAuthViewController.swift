@@ -12,7 +12,6 @@ import AuthenticationServices
 class PromptForAuthViewController: UIViewController, UINavigationControllerDelegate, ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate {
     
     var doneBlock : ((Bool) -> Void)?
-    
 
     @IBOutlet weak var signInWithAppleButton: UIButton!
     @IBOutlet weak var textView: UITextView!
