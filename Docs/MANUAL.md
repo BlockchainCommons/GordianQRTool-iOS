@@ -1,6 +1,6 @@
 # QR Tool Manual
 
-<img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-list.jpeg" align="right" width=250>
+<a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-list.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-list.jpeg" align="right" width=250></a>
 
 **QR Tool** is an app that allows you to securely store QR codes of critical information such as cryptoseeds, private keys, 2FA seeds, vaccination records, and test results. It improves the accessibility and security of traditional methods for storing QRs (such as printing them out or saving them to a camera roll).
 
@@ -32,7 +32,7 @@ In **QR Tool** you can import QRs, edit QR metadata, view QRs, and export QRs.
 
 The main screen of **QR Tool** contains all of its functionality in a bar of icons along the top. The icons are:
 
-* **Edit.** ![](https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-commands-edit.jpg) Remove QRs from your vault by clicking the red minus sign to the left. _Warning:_ if you remove a QR, it will be gone forever.
+* **Edit.** <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-commands-edit.jpg" height=20> Remove QRs from your vault by clicking the red minus sign to the left. _Warning:_ if you remove a QR, it will be gone forever.
 * **Refresh.** If you failed to supply your biometric information when you started **QR Tool**, it will come up with a blank page. Click the Refresh point to reauthenticate.
 * **QR Tool.** Tap the central icon to see information about QR Tool and Blockchain Commons.
 * **Sort.** Choose to sort by category, name, or date added.
