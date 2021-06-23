@@ -53,6 +53,8 @@ You can export QR data from the QR view page. There are either two or three opti
 * **Text Export.** Alternatively, you can just export the text encoded in the QR: select the export arrow next to the text.
 * **UR Conversion.** Many QRs are stored as [Uniform Resources](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md), a Blockchain Commons specification for encoding typed data, in particular to make it efficient for use in QRs. For data not stored as URs, click "convert to UR". (A limited number of crypto-related data types are available for conversion.)
 
+If you want to export a QR code to another app on your phone, and there is not a specific export function, another methodology is to take a screenshot of the QR view, with the QR code, which will save it to front of your photo roll. You can then go to the QR import function on the other app, load it in via camera, and you should see that same landscape icon to allow you to import it from your camera roll. It'll be easy to find because it was just saved. Afterward, you should _remove the screenshot from your camera roll_, so that you are not storing your QR code insecurely.
+
 ## For More Info
 
 If you have questions, comments, feature requests, or bug reports, please visit our [Gordian Discussion area](https://github.com/BlockchainCommons/Gordian/discussions) and write us a message!
