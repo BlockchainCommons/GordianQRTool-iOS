@@ -62,6 +62,10 @@ The main screen of **QR Tool** contains all of its functionality in a bar of ico
 
 Color square images are displayed for each QR. This is a [Lifehash](https://github.com/BlockchainCommons/bc-lifehash), which is a pictoral representation of the data stored in a QR. It's meant to help assure you that the same data is present if you store it on different devices, and also to verify that your data hasn't changed. The Lifehash for the same data should always be the same; if it suddenly changes, there may be a problem that you should investigate.
 
+<div align="center">
+  <img src="https://raw.githubusercontent.com/BlockchainCommons/bc-lifehash/master/Art/version2.jpg">
+</div>  
+  
 ### Viewing QR Data
 
 You can view any stored QR data by clicking the right arrow in your listing of QRs. The QR view will display all of the details of the QR, including its Lifehash, its name, its category, its qr code, and its textual description. You can change the metadata regarding a QR on this page, you can export it, or you can delete it.
@@ -70,7 +74,28 @@ You can view any stored QR data by clicking the right arrow in your listing of Q
 * **Label.** Edit the text field immediately next to the Lifehash to change the name for a QR. This metadata is only for your use, to help you recognize the QR. Be sure to click "Save" after editing the label.
 * **Type.** Edit the text field immediately next to the "Type:" to change the category of a QR. If **QR Tool** recognizes a QR's type (such as a 2FA seed or an SSKR shard, it will set this automatically, but otherwise you'll want to set this by hand. Setting and maintaining consistent categories for your QRs will help you to sort them. 
 
+<div align="center">
+  <table border=0>
+    <tr>
+      <td>
+        <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-seed.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-seed.jpeg" width=250></a> 
+        <br><div align="center"><b>Auth</b></div>
+      </center></td>
+      <td>
+        <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-covid.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-covid.jpeg" width=250></a>
+        <br><div align="center"><b>Sort</b></div>
+      </center></td>
+      <td>     
+        <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-sskr.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-sskr.jpeg" width=250></a>
+        <br><div align="center"><b>Import</b></div>
+      </center></td>
+    </tr>
+  </table>
+</div>
+
 ### Exporting QR Data
+
+<a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-export.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-export.jpeg" align="right" width=250></a>
 
 You can export QR data from the QR view page. There are either two or three options.
 
