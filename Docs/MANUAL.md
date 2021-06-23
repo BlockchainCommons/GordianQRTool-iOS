@@ -79,15 +79,15 @@ You can view any stored QR data by clicking the right arrow in your listing of Q
     <tr>
       <td>
         <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-seed.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-seed.jpeg" width=250></a> 
-        <br><div align="center"><b>Auth</b></div>
+        <br><div align="center"><b>Crypto Seed</b></div>
       </center></td>
       <td>
-        <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-covid.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-covid.jpeg" width=250></a>
-        <br><div align="center"><b>Sort</b></div>
+        <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-edit.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-edit.jpeg" width=250></a>
+        <br><div align="center"><b>Editing ...</b></div>
       </center></td>
       <td>     
-        <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-sskr.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-sskr.jpeg" width=250></a>
-        <br><div align="center"><b>Import</b></div>
+        <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-covid.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-covid.jpeg" width=250></a>
+        <br><div align="center"><b>Vaccine Record</b></div>
       </center></td>
     </tr>
   </table>
