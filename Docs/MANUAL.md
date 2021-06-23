@@ -40,7 +40,26 @@ The main screen of **QR Tool** contains all of its functionality in a bar of ico
 * **QR** (QR Icon). Import a QR by photographing it. You will need to provide camera permission the first time you use it. Note that you can also import from your camera roll by tapping at the landscape icon at the bottom right. After you have imported your QR, you will have an opportunity to see the data that you're importing as well as label (name) it.
 
 <center>
-<a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-auth.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-auth.jpeg" align="right" width=250></a> <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-sort.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-sort.jpeg" align="right" width=250></a> <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-add.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-add.jpeg" align="right" width=250></a>
+  <table width="100%">
+    <tr>
+      <td width="33%">
+        <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-auth.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-auth.jpeg" align="right" width=250></a> 
+        <br><b>Authentication</b>
+      </td>
+    </tr>
+    <tr>
+      <td width="34%">
+        <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-sort.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-sort.jpeg" align="right" width=250></a>
+        <br><b>Sort</b>
+      </td>
+    </tr>
+    <tr width="33%">
+      <td>        
+        <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-add.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-add.jpeg" align="right" width=250></a>
+        <br><b>Import</b>
+      </td>
+    </tr>
+  </table>
 </center>
 
 #### Viewing Lifehashes
