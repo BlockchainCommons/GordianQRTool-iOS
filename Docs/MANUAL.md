@@ -42,22 +42,18 @@ The main screen of **QR Tool** contains all of its functionality in a bar of ico
 <center>
   <table width="100%">
     <tr>
-      <td width="33%">
+      <td width="33%"><center>
         <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-auth.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-auth.jpeg" width=250></a> 
         <br><b>Authentication</b>
-      </td>
-    </tr>
-    <tr>
-      <td width="34%">
+      </center></td>
+      <td width="34%"><center>
         <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-sort.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-sort.jpeg" width=250></a>
         <br><b>Sort</b>
-      </td>
-    </tr>
-    <tr width="33%">
-      <td>        
+      </center></td>
+      <td width="33%"><center>      
         <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-add.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-add.jpeg" width=250></a>
         <br><b>Import</b>
-      </td>
+      </center></td>
     </tr>
   </table>
 </center>
