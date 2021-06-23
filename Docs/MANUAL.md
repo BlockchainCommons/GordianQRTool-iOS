@@ -39,22 +39,24 @@ The main screen of **QR Tool** contains all of its functionality in a bar of ico
 * **Copy** (Clipboard). Import text in your cut-and-paste buffer as a QR code. Ideally, this information will be typed data, such as a UR. You will see the data you're importing, and be given an opportunity to give it a label (name).
 * **QR** (QR Icon). Import a QR by photographing it. You will need to provide camera permission the first time you use it. Note that you can also import from your camera roll by tapping at the landscape icon at the bottom right. After you have imported your QR, you will have an opportunity to see the data that you're importing as well as label (name) it.
 
+<div align="center">
   <table border=0>
     <tr>
       <td>
         <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-auth.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-auth.jpeg" width=250></a> 
-        <br><b>Authentication</b>
+        <br><div align="center"><b>Auth</b></div>
       </center></td>
       <td>
         <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-sort.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-sort.jpeg" width=250></a>
-        <br><b>Sort</b>
+        <br><div align="center"><b>Sort</b></div>
       </center></td>
       <td>     
         <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-add.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-add.jpeg" width=250></a>
-  <br><div align="center"><b>Import</b></div>
+        <br><div align="center"><b>Import</b></div>
       </center></td>
     </tr>
   </table>
+</div>
 
 #### Viewing Lifehashes
 
