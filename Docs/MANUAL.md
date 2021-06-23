@@ -32,12 +32,12 @@ In **QR Tool** you can import QRs, edit QR metadata, view QRs, and export QRs.
 
 The main screen of **QR Tool** contains all of its functionality in a bar of icons along the top. The icons are:
 
-* **Edit.** <img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-commands-edit.jpg" height=20> Remove QRs from your vault by clicking the red minus sign to the left. _Warning:_ if you remove a QR, it will be gone forever.
-* **Refresh.** If you failed to supply your biometric information when you started **QR Tool**, it will come up with a blank page. Click the Refresh point to reauthenticate.
-* **QR Tool.** Tap the central icon to see information about QR Tool and Blockchain Commons.
-* **Sort.** Choose to sort by category, name, or date added.
-* **Copy.** Import text in your cut-and-paste buffer as a QR code. Ideally, this information will be typed data, such as a UR. You will see the data you're importing, and be given an opportunity to give it a label (name).
-* **QR.** Import a QR by photographing it. You will need to provide camera permission the first time you use it. Note that you can also import from your camera roll by tapping at the landscape icon at the bottom right. After you have imported your QR, you will have an opportunity to see the data that you're importing as well as label (name) it.
+* **Edit.** ("Edit") Remove QRs from your vault by clicking the red minus sign to the left. _Warning:_ if you remove a QR, it will be gone forever.
+* **Refresh.** (Circle Arrow) If you failed to supply your biometric information when you started **QR Tool**, it will come up with a blank page. Click the Refresh point to reauthenticate.
+* **QR Tool.** (App Icon) Tap the central icon to see information about QR Tool and Blockchain Commons.
+* **Sort.** (Vertical Arrows) Choose to sort by category, name, or date added.
+* **Copy.** (Clipboard) Import text in your cut-and-paste buffer as a QR code. Ideally, this information will be typed data, such as a UR. You will see the data you're importing, and be given an opportunity to give it a label (name).
+* **QR.** (QR Icon) Import a QR by photographing it. You will need to provide camera permission the first time you use it. Note that you can also import from your camera roll by tapping at the landscape icon at the bottom right. After you have imported your QR, you will have an opportunity to see the data that you're importing as well as label (name) it.
 
 #### Viewing Lifehashes
 
