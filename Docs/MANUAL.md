@@ -51,7 +51,7 @@ The main screen of **QR Tool** contains all of its functionality in a bar of ico
       </center></td>
       <td>     
         <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-add.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-add.jpeg" width=250></a>
-        <br><b>Import</b>
+  <br><div align="center"><b>Import</b></div>
       </center></td>
     </tr>
   </table>
