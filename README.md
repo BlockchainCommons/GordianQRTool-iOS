@@ -13,6 +13,10 @@ Data is always stored with multiple layers of encryption using your device's key
 
 To ensure you can backup & recover from iCloud you **must** be signed in with the same Apple ID and must enable "Keychain" on your device's iCloud settings.
 
+### Docs
+
+- [**Manual**](Docs/MANUAL.md). A quick overview on using **Gordian QRTool**.
+
 ### Features
 
 **Gordian QRTool** demonstrates security, usability, and interoperability best practices with a number of core features:
