@@ -1,6 +1,6 @@
 # QR Tool Manual
 
-<img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-list.jpeg" align="right" width=350>
+<img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-list.jpeg" align="right" width=250>
 **QR Tool** is an app that allows you to securely store QR codes of critical information such as cryptoseeds, private keys, 2FA seeds, vaccination records, and test results. It improves the accessibility and security of traditional methods for storing QRs (such as printing them out or saving them to a camera roll).
 
 Why use **QR Tool**? So that you always know where your vital QRs are (particularly 2FA seeds and crypto seeds0, so that you can store QRs for friends and family (particularly SSKR shares), so that you know they're safe, and so that you can easily access them.
