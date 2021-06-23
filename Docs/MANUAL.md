@@ -40,7 +40,7 @@ The main screen of **QR Tool** contains all of its functionality in a bar of ico
 * **QR** (QR Icon). Import a QR by photographing it. You will need to provide camera permission the first time you use it. Note that you can also import from your camera roll by tapping at the landscape icon at the bottom right. After you have imported your QR, you will have an opportunity to see the data that you're importing as well as label (name) it.
 
 <center>
-  <table width="100%">
+  <table width="100%" border=0>
     <tr>
       <td width="33%"><center>
         <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-auth.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-auth.jpeg" width=250></a> 
