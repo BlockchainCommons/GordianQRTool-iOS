@@ -26,6 +26,8 @@ Why use **QR Tool**? So that you always know where your vital QRs are (particula
 
 In **QR Tool** you can import QRs, edit QR metadata, view QRs, and export QRs.
 
+<img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-commands.jpg" align="center">
+
 The main screen of **QR Tool** contains all of its functionality in a bar of icons along the top. The icons are:
 
 * **Edit.** Remove QRs from your vault by clicking the red minus sign to the left. _Warning:_ if you remove a QR, it will be gone forever.
