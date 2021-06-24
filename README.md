@@ -43,13 +43,13 @@ To ensure you can backup & recover from iCloud you **must** be signed in with th
 
 Blockchain Commons apps do not phone home and do not run ads. Some are available through various app stores; all are available in our code repositories for your usage.
 
-## Status - Late Alpha
+## Status - Released
 
-**Gordian QRTool** is currently under active development and in the late alpha testing phase. It should not be used for production tasks until it has had further testing and auditing.
+**Gordian QRTool** has been released through the Apple Appstore.
 
 ## Installation Instructions
 
-Please join our Testflight [here](https://testflight.apple.com/join/X7Ri4nPp). Please share any crash reports or bugs, if you want a feature added please raise an issue.
+**Gordian QRTool** can be purchased for the iPhone from the [Apple Appstore](https://apps.apple.com/us/app/gordian-qr-tool/id1506851070) or can be compiled from the source here.
 
 ## Origin, Authors, Copyright & Licenses
 
