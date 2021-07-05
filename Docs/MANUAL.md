@@ -2,7 +2,7 @@
 
 <a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-list.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-qr-docs/images/qr-list.jpeg" align="right" width=250></a>
 
-**Goardian QR Tool** is an app that allows you to securely store QR codes containing confidential information such as cryptoseeds, private keys, 2FA seeds, vaccination records, and COVID test results. It improves on the usability and security of traditional methods for storing QRs (such as printing them out or saving them to a camera roll).
+**Gordian QR Tool** is an app that allows you to securely store QR codes containing confidential information such as cryptoseeds, private keys, 2FA seeds, vaccination records, and COVID test results. It improves on the usability and security of traditional methods for storing QRs (such as printing them out or saving them to a camera roll).
 
 Why use **QR Tool**? So that you always know where your vital QRs are (particularly 2FA seeds and crypto seeds), so that you can store QRs for friends and family (particularly SSKR shares), so that you know they're safe, and so that you can easily access them.
 
@@ -19,6 +19,15 @@ Why use **QR Tool**? So that you always know where your vital QRs are (particula
 * Automated iCloud backup and recovery
 
 **QR Tool** is a reference app, demonstrating the [Gordian Principles](https://github.com/BlockchainCommons/GordianQRTool-iOS#gordian-principles) of independence, privacy, resilience, and openness.
+
+## Install QR Tool
+
+You can either purchase **Gordian QR Tool** from the Apple store or you can compile from the source here.
+
+For full functionality of the iCloud backup, be sure to turn on the following functionality under "Settings > Apple ID > iCloud" on all devices running **Gordian QR Tool**:
+
+* Keychain
+* iCloud Drive
 
 ## Using QR Tool
 
