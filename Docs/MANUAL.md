@@ -29,6 +29,8 @@ For full functionality of the iCloud backup, be sure to turn on the following fu
 * Keychain
 * iCloud Drive
 
+Be _very_ sure that all devices running **Gordian QR Tool** are fully logged into your Apple account, with full access to iCloud, and switches set as noted above. Failure to do so will either result in (1) QR entries not being synced to the iCloud (and other devices); or (1) QR entries being synced to other devices without the protected content of the actual code.
+
 ## Using QR Tool
 
 In **QR Tool** you can import QRs, edit QR metadata, view QRs, and export QRs.
