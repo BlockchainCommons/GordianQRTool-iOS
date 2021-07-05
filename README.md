@@ -51,6 +51,11 @@ Blockchain Commons apps do not phone home and do not run ads. Some are available
 
 **Gordian QRTool** can be purchased for the iPhone from the [Apple Appstore](https://apps.apple.com/us/app/gordian-qr-tool/id1506851070) or can be compiled from the source here.
 
+For full functionality of the iCloud backup, be sure to turn on the following functionality under "Settings > Apple ID > iCloud" on all devices running **Gordian QR Tool**:
+
+* Keychain
+* iCloud Drive
+
 ## Origin, Authors, Copyright & Licenses
 
 Unless otherwise noted (either in this [/README.md](./README.md) or in the file's header comments) the contents of this repository are Copyright © 2020 by Blockchain Commons, LLC, and are [licensed](./LICENSE) under the [spdx:BSD-2-Clause Plus Patent License](https://spdx.org/licenses/BSD-2-Clause-Patent.html).
