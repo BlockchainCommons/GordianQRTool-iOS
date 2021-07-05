@@ -44,7 +44,7 @@ In **QR Tool** you can import QRs, edit QR metadata, view QRs, and export QRs.
 The main screen of **QR Tool** contains all of its general functionality in a bar of icons along the top. The icons are:
 
 * **Edit** ("Edit"). Remove QRs from your vault by clicking the red minus sign to the left. _Warning:_ if you remove a QR, it will be gone forever.
-* **Refresh** (Circle Arrow). Reauthenticate if you failed to supply your biometric information when you started **QR Tool**. (You will see a blank page rather than your QR listing if you do not authenticate.)
+* **Refresh** (Circle Arrow). Update your list of QR Codes. This will reauthenticate if you failed to supply your biometric information when you started **QR Tool**. (You will see a blank page rather than your QR listing if you do not authenticate.) This will also sync any new codes that other devices saved to iCloud. (This is a few seconds of lag between one device adding a QR, and it becoming avialable on another one.)
 * **QR Tool** (App Icon) See information about QR Tool and Blockchain Commons.
 * **Sort** (Vertical Arrows). Choose to sort by category, name, or date added.
 * **Copy** (Clipboard). Import text from your clipboard as a QR code. Ideally, this information will be typed data, such as a UR. You will see the data you're importing, and be given an opportunity to give it a label (name).
