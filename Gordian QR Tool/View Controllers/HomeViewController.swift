@@ -308,7 +308,6 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             emptyCell.textLabel?.numberOfLines = 0
             
             CoreDataService.retrieveEntity { (encryptedData, errorDescription) in
-                print("encryptedData: \(String(describing: encryptedData))")
                 if let encryptedData = encryptedData, !encryptedData.isEmpty {
                     emptyCell.textLabel?.text = "Authenticate to access your data."
                 } else {
