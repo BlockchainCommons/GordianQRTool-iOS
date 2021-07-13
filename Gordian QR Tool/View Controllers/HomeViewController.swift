@@ -16,9 +16,17 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     @IBOutlet weak private var homeTable: UITableView!
     private var qrToExport:QRStruct!
     private var idToDelete:UUID!
-    private var qrArray = [[String:Any]]()
+    private var qrArray = [[String:Any]]() {
+        didSet {
+            syncToQRArray()
+        }
+    }
     private var qrStruct:QRStruct?
-    private var editButton = UIBarButtonItem()
+    private var editButton: UIBarButtonItem! {
+        didSet {
+            syncToQRArray()
+        }
+    }
     private let dateFormatter = DateFormatter()
     private var isDeleting = Bool()
     private var indPath:IndexPath!
@@ -26,6 +34,10 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     private var refreshControl = UIRefreshControl()
     var textToAdd = ""
     var initialLoad = true
+    
+    private func syncToQRArray() {
+        editButton.isEnabled = !qrArray.isEmpty
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +59,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         
         setTitleView()
         homeTable.tableFooterView = UIView(frame: CGRect.zero)
-        editButton = UIBarButtonItem.init(barButtonSystemItem: .edit, target: self, action: #selector(editNodes))
+        setEditButton(isEditing: false)
         
         NotificationCenter.default.addObserver(self, selector: #selector(lockApp), name: .appBackgrounded, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(unlock), name: .appActivated, object: nil)
@@ -296,10 +308,10 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
             emptyCell.textLabel?.numberOfLines = 0
             
             CoreDataService.retrieveEntity { (encryptedData, errorDescription) in
-                if encryptedData != nil {
-                    emptyCell.textLabel?.text = "Authenticate to access your data"
+                if let encryptedData = encryptedData, !encryptedData.isEmpty {
+                    emptyCell.textLabel?.text = "Authenticate to access your data."
                 } else {
-                    emptyCell.textLabel?.text = "Tap the paste or scan button to add a QR code"
+                    emptyCell.textLabel?.text = "Tap the Paste or Scan button to add a QR code."
                 }
             }
             
@@ -420,7 +432,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        if tableView.isEditing {
+        if tableView.isEditing, !qrArray.isEmpty {
             return .delete
         }
         return .none
@@ -461,11 +473,11 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
     
     @objc func editNodes() {
         homeTable.setEditing(!homeTable.isEditing, animated: true)
-        if homeTable.isEditing {
-            editButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(editNodes))
-        } else {
-            editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editNodes))
-        }
+        setEditButton(isEditing: homeTable.isEditing)
+    }
+    
+    private func setEditButton(isEditing: Bool) {
+        editButton = UIBarButtonItem(title: isEditing ? "Done" : "Edit", style: .plain, target: self, action: #selector(editNodes))
         self.navigationItem.setLeftBarButton(editButton, animated: true)
     }
     
