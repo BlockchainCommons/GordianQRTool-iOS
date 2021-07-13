@@ -20,7 +20,7 @@ class SponsorViewController: UIViewController {
     }
     
     @IBAction func sponsorAction(_ sender: Any) {
-        UIApplication.shared.open(URL(string: "https://github.com/BlockchainCommons")!) { (Bool) in }
+        UIApplication.shared.open(URL(string: "https://github.com/BlockchainCommons/GordianQRTool-iOS/blob/master/Docs/MANUAL.md")!) { (Bool) in }
     }
     
     @IBAction func donateAction(_ sender: Any) {

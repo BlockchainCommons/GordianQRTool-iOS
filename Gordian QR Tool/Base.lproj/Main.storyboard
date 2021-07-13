@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cod-qw-hQJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cod-qw-hQJ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -41,7 +41,7 @@
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="emptyCell" id="tnc-VT-0qc">
-                                        <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="20" y="49.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tnc-VT-0qc" id="zgG-M8-kPS">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
@@ -50,7 +50,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="qrCell" rowHeight="170" id="v9t-6Z-tIq">
-                                        <rect key="frame" x="20" y="99" width="374" height="170"/>
+                                        <rect key="frame" x="20" y="93" width="374" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v9t-6Z-tIq" id="oZ7-E8-VXZ">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="170"/>
@@ -489,11 +489,11 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGw-yQ-uF6">
                                 <rect key="frame" x="27" y="84" width="361" height="577"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">Gordian QR Tool v0.3.13 is open-source software that is a project of Blockchain Commons. It was created to allow users to store SSKR shards for friends, family, and associates, but we are releasing it generally to make it easy to store QRs of all sorts, including 2FA tokens, important URLs, cryptographic seeds, and whatever other QR code you may need to refer to again in the future.
+                                <string key="text">Gordian QR Tool v0.3.13 is open-source software that is a project of Blockchain Commons. It was created to allow users to store SSKR shards for friends, family, and associates, but we are releasing it generally to make it easy to store QRs of all sorts, including 2FA tokens, important URLs, cryptographic seeds, and whatever other QR code you may need to refer to again in the future.
 
  QR Tool was designed as a reference app to demonstrate the Gordian Principles. It allows you to store your personal data (creating Independence), with cryptographic protections (creating Privacy), so that you can restore seeds, xprvs, 2FAs, and other vital data (creating Resilience), using standard UR specifications (creating Openness).
 
-Creating this sort of tool is one of the primary mandates of Blockchain Commons, a "not-for-profit" social benefit corporation committed to open source; open development. Our goal is to make it easier for beginners and experts alike to manage digital assets in a secure, self-sovereign way, where you are truly in control. Working with the wallet community, we have been developing new specifications such as Uniform Resources (URs), which encode data for interoperability and which support efficient, self-describing QR displays, as well as SSKR, which allows cryptocurrency seeds to be divided into individual shares for later reconstruction.</mutableString>
+Creating this sort of tool is one of the primary mandates of Blockchain Commons, a "not-for-profit" social benefit corporation committed to open source; open development. Our goal is to make it easier for beginners and experts alike to manage digital assets in a secure, self-sovereign way, where you are truly in control. Working with the wallet community, we have been developing new specifications such as Uniform Resources (URs), which encode data for interoperability and which support efficient, self-describing QR displays, as well as SSKR, which allows cryptocurrency seeds to be divided into individual shares for later reconstruction.</string>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -506,7 +506,7 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
                                     <constraint firstAttribute="width" constant="261" id="kDQ-NF-GXB"/>
                                 </constraints>
                                 <color key="tintColor" systemColor="systemPinkColor"/>
-                                <state key="normal" title="Visit our Github"/>
+                                <state key="normal" title="Read the Manual"/>
                                 <connections>
                                     <action selector="sponsorAction:" destination="D2L-Mo-ygs" eventType="touchUpInside" id="Vl0-RZ-06O"/>
                                 </connections>
