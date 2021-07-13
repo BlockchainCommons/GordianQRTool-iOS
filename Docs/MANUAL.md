@@ -79,7 +79,9 @@ A colorful square image is displayed for each QR. This is a [Lifehash](https://g
   
 ### Viewing & Changing QR Data
 
-You can view any stored QR data by clicking the right arrow in your listing of QRs. The will bring you to a QR view that display all of the details of the QR, including its Lifehash, its name, its category, its QR code, and its textual description. You can change the metadata for the QR on this page, you can export it, or you can delete it.
+You can view any QR from your listing by hitting the QR symbol. This will show you the name, Lifehash, and QR, and will give you the option to animate the QR for multiframe QRs.
+
+You can view and edit the rest of the stored QR data for any QR by clicking the right arrow in your listing of QRs. The will bring you to a QR view that display all of the details of the QR, including its Lifehash, its name, its category, its QR code, and its textual description. You can change the metadata for the QR on this page, you can export it, or you can delete it.
 
 * **Delete.** Click the trash can at the top right to remove a QR from your vault. This has the same effect as removing a QR using the "Edit" button on the main page. _Warning:_ if you remove a QR, it will be gone forever.
 * **Label.** Edit the text field immediately next to the Lifehash to change the name for that QR. This metadata is only for your use, to help you recognize the QR. Be sure to click "Save" after editing the label.
