@@ -455,12 +455,15 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
                 guard let self = self else { return }
                 
                 self.qrArray.remove(at: self.indPath.section)
-                
-                if self.qrArray.count == 0 {
-                    self.homeTable.reloadData()
-                } else {
-                    self.homeTable.deleteSections(IndexSet.init(arrayLiteral: self.indPath.section), with: .fade)
-                }
+                self.loadData()
+
+/* It'd be nice to do an animated deletion of section here, per:
+
+                 self.homeTable.deleteSections(IndexSet.init(arrayLiteral: self.indPath.section), with: .fade)
+
+   But the way the data is laid out, the qrArray and homeTable get out of sync right now,
+   so we just use the function that resyncs everything, even though it reloads the table too. */
+            
                 self.editNodes()
             }
         }
