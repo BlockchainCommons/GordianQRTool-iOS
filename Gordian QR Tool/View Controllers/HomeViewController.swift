@@ -235,11 +235,14 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate, UITa
         if authorized {
             CoreDataService.retrieveEntity { [weak self] (qrs, errorDescription) in
                 guard let self = self else { return }
-                
-                guard var qrsArray = qrs, qrsArray.count > 0 else { return }
-                
+                                
                 self.qrArray.removeAll()
-                
+                if (qrs?.count == 0) {
+                    self.homeTable.reloadData()
+                    return
+                }
+                guard var qrsArray = qrs, qrsArray.count >= 0 else { return }
+
                 if let sortByType = UserDefaults.standard.object(forKey: "sortByType") as? Bool, sortByType {
                     
                     for (i, qr) in qrsArray.enumerated() {
