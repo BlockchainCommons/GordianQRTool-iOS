@@ -52,6 +52,7 @@ Blockchain Commons apps do not phone home and do not run ads. Some are available
 ### 1.0.3 (3), July 14 2021
 
 * Fixed bug where first cell being deleted didn't update on main listing if done from submenu
+* Fixed bug where deleting a cell from the main menu didn't correctly update indexed array, resulting in crashes
 
 ### 1.0.2 (2), July 13 2021
 
