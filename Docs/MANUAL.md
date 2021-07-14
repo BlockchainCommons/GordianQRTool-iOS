@@ -38,7 +38,7 @@ In **QR Tool** you can import QRs, edit QR metadata, view QRs, and export QRs.
 ### Using the Main Menu
 
 <blockquote>
-  <img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/master/images/qr-commands.jpeg" align="center" width=500>
+  <img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/master/images/qr-commands.jpg" align="center" width=500>
 </blockquote>
 
 The main screen of **QR Tool** contains all of its general functionality in a bar of icons along the top. The icons are:
