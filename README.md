@@ -43,9 +43,23 @@ To ensure you can backup & recover from iCloud you **must** be signed in with th
 
 Blockchain Commons apps do not phone home and do not run ads. Some are available through various app stores; all are available in our code repositories for your usage.
 
-## Status - Released
+## Status - Released (1.0.3)
 
 **Gordian QRTool** has been released through the Apple Appstore.
+
+## Version History
+
+### 1.0.3 (3), July 14 2021
+
+* Fixed bug where first cell being deleted didn't update on main listing if done from submenu
+
+### 1.0.2 (2), July 13 2021
+
+* Fixed bug with deletable message cell causing crashes
+ 
+### 1.0 (1)
+
+* Fully featured release
 
 ## Installation Instructions
 
