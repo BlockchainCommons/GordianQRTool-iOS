@@ -1,6 +1,6 @@
 # Gordian QR Tool Manual
 
-<a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/master/images/qr-list.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/master/images/qr-list.jpeg" align="right" width=250></a>
+<a href="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-minimanual/images/st-listing.jpeg"><img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-minimanual/images/st-listing.jpeg" align="right" width=250></a>
 
 **Gordian QR Tool** is an app that allows you to securely store QR codes containing confidential information such as cryptoseeds, private keys, 2FA seeds, vaccination records, and COVID test results. It improves on the usability and security of traditional methods for storing QRs (such as printing them out or saving them to a camera roll).
 
@@ -38,7 +38,7 @@ In **QR Tool** you can import QRs, edit QR metadata, view QRs, and export QRs.
 ### Using the Main Menu
 
 <blockquote>
-  <img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/master/images/qr-commands.jpg" align="center" width=500>
+  <img src="https://raw.githubusercontent.com/BlockchainCommons/GordianQRTool-iOS/shannona-minimanual/images/st-bar.jpeg" align="center" width=500>
 </blockquote>
 
 The main screen of **QR Tool** contains all of its general functionality in a bar of icons along the top. The icons are:
