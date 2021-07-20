@@ -154,6 +154,10 @@ class Parser {
         return item.lowercased().condenseWhitespace().hasPrefix("iban:")
     }
     
+    private class func isSHC(_ item: String) -> Bool {
+        return item.lowercased().condenseWhitespace().hasPrefix("shc:")
+    }
+    
     private class func isExtendedKey(_ item: String) -> Bool {
         guard let _ = try? HDKey(base58: item.condenseWhitespace()) else { return false }
         
@@ -264,7 +268,10 @@ class Parser {
             
         } else if isIban(processed) {
             return "bank account"
-            
+
+        } else if isSHC(processed) {
+            return "smart health"
+
         } else if isExtendedKey(item.condenseWhitespace()) {
             return "hdkey"
             
