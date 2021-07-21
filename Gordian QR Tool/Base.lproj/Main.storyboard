@@ -489,11 +489,11 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGw-yQ-uF6">
                                 <rect key="frame" x="27" y="84" width="361" height="577"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">Gordian QR Tool is open-source software that is a project of Blockchain Commons. It was created to allow users to store SSKR shards for friends, family, and associates, but we are releasing it generally to make it easy to store QRs of all sorts, including 2FA tokens, important URLs, cryptographic seeds, and whatever other QR code you may need to refer to again in the future.
+                                <string key="text">Gordian QR Tool is open-source software that is a project of Blockchain Commons. It was created to allow users to store SSKR shards for friends, family, and associates, but we are releasing it generally to make it easy to store QRs of all sorts, including 2FA tokens, important URLs, cryptographic seeds, and whatever other QR code you may need to refer to again in the future.
 
  QR Tool was designed as a reference app to demonstrate the Gordian Principles. It allows you to store your personal data (creating Independence), with cryptographic protections (creating Privacy), so that you can restore seeds, xprvs, 2FAs, and other vital data (creating Resilience), using standard UR specifications (creating Openness).
 
-Creating this sort of tool is one of the primary mandates of Blockchain Commons, a "not-for-profit" social benefit corporation committed to open source; open development. Our goal is to make it easier for beginners and experts alike to manage digital assets in a secure, self-sovereign way, where you are truly in control. Working with the wallet community, we have been developing new specifications such as Uniform Resources (URs), which encode data for interoperability and which support efficient, self-describing QR displays, as well as SSKR, which allows cryptocurrency seeds to be divided into individual shares for later reconstruction.</mutableString>
+Creating this sort of tool is one of the primary mandates of Blockchain Commons, a "not-for-profit" social benefit corporation committed to open source; open development. Our goal is to make it easier for beginners and experts alike to manage digital assets in a secure, self-sovereign way, where you are truly in control. Working with the wallet community, we have been developing new specifications such as Uniform Resources (URs), which encode data for interoperability and which support efficient, self-describing QR displays, as well as SSKR, which allows cryptocurrency seeds to be divided into individual shares for later reconstruction.</string>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -679,9 +679,9 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
                                 <blurEffect style="systemChromeMaterialDark"/>
                             </visualEffectView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KVe-R4-36N">
-                                <rect key="frame" x="20" y="168" width="374" height="235"/>
+                                <rect key="frame" x="20" y="168" width="374" height="275"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="c5e-rq-rID">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="235"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="275"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5SX-85-1Tu">
@@ -693,7 +693,7 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
                                             </connections>
                                         </button>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wiM-ts-WuB">
-                                            <rect key="frame" x="86.5" y="16" width="201" height="201"/>
+                                            <rect key="frame" x="56.5" y="16" width="241" height="241"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="wiM-ts-WuB" secondAttribute="height" multiplier="1:1" id="lKT-6u-lmJ"/>
                                             </constraints>
@@ -704,18 +704,18 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
                                         <constraint firstAttribute="trailing" secondItem="5SX-85-1Tu" secondAttribute="trailing" constant="12" id="Zha-uk-9ST"/>
                                         <constraint firstItem="wiM-ts-WuB" firstAttribute="centerY" secondItem="c5e-rq-rID" secondAttribute="centerY" constant="-1" id="jVq-LR-qsq"/>
                                         <constraint firstItem="5SX-85-1Tu" firstAttribute="top" secondItem="c5e-rq-rID" secondAttribute="top" constant="8" id="mXw-si-mLS"/>
-                                        <constraint firstItem="wiM-ts-WuB" firstAttribute="centerX" secondItem="c5e-rq-rID" secondAttribute="centerX" id="oGJ-zS-Uwl"/>
+                                        <constraint firstItem="wiM-ts-WuB" firstAttribute="centerX" secondItem="c5e-rq-rID" secondAttribute="centerX" constant="-10" id="oGJ-zS-Uwl"/>
                                     </constraints>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="235" id="2mT-8D-Lgz"/>
+                                    <constraint firstAttribute="height" constant="275" id="2mT-8D-Lgz"/>
                                 </constraints>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7I-aN-Ke3">
-                                <rect key="frame" x="20" y="411" width="374" height="301"/>
+                                <rect key="frame" x="20" y="451" width="374" height="261"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="oBq-bv-9bC">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="301"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="261"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxK-QO-b8r">
@@ -727,7 +727,7 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
                                             </connections>
                                         </button>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Aox-KN-E2P">
-                                            <rect key="frame" x="8" y="8" width="320" height="262.5"/>
+                                            <rect key="frame" x="8" y="8" width="320" height="222.5"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -735,7 +735,7 @@ Creating this sort of tool is one of the primary mandates of Blockchain Commons,
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="otO-nS-uaW">
-                                            <rect key="frame" x="8" y="278.5" width="7" height="14.5"/>
+                                            <rect key="frame" x="8" y="238.5" width="7" height="14.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>

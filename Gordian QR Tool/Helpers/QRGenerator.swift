@@ -16,7 +16,7 @@ class QRGenerator {
         
         guard let filter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
         filter.setValue(data, forKey: "inputMessage")
-        filter.setValue("Q", forKey: "inputCorrectionLevel")
+        filter.setValue("L", forKey: "inputCorrectionLevel")
         
         let transform = CGAffineTransform(scaleX: 10.0, y: 10.0)
         
