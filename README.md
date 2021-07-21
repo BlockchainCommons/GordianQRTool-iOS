@@ -49,6 +49,11 @@ Blockchain Commons apps do not phone home and do not run ads. Some are available
 
 ## Version History
 
+### 1.0.4 (3), July 21 2021
+
+* Improved display of dense QRs
+* Added SHC as a type
+
 ### 1.0.3 (3), July 14 2021
 
 * Fixed bug where first cell being deleted didn't update on main listing if done from submenu
